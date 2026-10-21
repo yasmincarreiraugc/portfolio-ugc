@@ -436,14 +436,12 @@
         <h2 id="titulo-trabalhos" class="revela d1">Trabalhos por <em>nicho</em></h2>
         <p class="revela d2">Escolha um nicho e dê play nos vídeos que eu já produzi para cada marca.</p>
       </div>
-      <div class="galeria-topo revela">
-        <div class="filtros" id="filtros" role="group" aria-label="Filtrar trabalhos por nicho"></div>
-        <div class="setas">
-          <button type="button" class="seta-btn" id="galeriaAnterior" aria-label="Vídeos anteriores">←</button>
-          <button type="button" class="seta-btn" id="galeriaProxima" aria-label="Próximos vídeos">→</button>
-        </div>
+      <div class="filtros revela" id="filtros" role="group" aria-label="Filtrar trabalhos por nicho"></div>
+      <div class="carrossel">
+        <button type="button" class="seta-btn seta-esq" id="galeriaAnterior" aria-label="Vídeos anteriores"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <ul class="galeria" id="galeria" aria-live="polite"></ul>
+        <button type="button" class="seta-btn seta-dir" id="galeriaProxima" aria-label="Próximos vídeos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
       </div>
-      <ul class="galeria" id="galeria" aria-live="polite"></ul>
     </div>
   </section>
 
