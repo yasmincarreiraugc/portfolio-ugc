@@ -171,7 +171,9 @@
   .seta-dir{right:-14px}
   .galeria{--gap:clamp(12px,1.8vw,22px);--por-tela:4;display:flex;gap:var(--gap);list-style:none;padding:6px 0 10px;margin:0;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;scrollbar-width:none}
   .galeria::-webkit-scrollbar{display:none}
-  .trabalho{flex:0 0 clamp(220px,24vw,290px);scroll-snap-align:start}
+  /* Quantos vídeos aparecem por tela: 4 no computador, 3 no tablet, 2 no celular */
+  .trabalho{flex:0 0 calc((100% - (var(--por-tela) - 1) * var(--gap)) / var(--por-tela));min-width:0;scroll-snap-align:start}
+  @media (max-width:860px){ .galeria{--por-tela:3} }
   .trabalho a{display:block;text-decoration:none;color:inherit}
   .trabalho .midia{aspect-ratio:9/16;background:var(--tinta);border-radius:32px;transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s}
   .trabalho a:hover .midia{transform:translateY(-4px);box-shadow:0 24px 48px -20px rgba(0,73,164,.45)}
