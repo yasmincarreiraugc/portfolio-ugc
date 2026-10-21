@@ -887,7 +887,7 @@ $("#destaquesGrid").innerHTML = DESTAQUES.map((d, i) => {
       <div class="celular">
         <div class="tela">
           <span class="ilha"></span>
-          ${capa ? `<img src="${esc(capa)}" alt="Capa do vídeo ${esc(d.titulo)}" loading="lazy">` : ""}
+          ${capa ? `<img src="${esc(capa)}" alt="Capa do vídeo ${esc(d.titulo)}" loading="lazy" ${!d.capa && id ? attrsCapa(id) : ""}>` : ""}
           <span class="play">${iconePlay}</span>
         </div>
       </div>
