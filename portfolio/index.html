@@ -534,10 +534,12 @@
   .icone-marca{width:clamp(96px,10vw,128px);aspect-ratio:1;border-radius:26%;background:#fff;display:grid;place-items:center;padding:12px;box-shadow:0 14px 26px -12px rgba(17,17,17,.35),0 0 0 1px rgba(17,17,17,.06);overflow:hidden;flex:none}
   .icone-marca img{width:100%;height:100%;object-fit:contain}
   .icone-marca span{font-family:var(--sans);font-weight:800;font-size:clamp(.7rem,.95vw,.86rem);line-height:1.15;text-transform:uppercase;letter-spacing:.02em;text-align:center;word-break:break-word}
-  .icone-marca.c1{background:var(--ceu)}
-  .icone-marca.c2{background:var(--manteiga)}
-  .icone-marca.c3{background:var(--magenta)}
-  .icone-marca.c4{background:var(--tinta);color:var(--papel)}
+  .icone-marca span{display:flex;flex-direction:column;align-items:center;gap:4px}
+  .icone-marca small{font-family:var(--sans);font-weight:600;font-size:.52em;letter-spacing:.14em;text-transform:uppercase;font-style:normal;opacity:.85}
+  .icone-marca.e-grossa span{font-family:var(--sans);font-weight:800;font-size:clamp(.95rem,1.3vw,1.15rem);letter-spacing:-.01em}
+  .icone-marca.e-serifa span{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(.95rem,1.25vw,1.12rem);text-transform:uppercase;letter-spacing:.16em}
+  .icone-marca.e-italico span{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:700;font-size:clamp(1.15rem,1.6vw,1.4rem);text-transform:none;letter-spacing:0}
+  .icone-marca.e-fina span{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(1rem,1.35vw,1.2rem);text-transform:none;letter-spacing:.02em}
   @media (max-width:560px){
     .capa h1{font-size:clamp(3.6rem,19vw,5rem)}
     .marcas-nota{font-size:1.35rem;margin-top:-18px}
