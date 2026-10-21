@@ -846,8 +846,8 @@ function atualizaSetas() {
   setaAnterior.disabled = galeria.scrollLeft <= 4;
   setaProxima.disabled = galeria.scrollLeft >= fim;
 }
-setaAnterior.addEventListener("click", () => galeria.scrollBy({ left: -galeria.clientWidth * 0.85 }));
-setaProxima.addEventListener("click", () => galeria.scrollBy({ left: galeria.clientWidth * 0.85 }));
+setaAnterior.addEventListener("click", () => galeria.scrollBy({ left: -galeria.clientWidth }));
+setaProxima.addEventListener("click", () => galeria.scrollBy({ left: galeria.clientWidth }));
 galeria.addEventListener("scroll", atualizaSetas, { passive: true });
 window.addEventListener("resize", atualizaSetas);
 
