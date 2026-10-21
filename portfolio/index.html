@@ -867,7 +867,7 @@ function idYoutube(link) {
 }
 // Capas em alta qualidade: ficam na pasta "capas" com o código do vídeo no nome (ex.: capas/PXuJR8ZKTik.jpg).
 // Se um vídeo novo ainda não tiver capa na pasta, a capa vertical em alta do próprio YouTube é usada.
-const capaYoutube = id => `capas/${id}.jpg`;
+const capaYoutube = id => `../capas/${id}.jpg`;
 const attrsCapa = id => `data-id="${id}" onerror="trocaCapa(this)" decoding="async"`;
 function trocaCapa(img) {
   const etapas = ["oardefault", "hqdefault"];
