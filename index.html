@@ -175,7 +175,8 @@
   .trabalho .midia{aspect-ratio:9/16;background:var(--tinta);border-radius:32px;transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s}
   .trabalho a:hover .midia{transform:translateY(-4px);box-shadow:0 24px 48px -20px rgba(0,73,164,.45)}
   .trabalho .marca-etiqueta{position:absolute;top:18px;left:16px;max-width:calc(100% - 32px);background:rgba(251,248,245,.95);color:var(--tinta);font-family:var(--sans);font-weight:700;font-size:clamp(.9rem,1.3vw,1.05rem);line-height:1.15;letter-spacing:.1em;text-transform:uppercase;padding:11px 20px;border-radius:24px;box-shadow:0 6px 18px rgba(20,17,13,.18)}
-  .trabalho .play{width:64px;height:64px;margin:-32px 0 0 -32px;background:rgba(40,38,35,.62);box-shadow:none}
+  /* Play no canto de baixo, para não confundir com as setas do carrossel */
+  .trabalho .play{top:auto;left:auto;right:16px;bottom:16px;width:58px;height:58px;margin:0;background:var(--tinta);box-shadow:0 8px 20px -6px rgba(20,17,13,.5)}
   .trabalho .play svg{width:20px;height:20px;fill:#fff}
   .trabalho a:hover .play{transform:scale(1.08);background:var(--azul)}
 
