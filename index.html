@@ -161,13 +161,14 @@
   .filtro:hover{border-color:var(--tinta)}
   .filtro[aria-pressed="true"]{background:var(--tinta);border-color:var(--tinta);color:var(--creme)}
   .filtro .qtd{font-size:.75rem;opacity:.6;margin-left:6px}
-  /* Galeria em carrossel: rola para o lado, com setas no computador */
-  .galeria-topo{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:28px}
-  .galeria-topo .filtros{margin-bottom:0}
-  .setas{display:flex;gap:10px;flex:none}
-  .seta-btn{width:48px;height:48px;border-radius:50%;border:1px solid var(--tinta);background:transparent;color:var(--tinta);font-size:1.2rem;cursor:pointer;display:grid;place-items:center;transition:background .25s,color .25s,opacity .25s}
-  .seta-btn:hover:not(:disabled){background:var(--tinta);color:var(--creme)}
-  .seta-btn:disabled{opacity:.3;cursor:default}
+  /* Galeria em carrossel: rola para o lado arrastando, com setas por cima */
+  .carrossel{position:relative}
+  .seta-btn{position:absolute;top:calc(50% - 9px);transform:translateY(-50%);z-index:2;width:58px;height:58px;border-radius:50%;border:3px solid var(--creme);background:var(--tinta);color:var(--laranja);cursor:pointer;display:grid;place-items:center;box-shadow:0 10px 24px -8px rgba(20,17,13,.45);transition:background .25s,color .25s,opacity .3s,transform .25s}
+  .seta-btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+  .seta-btn:hover:not(:disabled){background:var(--azul);color:#fff;transform:translateY(-50%) scale(1.06)}
+  .seta-btn:disabled{background:rgba(251,248,245,.55);color:var(--tinta-2);border-color:rgba(251,248,245,.8);box-shadow:none;opacity:.7;cursor:default}
+  .seta-esq{left:-14px}
+  .seta-dir{right:-14px}
   .galeria{display:flex;gap:clamp(14px,2vw,24px);list-style:none;padding:6px 0 18px;margin:0;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:rgba(20,17,13,.25) transparent}
   .trabalho{flex:0 0 clamp(220px,24vw,290px);scroll-snap-align:start}
   .trabalho a{display:block;text-decoration:none;color:inherit}
