@@ -1137,7 +1137,7 @@ $("#destaquesGrid").innerHTML = DESTAQUES.map((d, i) => {
   const id = idYoutube(d.link);
   const capa = d.capa || (id ? capaYoutube(id) : "");
   return `
-  <a class="destaque revela d${i + 1}" href="${esc(d.link)}" target="_blank" rel="noopener" ${id ? `data-video="${id}"` : ""} data-titulo="${esc(d.titulo)}" aria-label="Assistir: ${esc(d.titulo)}, ${esc(d.valor)} ${esc(d.rotulo)}">
+  <a class="destaque revela d${i + 1}" href="${esc(d.link)}" target="_blank" rel="noopener" ${id ? `data-video="${id}"` : ""} data-titulo="${esc(d.titulo)}" aria-label="Assistir: ${esc(d.titulo)}">
     <div class="corpo">
       ${d.selo ? `<span class="destaque-selo">${esc(d.selo)}</span>` : ""}
       <div class="celular">
