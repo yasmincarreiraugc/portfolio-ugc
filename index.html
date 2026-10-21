@@ -160,8 +160,26 @@
   .filtro{font:inherit;font-size:.9rem;font-weight:500;background:transparent;border:1px solid var(--linha);color:var(--tinta);padding:10px 20px;border-radius:999px;cursor:pointer;transition:all .25s}
   .filtro:hover{border-color:var(--tinta)}
   .filtro[aria-pressed="true"]{background:var(--tinta);border-color:var(--tinta);color:var(--creme)}
-  .galeria{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:clamp(18px,2vw,28px);list-style:none;padding:0;margin:0}
-  .trabalho .midia{aspect-ratio:4/5}
+  .filtro .qtd{font-size:.75rem;opacity:.6;margin-left:6px}
+  .galeria{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:clamp(18px,2vw,28px);list-style:none;padding:0;margin:0}
+  .trabalho a{display:block;text-decoration:none;color:inherit}
+  .trabalho .midia{aspect-ratio:9/16;background:var(--tinta);transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s}
+  .trabalho a:hover .midia{transform:translateY(-4px);box-shadow:0 24px 48px -20px rgba(0,73,164,.45)}
+  .trabalho .play{width:56px;height:56px;margin:-28px 0 0 -28px}
+  .trabalho .play svg{width:18px;height:18px}
+  .trabalho a:hover .play{transform:scale(1.08)}
+
+  /* Player de vídeo (abre por cima da página) */
+  .video-fundo{position:fixed;inset:0;z-index:300;background:rgba(20,17,13,.88);display:none;align-items:center;justify-content:center;padding:16px}
+  .video-fundo.aberto{display:flex;animation:fade .3s ease}
+  .video-caixa{position:relative;width:min(400px,calc((100vh - 140px) * 9 / 16),100%)}
+  .video-caixa iframe{display:block;width:100%;aspect-ratio:9/16;border:0;border-radius:var(--raio);background:#000}
+  .video-topo{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--creme);margin-bottom:12px}
+  .video-topo strong{font-family:var(--serif);font-weight:400;font-size:1.3rem}
+  .video-fechar{width:44px;height:44px;border-radius:50%;border:1px solid rgba(243,238,233,.4);background:transparent;color:var(--creme);font-size:1.5rem;line-height:1;cursor:pointer;flex:none}
+  .video-fechar:hover{background:var(--creme);color:var(--tinta)}
+  .video-link{display:inline-block;margin-top:12px;color:var(--creme);font-size:.9rem}
+  .video-fundo :focus-visible{outline-color:#ffc27a}
   .trabalho .tag{position:absolute;top:14px;left:14px;background:var(--tinta);color:var(--creme);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
   .trabalho h3{font-size:1.25rem;margin:16px 0 4px}
   .trabalho p{font-size:.9rem;color:var(--tinta-2)}
