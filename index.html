@@ -892,6 +892,8 @@ $("#formContato").addEventListener("submit", e => {
 const fundo = $("#modalFundo");
 let focoAnterior = null;
 function abreModal() {
+  // Não interrompe quem está assistindo um vídeo: tenta de novo depois
+  if (videoFundo.classList.contains("aberto")) { setTimeout(abreModal, 5000); return; }
   focoAnterior = document.activeElement;
   fundo.classList.add("aberto");
   fundo.setAttribute("aria-hidden", "false");
