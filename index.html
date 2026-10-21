@@ -356,7 +356,7 @@
     .destaques-grid{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 calc(-1 * var(--gutter));padding:24px calc(50% - min(32vw, 150px)) 34px}
     .destaques-grid::-webkit-scrollbar{display:none}
     .destaque{flex:0 0 64vw;max-width:300px;scroll-snap-align:center}
-    .destaque .corpo,.destaque:hover .corpo{transform:none;transition:transform .12s linear}
+    .destaque:nth-child(n) .corpo{transform:none;transition:transform .12s linear}
     .destaque-selo{right:-8px;font-size:.78rem}
     .notificacao{margin:-84px -10px 0}
     .arrasta{display:block}
