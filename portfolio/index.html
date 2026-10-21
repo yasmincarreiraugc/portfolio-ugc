@@ -1232,7 +1232,7 @@ function abreVideo(id, titulo, link) {
   focoAntesVideo = document.activeElement;
   $("#videoTitulo").textContent = titulo;
   $("#videoLink").href = link;
-  $("#videoPlayer").innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&playsinline=1" title="Vídeo para ${esc(titulo)}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
+  $("#videoPlayer").innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&playsinline=1&vq=hd1080" title="Vídeo para ${esc(titulo)}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
   videoFundo.classList.add("aberto");
   videoFundo.setAttribute("aria-hidden", "false");
   $("#videoFechar").focus();
