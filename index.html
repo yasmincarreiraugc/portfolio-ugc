@@ -169,7 +169,7 @@
   .seta-btn:disabled{background:rgba(251,248,245,.55);color:var(--tinta-2);border-color:rgba(251,248,245,.8);box-shadow:none;opacity:.7;cursor:default}
   .seta-esq{left:-14px}
   .seta-dir{right:-14px}
-  .galeria{display:flex;gap:clamp(14px,2vw,24px);list-style:none;padding:6px 0 10px;margin:0;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;scrollbar-width:none}
+  .galeria{--gap:clamp(12px,1.8vw,22px);--por-tela:4;display:flex;gap:var(--gap);list-style:none;padding:6px 0 10px;margin:0;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;scrollbar-width:none}
   .galeria::-webkit-scrollbar{display:none}
   .trabalho{flex:0 0 clamp(220px,24vw,290px);scroll-snap-align:start}
   .trabalho a{display:block;text-decoration:none;color:inherit}
