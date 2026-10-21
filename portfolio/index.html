@@ -1278,16 +1278,6 @@ filme.addEventListener("scroll", atualizaSetasFilme, { passive: true });
 window.addEventListener("resize", atualizaSetasFilme);
 atualizaSetasFilme();
 
-// Métricas
-$("#metricas").innerHTML = METRICAS.map((m, i) => `<div class="metrica revela d${i % 4}"><dt>${esc(m.rotulo)}</dt>${htmlContador(m)}</div>`).join("");
-
-// Resultados
-$("#resultados").innerHTML = RESULTADOS.map((r, i) => `
-  <li class="resultado revela d${i + 1}">
-    <span class="marca">${esc(r.marca)}</span>
-    <div class="valor">${esc(r.valor)} <em>${esc(r.destaque)}</em></div>
-    <p>${esc(r.texto)}</p>
-  </li>`).join("");
 
 // Depoimentos
 $("#depoimentos").innerHTML = DEPOIMENTOS.map((d, i) => `
