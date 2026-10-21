@@ -1487,6 +1487,10 @@ function aplicaIdioma(lang) {
     if (!el.dataset.ptHtml) el.dataset.ptHtml = el.innerHTML;
     el.innerHTML = lang === "en" ? html : el.dataset.ptHtml;
   });
+  // Números com ponto ou vírgula, conforme o idioma
+  document.querySelectorAll("[data-contador]").forEach(el => {
+    el.textContent = el.dataset.prefixo + formata(parseFloat(el.dataset.contador), +el.dataset.casas) + el.dataset.sufixo;
+  });
   document.title = TEXTOS_PAGINA[lang].title;
   $('meta[name="description"]').content = TEXTOS_PAGINA[lang].desc;
   document.querySelectorAll(".idioma button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));
