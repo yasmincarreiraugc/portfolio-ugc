@@ -821,18 +821,43 @@ $("#destaquesGrid").innerHTML = DESTAQUES.map((d, i) => {
   const capa = d.capa || (id ? capaYoutube(id) : "");
   return `
   <a class="destaque revela d${i + 1}" href="${esc(d.link)}" target="_blank" rel="noopener" ${id ? `data-video="${id}"` : ""} data-titulo="${esc(d.titulo)}" aria-label="Assistir: ${esc(d.titulo)}, ${esc(d.valor)} ${esc(d.rotulo)}">
-    <div class="midia g6">
-      ${capa ? `<img src="${esc(capa)}" alt="Capa do vídeo ${esc(d.titulo)}" loading="lazy">` : `<span class="legenda">Capa do vídeo 9:16</span>`}
-      <span class="play">${iconePlay}</span>
-    </div>
-    <div class="info">
-      <div class="valor">${esc(d.valor)}</div>
-      <span class="rotulo">${esc(d.rotulo)}</span>
-      <h3>${esc(d.titulo)}</h3>
-      <p class="contexto">${esc(d.contexto)}</p>
+    <div class="corpo">
+      ${d.selo ? `<span class="destaque-selo">${esc(d.selo)}</span>` : ""}
+      <div class="celular">
+        <div class="tela">
+          <span class="ilha"></span>
+          ${capa ? `<img src="${esc(capa)}" alt="Capa do vídeo ${esc(d.titulo)}" loading="lazy">` : ""}
+          <span class="play">${iconePlay}</span>
+        </div>
+      </div>
+      <div class="notificacao">
+        <span class="notif-icone">${iconePlay}</span>
+        <span class="notif-texto">
+          <small><span>${esc(d.categoria)}</span><span>agora</span></small>
+          <strong>${esc(d.titulo)}</strong>
+          <span class="sub">${esc(d.valor)} ${esc(d.rotulo)}</span>
+        </span>
+      </div>
     </div>
   </a>`;
 }).join("");
+
+// Celular: ao arrastar os destaques, os celulares inclinam e o do meio fica maior
+const destaquesGrid = $("#destaquesGrid");
+const carrosselCelular = window.matchMedia("(max-width: 860px)");
+function inclinaDestaques() {
+  const cards = destaquesGrid.querySelectorAll(".destaque .corpo");
+  if (!carrosselCelular.matches || reduzMovimento) { cards.forEach(c => c.style.transform = ""); return; }
+  const centro = destaquesGrid.getBoundingClientRect().left + destaquesGrid.clientWidth / 2;
+  cards.forEach(c => {
+    const b = c.parentElement.getBoundingClientRect();
+    const desvio = Math.max(-1, Math.min(1, (b.left + b.width / 2 - centro) / b.width));
+    c.style.transform = `rotate(${desvio * 6}deg) scale(${1 - Math.abs(desvio) * 0.1})`;
+  });
+}
+destaquesGrid.addEventListener("scroll", () => requestAnimationFrame(inclinaDestaques), { passive: true });
+window.addEventListener("resize", inclinaDestaques);
+inclinaDestaques();
 
 // Vídeos por nicho + filtros (o primeiro nicho já começa selecionado)
 const nichos = Object.keys(VIDEOS_POR_NICHO);
