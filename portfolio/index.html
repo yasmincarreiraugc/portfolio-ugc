@@ -1489,12 +1489,6 @@ function aplicaIdioma(lang) {
       el.setAttribute(a, lang === "en" ? traduzTexto(pt) : pt);
     });
   });
-  Object.entries(EN_HTML).forEach(([id, html]) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    if (!el.dataset.ptHtml) el.dataset.ptHtml = el.innerHTML;
-    el.innerHTML = lang === "en" ? html : el.dataset.ptHtml;
-  });
   // Números com ponto ou vírgula, conforme o idioma
   document.querySelectorAll("[data-contador]").forEach(el => {
     el.textContent = el.dataset.prefixo + formata(parseFloat(el.dataset.contador), +el.dataset.casas) + el.dataset.sufixo;
