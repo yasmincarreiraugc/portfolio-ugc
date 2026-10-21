@@ -992,6 +992,24 @@ $("#servicosGrid").innerHTML = SERVICOS.map((s, i) => `
     <p>${esc(s.descricao)}</p>
   </li>`).join("");
 
+// Fotos UGC: tira de filme com rótulo em cima e número embaixo
+$("#filmeTrilho").innerHTML = FOTOS_UGC.map((f, i) => `
+  <li class="quadro">
+    <span class="quadro-rotulo" aria-hidden="true">Fotos UGC</span>
+    <img src="${esc(f.foto)}" alt="${esc(f.alt)}" loading="lazy" decoding="async">
+    <span class="quadro-num" aria-hidden="true">▸ ${doisDig(i + 1)}</span>
+  </li>`).join("");
+const filme = $("#filmeTrilho"), filmeAnterior = $("#filmeAnterior"), filmeProxima = $("#filmeProxima");
+function atualizaSetasFilme() {
+  filmeAnterior.disabled = filme.scrollLeft <= 4;
+  filmeProxima.disabled = filme.scrollLeft >= filme.scrollWidth - filme.clientWidth - 4;
+}
+filmeAnterior.addEventListener("click", () => filme.scrollBy({ left: -filme.clientWidth * 0.8 }));
+filmeProxima.addEventListener("click", () => filme.scrollBy({ left: filme.clientWidth * 0.8 }));
+filme.addEventListener("scroll", atualizaSetasFilme, { passive: true });
+window.addEventListener("resize", atualizaSetasFilme);
+atualizaSetasFilme();
+
 // Métricas
 $("#metricas").innerHTML = METRICAS.map((m, i) => `<div class="metrica revela d${i % 4}"><dt>${esc(m.rotulo)}</dt>${htmlContador(m)}</div>`).join("");
 
