@@ -1152,7 +1152,7 @@ $("#destaquesGrid").innerHTML = DESTAQUES.map((d, i) => {
         <span class="notif-texto">
           <small><span>${esc(d.categoria)}</span><span>agora</span></small>
           <strong>${esc(d.titulo)}</strong>
-          <span class="sub">${esc(d.valor)} ${esc(d.rotulo)}</span>
+          ${d.sub ? `<span class="sub">${esc(d.sub)}</span>` : ""}
         </span>
       </div>
     </div>
