@@ -865,7 +865,15 @@ function idYoutube(link) {
   const m = String(link).match(/(?:shorts\/|watch\?v=|youtu\.be\/|embed\/)([\w-]{11})/);
   return m ? m[1] : null;
 }
-const capaYoutube = id => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+// Capas em alta qualidade: ficam na pasta "capas" com o código do vídeo no nome (ex.: capas/PXuJR8ZKTik.jpg).
+// Se um vídeo novo ainda não tiver capa na pasta, a capa vertical em alta do próprio YouTube é usada.
+const capaYoutube = id => `capas/${id}.jpg`;
+const attrsCapa = id => `data-id="${id}" onerror="trocaCapa(this)" decoding="async"`;
+function trocaCapa(img) {
+  const etapas = ["oardefault", "hqdefault"];
+  const n = +(img.dataset.tentativa || 0);
+  if (n < etapas.length) { img.dataset.tentativa = n + 1; img.src = `https://i.ytimg.com/vi/${img.dataset.id}/${etapas[n]}.jpg`; }
+}
 
 // Destaques
 const iconePlay = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg>`;
