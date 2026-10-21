@@ -1462,6 +1462,14 @@ function traduzTexto(pt) {
 function aplicaIdioma(lang) {
   idioma = lang;
   document.documentElement.lang = lang === "en" ? "en" : "pt-BR";
+  // Primeiro os títulos que trocam inteiros (guardando o original em português)
+  Object.entries(EN_HTML).forEach(([id, html]) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.setAttribute("data-sem-traducao", "");
+    if (!el.dataset.ptHtml) el.dataset.ptHtml = el.innerHTML;
+    el.innerHTML = lang === "en" ? html : el.dataset.ptHtml;
+  });
   const andador = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
     acceptNode: n => n.parentElement && !["SCRIPT", "STYLE"].includes(n.parentElement.tagName) && !n.parentElement.closest("[data-sem-traducao]") ? 1 : 2
   });
