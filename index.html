@@ -915,6 +915,42 @@ hamb.addEventListener("click", () => {
 });
 menu.addEventListener("click", e => { if (e.target.closest("a")) fechaMenu(); });
 
+// Menu de app do celular: botão "Mais" abre a folha de opções
+const folhaFundo = $("#folhaFundo"), botaoMais = $("#botaoMais");
+function abreFolha(abre) {
+  folhaFundo.classList.toggle("aberta", abre);
+  botaoMais.setAttribute("aria-expanded", abre);
+  marcaAtivo(abre ? "mais" : secaoAtual);
+  if (abre) $("#folhaMais a").focus();
+}
+botaoMais.addEventListener("click", () => abreFolha(!folhaFundo.classList.contains("aberta")));
+folhaFundo.addEventListener("click", e => { if (e.target === folhaFundo || e.target.closest("a")) abreFolha(false); });
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && folhaFundo.classList.contains("aberta")) { abreFolha(false); botaoMais.focus(); }
+});
+
+// Destaca no menu a parte da página que está na tela
+const secaoParaMenu = { inicio: "inicio", destaques: "destaques", trabalhos: "trabalhos", contato: "contato", sobre: "mais", servicos: "mais", numeros: "mais" };
+let secaoAtual = "inicio";
+function marcaAtivo(alvo) {
+  document.querySelectorAll("#appNav [data-alvo]").forEach(el => {
+    const ativo = el.dataset.alvo === alvo;
+    el.classList.toggle("ativo", ativo);
+    if (el.tagName === "A") ativo ? el.setAttribute("aria-current", "true") : el.removeAttribute("aria-current");
+  });
+}
+if ("IntersectionObserver" in window) {
+  const ioMenu = new IntersectionObserver(entradas => {
+    entradas.forEach(en => {
+      if (!en.isIntersecting) return;
+      secaoAtual = secaoParaMenu[en.target.id];
+      if (!folhaFundo.classList.contains("aberta")) marcaAtivo(secaoAtual);
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  Object.keys(secaoParaMenu).forEach(id => { const s = document.getElementById(id); if (s) ioMenu.observe(s); });
+}
+marcaAtivo("inicio");
+
 // Borda do menu ao rolar
 const topo = $("#topo");
 window.addEventListener("scroll", () => topo.classList.toggle("rolou", window.scrollY > 10), { passive: true });
