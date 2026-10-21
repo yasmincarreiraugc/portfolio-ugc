@@ -419,6 +419,125 @@
     *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
     .js .revela{opacity:1;transform:none}
     .faixa-trilho{animation:none;flex-wrap:wrap}
+    .marcas-trilho{animation:none!important;flex-wrap:wrap;width:auto;justify-content:center}
+    .marcas-trilho ul[aria-hidden]{display:none}
+  }
+
+  /* ===================================================================
+     IDENTIDADE VISUAL: fundo quadriculado, Anton nos títulos, Caveat nas notas
+     e detalhes em preto com sombra deslocada
+     =================================================================== */
+  body{
+    background-color:var(--creme);
+    background-image:
+      linear-gradient(rgba(111,175,240,.42) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(111,175,240,.42) 1px, transparent 1px);
+    background-size:64px 64px;
+    background-position:-1px -1px;
+  }
+  h1,h2,h3{font-weight:400;letter-spacing:.005em;line-height:1}
+  h1 em,h2 em,h3 em{font-style:normal}
+  .topo{background:rgba(245,242,237,.92)}
+  .marca-nome{font-size:1.5rem;letter-spacing:.02em}
+
+  /* Botões com borda preta e sombra deslocada */
+  .btn{border:var(--borda);box-shadow:var(--sombra-dura);font-weight:700;border-radius:14px}
+  .btn-cheio{background:var(--ceu);border-color:var(--tinta);color:var(--tinta)}
+  .btn-cheio:hover{background:var(--magenta);border-color:var(--tinta);color:var(--tinta);transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--tinta)}
+  .btn-linha{background:var(--papel)}
+  .btn-linha:hover{background:var(--manteiga);color:var(--tinta);transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--tinta)}
+  .menu .menu-cta{border-radius:12px}
+  .menu .menu-cta:hover{background:var(--magenta);color:var(--tinta)}
+
+  /* Capa */
+  .capa h1{font-size:clamp(4rem,12vw,10rem);line-height:.9;text-transform:uppercase;letter-spacing:.01em}
+  .capa h1 em{color:var(--magenta);font-weight:400}
+  .sobrelinha::before{height:3px;background:var(--ceu)}
+  .capa-foto .midia{border:var(--borda);box-shadow:8px 8px 0 var(--tinta);border-radius:20px}
+  .selo{background:var(--manteiga);border:var(--borda);box-shadow:var(--sombra-dura)}
+  .selo i{background:var(--magenta);box-shadow:0 0 0 4px rgba(230,47,201,.2)}
+  .capa-numeros dd{font-size:clamp(2.4rem,5vw,3.8rem)}
+
+  /* Seções: número em letra de mão e títulos grandes */
+  .cabeca .num{font-family:var(--nota);font-style:normal;font-weight:700;font-size:1.9rem;color:var(--magenta)}
+  .cabeca h2{font-size:clamp(2.8rem,7vw,5.4rem);text-transform:uppercase}
+  .sobre-texto h2{text-transform:uppercase}
+  .sobre-grid .midia{border:var(--borda);box-shadow:8px 8px 0 var(--tinta);border-radius:20px}
+  .promessas li span{font-family:var(--nota);font-style:normal;font-size:1.5rem;font-weight:700;color:var(--magenta)}
+  .assinatura{font-family:var(--nota);font-style:normal;font-weight:700;font-size:2.8rem;color:var(--tinta)}
+  .destaques{background:transparent}
+
+  /* Filtros de nicho */
+  .filtro{border:var(--borda);background:var(--papel);font-weight:600;border-radius:12px}
+  .filtro:hover{background:var(--manteiga);border-color:var(--tinta)}
+  .filtro[aria-pressed="true"]{background:var(--ceu);color:var(--tinta);border-color:var(--tinta);box-shadow:3px 3px 0 var(--tinta)}
+  .seta-btn{color:var(--ceu)}
+  .seta-btn:hover:not(:disabled){background:var(--magenta);color:var(--tinta)}
+  .trabalho a:hover .midia{box-shadow:0 24px 48px -20px rgba(230,47,201,.5)}
+  .trabalho a:hover .play{background:var(--magenta)}
+
+  /* Serviços (bloco preto) */
+  .servicos .cabeca h2 em{color:var(--ceu)}
+  .servico .n{font-family:var(--nota);font-style:normal;font-weight:700;font-size:1.7rem;color:var(--ceu)}
+  .servico h3{font-size:2rem;text-transform:uppercase;letter-spacing:.01em}
+
+  /* Números e depoimentos em cartões manteiga */
+  .metrica{background:var(--manteiga);border:var(--borda);box-shadow:var(--sombra-dura);border-radius:18px}
+  .metrica dd{color:var(--tinta)}
+  .metrica:nth-child(2){background:var(--ceu)}
+  .metrica:nth-child(3){background:var(--papel)}
+  .metrica:nth-child(4){background:var(--magenta)}
+  .metrica:nth-child(4) dt{color:var(--tinta)}
+  .sub{text-transform:uppercase}
+  .resultado{border-top:4px solid var(--tinta)}
+  .resultado .valor em{color:var(--magenta)}
+  .depoimento{background:var(--papel);border:var(--borda);box-shadow:var(--sombra-dura);border-radius:18px}
+  .depoimento:nth-child(odd){background:var(--manteiga)}
+  .depoimento blockquote{font-family:var(--sans);font-weight:500;font-size:clamp(1rem,1.4vw,1.12rem);line-height:1.6}
+  .depoimento blockquote::before{font-family:var(--serif);color:var(--magenta);font-size:3.6rem}
+  .avatar{color:var(--tinta);font-style:normal;border:var(--borda)}
+
+  /* Contato em azul céu com texto preto */
+  .contato{background:var(--ceu);color:var(--tinta)}
+  .contato .cabeca .num{color:var(--tinta)}
+  .contato .cabeca h2 em{color:var(--papel);-webkit-text-stroke:2px var(--tinta);paint-order:stroke fill}
+  .contato .cabeca p{color:rgba(17,17,17,.78)}
+  .contato :focus-visible{outline-color:var(--tinta)}
+  .form{border:var(--borda);box-shadow:8px 8px 0 var(--tinta);border-radius:20px}
+  .campo input,.campo textarea{border:var(--borda);border-radius:12px}
+  .campo input:focus,.campo textarea:focus{border-color:var(--magenta);box-shadow:0 0 0 3px rgba(230,47,201,.22)}
+  .canal{color:var(--tinta);border:var(--borda);background:rgba(255,253,248,.55);border-radius:16px;box-shadow:var(--sombra-dura)}
+  .canal:hover{background:var(--tinta);color:var(--papel);border-color:var(--tinta)}
+  .canal strong{font-size:1.35rem;letter-spacing:.01em}
+
+  /* Rodapé, card de captura e menu do celular */
+  .rodape{background:transparent}
+  .rodape .grande{text-transform:uppercase;letter-spacing:.01em}
+  .modal{border:var(--borda);box-shadow:10px 10px 0 var(--tinta);border-radius:20px}
+  .modal::before{background:linear-gradient(90deg,var(--magenta),var(--ceu))}
+  .modal h2,.confirmacao h3{text-transform:uppercase}
+  .app-nav .centro.ativo{background:var(--magenta);color:var(--tinta)}
+  .folha a span{font-family:var(--nota);font-style:normal;font-weight:700;font-size:1.3rem;color:var(--magenta)}
+  .destaque-selo{border:var(--borda);box-shadow:3px 3px 0 var(--tinta)}
+
+  /* Marcas que já confiaram: logos em ícones de app passando sem parar */
+  .marcas{padding:clamp(56px,8vw,96px) 0 clamp(40px,6vw,72px);overflow:hidden}
+  .marcas h2{text-align:center;font-size:clamp(2.6rem,7vw,5rem);text-transform:lowercase;letter-spacing:.01em;margin-bottom:clamp(28px,4vw,44px)}
+  .marcas h2 em{color:var(--magenta)}
+  .marcas-nota{display:block;text-align:center;font-family:var(--nota);font-weight:700;font-size:1.6rem;color:var(--tinta-2);margin:-26px 0 30px;transform:rotate(-2deg)}
+  .marcas-trilho{display:flex;width:max-content;animation:rolar 50s linear infinite}
+  .marcas:hover .marcas-trilho{animation-play-state:paused}
+  .marcas-trilho ul{display:flex;gap:clamp(16px,2vw,26px);list-style:none;margin:0;padding:16px clamp(8px,1vw,13px) 26px}
+  .icone-marca{width:clamp(96px,10vw,128px);aspect-ratio:1;border-radius:26%;background:#fff;display:grid;place-items:center;padding:12px;box-shadow:0 14px 26px -12px rgba(17,17,17,.35),0 0 0 1px rgba(17,17,17,.06);overflow:hidden;flex:none}
+  .icone-marca img{width:100%;height:100%;object-fit:contain}
+  .icone-marca span{font-family:var(--sans);font-weight:800;font-size:clamp(.7rem,.95vw,.86rem);line-height:1.15;text-transform:uppercase;letter-spacing:.02em;text-align:center;word-break:break-word}
+  .icone-marca.c1{background:var(--ceu)}
+  .icone-marca.c2{background:var(--manteiga)}
+  .icone-marca.c3{background:var(--magenta)}
+  .icone-marca.c4{background:var(--tinta);color:var(--papel)}
+  @media (max-width:560px){
+    .capa h1{font-size:clamp(3.6rem,19vw,5rem)}
+    .marcas-nota{font-size:1.35rem;margin-top:-18px}
   }
 </style>
 </head>
