@@ -1000,9 +1000,12 @@ function htmlContador(m) {
 // Capa: três números
 $("#capaNumeros").innerHTML = METRICAS.slice(0, 3).map(m => `<div><dt>${esc(m.rotulo)}</dt>${htmlContador(m)}</div>`).join("");
 
-// Faixa de marcas (a segunda lista é cópia para o loop ficar contínuo)
-const listaMarcas = MARCAS.map(m => `<li>${esc(m)}</li>`).join("");
-$("#faixaMarcas").innerHTML = `<ul>${listaMarcas}</ul><ul aria-hidden="true">${listaMarcas}</ul>`;
+// Marcas: ícones de app (a segunda lista é cópia para o loop ficar contínuo).
+// Sem logo, o ícone mostra o nome numa das cores da paleta, alternando.
+const listaMarcas = MARCAS.map((m, i) => m.logo
+  ? `<li class="icone-marca"><img src="${esc(m.logo)}" alt="${esc(m.nome)}" loading="lazy"></li>`
+  : `<li class="icone-marca c${i % 5}"><span>${esc(m.nome)}</span></li>`).join("");
+$("#faixaMarcas").innerHTML = `<ul aria-label="Marcas atendidas">${listaMarcas}</ul><ul aria-hidden="true">${listaMarcas}</ul>`;
 
 // YouTube: pega o código do vídeo em qualquer formato de link (shorts, watch, youtu.be)
 function idYoutube(link) {
