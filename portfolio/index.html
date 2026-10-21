@@ -1104,7 +1104,6 @@ function htmlContador(m) {
 }
 
 // Capa: três números
-$("#capaNumeros").innerHTML = METRICAS.slice(0, 3).map(m => `<div><dt>${esc(m.rotulo)}</dt>${htmlContador(m)}</div>`).join("");
 
 // Marcas: ícones de app (a segunda lista é cópia para o loop ficar contínuo).
 // Sem logo, o ícone mostra o nome da marca nas cores dela.
