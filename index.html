@@ -683,13 +683,15 @@ const METRICAS = [
   { valor: 98,  casas: 0, prefixo: "",  sufixo: "%", rotulo: "roteiros aprovados de primeira" } // PLACEHOLDER
 ];
 
-// Conteúdos de destaque (3 cards de vídeo)
+// Conteúdos de destaque (3 celulares)
 // link: COLE AQUI o link do vídeo do YouTube (a capa vem sozinha do YouTube)
-// capa: opcional, caminho de uma capa vertical 9:16 sua (ex.: "fotos/destaque1.jpg")
+// capa: opcional, caminho de uma capa vertical sua (ex.: "fotos/destaque1.jpg")
+// categoria: linha pequena da notificação | selo: texto da etiqueta laranja
+// valor + rotulo: aparecem embaixo do nome da marca na notificação
 const DESTAQUES = [
-  { link: "https://youtube.com/shorts/EFnOJtFiBnA", capa: "", valor: "+2,4M",   rotulo: "views no reels",     titulo: "Ciça Braga", contexto: "Vídeo UGC para a marca" },   // NÚMERO PLACEHOLDER
-  { link: "https://youtube.com/shorts/85utlaZCol4", capa: "", valor: "+000%",   rotulo: "cliques no anúncio", titulo: "Eudora",     contexto: "Vídeo UGC para a marca" },   // NÚMERO PLACEHOLDER
-  { link: "https://youtube.com/shorts/LlVBQ5XGfIQ", capa: "", valor: "+00 mil", rotulo: "salvamentos",        titulo: "La Ganexa",  contexto: "Vídeo UGC para a marca" }    // NÚMERO PLACEHOLDER
+  { link: "https://youtube.com/shorts/EFnOJtFiBnA", capa: "", titulo: "Ciça Braga", categoria: "Vídeo UGC", selo: "ver vídeo ↗", valor: "+2,4M",   rotulo: "views no reels" },     // NÚMERO PLACEHOLDER
+  { link: "https://youtube.com/shorts/85utlaZCol4", capa: "", titulo: "Eudora",     categoria: "Vídeo UGC", selo: "ver vídeo ↗", valor: "+000%",   rotulo: "cliques no anúncio" }, // NÚMERO PLACEHOLDER
+  { link: "https://youtube.com/shorts/LlVBQ5XGfIQ", capa: "", titulo: "La Ganexa",  categoria: "Vídeo UGC", selo: "ver vídeo ↗", valor: "+00 mil", rotulo: "salvamentos" }         // NÚMERO PLACEHOLDER
 ];
 
 // Vídeos da galeria, separados por nicho. Cada nicho vira um botão de filtro, na ordem abaixo.
