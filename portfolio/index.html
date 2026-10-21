@@ -222,7 +222,12 @@
   /* Player de vídeo (abre por cima da página) */
   .video-fundo{position:fixed;inset:0;z-index:300;background:rgba(20,17,13,.88);display:none;align-items:center;justify-content:center;padding:16px}
   .video-fundo.aberto{display:flex;animation:fade .3s ease}
-  .video-caixa{position:relative;width:min(400px,calc((100vh - 140px) * 9 / 16),100%)}
+  /* Player grande: quanto maior o player, maior a qualidade que o YouTube entrega */
+  .video-caixa{position:relative;width:min(560px,calc((100vh - 110px) * 9 / 16),100%)}
+  @media (max-width:860px){
+    .video-fundo{padding:8px}
+    .video-caixa{width:min(100%,calc((100vh - 100px) * 9 / 16))}
+  }
   .video-caixa iframe{display:block;width:100%;aspect-ratio:9/16;border:0;border-radius:var(--raio);background:#000}
   .video-topo{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--creme);margin-bottom:12px}
   .video-topo strong{font-family:var(--serif);font-weight:400;font-size:1.3rem}
