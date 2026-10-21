@@ -1,0 +1,820 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yasmin Carreira | Portfólio UGC Creator</title>
+<meta name="description" content="Portfólio de Yasmin Carreira, UGC Creator. Vídeos autênticos que fazem marcas venderem mais nas redes.">
+<meta name="theme-color" content="#f3eee9">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --creme:#f3eee9;
+    --creme-2:#ebe4dc;
+    --papel:#fbf8f5;
+    --tinta:#14110d;
+    --tinta-2:#4a433b;
+    --azul:#0049a4;
+    --azul-escuro:#003478;
+    --laranja:#df7900;
+    --linha:rgba(20,17,13,.12);
+    --sombra:0 1px 2px rgba(20,17,13,.05),0 12px 32px -12px rgba(20,17,13,.18);
+    --raio:10px;
+    --serif:"Fraunces",Georgia,"Times New Roman",serif;
+    --sans:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --max:1200px;
+    --gutter:clamp(16px,4vw,40px);
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--creme);color:var(--tinta);font-family:var(--sans);font-size:17px;line-height:1.65;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.05;margin:0;letter-spacing:-.02em}
+  em{font-style:italic}
+  p{margin:0}
+  :focus-visible{outline:3px solid var(--azul);outline-offset:3px;border-radius:4px}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .pular{position:absolute;left:16px;top:-60px;background:var(--tinta);color:var(--creme);padding:10px 16px;border-radius:6px;z-index:200;text-decoration:none}
+  .pular:focus{top:12px}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+  section{scroll-margin-top:80px}
+
+  /* ===== Menu ===== */
+  .topo{position:fixed;inset:0 0 auto 0;z-index:100;background:rgba(243,238,233,.86);backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
+  .topo.rolou{border-bottom-color:var(--linha)}
+  .topo .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .marca-nome{font-family:var(--serif);font-size:1.35rem;text-decoration:none;letter-spacing:-.01em}
+  .marca-nome em{color:var(--azul)}
+  .menu ul{list-style:none;display:flex;gap:28px;margin:0;padding:0}
+  .menu a{text-decoration:none;font-size:.92rem;font-weight:500;color:var(--tinta-2);position:relative;padding:4px 0}
+  .menu a::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;height:1px;background:var(--azul);transition:right .3s}
+  .menu a:hover{color:var(--tinta)}
+  .menu a:hover::after{right:0}
+  .menu .menu-cta{background:var(--tinta);color:var(--creme);padding:9px 18px;border-radius:999px}
+  .menu .menu-cta::after{display:none}
+  .menu .menu-cta:hover{background:var(--azul);color:#fff}
+  .hamburguer{display:none;background:none;border:1px solid var(--linha);border-radius:8px;width:44px;height:44px;cursor:pointer;padding:0;align-items:center;justify-content:center}
+  .hamburguer span,.hamburguer span::before,.hamburguer span::after{display:block;width:20px;height:1.5px;background:var(--tinta);position:relative;transition:transform .3s,background .3s}
+  .hamburguer span::before,.hamburguer span::after{content:"";position:absolute;left:0}
+  .hamburguer span::before{top:-6px}
+  .hamburguer span::after{top:6px}
+  .hamburguer[aria-expanded="true"] span{background:transparent}
+  .hamburguer[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
+  .hamburguer[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
+
+  /* ===== Botões ===== */
+  .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:600;font-size:.95rem;text-decoration:none;padding:15px 26px;border-radius:999px;border:1px solid var(--tinta);cursor:pointer;transition:background .25s,color .25s,transform .25s,border-color .25s}
+  .btn-cheio{background:var(--azul);border-color:var(--azul);color:#fff}
+  .btn-cheio:hover{background:var(--azul-escuro);border-color:var(--azul-escuro);transform:translateY(-2px)}
+  .btn-linha{background:transparent;color:var(--tinta)}
+  .btn-linha:hover{background:var(--tinta);color:var(--creme);transform:translateY(-2px)}
+  .seta{transition:transform .25s}
+  .btn:hover .seta{transform:translateX(3px)}
+
+  /* ===== Capa ===== */
+  .capa{padding:130px 0 0}
+  .capa-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(32px,5vw,80px);align-items:end}
+  .sobrelinha{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--tinta-2)}
+  .sobrelinha::before{content:"";width:28px;height:1px;background:var(--laranja)}
+  .capa h1{font-size:clamp(3.4rem,10vw,8.6rem);font-weight:300;margin:22px 0 26px;line-height:.92;letter-spacing:-.035em}
+  .capa h1 em{color:var(--azul);font-weight:400}
+  .capa .frase{font-size:clamp(1.1rem,1.6vw,1.3rem);max-width:30ch;color:var(--tinta-2);margin-bottom:34px}
+  .capa .frase strong{color:var(--tinta);font-weight:600}
+  .acoes{display:flex;flex-wrap:wrap;gap:12px}
+  .capa-foto{position:relative}
+  .capa-foto .midia{aspect-ratio:4/5}
+  .selo{position:absolute;left:-22px;bottom:34px;background:var(--papel);border-radius:var(--raio);box-shadow:var(--sombra);padding:12px 16px;font-size:.82rem;line-height:1.35;display:flex;gap:10px;align-items:center}
+  .selo i{width:9px;height:9px;border-radius:50%;background:var(--laranja);flex:none;box-shadow:0 0 0 4px rgba(223,121,0,.18)}
+  .capa-numeros{display:grid;grid-template-columns:repeat(3,1fr);margin:clamp(48px,7vw,80px) 0 0;border-top:1px solid var(--linha)}
+  .capa-numeros div{padding:24px 0 26px}
+  .capa-numeros div+div{padding-left:clamp(16px,3vw,40px);border-left:1px solid var(--linha)}
+  .capa-numeros dt{font-size:.82rem;color:var(--tinta-2);order:2}
+  .capa-numeros dd{margin:0 0 4px;font-family:var(--serif);font-size:clamp(2rem,4.5vw,3.4rem);line-height:1;letter-spacing:-.02em}
+  .capa-numeros div{display:flex;flex-direction:column}
+
+  /* Faixa de marcas */
+  .faixa{border-top:1px solid var(--linha);border-bottom:1px solid var(--linha);overflow:hidden;padding:16px 0;background:var(--creme)}
+  .faixa-trilho{display:flex;width:max-content;animation:rolar 40s linear infinite}
+  .faixa:hover .faixa-trilho{animation-play-state:paused}
+  .faixa ul{display:flex;list-style:none;margin:0;padding:0}
+  .faixa li{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--tinta-2);padding:0 28px;white-space:nowrap;display:flex;align-items:center;gap:56px}
+  .faixa li::after{content:"✦";font-style:normal;font-size:.7rem;color:var(--laranja);margin-left:28px}
+  @keyframes rolar{to{transform:translateX(-50%)}}
+
+  /* ===== Mídia placeholder ===== */
+  /* Todo bloco .midia é um espaço de foto ou vídeo. Para trocar pela imagem real,
+     coloque dentro dele: <img src="pasta/arquivo.jpg" alt="descrição da imagem">
+     e apague o <span class="legenda">. A imagem se ajusta sozinha ao formato. */
+  .midia{position:relative;border-radius:var(--raio);overflow:hidden;background:linear-gradient(155deg,#dfe6f1 0%,#b9c9e2 45%,#f0c79a 100%);box-shadow:var(--sombra)}
+  .midia img,.midia video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .midia .legenda{position:absolute;left:14px;bottom:14px;background:rgba(251,248,245,.88);color:var(--tinta);font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 10px;border-radius:6px}
+  .g1{background:linear-gradient(160deg,#c9d6ea 0%,#7f9fcf 50%,#0049a4 100%)}
+  .g2{background:linear-gradient(160deg,#f6dcc0 0%,#eba65a 55%,#df7900 100%)}
+  .g3{background:linear-gradient(160deg,#ece4da 0%,#cdbba6 55%,#8a7660 100%)}
+  .g4{background:linear-gradient(160deg,#dfe6f1 0%,#e8c9a6 60%,#df7900 100%)}
+  .g5{background:linear-gradient(160deg,#f3eee9 0%,#a9bcdc 60%,#003478 100%)}
+  .g6{background:linear-gradient(160deg,#2a2722 0%,#1d3d6b 60%,#0049a4 100%)}
+
+  /* ===== Seções ===== */
+  .secao{padding:clamp(80px,11vw,140px) 0}
+  .cabeca{display:grid;grid-template-columns:auto 1fr;gap:12px 40px;align-items:end;margin-bottom:clamp(40px,6vw,64px)}
+  .cabeca .num{font-family:var(--serif);font-style:italic;color:var(--laranja);font-size:1.1rem;grid-row:1}
+  .cabeca h2{font-size:clamp(2.4rem,6vw,4.6rem);grid-column:1/-1}
+  .cabeca h2 em{color:var(--azul)}
+  .cabeca p{grid-column:1/-1;max-width:52ch;color:var(--tinta-2)}
+
+  /* Sobre */
+  .sobre-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(36px,6vw,96px);align-items:center}
+  .sobre-grid .midia{aspect-ratio:4/5}
+  .sobre-texto h2{font-size:clamp(2.2rem,5vw,3.8rem);margin:18px 0 26px}
+  .sobre-texto h2 em{color:var(--azul)}
+  .sobre-texto p+p{margin-top:16px}
+  .sobre-texto p{color:var(--tinta-2);max-width:56ch}
+  .promessas{list-style:none;padding:0;margin:34px 0;border-top:1px solid var(--linha)}
+  .promessas li{display:grid;grid-template-columns:44px 1fr;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--linha);font-weight:500}
+  .promessas li span{font-family:var(--serif);font-style:italic;color:var(--azul)}
+  .assinatura{font-family:var(--serif);font-style:italic;font-size:2.2rem;color:var(--azul);line-height:1}
+  .assinatura small{display:block;font-family:var(--sans);font-style:normal;font-size:.8rem;color:var(--tinta-2);margin-top:8px;letter-spacing:.06em}
+
+  /* Destaques */
+  .destaques{background:var(--papel)}
+  .destaques-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.5vw,36px)}
+  .destaque{text-decoration:none;display:block;color:var(--tinta)}
+  .destaque .midia{aspect-ratio:9/16;transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
+  .destaque:hover .midia{transform:translateY(-6px);box-shadow:0 30px 60px -24px rgba(0,73,164,.45)}
+  .play{position:absolute;top:50%;left:50%;width:74px;height:74px;margin:-37px 0 0 -37px;border-radius:50%;background:rgba(251,248,245,.92);display:grid;place-items:center;box-shadow:0 10px 30px rgba(20,17,13,.25);transition:transform .35s}
+  .play svg{width:22px;height:22px;margin-left:4px;fill:var(--azul)}
+  .destaque:hover .play{transform:scale(1.08)}
+  .destaque .info{padding:22px 4px 0}
+  .destaque .valor{font-family:var(--serif);font-size:clamp(2.4rem,4vw,3.2rem);line-height:1;color:var(--azul);letter-spacing:-.02em}
+  .destaque .rotulo{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta-2);margin:6px 0 16px;display:block}
+  .destaque h3{font-size:1.45rem;margin-bottom:6px}
+  .destaque .contexto{font-size:.95rem;color:var(--tinta-2)}
+
+  /* Trabalhos */
+  .filtros{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
+  .filtro{font:inherit;font-size:.9rem;font-weight:500;background:transparent;border:1px solid var(--linha);color:var(--tinta);padding:10px 20px;border-radius:999px;cursor:pointer;transition:all .25s}
+  .filtro:hover{border-color:var(--tinta)}
+  .filtro[aria-pressed="true"]{background:var(--tinta);border-color:var(--tinta);color:var(--creme)}
+  .galeria{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:clamp(18px,2vw,28px);list-style:none;padding:0;margin:0}
+  .trabalho .midia{aspect-ratio:4/5}
+  .trabalho .tag{position:absolute;top:14px;left:14px;background:var(--tinta);color:var(--creme);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+  .trabalho h3{font-size:1.25rem;margin:16px 0 4px}
+  .trabalho p{font-size:.9rem;color:var(--tinta-2)}
+  .trabalho.entrando{animation:aparecer .45s ease both}
+  @keyframes aparecer{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+  /* Serviços */
+  .servicos{background:var(--tinta);color:var(--creme)}
+  .servicos .cabeca h2 em{color:#8fb4ea}
+  .servicos .cabeca p{color:rgba(243,238,233,.72)}
+  .servicos-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(243,238,233,.18);list-style:none;margin:0;padding:0}
+  .servico{padding:36px 32px 40px 0;border-bottom:1px solid rgba(243,238,233,.18)}
+  .servico:not(:nth-child(3n+1)){padding-left:32px;border-left:1px solid rgba(243,238,233,.18)}
+  .servico .n{font-family:var(--serif);font-style:italic;color:var(--laranja);font-size:1.05rem}
+  .servico h3{font-size:1.75rem;margin:18px 0 12px}
+  .servico p{color:rgba(243,238,233,.74);font-size:.96rem;max-width:34ch}
+
+  /* Números e depoimentos */
+  .metricas{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2vw,28px);margin:0 0 clamp(56px,7vw,88px)}
+  .metrica{background:var(--papel);border-radius:var(--raio);padding:30px 26px;box-shadow:var(--sombra);display:flex;flex-direction:column}
+  .metrica dd{margin:0;font-family:var(--serif);font-size:clamp(2.6rem,4.5vw,3.6rem);line-height:1;color:var(--azul);letter-spacing:-.02em}
+  .metrica dt{order:2;margin-top:12px;font-size:.9rem;color:var(--tinta-2)}
+  .sub{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:28px}
+  .sub em{color:var(--azul)}
+  .resultados{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,28px);list-style:none;padding:0;margin:0 0 clamp(56px,7vw,88px)}
+  .resultado{border-top:2px solid var(--tinta);padding-top:22px}
+  .resultado .marca{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-2)}
+  .resultado .valor{font-family:var(--serif);font-size:clamp(2.6rem,4.5vw,3.4rem);line-height:1;margin:14px 0 6px}
+  .resultado .valor em{color:var(--laranja);font-style:normal}
+  .resultado p{color:var(--tinta-2);font-size:.95rem}
+  .depoimentos{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(16px,2vw,28px);list-style:none;padding:0;margin:0}
+  .depoimento{background:var(--papel);border-radius:var(--raio);padding:clamp(26px,3vw,40px);box-shadow:var(--sombra);margin:0;display:flex;flex-direction:column;gap:24px}
+  .depoimento blockquote{margin:0;font-family:var(--serif);font-size:clamp(1.15rem,1.7vw,1.35rem);line-height:1.45;font-weight:300}
+  .depoimento blockquote::before{content:"“";display:block;font-size:3.4rem;line-height:.6;color:var(--laranja);margin-bottom:10px}
+  .depoimento figcaption{display:flex;align-items:center;gap:14px;font-size:.9rem;margin-top:auto}
+  .avatar{width:44px;height:44px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--azul);color:#fff;font-family:var(--serif);font-style:italic}
+  .depoimento figcaption strong{display:block}
+  .depoimento figcaption span{color:var(--tinta-2)}
+
+  /* Contato */
+  .contato{background:var(--azul);color:#fff}
+  .contato .cabeca .num{color:#ffc27a}
+  .contato .cabeca h2 em{color:#ffc27a}
+  .contato .cabeca p{color:rgba(255,255,255,.82)}
+  .contato-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(36px,6vw,80px);align-items:start}
+  .form{background:var(--papel);color:var(--tinta);border-radius:calc(var(--raio) + 4px);padding:clamp(24px,3.5vw,44px);box-shadow:0 30px 60px -30px rgba(0,0,0,.45)}
+  .campo{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+  .campo label{font-size:.85rem;font-weight:600}
+  .campo input,.campo textarea{font:inherit;font-size:1rem;color:var(--tinta);background:#fff;border:1px solid rgba(20,17,13,.22);border-radius:8px;padding:13px 15px;width:100%;transition:border-color .2s,box-shadow .2s}
+  .campo textarea{min-height:140px;resize:vertical}
+  .campo input:focus,.campo textarea:focus{outline:none;border-color:var(--azul);box-shadow:0 0 0 3px rgba(0,73,164,.18)}
+  .duas{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+  .confirmacao{display:none;text-align:center;padding:30px 10px}
+  .confirmacao.ativa{display:block}
+  .confirmacao h3{font-size:2rem;margin:10px 0}
+  .confirmacao h3 em{color:var(--azul)}
+  .confirmacao p{color:var(--tinta-2)}
+  .check{width:56px;height:56px;border-radius:50%;background:var(--azul);display:grid;place-items:center;margin:0 auto}
+  .check svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:2.5}
+  .canais{display:flex;flex-direction:column;gap:12px}
+  .canal{display:flex;align-items:center;justify-content:space-between;gap:16px;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:var(--raio);padding:20px 22px;transition:background .25s,color .25s,border-color .25s}
+  .canal:hover{background:#fff;color:var(--azul);border-color:#fff}
+  .canal small{display:block;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;opacity:.8;margin-bottom:2px}
+  .canal strong{font-family:var(--serif);font-weight:400;font-size:1.25rem;word-break:break-word}
+  .canal svg{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:1.6}
+  .contato :focus-visible{outline-color:#ffc27a}
+  .contato .form :focus-visible{outline-color:var(--azul)}
+
+  /* Rodapé */
+  .rodape{padding:56px 0 40px;background:var(--creme)}
+  .rodape-grid{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px}
+  .rodape .grande{font-family:var(--serif);font-size:clamp(2.4rem,7vw,5rem);line-height:1;letter-spacing:-.03em}
+  .rodape .grande em{color:var(--azul)}
+  .redes{display:flex;flex-wrap:wrap;gap:22px;list-style:none;padding:0;margin:0}
+  .redes a{text-decoration:none;font-weight:500;font-size:.95rem}
+  .redes a:hover{color:var(--azul);text-decoration:underline;text-underline-offset:4px}
+  .rodape .base{margin-top:40px;padding-top:22px;border-top:1px solid var(--linha);font-size:.85rem;color:var(--tinta-2);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+  /* Card de captura */
+  .modal-fundo{position:fixed;inset:0;z-index:300;background:rgba(20,17,13,.62);display:none;align-items:center;justify-content:center;padding:16px}
+  .modal-fundo.aberto{display:flex;animation:fade .3s ease}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  .modal{position:relative;background:var(--papel);border-radius:calc(var(--raio) + 4px);max-width:440px;width:100%;padding:40px 32px 32px;box-shadow:0 40px 80px -30px rgba(0,0,0,.5);animation:subir .4s cubic-bezier(.2,.7,.2,1);max-height:calc(100vh - 32px);overflow:auto}
+  @keyframes subir{from{transform:translateY(20px);opacity:0}to{transform:none;opacity:1}}
+  .modal::before{content:"";position:absolute;top:0;left:32px;right:32px;height:3px;background:linear-gradient(90deg,var(--azul),var(--laranja));border-radius:0 0 3px 3px}
+  .modal h2{font-size:2.1rem;margin:10px 0 10px}
+  .modal h2 em{color:var(--azul)}
+  .modal>p{color:var(--tinta-2);font-size:.95rem;margin-bottom:24px}
+  .modal .btn{width:100%;justify-content:center}
+  .fechar{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:none;background:transparent;cursor:pointer;font-size:1.5rem;line-height:1;color:var(--tinta)}
+  .fechar:hover{background:var(--creme-2)}
+
+  /* Animações de entrada */
+  .js .revela{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+  .js .revela.visivel{opacity:1;transform:none}
+  .js .revela.d1{transition-delay:.1s}
+  .js .revela.d2{transition-delay:.2s}
+  .js .revela.d3{transition-delay:.3s}
+
+  /* ===== Responsivo ===== */
+  @media (max-width:980px){
+    .servicos-grid{grid-template-columns:repeat(2,1fr)}
+    .servico,.servico:not(:nth-child(3n+1)){padding:32px 24px 36px 0;border-left:none}
+    .servico:nth-child(2n){padding-left:24px;border-left:1px solid rgba(243,238,233,.18)}
+    .metricas{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width:860px){
+    .hamburguer{display:inline-flex}
+    .menu{position:fixed;top:72px;left:0;right:0;background:var(--creme);border-bottom:1px solid var(--linha);padding:8px var(--gutter) 24px;display:none;max-height:calc(100vh - 72px);overflow:auto}
+    .menu.aberto{display:block}
+    .menu ul{flex-direction:column;gap:0}
+    .menu li a{display:block;padding:16px 0;font-size:1.1rem;border-bottom:1px solid var(--linha)}
+    .menu li a::after{display:none}
+    .menu .menu-cta{display:inline-block;margin-top:18px;border-bottom:none;padding:12px 22px}
+    .capa{padding-top:110px}
+    .capa-grid,.sobre-grid,.contato-grid{grid-template-columns:1fr}
+    .capa-foto{max-width:420px;width:100%}
+    .selo{left:12px}
+    .destaques-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}
+    .resultados{grid-template-columns:1fr}
+    .depoimentos{grid-template-columns:1fr}
+  }
+  @media (max-width:560px){
+    body{font-size:16px}
+    .capa-numeros{grid-template-columns:1fr}
+    .capa-numeros div+div{padding-left:0;border-left:none;border-top:1px solid var(--linha)}
+    .capa-numeros div{padding:18px 0}
+    .servicos-grid{grid-template-columns:1fr}
+    .servico,.servico:nth-child(2n),.servico:not(:nth-child(3n+1)){padding:28px 0 32px;border-left:none}
+    .metricas{grid-template-columns:1fr 1fr}
+    .metrica{padding:22px 18px}
+    .duas{grid-template-columns:1fr}
+    .acoes .btn{flex:1 1 100%;justify-content:center}
+    .galeria{grid-template-columns:1fr 1fr;gap:14px}
+    .trabalho h3{font-size:1.05rem}
+    .trabalho p{font-size:.82rem}
+    .modal{padding:36px 22px 24px}
+  }
+  @media (max-width:380px){
+    .galeria{grid-template-columns:1fr}
+    .metricas{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+    .js .revela{opacity:1;transform:none}
+    .faixa-trilho{animation:none;flex-wrap:wrap}
+  }
+</style>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- ============ MENU ============ -->
+<header class="topo" id="topo">
+  <div class="wrap">
+    <a href="#inicio" class="marca-nome">Yasmin <em>Carreira</em></a>
+    <button class="hamburguer" id="hamburguer" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+    <nav class="menu" id="menu" aria-label="Navegação principal">
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#destaques">Destaques</a></li>
+        <li><a href="#trabalhos">Trabalhos</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#numeros">Números</a></li>
+        <li><a href="#contato" class="menu-cta">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- ============ 1. CAPA ============ -->
+  <section class="capa" id="inicio" aria-labelledby="titulo-capa">
+    <div class="wrap">
+      <div class="capa-grid">
+        <div>
+          <span class="sobrelinha revela">UGC Creator · Sua Cidade</span>
+          <h1 id="titulo-capa" class="revela d1">Yasmin<br><em>Carreira</em></h1>
+          <p class="frase revela d2">Crio vídeos que parecem <strong>conversa de amiga</strong> e vendem como anúncio, para a sua marca ser lembrada e escolhida.</p>
+          <div class="acoes revela d3">
+            <a href="#contato" class="btn btn-cheio">Falar comigo <span class="seta" aria-hidden="true">→</span></a>
+            <a href="#trabalhos" class="btn btn-linha">Ver os trabalhos</a>
+          </div>
+        </div>
+        <div class="capa-foto revela d2">
+          <!-- FOTO DA CAPA: troque o span abaixo por <img src="fotos/capa.jpg" alt="Yasmin Carreira sorrindo segurando um produto"> -->
+          <div class="midia g1" role="img" aria-label="Foto de Yasmin Carreira, UGC Creator">
+            <span class="legenda">Foto da creator 4:5</span>
+          </div>
+          <div class="selo"><i aria-hidden="true"></i><span>Agenda aberta<br><strong>para novas marcas</strong></span></div>
+        </div>
+      </div>
+      <!-- Os três números da capa vêm do array METRICAS no script (os três primeiros) -->
+      <dl class="capa-numeros revela" id="capaNumeros"></dl>
+    </div>
+    <div class="faixa" aria-label="Marcas atendidas">
+      <div class="faixa-trilho" id="faixaMarcas"></div>
+    </div>
+  </section>
+
+  <!-- ============ 2. SOBRE MIM ============ -->
+  <section class="secao" id="sobre" aria-labelledby="titulo-sobre">
+    <div class="wrap sobre-grid">
+      <!-- FOTO DO SOBRE: troque o span abaixo por <img src="fotos/sobre.jpg" alt="Yasmin Carreira gravando um vídeo em casa"> -->
+      <div class="midia g2 revela" role="img" aria-label="Foto de Yasmin Carreira em um momento de gravação">
+        <span class="legenda">Foto da creator 4:5</span>
+      </div>
+      <div class="sobre-texto">
+        <span class="sobrelinha revela">01 · Sobre mim</span>
+        <h2 id="titulo-sobre" class="revela d1">Prazer, eu sou a <em>Yasmin</em>.</h2>
+        <p class="revela d1">Eu crio conteúdo do jeito que eu consumo: de verdade, sem roteiro decorado e com aquela sensação de indicação de amiga. Meu trabalho é pegar o seu produto e transformar em uma história que as pessoas querem assistir até o fim.</p>
+        <p class="revela d2">Cuido de cada etapa com carinho, do roteiro à entrega, para você receber vídeos prontos para postar ou anunciar, sem dor de cabeça.</p>
+        <ul class="promessas revela d2">
+          <li><span>i.</span>Roteiro aprovado por você antes de eu gravar</li>
+          <li><span>ii.</span>Uma rodada de ajuste inclusa em cada entrega</li>
+          <li><span>iii.</span>Entrega em até 72 horas úteis</li>
+        </ul>
+        <p class="assinatura revela d3">Yasmin Carreira<small>UGC CREATOR</small></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. CONTEÚDOS DE DESTAQUE ============ -->
+  <section class="secao destaques" id="destaques" aria-labelledby="titulo-destaques">
+    <div class="wrap">
+      <div class="cabeca">
+        <span class="num revela">02</span>
+        <h2 id="titulo-destaques" class="revela d1">Conteúdos de <em>destaque</em></h2>
+        <p class="revela d2">Três vídeos que mostram como eu trabalho. Clique para assistir.</p>
+      </div>
+      <!-- Os cards são montados a partir do array DESTAQUES no script.
+           Lá você troca o LINK DO VÍDEO (campo "link") e a CAPA 9:16 (campo "capa"). -->
+      <div class="destaques-grid" id="destaquesGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ 4. TRABALHOS POR NICHO ============ -->
+  <section class="secao" id="trabalhos" aria-labelledby="titulo-trabalhos">
+    <div class="wrap">
+      <div class="cabeca">
+        <span class="num revela">03</span>
+        <h2 id="titulo-trabalhos" class="revela d1">Trabalhos por <em>nicho</em></h2>
+        <p class="revela d2">Escolha um nicho para ver os conteúdos que eu já produzi nele.</p>
+      </div>
+      <div class="filtros revela" id="filtros" role="group" aria-label="Filtrar trabalhos por nicho"></div>
+      <ul class="galeria" id="galeria" aria-live="polite"></ul>
+    </div>
+  </section>
+
+  <!-- ============ 5. COMO EU TE AJUDO ============ -->
+  <section class="secao servicos" id="servicos" aria-labelledby="titulo-servicos">
+    <div class="wrap">
+      <div class="cabeca">
+        <span class="num revela">04</span>
+        <h2 id="titulo-servicos" class="revela d1">Como eu te <em>ajudo</em></h2>
+        <p class="revela d2">Formatos pensados para cada etapa da sua comunicação, do orgânico ao anúncio.</p>
+      </div>
+      <ul class="servicos-grid" id="servicosGrid"></ul>
+    </div>
+  </section>
+
+  <!-- ============ 6. NÚMEROS E DEPOIMENTOS ============ -->
+  <section class="secao" id="numeros" aria-labelledby="titulo-numeros">
+    <div class="wrap">
+      <div class="cabeca">
+        <span class="num revela">05</span>
+        <h2 id="titulo-numeros" class="revela d1">Números que <em>falam</em> por mim</h2>
+      </div>
+      <dl class="metricas" id="metricas"></dl>
+      <h3 class="sub revela">Resultados de <em>campanha</em></h3>
+      <ul class="resultados" id="resultados"></ul>
+      <h3 class="sub revela">O que dizem as <em>marcas</em></h3>
+      <ul class="depoimentos" id="depoimentos"></ul>
+    </div>
+  </section>
+
+  <!-- ============ 7. BORA CRIAR JUNTOS ============ -->
+  <section class="secao contato" id="contato" aria-labelledby="titulo-contato">
+    <div class="wrap">
+      <div class="cabeca">
+        <span class="num revela">06</span>
+        <h2 id="titulo-contato" class="revela d1">Bora criar <em>juntos?</em></h2>
+        <p class="revela d2">Me conta sobre a sua marca e o que você precisa. Eu respondo em até um dia útil.</p>
+      </div>
+      <div class="contato-grid">
+        <div class="form revela">
+          <form id="formContato" novalidate>
+            <div class="duas">
+              <div class="campo">
+                <label for="cNome">Seu nome</label>
+                <input id="cNome" name="nome" type="text" autocomplete="name" required>
+              </div>
+              <div class="campo">
+                <label for="cEmail">Seu e-mail</label>
+                <input id="cEmail" name="email" type="email" autocomplete="email" required>
+              </div>
+            </div>
+            <div class="campo">
+              <label for="cMsg">Mensagem</label>
+              <textarea id="cMsg" name="mensagem" required placeholder="Conte sobre a marca, o produto e o prazo"></textarea>
+            </div>
+            <p id="erroForm" class="sr-only" aria-live="assertive"></p>
+            <button type="submit" class="btn btn-cheio">Enviar mensagem <span class="seta" aria-hidden="true">→</span></button>
+          </form>
+          <div class="confirmacao" id="confirmacao" role="status" tabindex="-1">
+            <div class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+            <h3>Mensagem <em>recebida!</em></h3>
+            <p>Obrigada pelo contato. Eu volto com uma resposta em até um dia útil.</p>
+          </div>
+        </div>
+        <div class="canais revela d1">
+          <a class="canal" id="linkWhats" href="#" target="_blank" rel="noopener">
+            <span><small>WhatsApp</small><strong>(13) 99797‑3883</strong></span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5l1.3-4.3A8.5 8.5 0 1 1 8 19.3z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .9c-1-.4-2.4-1.8-2.8-2.8l.9-1-1-2z"/></svg>
+          </a>
+          <a class="canal" href="mailto:yasmin-carreira@hotmail.com">
+            <span><small>E-mail</small><strong>yasmin-carreira@hotmail.com</strong></span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6l8.5 7 8.5-7"/></svg>
+          </a>
+          <a class="canal" href="https://www.instagram.com/yasmincarreira_/" target="_blank" rel="noopener">
+            <span><small>Instagram</small><strong>@yasmincarreira_</strong></span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ 8. RODAPÉ ============ -->
+<footer class="rodape">
+  <div class="wrap">
+    <div class="rodape-grid">
+      <p class="grande">Yasmin <em>Carreira</em></p>
+      <ul class="redes" aria-label="Minhas redes">
+        <li><a href="https://www.instagram.com/yasmincarreira_/" target="_blank" rel="noopener">Instagram</a></li>
+        <!-- TikTok: troque @seuusuario pelo seu usuário -->
+        <li><a href="https://www.tiktok.com/@seuusuario" target="_blank" rel="noopener">TikTok</a></li>
+        <li><a href="mailto:yasmin-carreira@hotmail.com">E-mail</a></li>
+        <li><a href="#" class="js-whats" target="_blank" rel="noopener">WhatsApp</a></li>
+      </ul>
+    </div>
+    <div class="base">
+      <span>© <span id="ano"></span> Yasmin Carreira. Todos os direitos reservados.</span>
+      <a href="#inicio">Voltar ao topo ↑</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ CARD DE CAPTURA (mídia kit) ============ -->
+<div class="modal-fundo" id="modalFundo" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="titulo-modal" aria-describedby="desc-modal">
+    <button class="fechar" id="fecharModal" aria-label="Fechar">×</button>
+    <div id="modalConteudo">
+      <span class="sobrelinha">Mídia kit</span>
+      <h2 id="titulo-modal">Quer meu mídia kit <em>completo?</em></h2>
+      <p id="desc-modal">Valores, formatos e resultados reunidos em um PDF. Me diz para onde eu envio.</p>
+      <form id="formKit" novalidate>
+        <div class="campo">
+          <label for="kNome">Seu nome</label>
+          <input id="kNome" type="text" autocomplete="name" required>
+        </div>
+        <div class="campo">
+          <label for="kEmail">Seu e-mail</label>
+          <input id="kEmail" type="email" autocomplete="email" required>
+        </div>
+        <button type="submit" class="btn btn-cheio">Quero receber</button>
+      </form>
+    </div>
+    <div class="confirmacao" id="kitOk" role="status" tabindex="-1">
+      <div class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+      <h3>Pronto, <em>anotado!</em></h3>
+      <p>Meu mídia kit chega no seu e-mail em breve.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+/* =====================================================================
+   DADOS DO PORTFÓLIO: edite tudo aqui, sem mexer no HTML.
+   ATENÇÃO: os números abaixo são PLACEHOLDERS. Troque pelos seus reais.
+   ===================================================================== */
+
+// Seu WhatsApp (só números, com 55 + DDD) e a mensagem que já vem escrita
+const WHATSAPP = "5513997973883";
+const WHATSAPP_MSG = "Oi, Yasmin! Vim pelo seu portfólio e quero conversar sobre um projeto.";
+
+// Marcas da faixa da capa
+const MARCAS = ["Marca 01","Marca 02","Marca 03","Marca 04","Marca 05","Marca 06","Marca 07","Marca 08","Marca 09","Marca 10","Marca 11","Marca 12"];
+
+// Métricas: as três primeiras também aparecem na capa.
+// valor = número final do contador | casas = casas decimais | prefixo/sufixo = texto antes/depois
+const METRICAS = [
+  { valor: 120, casas: 0, prefixo: "+", sufixo: "",  rotulo: "vídeos entregues" },   // PLACEHOLDER
+  { valor: 40,  casas: 0, prefixo: "+", sufixo: "",  rotulo: "marcas atendidas" },   // PLACEHOLDER
+  { valor: 2.4, casas: 1, prefixo: "+", sufixo: "M", rotulo: "views somadas" },      // PLACEHOLDER
+  { valor: 98,  casas: 0, prefixo: "",  sufixo: "%", rotulo: "roteiros aprovados de primeira" } // PLACEHOLDER
+];
+
+// Conteúdos de destaque (3 cards de vídeo)
+// link: COLE AQUI o link do vídeo (Reels, TikTok, YouTube, Drive...)
+// capa: COLE AQUI o caminho da capa vertical 9:16 (ex.: "fotos/destaque1.jpg"). Vazio = degradê.
+const DESTAQUES = [
+  { link: "#", capa: "", grad: "g1", valor: "+2,4M", rotulo: "views no reels",        titulo: "Rotina de skincare da manhã", contexto: "Marca 01 · vídeo orgânico no meu perfil" },
+  { link: "#", capa: "", grad: "g2", valor: "+000%", rotulo: "cliques no anúncio",     titulo: "Unboxing com primeira impressão", contexto: "Marca 02 · corte para anúncio pago" },
+  { link: "#", capa: "", grad: "g6", valor: "+00 mil", rotulo: "salvamentos",          titulo: "Três jeitos de usar o produto", contexto: "Marca 03 · série de conteúdos para o perfil da marca" }
+];
+
+// Trabalhos da galeria. "nicho" vira botão de filtro automaticamente.
+// capa: caminho da imagem 4:5 (vazio = degradê) | alt: descrição da imagem
+const TRABALHOS = [
+  { nicho: "Beleza",      titulo: "Tutorial de maquiagem rápida", marca: "Marca 01", formato: "Reels 9:16",       grad: "g1", capa: "", alt: "" },
+  { nicho: "Beleza",      titulo: "Antes e depois do sérum",      marca: "Marca 04", formato: "Vídeo para anúncio", grad: "g4", capa: "", alt: "" },
+  { nicho: "Moda",        titulo: "Provador de looks da semana",   marca: "Marca 05", formato: "TikTok 9:16",      grad: "g3", capa: "", alt: "" },
+  { nicho: "Moda",        titulo: "Recebidos da coleção nova",     marca: "Marca 06", formato: "Unboxing",         grad: "g2", capa: "", alt: "" },
+  { nicho: "Casa",        titulo: "Organização da bancada",        marca: "Marca 07", formato: "Fotos do produto", grad: "g5", capa: "", alt: "" },
+  { nicho: "Alimentação", titulo: "Receita prática de lanche",     marca: "Marca 08", formato: "Reels 9:16",       grad: "g2", capa: "", alt: "" },
+  { nicho: "Bem-estar",   titulo: "Minha rotina de autocuidado",   marca: "Marca 09", formato: "Vídeo UGC",        grad: "g4", capa: "", alt: "" },
+  { nicho: "Tecnologia",  titulo: "Review do fone sem fio",        marca: "Marca 10", formato: "Vídeo para anúncio", grad: "g6", capa: "", alt: "" },
+  { nicho: "Casa",        titulo: "Cantinho do café em casa",      marca: "Marca 11", formato: "Fotos do produto", grad: "g3", capa: "", alt: "" }
+];
+
+// Serviços (seção Como eu te ajudo)
+const SERVICOS = [
+  { titulo: "Vídeo UGC",            descricao: "Vídeo autêntico, gravado por mim, com roteiro pensado para a sua marca e para o público dela." },
+  { titulo: "Corte para anúncio",   descricao: "Versões curtas com gancho forte nos primeiros segundos, prontas para testar no tráfego pago." },
+  { titulo: "Fotos do produto",     descricao: "Fotos com luz natural e cara de vida real, para site, catálogo e redes sociais." },
+  { titulo: "Unboxing",             descricao: "A primeira impressão de quem abre a caixa, com reação sincera e detalhes que vendem." },
+  { titulo: "Publicação no meu perfil", descricao: "O conteúdo vai ao ar no meu Instagram, falando direto com a minha audiência." },
+  { titulo: "Pacote mensal",        descricao: "Uma quantidade fixa de conteúdos por mês, com calendário combinado e prioridade na agenda." }
+];
+
+// Resultados de campanha
+const RESULTADOS = [
+  { marca: "Marca 01", valor: "+2,4M", destaque: "views",   texto: "no reels da campanha de lançamento do sérum." },     // PLACEHOLDER
+  { marca: "Marca 02", valor: "+00%",  destaque: "vendas",  texto: "no mês do anúncio com corte de unboxing." },          // PLACEHOLDER
+  { marca: "Marca 03", valor: "0,0x",  destaque: "ROAS",    texto: "nos anúncios com vídeos UGC frente aos criativos antigos." } // PLACEHOLDER
+];
+
+// Depoimentos (troque pelos depoimentos reais dos seus clientes)
+const DEPOIMENTOS = [
+  { nome: "Cliente 01", empresa: "Marca 01", texto: "A Yasmin entendeu a nossa marca de primeira. O vídeo ficou natural e virou o criativo que mais vendeu no mês." },
+  { nome: "Cliente 02", empresa: "Marca 02", texto: "Roteiro aprovado rápido, entrega no prazo e uma comunicação muito leve. Já fechamos o pacote mensal." },
+  { nome: "Cliente 03", empresa: "Marca 03", texto: "Ela tem um jeito de falar que gera confiança. Os comentários dos clientes mudaram depois da campanha." },
+  { nome: "Cliente 04", empresa: "Marca 04", texto: "Profissional do começo ao fim. As fotos e os vídeos chegaram prontos para usar em todos os canais." }
+];
+
+/* =====================================================================
+   A PARTIR DAQUI É O FUNCIONAMENTO DA PÁGINA
+   ===================================================================== */
+document.documentElement.classList.add("js");
+const reduzMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const $ = (s, el = document) => el.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+const doisDig = n => String(n).padStart(2, "0");
+
+// WhatsApp
+const linkWhats = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(WHATSAPP_MSG);
+$("#linkWhats").href = linkWhats;
+document.querySelectorAll(".js-whats").forEach(a => a.href = linkWhats);
+
+// Ano automático
+$("#ano").textContent = new Date().getFullYear();
+
+// Formatação dos números em português
+function formata(v, casas) {
+  return v.toLocaleString("pt-BR", { minimumFractionDigits: casas, maximumFractionDigits: casas });
+}
+function htmlContador(m) {
+  return `<dd data-contador="${m.valor}" data-casas="${m.casas}" data-prefixo="${esc(m.prefixo)}" data-sufixo="${esc(m.sufixo)}">${esc(m.prefixo)}${formata(m.valor, m.casas)}${esc(m.sufixo)}</dd>`;
+}
+
+// Capa: três números
+$("#capaNumeros").innerHTML = METRICAS.slice(0, 3).map(m => `<div><dt>${esc(m.rotulo)}</dt>${htmlContador(m)}</div>`).join("");
+
+// Faixa de marcas (a segunda lista é cópia para o loop ficar contínuo)
+const listaMarcas = MARCAS.map(m => `<li>${esc(m)}</li>`).join("");
+$("#faixaMarcas").innerHTML = `<ul>${listaMarcas}</ul><ul aria-hidden="true">${listaMarcas}</ul>`;
+
+// Destaques
+const iconePlay = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg>`;
+$("#destaquesGrid").innerHTML = DESTAQUES.map((d, i) => `
+  <a class="destaque revela d${i + 1}" href="${esc(d.link)}" ${d.link !== "#" ? 'target="_blank" rel="noopener"' : ""} aria-label="Assistir: ${esc(d.titulo)}, ${esc(d.valor)} ${esc(d.rotulo)}">
+    <div class="midia ${d.grad}">
+      ${d.capa ? `<img src="${esc(d.capa)}" alt="Capa do vídeo ${esc(d.titulo)}" loading="lazy">` : `<span class="legenda">Capa do vídeo 9:16</span>`}
+      <span class="play">${iconePlay}</span>
+    </div>
+    <div class="info">
+      <div class="valor">${esc(d.valor)}</div>
+      <span class="rotulo">${esc(d.rotulo)}</span>
+      <h3>${esc(d.titulo)}</h3>
+      <p class="contexto">${esc(d.contexto)}</p>
+    </div>
+  </a>`).join("");
+
+// Trabalhos + filtros
+const nichos = ["Todos", ...new Set(TRABALHOS.map(t => t.nicho))];
+$("#filtros").innerHTML = nichos.map((n, i) => `<button type="button" class="filtro" data-nicho="${esc(n)}" aria-pressed="${i === 0}">${esc(n)}</button>`).join("");
+$("#galeria").innerHTML = TRABALHOS.map(t => `
+  <li class="trabalho" data-nicho="${esc(t.nicho)}">
+    <div class="midia ${t.grad}" ${t.capa ? "" : `role="img" aria-label="Espaço para imagem do trabalho ${esc(t.titulo)}"`}>
+      ${t.capa ? `<img src="${esc(t.capa)}" alt="${esc(t.alt || t.titulo)}" loading="lazy">` : `<span class="legenda">Imagem 4:5</span>`}
+      <span class="tag">${esc(t.nicho)}</span>
+    </div>
+    <h3>${esc(t.titulo)}</h3>
+    <p>${esc(t.marca)} · ${esc(t.formato)}</p>
+  </li>`).join("");
+
+$("#filtros").addEventListener("click", e => {
+  const btn = e.target.closest(".filtro");
+  if (!btn) return;
+  const nicho = btn.dataset.nicho;
+  document.querySelectorAll(".filtro").forEach(b => b.setAttribute("aria-pressed", b === btn));
+  document.querySelectorAll(".trabalho").forEach(item => {
+    const mostra = nicho === "Todos" || item.dataset.nicho === nicho;
+    item.hidden = !mostra;
+    item.classList.remove("entrando");
+    if (mostra) { void item.offsetWidth; item.classList.add("entrando"); }
+  });
+});
+
+// Serviços
+$("#servicosGrid").innerHTML = SERVICOS.map((s, i) => `
+  <li class="servico revela d${(i % 3) + 1}">
+    <span class="n">${doisDig(i + 1)}</span>
+    <h3>${esc(s.titulo)}</h3>
+    <p>${esc(s.descricao)}</p>
+  </li>`).join("");
+
+// Métricas
+$("#metricas").innerHTML = METRICAS.map((m, i) => `<div class="metrica revela d${i % 4}"><dt>${esc(m.rotulo)}</dt>${htmlContador(m)}</div>`).join("");
+
+// Resultados
+$("#resultados").innerHTML = RESULTADOS.map((r, i) => `
+  <li class="resultado revela d${i + 1}">
+    <span class="marca">${esc(r.marca)}</span>
+    <div class="valor">${esc(r.valor)} <em>${esc(r.destaque)}</em></div>
+    <p>${esc(r.texto)}</p>
+  </li>`).join("");
+
+// Depoimentos
+$("#depoimentos").innerHTML = DEPOIMENTOS.map((d, i) => `
+  <li class="revela d${(i % 2) + 1}">
+    <figure class="depoimento">
+      <blockquote><p>${esc(d.texto)}</p></blockquote>
+      <figcaption><span class="avatar" aria-hidden="true">${esc(d.nome.charAt(0))}</span><span><strong>${esc(d.nome)}</strong><span>${esc(d.empresa)}</span></span></figcaption>
+    </figure>
+  </li>`).join("");
+
+// Menu sanduíche
+const hamb = $("#hamburguer"), menu = $("#menu");
+function fechaMenu() { menu.classList.remove("aberto"); hamb.setAttribute("aria-expanded", "false"); hamb.setAttribute("aria-label", "Abrir menu"); }
+hamb.addEventListener("click", () => {
+  const abre = !menu.classList.contains("aberto");
+  menu.classList.toggle("aberto", abre);
+  hamb.setAttribute("aria-expanded", abre);
+  hamb.setAttribute("aria-label", abre ? "Fechar menu" : "Abrir menu");
+});
+menu.addEventListener("click", e => { if (e.target.closest("a")) fechaMenu(); });
+
+// Borda do menu ao rolar
+const topo = $("#topo");
+window.addEventListener("scroll", () => topo.classList.toggle("rolou", window.scrollY > 10), { passive: true });
+
+// Contador animado
+function anima(el) {
+  const fim = parseFloat(el.dataset.contador), casas = +el.dataset.casas;
+  const pre = el.dataset.prefixo, suf = el.dataset.sufixo;
+  if (reduzMovimento) { el.textContent = pre + formata(fim, casas) + suf; return; }
+  const dur = 1800, ini = performance.now();
+  (function passo(agora) {
+    const t = Math.min((agora - ini) / dur, 1);
+    const ease = 1 - Math.pow(1 - t, 3);
+    el.textContent = pre + formata(fim * ease, casas) + suf;
+    if (t < 1) requestAnimationFrame(passo);
+  })(ini);
+}
+
+// Animação de entrada ao rolar + disparo dos contadores
+const revelas = document.querySelectorAll(".revela");
+const contadores = document.querySelectorAll("[data-contador]");
+if ("IntersectionObserver" in window && !reduzMovimento) {
+  const io = new IntersectionObserver(entradas => {
+    entradas.forEach(en => { if (en.isIntersecting) { en.target.classList.add("visivel"); io.unobserve(en.target); } });
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+  revelas.forEach(el => io.observe(el));
+  const ioNum = new IntersectionObserver(entradas => {
+    entradas.forEach(en => { if (en.isIntersecting) { anima(en.target); ioNum.unobserve(en.target); } });
+  }, { threshold: 0.6 });
+  contadores.forEach(el => { el.textContent = el.dataset.prefixo + formata(0, +el.dataset.casas) + el.dataset.sufixo; ioNum.observe(el); });
+} else {
+  revelas.forEach(el => el.classList.add("visivel"));
+}
+
+// Formulário de contato (confirmação na tela, sem recarregar)
+// Para receber as mensagens de verdade, ligue este formulário a um serviço como Formspree.
+$("#formContato").addEventListener("submit", e => {
+  e.preventDefault();
+  const form = e.target;
+  const invalido = [...form.elements].find(c => c.willValidate && !c.checkValidity());
+  if (invalido) { invalido.focus(); form.reportValidity(); return; }
+  form.hidden = true;
+  const ok = $("#confirmacao");
+  ok.classList.add("ativa");
+  ok.focus();
+});
+
+// Card de captura do mídia kit
+const fundo = $("#modalFundo");
+let focoAnterior = null;
+function abreModal() {
+  focoAnterior = document.activeElement;
+  fundo.classList.add("aberto");
+  fundo.setAttribute("aria-hidden", "false");
+  $("#kNome").focus();
+  try { sessionStorage.setItem("midiaKitVisto", "1"); } catch (e) {}
+}
+function fechaModal() {
+  fundo.classList.remove("aberto");
+  fundo.setAttribute("aria-hidden", "true");
+  if (focoAnterior && focoAnterior.focus) focoAnterior.focus();
+}
+let jaViu = false;
+try { jaViu = sessionStorage.getItem("midiaKitVisto") === "1"; } catch (e) {}
+if (!jaViu) setTimeout(abreModal, 7000);
+
+$("#fecharModal").addEventListener("click", fechaModal);
+fundo.addEventListener("click", e => { if (e.target === fundo) fechaModal(); });
+document.addEventListener("keydown", e => {
+  if (!fundo.classList.contains("aberto")) {
+    if (e.key === "Escape" && menu.classList.contains("aberto")) { fechaMenu(); hamb.focus(); }
+    return;
+  }
+  if (e.key === "Escape") fechaModal();
+  if (e.key === "Tab") { // mantém o foco dentro do card
+    const focaveis = [...fundo.querySelectorAll("button, input, [tabindex]:not([tabindex='-1'])")].filter(el => el.offsetParent !== null);
+    const primeiro = focaveis[0], ultimo = focaveis[focaveis.length - 1];
+    if (e.shiftKey && document.activeElement === primeiro) { e.preventDefault(); ultimo.focus(); }
+    else if (!e.shiftKey && document.activeElement === ultimo) { e.preventDefault(); primeiro.focus(); }
+  }
+});
+$("#formKit").addEventListener("submit", e => {
+  e.preventDefault();
+  const form = e.target;
+  const invalido = [...form.elements].find(c => c.willValidate && !c.checkValidity());
+  if (invalido) { invalido.focus(); form.reportValidity(); return; }
+  $("#modalConteudo").hidden = true;
+  const ok = $("#kitOk");
+  ok.classList.add("ativa");
+  ok.focus();
+  setTimeout(fechaModal, 3500);
+});
+</script>
+</body>
+</html>
