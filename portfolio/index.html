@@ -1091,7 +1091,8 @@ $("#ano").textContent = new Date().getFullYear();
 
 // Formatação dos números em português
 function formata(v, casas) {
-  return v.toLocaleString("pt-BR", { minimumFractionDigits: casas, maximumFractionDigits: casas });
+  const local = document.documentElement.lang === "en" ? "en-US" : "pt-BR";
+  return v.toLocaleString(local, { minimumFractionDigits: casas, maximumFractionDigits: casas });
 }
 function htmlContador(m) {
   return `<dd data-contador="${m.valor}" data-casas="${m.casas}" data-prefixo="${esc(m.prefixo)}" data-sufixo="${esc(m.sufixo)}">${esc(m.prefixo)}${formata(m.valor, m.casas)}${esc(m.sufixo)}</dd>`;
