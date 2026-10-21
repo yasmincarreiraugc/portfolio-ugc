@@ -1442,7 +1442,7 @@ const EN_REGRAS = [
   [/^Capa do vídeo para (.+)$/, "Video cover for $1"],
   [/^Capa do vídeo (.+)$/, "Video cover: $1"],
   [/^Assistir vídeo para (.+), nicho (.+)$/, (_, marca, n) => `Watch the ${marca} video, ${EN[n] || n} niche`],
-  [/^Assistir: (.+?), (.+)$/, (_, marca, num) => `Watch: ${marca}, ${EN[num] || num}`]
+  [/^Assistir: (.+)$/, "Watch: $1"]
 ];
 const TEXTOS_PAGINA = {
   pt: { title: document.title, desc: $('meta[name="description"]').content },
