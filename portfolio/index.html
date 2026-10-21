@@ -1004,10 +1004,14 @@ function htmlContador(m) {
 $("#capaNumeros").innerHTML = METRICAS.slice(0, 3).map(m => `<div><dt>${esc(m.rotulo)}</dt>${htmlContador(m)}</div>`).join("");
 
 // Marcas: ícones de app (a segunda lista é cópia para o loop ficar contínuo).
-// Sem logo, o ícone mostra o nome numa das cores da paleta, alternando.
-const listaMarcas = MARCAS.map((m, i) => m.logo
+// Sem logo, o ícone mostra o nome da marca nas cores dela.
+// A lista é repetida até encher a tela, para o carrossel nunca ficar com buraco.
+const estilosMarca = { "serifa": "e-serifa", "itálico": "e-italico", "grossa": "e-grossa", "fina": "e-fina" };
+const iconeMarca = m => m.logo
   ? `<li class="icone-marca"><img src="${esc(m.logo)}" alt="${esc(m.nome)}" loading="lazy"></li>`
-  : `<li class="icone-marca c${i % 5}"><span>${esc(m.nome)}</span></li>`).join("");
+  : `<li class="icone-marca ${estilosMarca[m.estilo] || "e-grossa"}" style="background:${esc(m.fundo || "#fff")};color:${esc(m.cor || "#111")}"><span>${esc(m.nome)}${m.sub ? `<small>${esc(m.sub)}</small>` : ""}</span></li>`;
+const voltas = Math.max(1, Math.ceil(16 / MARCAS.length));
+const listaMarcas = Array.from({ length: voltas }, () => MARCAS.map(iconeMarca).join("")).join("");
 $("#faixaMarcas").innerHTML = `<ul aria-label="Marcas atendidas">${listaMarcas}</ul><ul aria-hidden="true">${listaMarcas}</ul>`;
 
 // YouTube: pega o código do vídeo em qualquer formato de link (shorts, watch, youtu.be)
