@@ -352,7 +352,14 @@
     .capa-grid,.sobre-grid,.contato-grid{grid-template-columns:1fr}
     .capa-foto{max-width:420px;width:100%}
     .selo{left:12px}
-    .destaques-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}
+    /* No celular os destaques viram carrossel: arrasta e o celular do meio fica em foco */
+    .destaques-grid{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 calc(-1 * var(--gutter));padding:24px 18vw 34px}
+    .destaques-grid::-webkit-scrollbar{display:none}
+    .destaque{flex:0 0 64vw;max-width:300px;scroll-snap-align:center}
+    .destaque .corpo,.destaque:hover .corpo{transform:none;transition:transform .12s linear}
+    .destaque-selo{right:-8px;font-size:.78rem}
+    .notificacao{margin:-84px -10px 0}
+    .arrasta{display:block}
     .resultados{grid-template-columns:1fr}
     .depoimentos{grid-template-columns:1fr}
   }
