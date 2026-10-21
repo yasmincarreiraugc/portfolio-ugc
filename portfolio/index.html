@@ -546,6 +546,75 @@
     .capa h1{font-size:clamp(3.6rem,19vw,5rem)}
     .marcas-nota{font-size:1.35rem;margin-top:-18px}
   }
+
+  /* Faixa da Black Friday (fica no topo, junto do menu) */
+  .faixa-bf{display:flex;align-items:center;justify-content:center;gap:clamp(10px,2vw,22px);background:var(--manteiga);border-bottom:var(--borda);padding:7px var(--gutter);font-size:.85rem;line-height:1.2;text-align:center}
+  .faixa-bf[hidden]{display:none}
+  .bf-selo{background:var(--tinta);color:var(--papel);font-weight:800;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;padding:6px 12px;border-radius:999px;white-space:nowrap}
+  .bf-conta{font-weight:800}
+  .bf-conta b{color:var(--magenta);font-family:var(--serif);font-weight:400;font-size:1.25em;letter-spacing:.02em}
+  .bf-texto{color:var(--tinta-2)}
+  .bf-link{font-weight:700;white-space:nowrap;text-underline-offset:3px}
+  .bf-link:hover{color:var(--magenta)}
+  section{scroll-margin-top:118px}
+
+  /* Botão de idioma PT / EN */
+  .topo .wrap{gap:20px}
+  .idioma{display:flex;gap:2px;background:var(--papel);border:var(--borda);border-radius:999px;padding:3px;flex:none}
+  .idioma button{display:flex;align-items:center;gap:6px;font:700 .8rem/1 var(--sans);letter-spacing:.04em;color:var(--tinta);background:transparent;border:0;border-radius:999px;padding:7px 11px;cursor:pointer;transition:background .2s}
+  .idioma button svg{width:20px;height:14px;flex:none;border-radius:2px;box-shadow:0 0 0 1px rgba(17,17,17,.12)}
+  .idioma button[aria-pressed="true"]{background:var(--ceu)}
+  .idioma button:hover:not([aria-pressed="true"]){background:var(--manteiga)}
+  .menu{margin-left:auto}
+
+  /* Capa compacta: tudo na primeira tela, com as marcas já aparecendo */
+  .capa{padding-top:calc(var(--altura-topo, 110px) + clamp(16px,3vh,36px))}
+  .capa-grid{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"topo foto" "resto foto";align-items:center;column-gap:clamp(32px,5vw,72px);row-gap:0}
+  .capa-topo{grid-area:topo;align-self:end}
+  .capa-resto{grid-area:resto;align-self:start}
+  .capa-foto{grid-area:foto;width:clamp(220px,calc((100vh - 290px) * 740 / 1188),400px)}
+  .capa h1{font-size:clamp(3.4rem,min(8vw,11vh),7rem);margin:12px 0 16px}
+  .capa .frase{margin-bottom:22px;max-width:40ch}
+  .capa-numeros{display:flex;flex-wrap:wrap;gap:0;margin:24px 0 0;border-top:0}
+  .capa-numeros div,.capa-numeros div+div{padding:0 22px 0 0;border-left:0}
+  .capa-numeros div+div{padding-left:22px;border-left:2px solid var(--linha)}
+  .capa-numeros dd{font-size:clamp(1.6rem,2.6vw,2.2rem)}
+  .capa-numeros dt{font-size:.74rem}
+  .marcas{padding:clamp(18px,3vh,36px) 0 clamp(36px,6vw,64px)}
+  .marcas h2{font-size:clamp(2rem,4.6vw,3.6rem);margin-bottom:clamp(16px,2.5vh,28px)}
+  .marcas-nota{margin:-12px 0 8px;font-size:1.35rem}
+  .marcas-trilho ul{padding:10px clamp(8px,1vw,13px) 22px}
+  .icone-marca{width:clamp(80px,8vw,110px)}
+
+  @media (max-width:860px){
+    section{scroll-margin-top:100px}
+    .faixa-bf{font-size:.76rem;gap:10px;padding:6px 12px}
+    .bf-texto{display:none}
+    .topo .wrap{height:58px}
+    .marca-nome{font-size:1.3rem}
+    .capa-grid{grid-template-columns:minmax(0,1fr) 36%;grid-template-areas:"topo foto" "resto resto";column-gap:14px;align-items:end}
+    .capa-foto{width:auto;max-width:none}
+    .capa h1{font-size:clamp(2.6rem,12.5vw,4.2rem);margin:8px 0 4px}
+    .capa .frase{font-size:1rem;margin:18px 0 16px}
+    .acoes{flex-wrap:nowrap}
+    .acoes .btn{flex:1 1 0;justify-content:center;padding:12px 10px;font-size:.88rem}
+    .capa-numeros{margin-top:18px}
+    .capa-numeros div,.capa-numeros div+div{padding:0 12px}
+    .capa-numeros div:first-child{padding-left:0}
+    .capa-numeros dd{font-size:1.5rem}
+    .capa-numeros dt{font-size:.68rem}
+    .selo{display:none}
+    .marcas h2{font-size:clamp(1.7rem,8.4vw,2.6rem)}
+    .marcas-nota{display:none}
+  }
+  @media (max-width:560px){
+    .capa-numeros{display:flex;flex-wrap:nowrap}
+    .capa-numeros div+div{border-top:0}
+  }
+  @media (max-width:380px){
+    .idioma button{padding:6px 8px;gap:4px}
+    .idioma button svg{display:none}
+  }
 </style>
 </head>
 <body>
