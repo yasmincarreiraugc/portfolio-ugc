@@ -593,27 +593,69 @@ const METRICAS = [
 ];
 
 // Conteúdos de destaque (3 cards de vídeo)
-// link: COLE AQUI o link do vídeo (Reels, TikTok, YouTube, Drive...)
-// capa: COLE AQUI o caminho da capa vertical 9:16 (ex.: "fotos/destaque1.jpg"). Vazio = degradê.
+// link: COLE AQUI o link do vídeo do YouTube (a capa vem sozinha do YouTube)
+// capa: opcional, caminho de uma capa vertical 9:16 sua (ex.: "fotos/destaque1.jpg")
 const DESTAQUES = [
-  { link: "#", capa: "", grad: "g1", valor: "+2,4M", rotulo: "views no reels",        titulo: "Rotina de skincare da manhã", contexto: "Marca 01 · vídeo orgânico no meu perfil" },
-  { link: "#", capa: "", grad: "g2", valor: "+000%", rotulo: "cliques no anúncio",     titulo: "Unboxing com primeira impressão", contexto: "Marca 02 · corte para anúncio pago" },
-  { link: "#", capa: "", grad: "g6", valor: "+00 mil", rotulo: "salvamentos",          titulo: "Três jeitos de usar o produto", contexto: "Marca 03 · série de conteúdos para o perfil da marca" }
+  { link: "https://youtube.com/shorts/EFnOJtFiBnA", capa: "", valor: "+2,4M",   rotulo: "views no reels",     titulo: "Ciça Braga", contexto: "Vídeo UGC para a marca" },   // NÚMERO PLACEHOLDER
+  { link: "https://youtube.com/shorts/85utlaZCol4", capa: "", valor: "+000%",   rotulo: "cliques no anúncio", titulo: "Eudora",     contexto: "Vídeo UGC para a marca" },   // NÚMERO PLACEHOLDER
+  { link: "https://youtube.com/shorts/LlVBQ5XGfIQ", capa: "", valor: "+00 mil", rotulo: "salvamentos",        titulo: "La Ganexa",  contexto: "Vídeo UGC para a marca" }    // NÚMERO PLACEHOLDER
 ];
 
-// Trabalhos da galeria. "nicho" vira botão de filtro automaticamente.
-// capa: caminho da imagem 4:5 (vazio = degradê) | alt: descrição da imagem
-const TRABALHOS = [
-  { nicho: "Beleza",      titulo: "Tutorial de maquiagem rápida", marca: "Marca 01", formato: "Reels 9:16",       grad: "g1", capa: "", alt: "" },
-  { nicho: "Beleza",      titulo: "Antes e depois do sérum",      marca: "Marca 04", formato: "Vídeo para anúncio", grad: "g4", capa: "", alt: "" },
-  { nicho: "Moda",        titulo: "Provador de looks da semana",   marca: "Marca 05", formato: "TikTok 9:16",      grad: "g3", capa: "", alt: "" },
-  { nicho: "Moda",        titulo: "Recebidos da coleção nova",     marca: "Marca 06", formato: "Unboxing",         grad: "g2", capa: "", alt: "" },
-  { nicho: "Casa",        titulo: "Organização da bancada",        marca: "Marca 07", formato: "Fotos do produto", grad: "g5", capa: "", alt: "" },
-  { nicho: "Alimentação", titulo: "Receita prática de lanche",     marca: "Marca 08", formato: "Reels 9:16",       grad: "g2", capa: "", alt: "" },
-  { nicho: "Bem-estar",   titulo: "Minha rotina de autocuidado",   marca: "Marca 09", formato: "Vídeo UGC",        grad: "g4", capa: "", alt: "" },
-  { nicho: "Tecnologia",  titulo: "Review do fone sem fio",        marca: "Marca 10", formato: "Vídeo para anúncio", grad: "g6", capa: "", alt: "" },
-  { nicho: "Casa",        titulo: "Cantinho do café em casa",      marca: "Marca 11", formato: "Fotos do produto", grad: "g3", capa: "", alt: "" }
-];
+// Vídeos da galeria, separados por nicho. Cada nicho vira um botão de filtro, na ordem abaixo.
+// Para adicionar um vídeo: copie uma linha { marca: "...", link: "..." } dentro do nicho certo.
+// Para criar um nicho novo: copie um bloco inteiro e troque o nome.
+const VIDEOS_POR_NICHO = {
+  "Cabelo": [
+    { marca: "Taiff",    link: "https://youtube.com/shorts/tUuSiCN25jY" },
+    { marca: "Haskell",  link: "https://youtube.com/shorts/kMC3K9abEHE" },
+    { marca: "Truss",    link: "https://youtube.com/shorts/Httq3SvcToE" },
+    { marca: "Dove",     link: "https://youtube.com/shorts/5OJBk4Xa5Ic" },
+    { marca: "Elseve",   link: "https://youtube.com/shorts/ehfXBRx2Ju0" },
+    { marca: "Eudora",   link: "https://youtube.com/shorts/PXuJR8ZKTik" }
+  ],
+  "Beleza": [
+    { marca: "Lip Honey", link: "https://youtube.com/shorts/iJf8mbJJVdM" },
+    { marca: "Poran",     link: "https://youtube.com/shorts/9XVF3SjTyas" },
+    { marca: "Principia", link: "https://youtube.com/shorts/hv3juiR8dQo" },
+    { marca: "Nívea",     link: "https://youtube.com/shorts/rrHHMd1dgrI" }
+  ],
+  "Fitness": [
+    { marca: "Growth",            link: "https://youtube.com/shorts/8YbRrtd5K_w" },
+    { marca: "Via Mafia",         link: "https://youtube.com/shorts/ZQyYIEl9IkQ" },
+    { marca: "+Mu",               link: "https://youtube.com/shorts/h4EOTMAVFNE" },
+    { marca: "La Ganexa",         link: "https://youtube.com/shorts/5q9RvKuaBXs" },
+    { marca: "Alda Moda Fitness", link: "https://youtube.com/shorts/FjbzvtsVo6s" }
+  ],
+  "Casa e decor": [
+    { marca: "Real Marmoraria", link: "https://youtube.com/shorts/u61wWLqD_6E" },
+    { marca: "Fotoregistro",    link: "https://youtube.com/shorts/-VL9k_D-Jc0" },
+    { marca: "OMO",             link: "https://youtube.com/shorts/fbpor8YbbrE" },
+    { marca: "Ciça Braga",      link: "https://youtube.com/shorts/eZ05JcMkjCw" }
+  ],
+  "Maternidade": [
+    { marca: "Natura",         link: "https://youtube.com/shorts/6dCUA_Bdp-0" },
+    { marca: "Cola e Decora",  link: "https://youtube.com/shorts/gtZIFA8UMB0" }
+  ],
+  "Moda": [
+    { marca: "Sette Shoes", link: "https://youtube.com/shorts/Ls5oGluWBy4" },
+    { marca: "Sette Shoes", link: "https://youtube.com/shorts/iel7ZXbTR38" }
+  ],
+  "Gastronomia": [
+    { marca: "Moça",        link: "https://youtube.com/shorts/dd1o5-vDOng" },
+    { marca: "La Ganexa",   link: "https://youtube.com/shorts/xy7Srk6X4wM" },
+    { marca: "Da Terrinha", link: "https://youtube.com/shorts/uW6vj5gn_Ko" }
+  ],
+  "Casal": [
+    { marca: "Falu",          link: "https://youtube.com/shorts/fBU8MlsdAIU" },
+    { marca: "Mercado Livre", link: "https://youtube.com/shorts/P5QQmzKa_Dk" }
+  ],
+  "Lifestyle": [
+    { marca: "Zoo São Paulo", link: "https://youtube.com/shorts/Jb1ZmFvmJgw" },
+    { marca: "Ane Rovasc",    link: "https://youtube.com/shorts/VKR0Ljepl00" },
+    { marca: "Zoo Parque",    link: "https://youtube.com/shorts/uBKb0n342PQ" },
+    { marca: "Animalia Park", link: "https://youtube.com/shorts/4Khj3bTOsP8" }
+  ]
+};
 
 // Serviços (seção Como eu te ajudo)
 const SERVICOS = [
