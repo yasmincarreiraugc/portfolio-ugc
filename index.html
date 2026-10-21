@@ -714,12 +714,22 @@ $("#capaNumeros").innerHTML = METRICAS.slice(0, 3).map(m => `<div><dt>${esc(m.ro
 const listaMarcas = MARCAS.map(m => `<li>${esc(m)}</li>`).join("");
 $("#faixaMarcas").innerHTML = `<ul>${listaMarcas}</ul><ul aria-hidden="true">${listaMarcas}</ul>`;
 
+// YouTube: pega o código do vídeo em qualquer formato de link (shorts, watch, youtu.be)
+function idYoutube(link) {
+  const m = String(link).match(/(?:shorts\/|watch\?v=|youtu\.be\/|embed\/)([\w-]{11})/);
+  return m ? m[1] : null;
+}
+const capaYoutube = id => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+
 // Destaques
 const iconePlay = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg>`;
-$("#destaquesGrid").innerHTML = DESTAQUES.map((d, i) => `
-  <a class="destaque revela d${i + 1}" href="${esc(d.link)}" ${d.link !== "#" ? 'target="_blank" rel="noopener"' : ""} aria-label="Assistir: ${esc(d.titulo)}, ${esc(d.valor)} ${esc(d.rotulo)}">
-    <div class="midia ${d.grad}">
-      ${d.capa ? `<img src="${esc(d.capa)}" alt="Capa do vídeo ${esc(d.titulo)}" loading="lazy">` : `<span class="legenda">Capa do vídeo 9:16</span>`}
+$("#destaquesGrid").innerHTML = DESTAQUES.map((d, i) => {
+  const id = idYoutube(d.link);
+  const capa = d.capa || (id ? capaYoutube(id) : "");
+  return `
+  <a class="destaque revela d${i + 1}" href="${esc(d.link)}" target="_blank" rel="noopener" ${id ? `data-video="${id}"` : ""} data-titulo="${esc(d.titulo)}" aria-label="Assistir: ${esc(d.titulo)}, ${esc(d.valor)} ${esc(d.rotulo)}">
+    <div class="midia g6">
+      ${capa ? `<img src="${esc(capa)}" alt="Capa do vídeo ${esc(d.titulo)}" loading="lazy">` : `<span class="legenda">Capa do vídeo 9:16</span>`}
       <span class="play">${iconePlay}</span>
     </div>
     <div class="info">
