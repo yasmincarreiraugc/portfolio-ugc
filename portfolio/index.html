@@ -600,9 +600,24 @@
     .acoes .btn{padding:12px 22px}
   }
 
-  /* Título da capa: letras grandes e "ser escolhida" em letra de mão */
+  /* Título da capa: letras grandes e "ser escolhida" pequeno, em letra de mão, inclinado ao lado de MARCA */
   .capa h1{font-size:clamp(2.6rem,min(5.2vw,7.6vh),5rem);line-height:.95}
-  .capa h1 em{display:block;font-family:var(--nota);font-weight:700;text-transform:none;font-size:1.12em;line-height:.85;margin-top:.08em;color:var(--magenta);letter-spacing:0}
+  .capa h1 em{display:inline-block;font-family:var(--nota);font-weight:700;text-transform:none;font-size:.62em;line-height:1;margin-left:.15em;color:var(--magenta);letter-spacing:0;transform:rotate(-8deg) translateY(-.1em);transform-origin:left center;white-space:nowrap}
+
+  /* Foto da capa centralizada no espaço da direita, com estrelas de brilho */
+  .capa-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
+  .capa-foto{justify-self:center}
+  .brilho{position:absolute;fill:var(--magenta);pointer-events:none;z-index:2;animation:brilhar 2.6s ease-in-out infinite}
+  .brilho-1{width:clamp(34px,4vw,52px);top:-18px;left:-26px}
+  .brilho-2{width:clamp(18px,2vw,26px);top:30px;left:-44px;fill:var(--ceu);animation-delay:-1.3s;animation-duration:2.2s}
+  @keyframes brilhar{
+    0%,100%{transform:scale(.55) rotate(0deg);opacity:.55}
+    50%{transform:scale(1.1) rotate(90deg);opacity:1}
+  }
+
+  /* "marcas que já confiaram": menor e mais delicado */
+  .marcas h2{font-family:var(--sans);font-weight:500;text-transform:none;letter-spacing:-.01em;font-size:clamp(1.25rem,2vw,1.7rem)!important}
+  .marcas h2 em{font-family:var(--nota);font-weight:700;font-size:1.45em;color:var(--magenta);margin-left:.08em}
 
   @media (max-width:860px){
     /* Celular: título na largura toda, frase ao lado da foto e botões embaixo */
