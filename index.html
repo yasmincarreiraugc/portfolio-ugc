@@ -571,6 +571,25 @@
   </div>
 </footer>
 
+<!-- ============ MENU DE APP (aparece só no celular) ============ -->
+<nav class="app-nav" id="appNav" aria-label="Menu do celular">
+  <a href="#inicio" data-alvo="inicio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5L12 4l8 6.5V20h-5v-6H9v6H4z"/></svg>Início</a>
+  <a href="#destaques" data-alvo="destaques"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="3"/><path d="M10 9.2v5.6l4.6-2.8z"/></svg>Destaques</a>
+  <a href="#contato" class="centro" data-alvo="contato"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4c4.7 0 8.5 3.2 8.5 7.2s-3.8 7.2-8.5 7.2c-1 0-2-.1-2.9-.4L5 20l1-3.6c-1.5-1.3-2.5-3.1-2.5-5.2C3.5 7.2 7.3 4 12 4z"/><path d="M8.5 11.3h.01M12 11.3h.01M15.5 11.3h.01" stroke-width="2.6"/></svg>Parceria</a>
+  <a href="#trabalhos" data-alvo="trabalhos"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.8"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.8"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.8"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.8"/></svg>Nichos</a>
+  <button type="button" id="botaoMais" data-alvo="mais" aria-expanded="false" aria-controls="folhaMais"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 12h.01M12 12h.01M18 12h.01" stroke-width="3.4"/></svg>Mais</button>
+</nav>
+<div class="folha-fundo" id="folhaFundo">
+  <div class="folha" id="folhaMais" role="dialog" aria-modal="true" aria-label="Mais opções">
+    <a href="#sobre">Sobre mim <span>01</span></a>
+    <a href="#servicos">Como eu te ajudo <span>04</span></a>
+    <a href="#numeros">Números e depoimentos <span>05</span></a>
+    <hr>
+    <a href="https://www.instagram.com/yasmincarreira_/" target="_blank" rel="noopener">Instagram <span>↗</span></a>
+    <a href="#" class="js-whats" target="_blank" rel="noopener">WhatsApp <span>↗</span></a>
+  </div>
+</div>
+
 <!-- ============ PLAYER DE VÍDEO ============ -->
 <div class="video-fundo" id="videoFundo" aria-hidden="true">
   <div class="video-caixa" role="dialog" aria-modal="true" aria-labelledby="videoTitulo">
