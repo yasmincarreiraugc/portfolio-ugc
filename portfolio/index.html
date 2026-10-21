@@ -1330,6 +1330,196 @@ if ("IntersectionObserver" in window) {
 }
 marcaAtivo("inicio");
 
+/* ===================== IDIOMA (PT / EN) =====================
+   Para mudar um texto em inglês, edite a frase do lado direito.
+   O lado esquerdo é o texto em português exatamente como está no site. */
+const EN = {
+  "Pular para o conteúdo": "Skip to content",
+  "Sobre": "About", "Destaques": "Highlights", "Trabalhos": "Work", "Serviços": "Services",
+  "Fotos": "Photos", "Números": "Numbers", "Contato": "Contact",
+  "UGC Creator · Sua Cidade": "UGC Creator · Your City",
+  "Crio vídeos que parecem": "I create videos that feel like",
+  "conversa de amiga": "a chat with a friend",
+  "e vendem como anúncio, para a sua marca ser lembrada e escolhida.": "and sell like an ad, so your brand gets remembered and chosen.",
+  "Falar comigo": "Let's talk", "Ver os trabalhos": "See my work",
+  "Agenda aberta": "Booking open", "para novas marcas": "for new brands",
+  "vídeos entregues": "videos delivered", "marcas atendidas": "brands served",
+  "views somadas": "total views", "roteiros aprovados de primeira": "scripts approved on the first try",
+  "marcas que já": "brands that", "confiaram": "trusted me",
+  "e muitas outras a caminho ♡": "and many more on the way ♡",
+  "01 · Sobre mim": "01 · About me", "Prazer, eu sou a": "Nice to meet you, I'm",
+  "Eu crio conteúdo do jeito que eu consumo: de verdade, sem roteiro decorado e com aquela sensação de indicação de amiga. Meu trabalho é pegar o seu produto e transformar em uma história que as pessoas querem assistir até o fim.":
+    "I create content the way I like to watch it: real, never memorized, with that feeling of a friend's recommendation. My job is to take your product and turn it into a story people want to watch until the very end.",
+  "Cuido de cada etapa com carinho, do roteiro à entrega, para você receber vídeos prontos para postar ou anunciar, sem dor de cabeça.":
+    "I take care of every step, from script to delivery, so you get videos ready to post or run as ads, with zero headaches.",
+  "Roteiro aprovado por você antes de eu gravar": "Script approved by you before I shoot",
+  "Uma rodada de ajuste inclusa em cada entrega": "One round of revisions included in every delivery",
+  "Entrega em até 72 horas úteis": "Delivery within 72 business hours",
+  "Três vídeos que mostram como eu trabalho. Clique para assistir.": "Three videos that show how I work. Click to watch.",
+  "ver vídeo ↗": "watch video ↗", "Vídeo UGC": "UGC video", "agora": "now",
+  "+2,4M views no reels": "+2.4M views on reels", "+000% cliques no anúncio": "+000% ad clicks", "+00 mil salvamentos": "+00K saves",
+  "arrasta pro lado →": "swipe sideways →",
+  "Trabalhos por": "Work by", "nicho": "niche",
+  "Escolha um nicho e dê play nos vídeos que eu já produzi para cada marca.": "Pick a niche and play the videos I've made for each brand.",
+  "Cabelo": "Hair", "Beleza": "Beauty", "Casa e decor": "Home & decor", "Maternidade": "Motherhood",
+  "Moda": "Fashion", "Gastronomia": "Food", "Casal": "Couple",
+  "Formatos pensados para cada etapa da sua comunicação, do orgânico ao anúncio.": "Formats designed for every stage of your marketing, from organic posts to paid ads.",
+  "Vídeo autêntico, gravado por mim, com roteiro pensado para a sua marca e para o público dela.": "Authentic video filmed by me, with a script built for your brand and its audience.",
+  "Corte para anúncio": "Ad cuts",
+  "Versões curtas com gancho forte nos primeiros segundos, prontas para testar no tráfego pago.": "Short versions with a strong hook in the first seconds, ready to test in paid traffic.",
+  "Fotos do produto": "Product photos",
+  "Fotos com luz natural e cara de vida real, para site, catálogo e redes sociais.": "Photos with natural light and a real-life feel, for websites, catalogs and social media.",
+  "A primeira impressão de quem abre a caixa, com reação sincera e detalhes que vendem.": "The first impression of opening the box, with an honest reaction and details that sell.",
+  "Publicação no meu perfil": "Posting on my profile",
+  "O conteúdo vai ao ar no meu Instagram, falando direto com a minha audiência.": "The content goes live on my Instagram, speaking directly to my audience.",
+  "Pacote mensal": "Monthly package",
+  "Uma quantidade fixa de conteúdos por mês, com calendário combinado e prioridade na agenda.": "A fixed amount of content every month, with an agreed calendar and priority booking.",
+  "Fotos com luz natural e cara de vida real, prontas para site, catálogo e redes sociais.": "Photos with natural light and a real-life feel, ready for websites, catalogs and social media.",
+  "Fotos UGC": "UGC photos",
+  "Números que": "Numbers that", "falam": "speak", "por mim": "for me",
+  "Resultados de": "Campaign", "campanha": "results",
+  "vendas": "sales",
+  "no reels da campanha de lançamento do sérum.": "on the serum launch campaign reels.",
+  "no mês do anúncio com corte de unboxing.": "in the month of the unboxing ad cut.",
+  "nos anúncios com vídeos UGC frente aos criativos antigos.": "on ads with UGC videos compared to the old creatives.",
+  "O que dizem as": "What", "marcas": "brands say",
+  "A Yasmin entendeu a nossa marca de primeira. O vídeo ficou natural e virou o criativo que mais vendeu no mês.": "Yasmin understood our brand right away. The video felt natural and became our best-selling creative of the month.",
+  "Roteiro aprovado rápido, entrega no prazo e uma comunicação muito leve. Já fechamos o pacote mensal.": "Fast script approval, on-time delivery and really easy communication. We've already signed the monthly package.",
+  "Ela tem um jeito de falar que gera confiança. Os comentários dos clientes mudaram depois da campanha.": "She has a way of speaking that builds trust. Our customers' comments changed after the campaign.",
+  "Profissional do começo ao fim. As fotos e os vídeos chegaram prontos para usar em todos os canais.": "Professional from start to finish. The photos and videos arrived ready to use on every channel.",
+  "Bora criar": "Let's create", "juntos?": "together?",
+  "Me conta sobre a sua marca e o que você precisa. Eu respondo em até um dia útil.": "Tell me about your brand and what you need. I reply within one business day.",
+  "Seu nome": "Your name", "Seu e-mail": "Your email", "Mensagem": "Message", "Enviar mensagem": "Send message",
+  "recebida!": "received!",
+  "Obrigada pelo contato. Eu volto com uma resposta em até um dia útil.": "Thanks for reaching out. I'll get back to you within one business day.",
+  "E-mail": "Email",
+  "Yasmin Carreira. Todos os direitos reservados.": "Yasmin Carreira. All rights reserved.",
+  "Voltar ao topo ↑": "Back to top ↑",
+  "Início": "Home", "Parceria": "Partner", "Nichos": "Niches", "Mais": "More",
+  "Sobre mim": "About me", "Como eu te ajudo": "How I help", "Números e depoimentos": "Numbers & reviews",
+  "Vídeo": "Video", "Abrir no YouTube ↗": "Open on YouTube ↗",
+  "Mídia kit": "Media kit", "Quer meu mídia kit": "Want my full", "completo?": "media kit?",
+  "Valores, formatos e resultados reunidos em um PDF. Me diz para onde eu envio.": "Rates, formats and results in one PDF. Tell me where to send it.",
+  "Quero receber": "Send it to me", "Pronto,": "Done,", "anotado!": "noted!",
+  "Meu mídia kit chega no seu e-mail em breve.": "My media kit will land in your inbox soon.",
+  // Textos que não aparecem na tela (leitores de tela e descrições de imagem)
+  "Abrir menu": "Open menu", "Navegação principal": "Main navigation", "Marcas atendidas": "Brands served",
+  "Yasmin Carreira sorrindo, de regata branca e calça laranja": "Yasmin Carreira smiling in a white tank top and orange pants",
+  "Yasmin Carreira sorrindo e segurando produtos de cabelo Eudora Siàge": "Yasmin Carreira smiling and holding Eudora Siàge hair products",
+  "Filtrar trabalhos por nicho": "Filter work by niche", "Vídeos anteriores": "Previous videos", "Próximos vídeos": "Next videos",
+  "Fotos anteriores": "Previous photos", "Próximas fotos": "Next photos",
+  "Yasmin segurando o kit Elseve Collagen Lifter": "Yasmin holding the Elseve Collagen Lifter kit",
+  "Yasmin com conjunto fitness azul na praia": "Yasmin in a blue activewear set at the beach",
+  "Yasmin com produtos Dove UV repair e glow": "Yasmin with Dove UV repair and glow products",
+  "Yasmin sorrindo com produtos La Ganexa na mesa": "Yasmin smiling with La Ganexa products on the table",
+  "Yasmin aplicando o sérum facial Principia": "Yasmin applying Principia facial serum",
+  "Yasmin aplicando Nivea Creme no rosto": "Yasmin applying Nivea Creme to her face",
+  "Yasmin sorrindo com um spray capilar dourado": "Yasmin smiling with a golden hair spray",
+  "Yasmin modelando o cabelo com o babyliss Taiff Curves": "Yasmin styling her hair with the Taiff Curves curling iron",
+  "Yasmin segurando o lava roupas líquido OMO": "Yasmin holding OMO liquid laundry detergent",
+  "Yasmin com a família no Animália Park": "Yasmin with her family at Animália Park",
+  "Conte sobre a marca, o produto e o prazo": "Tell me about the brand, the product and the deadline",
+  "Minhas redes": "My social media", "Menu do celular": "Mobile menu", "Mais opções": "More options",
+  "Fechar vídeo": "Close video", "Fechar": "Close"
+};
+// Títulos em que a ordem das palavras muda em inglês (troca o título inteiro)
+const EN_HTML = {
+  "titulo-destaques": "Featured <em>content</em>",
+  "titulo-servicos": "How I can <em>help you</em>",
+  "titulo-fotos": "UGC <em>photos</em>"
+};
+// Frases que têm uma parte que muda (nome da marca, número...)
+const EN_REGRAS = [
+  [/^Marca (\d+)$/, "Brand $1"],
+  [/^Cliente (\d+)$/, "Client $1"],
+  [/^Capa do vídeo para (.+)$/, "Video cover for $1"],
+  [/^Capa do vídeo (.+)$/, "Video cover: $1"],
+  [/^Assistir vídeo para (.+), nicho (.+)$/, (_, marca, n) => `Watch the ${marca} video, ${EN[n] || n} niche`],
+  [/^Assistir: (.+?), (.+)$/, (_, marca, num) => `Watch: ${marca}, ${EN[num] || num}`]
+];
+const TEXTOS_PAGINA = {
+  pt: { title: document.title, desc: $('meta[name="description"]').content },
+  en: { title: "Yasmin Carreira | UGC Creator Portfolio", desc: "Portfolio of Yasmin Carreira, UGC Creator. Authentic videos that help brands sell more on social media." }
+};
+let idioma = "pt";
+const originais = new WeakMap();
+function traduzTexto(pt) {
+  const chave = pt.trim().replace(/\s+/g, " ");
+  if (EN[chave]) return pt.replace(pt.trim(), EN[chave]);
+  for (const [re, troca] of EN_REGRAS) if (re.test(chave)) return pt.replace(pt.trim(), chave.replace(re, troca));
+  return pt;
+}
+function aplicaIdioma(lang) {
+  idioma = lang;
+  document.documentElement.lang = lang === "en" ? "en" : "pt-BR";
+  const andador = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+    acceptNode: n => n.parentElement && !["SCRIPT", "STYLE"].includes(n.parentElement.tagName) && !n.parentElement.closest("[data-sem-traducao]") ? 1 : 2
+  });
+  const nos = [];
+  while (andador.nextNode()) nos.push(andador.currentNode);
+  nos.forEach(no => {
+    if (!originais.has(no)) originais.set(no, no.nodeValue);
+    const pt = originais.get(no);
+    no.nodeValue = lang === "en" ? traduzTexto(pt) : pt;
+  });
+  document.querySelectorAll("[aria-label],[alt],[placeholder]").forEach(el => {
+    ["aria-label", "alt", "placeholder"].forEach(a => {
+      if (!el.hasAttribute(a)) return;
+      const guardado = "data-pt-" + a;
+      if (!el.hasAttribute(guardado)) el.setAttribute(guardado, el.getAttribute(a));
+      const pt = el.getAttribute(guardado);
+      el.setAttribute(a, lang === "en" ? traduzTexto(pt) : pt);
+    });
+  });
+  Object.entries(EN_HTML).forEach(([id, html]) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (!el.dataset.ptHtml) el.dataset.ptHtml = el.innerHTML;
+    el.innerHTML = lang === "en" ? html : el.dataset.ptHtml;
+  });
+  document.title = TEXTOS_PAGINA[lang].title;
+  $('meta[name="description"]').content = TEXTOS_PAGINA[lang].desc;
+  document.querySelectorAll(".idioma button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));
+  const msg = lang === "en" ? "Hi Yasmin! I found your portfolio and I'd like to talk about a project." : WHATSAPP_MSG;
+  document.querySelectorAll("#linkWhats, .js-whats").forEach(a => a.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg));
+  atualizaBF();
+  try { localStorage.setItem("idioma", lang); } catch (e) {}
+}
+document.querySelectorAll(".idioma button").forEach(b => b.addEventListener("click", () => aplicaIdioma(b.dataset.lang)));
+
+/* ===================== BLACK FRIDAY =====================
+   A Black Friday é a última sexta-feira de novembro. A contagem é calculada sozinha
+   e a faixa some no dia seguinte. */
+function dataBlackFriday(ano) {
+  const d = new Date(ano, 10, 30);
+  while (d.getDay() !== 5) d.setDate(d.getDate() - 1);
+  return d;
+}
+function atualizaBF() {
+  const faixa = $("#faixaBF");
+  const hoje = new Date(); hoje.setHours(0, 0, 0, 0);
+  const bf = dataBlackFriday(hoje.getFullYear());
+  const dias = Math.round((bf - hoje) / 86400000);
+  if (dias < 0) { faixa.hidden = true; ajustaTopo(); return; }
+  const en = idioma === "en";
+  $("#bfConta").innerHTML = dias === 0
+    ? (en ? "Black Friday is <b>today!</b>" : "A Black Friday é <b>hoje!</b>")
+    : en ? `<b>${dias}</b> day${dias > 1 ? "s" : ""} to Black Friday` : `Falta${dias > 1 ? "m" : ""} <b>${dias}</b> dia${dias > 1 ? "s" : ""} pra Black Friday`;
+  $("#bfTexto").textContent = en ? "UGC content that sells on the big day" : "conteúdo UGC que vende no dia";
+  $("#bfLink").textContent = en ? "book your slot →" : "reservar agenda →";
+  faixa.hidden = false;
+  ajustaTopo();
+}
+// A capa começa logo abaixo do topo (menu + faixa), qualquer que seja a altura dele
+function ajustaTopo() {
+  document.documentElement.style.setProperty("--altura-topo", $("#topo").offsetHeight + "px");
+}
+window.addEventListener("resize", ajustaTopo);
+
+let idiomaSalvo = "pt";
+try { idiomaSalvo = localStorage.getItem("idioma") || "pt"; } catch (e) {}
+if (idiomaSalvo === "en") aplicaIdioma("en"); else atualizaBF();
+
 // Borda do menu ao rolar
 const topo = $("#topo");
 window.addEventListener("scroll", () => topo.classList.toggle("rolou", window.scrollY > 10), { passive: true });
