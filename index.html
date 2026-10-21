@@ -780,7 +780,23 @@ function mostraNicho(nicho) {
     item.classList.remove("entrando");
     if (mostra) { void item.offsetWidth; item.classList.add("entrando"); }
   });
+  galeria.scrollLeft = 0;
+  atualizaSetas();
 }
+
+// Setas do carrossel: andam quase uma tela de vídeos por clique
+const galeria = $("#galeria");
+const setaAnterior = $("#galeriaAnterior"), setaProxima = $("#galeriaProxima");
+function atualizaSetas() {
+  const fim = galeria.scrollWidth - galeria.clientWidth - 4;
+  setaAnterior.disabled = galeria.scrollLeft <= 4;
+  setaProxima.disabled = galeria.scrollLeft >= fim;
+}
+setaAnterior.addEventListener("click", () => galeria.scrollBy({ left: -galeria.clientWidth * 0.85 }));
+setaProxima.addEventListener("click", () => galeria.scrollBy({ left: galeria.clientWidth * 0.85 }));
+galeria.addEventListener("scroll", atualizaSetas, { passive: true });
+window.addEventListener("resize", atualizaSetas);
+
 mostraNicho(nichos[0]);
 $("#filtros").addEventListener("click", e => {
   const btn = e.target.closest(".filtro");
