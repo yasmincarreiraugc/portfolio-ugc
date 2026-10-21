@@ -910,6 +910,15 @@ if (!jaViu) setTimeout(abreModal, 7000);
 $("#fecharModal").addEventListener("click", fechaModal);
 fundo.addEventListener("click", e => { if (e.target === fundo) fechaModal(); });
 document.addEventListener("keydown", e => {
+  if (videoFundo.classList.contains("aberto")) {
+    if (e.key === "Escape") fechaVideo();
+    if (e.key === "Tab") { // mantém o foco dentro do player
+      const focaveis = [$("#videoFechar"), $("#videoLink")];
+      if (e.shiftKey && document.activeElement === focaveis[0]) { e.preventDefault(); focaveis[1].focus(); }
+      else if (!e.shiftKey && document.activeElement === focaveis[1]) { e.preventDefault(); focaveis[0].focus(); }
+    }
+    return;
+  }
   if (!fundo.classList.contains("aberto")) {
     if (e.key === "Escape" && menu.classList.contains("aberto")) { fechaMenu(); hamb.focus(); }
     return;
