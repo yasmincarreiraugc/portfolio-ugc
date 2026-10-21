@@ -687,6 +687,34 @@
     .idioma button{padding:6px 8px;gap:4px}
     .idioma button svg{display:none}
   }
+
+  /* ===== Ajustes da capa ===== */
+  /* "ser escolhida" no cantinho da palavra MARCA, por cima só da pontinha dela */
+  .capa h1 em{position:relative;z-index:1;margin-left:-.55em;transform:rotate(-9deg) translateY(-.62em);font-size:.6em}
+  /* Foto maior: formato 4:5, ocupando mais largura sem ficar mais alta */
+  .capa-foto{width:clamp(220px,calc((100vh - 330px) * .8),440px)}
+  .capa-foto .midia{aspect-ratio:4/5}
+  .capa-foto .midia img{object-position:center 28%}
+  /* Depoimento numa caixa só, pequena, no cantinho da foto */
+  .depo-capa{left:-46px;bottom:18px;max-width:178px;display:block}
+  .depo-capa blockquote{display:block;background:#fff;border:var(--borda);border-radius:14px 14px 14px 4px;padding:8px 11px;box-shadow:3px 3px 0 var(--tinta)}
+  .depo-capa p,.depo-capa p:nth-child(2),.depo-capa p:nth-child(3){display:block;background:none;border:0;box-shadow:none;padding:0;margin:0;border-radius:0;font-size:.66rem;line-height:1.35}
+  /* Estrela amarela mais para baixo, longe do menu do topo */
+  .brilho-2{top:34%;right:-22px}
+  .ponto-2{top:calc(34% + 40px)}
+  /* "marcas que já confiaram": tudo na mesma fonte, preta e menor */
+  .marcas h2{font-size:clamp(1rem,1.5vw,1.3rem)!important}
+  .marcas h2 em{font-family:inherit;font-weight:inherit;font-size:inherit;color:inherit;margin-left:0}
+  @media (max-width:860px){
+    .capa-grid{grid-template-columns:minmax(0,1fr) 40%!important}
+    .capa-foto{width:auto}
+    .brilho-2{top:30%;right:-10px}
+    .ponto-2{top:calc(30% + 30px);right:-8px}
+    .depo-capa.depo-celular{display:block;margin-top:18px}
+    .depo-celular blockquote{display:inline-block;max-width:100%}
+    .depo-celular p,.depo-celular p:nth-child(2),.depo-celular p:nth-child(3){font-size:.72rem}
+    .marcas h2{font-size:clamp(.95rem,4.2vw,1.15rem)!important}
+  }
 </style>
 </head>
 <body>
