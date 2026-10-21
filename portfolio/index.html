@@ -584,7 +584,16 @@
   .marcas h2{font-size:clamp(2rem,min(4.6vw,6.5vh),3.6rem);margin-bottom:clamp(16px,2.5vh,28px)}
   .marcas-nota{margin:-12px 0 8px;font-size:1.35rem}
   .marcas-trilho ul{padding:10px clamp(8px,1vw,13px) 22px}
-  .icone-marca{width:clamp(80px,8vw,110px)}
+  .icone-marca{width:clamp(78px,min(7.5vw,12vh),108px)}
+  /* Telas mais baixas (notebooks): aperta os espaços para os ícones das marcas caberem na primeira tela */
+  @media (min-width:861px) and (max-height:860px){
+    .marcas-nota{display:none}
+    .marcas h2{margin-bottom:8px}
+    .marcas-trilho ul{padding-top:6px}
+    .capa .frase{margin-bottom:16px}
+    .capa-numeros{margin-top:12px}
+    .acoes .btn{padding:12px 22px}
+  }
 
   @media (max-width:860px){
     section{scroll-margin-top:100px}
