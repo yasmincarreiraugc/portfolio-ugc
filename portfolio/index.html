@@ -2032,7 +2032,7 @@ $("#galeria").innerHTML = nichos.map(nicho => VIDEOS_POR_NICHO[nicho].map(v => {
       <div class="midia">
         ${id ? `<img src="${capaYoutube(id)}" alt="Capa do vídeo para ${esc(v.marca)}" loading="lazy" ${attrsCapa(id)}>` : ""}
         <span class="leque-info">
-          <span><strong>${esc(v.marca)}</strong><small>${esc(nicho)}</small></span>
+          <span><strong>${esc(v.marca)}</strong><small>${esc(v.tipo || nicho)}</small></span>
           <span class="leque-seta">${iconeSeta}</span>
         </span>
       </div>
