@@ -256,5 +256,33 @@
 
   <div class="proxima" aria-hidden="true"></div>
 </div>
+<script>
+// Menu do celular
+const hamburguer = document.getElementById("hamburguer");
+const menu = document.getElementById("menu");
+hamburguer.addEventListener("click", () => {
+  const aberto = menu.classList.toggle("aberto");
+  hamburguer.setAttribute("aria-expanded", aberto);
+  hamburguer.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
+});
+menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+  menu.classList.remove("aberto");
+  hamburguer.setAttribute("aria-expanded", false);
+}));
+
+// Idioma: troca os textos que têm data-en e guarda a escolha (a mesma usada pelo portfólio)
+const textos = document.querySelectorAll("[data-en]");
+textos.forEach(el => el.dataset.pt = el.textContent);
+function aplicaIdioma(lang) {
+  document.documentElement.lang = lang === "en" ? "en" : "pt-BR";
+  textos.forEach(el => el.textContent = el.dataset[lang]);
+  document.querySelectorAll(".idioma button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));
+  try { localStorage.setItem("idioma", lang); } catch (e) {}
+}
+document.querySelectorAll(".idioma button").forEach(b => b.addEventListener("click", () => aplicaIdioma(b.dataset.lang)));
+let idiomaSalvo = "pt";
+try { idiomaSalvo = localStorage.getItem("idioma") || "pt"; } catch (e) {}
+if (idiomaSalvo === "en") aplicaIdioma("en");
+</script>
 </body>
 </html>
