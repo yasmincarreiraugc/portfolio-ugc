@@ -1430,7 +1430,8 @@
   @media (prefers-reduced-motion:reduce){ .sobre-cartoes li{animation:none} .sobre-cartoes li:hover img{transform:none} }
   @media (max-width:860px){
     #sobre .sobre-grid{grid-template-columns:1fr}
-    #sobre .sobre-montagem{max-width:320px;margin:0 auto}
+    /* no celular a foto grande do Sobre mim não aparece, só o texto e os cartões */
+    #sobre .sobre-montagem{display:none}
     .sobre-cartoes{grid-template-columns:repeat(2,minmax(0,1fr))}
   }
 
