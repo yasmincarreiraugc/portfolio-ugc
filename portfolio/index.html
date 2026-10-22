@@ -2284,6 +2284,7 @@ window.addEventListener("resize", ajustaTopo);
 // (também tira a barra do fim: /portfolio/ vira /portfolio; os caminhos ../fotos continuam iguais)
 const caminhoLimpo = () => location.pathname.replace(/\/portfolio\/(index\.html)?$/, "/portfolio");
 const limpaEndereco = () => { if (location.hash || caminhoLimpo() !== location.pathname) history.replaceState(null, "", caminhoLimpo() + location.search); };
+const secaoInicial = decodeURIComponent(location.hash.slice(1));
 limpaEndereco();
 const irPara = (id, suave) => {
   const alvo = document.getElementById(id);
