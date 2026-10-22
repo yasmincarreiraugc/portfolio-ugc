@@ -1287,6 +1287,15 @@
   #sobre .sobre-montagem .midia{transform:rotate(-4deg)}
   .sobre-brilho{top:-26px}
   .pastas{transform:none;width:70%;margin:-13% 0 0 52%}
+  /* Ajustes: legenda menor e mais estreita (cobre menos a foto), sem estrela,
+     texto alinhado ao topo da foto e pastinhas inclinadas para o lado contrário da foto grande */
+  .sobre-brilho{display:none}
+  #sobre .sobre-grid{align-items:start}
+  #sobre .sobre-texto{padding-top:6px}
+  .pastas{margin-top:-20%;transform:rotate(4deg);transform-origin:center}
+  .pasta{padding-top:52%}
+  .pasta figcaption{width:82%;min-height:0;padding:9px 9px 7px;font-size:10.5px;line-height:1.25;border-radius:0 9px 9px 9px}
+  .pasta figcaption::before{top:-8px;height:9px;width:46%;border-radius:7px 7px 0 0}
   @media (max-width:860px){
     .pastas{width:70%!important;margin:-14% 0 0 30%!important}
   }
