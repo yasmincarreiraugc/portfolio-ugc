@@ -1239,6 +1239,43 @@
   main > .servicos .cabeca h2 em{color:var(--magenta)!important}
   main > .servicos .cabeca p,main > .servicos .servico p{color:rgba(30,25,21,.72)!important}
   main > .servicos .servicos-grid,main > .servicos .servico{border-color:rgba(30,25,21,.14)!important}
+
+  /* ===== Como eu te ajudo: blocos com botão de ligar que abrem os detalhes ===== */
+  .servicos-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;grid-auto-flow:dense;gap:16px!important;border:0!important}
+  .serv{position:relative;background:#fff;border-radius:26px;box-shadow:0 18px 34px -26px rgba(30,25,21,.45);transition:background .35s,box-shadow .35s,transform .25s;overflow:hidden}
+  .serv:hover{transform:translateY(-2px)}
+  .serv-topo{display:block;width:100%;text-align:left;background:none;border:0;padding:22px 22px 24px;cursor:pointer;font:inherit;color:inherit;position:relative}
+  .serv-icone{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--rosa-paleta)}
+  .serv-azul .serv-icone{background:var(--ceu)}
+  .serv-amarelo .serv-icone{background:var(--amarelo-paleta)}
+  .serv-icone svg{width:23px;height:23px;fill:none;stroke:var(--nc-tinta);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .serv h3{margin:22px 0 0!important;font-family:var(--nc-sans)!important;font-size:18px!important;font-weight:700!important;letter-spacing:0!important;text-transform:none!important;color:var(--nc-tinta)!important;line-height:1.25}
+  /* chave de ligar no canto */
+  .serv-chave{position:absolute;top:24px;right:22px;width:46px;height:26px;border-radius:999px;background:#e7e2dc;transition:background .3s}
+  .serv-chave::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 2px 5px rgba(30,25,21,.25);transition:transform .3s}
+  .serv-detalhe{display:none;padding:0 22px 22px}
+  .serv-detalhe p{margin:0;font-size:14.5px;line-height:1.55;color:var(--nc-tinta)!important}
+  .serv-whats{display:inline-flex;margin-top:18px;padding:10px 18px;border-radius:999px;background:#fff;color:var(--nc-tinta);font-size:13.5px;font-weight:600;text-decoration:none;transition:transform .2s}
+  .serv-whats:hover{transform:translateX(3px)}
+  /* aberto: o bloco cresce, fica rosa e mostra os detalhes */
+  .serv.aberto{grid-row:span 2;background:var(--rosa-paleta);box-shadow:0 24px 40px -24px rgba(214,90,170,.6)}
+  .serv-azul.aberto{background:var(--ceu);box-shadow:0 24px 40px -24px rgba(60,120,200,.6)}
+  .serv-amarelo.aberto{background:#ffe38a;box-shadow:0 24px 40px -24px rgba(200,160,40,.5)}
+  .serv.aberto .serv-icone{background:#fff}
+  .serv.aberto .serv-chave{background:var(--nc-tinta)}
+  .serv.aberto .serv-chave::after{transform:translateX(20px)}
+  .serv.aberto .serv-detalhe{display:block;animation:fade .35s ease}
+  @media (max-width:860px){
+    .servicos-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+    .serv.aberto{grid-column:1/-1;grid-row:auto}
+    .serv-topo{padding:16px 16px 18px}
+    .serv-icone{width:40px;height:40px}
+    .serv-chave{top:18px;right:16px;width:40px;height:23px}
+    .serv-chave::after{width:17px;height:17px}
+    .serv.aberto .serv-chave::after{transform:translateX(17px)}
+    .serv h3{font-size:15px!important;margin-top:16px!important}
+    .serv-detalhe{padding:0 16px 18px}
+  }
   /* contato: cartões claros sem sombra preta e botão no rosa da paleta */
   .contato .form,.contato .canal{box-shadow:0 14px 30px -20px rgba(20,40,80,.45)!important;border:0!important;border-radius:22px!important}
   .contato .btn-cheio{background:var(--rosa-paleta)!important;color:var(--nc-tinta)!important;box-shadow:none!important;border:0!important;border-radius:999px!important}
