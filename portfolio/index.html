@@ -1090,6 +1090,32 @@
     #topo .nc-idioma button{padding:7px 9px!important;gap:4px}
     #topo .nc-idioma button svg{display:none!important}
   }
+
+  /* ===== Ajustes pedidos pela Yasmin na capa nova ===== */
+  :root{--nc-sans:"Montserrat",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--rosa-paleta:#ff99d9;--amarelo-paleta:#fff2c2}
+  /* Estrela de brilho no lugar da casinha, girando devagar */
+  .nc-logo svg.nc-estrela{fill:var(--rosa-paleta);stroke:var(--nc-tinta);stroke-width:2.2;stroke-linejoin:round;overflow:visible;animation:brilhar 3s ease-in-out infinite}
+  /* "Carreira" igual ao "Yasmin" */
+  .nc-logo span{font-size:26px;font-weight:600;letter-spacing:.07em;line-height:1.1;text-transform:uppercase;color:var(--nc-tinta);margin-top:0}
+  /* "Diário da sua creator" no rosa da paleta */
+  .nc-rotulo{color:var(--rosa-paleta);font-weight:600}
+  /* Etiqueta "Black Friday" no amarelo da paleta */
+  .bf-selo{background:var(--amarelo-paleta)!important;color:var(--nc-tinta)!important}
+  /* Capa um pouco mais baixa, para a faixa das marcas aparecer na primeira tela */
+  .nc-topo{padding:22px 44px 18px 40px}
+  .nc-capa-texto{padding:40px 0 30px 56px}
+  .nc-rotulo{font-size:14px}
+  .nc-capa h1{font-size:clamp(48px,min(5.6vw,8.4vh),74px);margin-top:22px}
+  .nc-frase{font-size:17px;margin-top:20px}
+  .nc-acoes{margin-top:26px}
+  .nc-btn{height:54px;font-size:17px;padding:0 28px}
+  .nc-clientes{margin-top:26px}
+  .nc-visual{width:min(64%,calc((100vh - 230px) * 878 / 820))}
+  @media (max-width:860px){
+    .nc-logo span{font-size:21px}
+    .nc-capa-texto{padding:24px 16px 28px}
+    .nc-capa h1{font-size:clamp(40px,12vw,70px)}
+  }
 </style>
 </head>
 <body>
