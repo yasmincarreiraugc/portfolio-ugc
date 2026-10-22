@@ -1978,7 +1978,6 @@ function posicionaLeque() {
     if (p > n / 2) p -= n;
     if (p < -n / 2) p += n;
     c.dataset.pos = p;
-    c.tabIndex = p === 0 ? 0 : -1;
   });
 }
 const giraLeque = passo => { lequeAtual = (lequeAtual + passo + cartoesLeque.length) % cartoesLeque.length; posicionaLeque(); };
