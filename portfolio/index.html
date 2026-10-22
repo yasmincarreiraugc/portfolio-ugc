@@ -862,6 +862,84 @@
     .topo .wrap{display:flex;justify-content:space-between}
     .marca-nome{white-space:nowrap}
     .capa{padding-left:0;padding-right:0}
+  }
+
+  /* =====================================================================
+     MODELO "DIÁRIO DE UMA CREATOR UGC" (referência enviada pela Yasmin)
+     Estas regras vêm por último e substituem as versões anteriores da capa.
+     ===================================================================== */
+  /* Faixa da Black Friday preta, com etiqueta amarela */
+  .faixa-bf{background:var(--tinta)!important;color:#fff;border-bottom:0!important}
+  .bf-selo{background:var(--amarelo)!important;color:var(--tinta)!important}
+  .bf-conta{color:#fff;font-weight:800}
+  .bf-texto{color:rgba(255,255,255,.72)!important}
+  .bf-link{color:var(--amarelo)!important}
+  .bf-link:hover{color:#fff!important}
+  /* Menu claro: nome em preto, links, botão "Fechar parceria" e PT/EN com bandeiras */
+  .topo,.topo.rolou{background:var(--creme)!important;border-bottom:1px solid var(--linha)!important}
+  .topo .wrap{display:flex!important;align-items:center;justify-content:flex-start;gap:clamp(14px,2vw,26px)!important;max-width:1280px}
+  .marca-nome{font-size:1.45rem;text-transform:uppercase;letter-spacing:.01em;color:var(--tinta);margin-right:auto}
+  .menu{margin:0!important}
+  .menu ul{gap:clamp(16px,1.8vw,28px)!important}
+  .menu a{font-size:.92rem;font-weight:500;color:var(--tinta)!important}
+  .btn-parceria{background:var(--tinta);color:#fff;text-decoration:none;font-weight:700;font-size:.9rem;padding:11px 22px;border-radius:999px;white-space:nowrap;transition:background .2s}
+  .btn-parceria:hover{background:var(--magenta);color:var(--tinta)}
+  .idioma{background:#ebe7e1!important;border:0!important;padding:3px!important;border-radius:999px}
+  .idioma button{font-size:.8rem!important;font-weight:700!important;padding:7px 12px!important;color:var(--tinta)!important;letter-spacing:.02em!important}
+  .idioma button svg{display:block!important}
+  .idioma button[aria-pressed="true"]{background:var(--tinta)!important;color:#fff!important}
+
+  /* Capa: cartão claro com borda preta, sombra rosa, fita amarela e estrela rosa */
+  .capa{background:transparent!important;padding:calc(var(--altura-topo, 110px) + clamp(30px,5vh,52px)) 0 clamp(40px,6vh,64px)!important}
+  .capa .wrap{max-width:1180px!important;padding:0 var(--gutter)!important}
+  .capa-grid{position:relative;overflow:visible!important;background:#fbf9f5!important;border:2px solid var(--tinta)!important;border-radius:4px!important;box-shadow:10px 10px 0 var(--magenta)!important;padding:clamp(44px,6vw,70px) clamp(24px,4.4vw,60px)!important;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)!important;grid-template-areas:"topo foto" "resto foto"!important;column-gap:clamp(28px,4vw,60px)!important;row-gap:0!important;align-items:center!important;align-content:center!important;min-height:0!important;margin:0!important}
+  .fita{position:absolute;top:-15px;left:36px;width:110px;height:30px;background:var(--amarelo);opacity:.92;transform:rotate(-2deg);z-index:3;box-shadow:0 2px 0 rgba(17,17,17,.12)}
+  .estrela-card{position:absolute;top:-38px;right:-38px;width:clamp(56px,6vw,80px);fill:var(--magenta);stroke:var(--tinta);stroke-width:2.2;stroke-linejoin:round;overflow:visible;z-index:4;animation:brilhar 3s ease-in-out infinite}
+  .capa-topo{align-self:end!important}
+  .rotulo-capa{display:block;font-size:.98rem;font-weight:500;color:var(--tinta-2);margin-bottom:14px}
+  .capa h1{font-size:clamp(3.6rem,8.2vw,7.2rem)!important;line-height:.9!important;text-transform:uppercase!important;margin:0 0 22px!important;max-width:none!important;letter-spacing:.005em!important}
+  .capa h1 em{display:block!important;font-family:var(--serif)!important;font-style:normal!important;font-weight:400!important;font-size:1em!important;text-transform:uppercase!important;color:var(--magenta)!important;margin:0!important;transform:none!important;letter-spacing:.005em!important;line-height:.9!important;white-space:nowrap!important}
+  .capa .frase{font-size:clamp(.95rem,1.15vw,1.05rem)!important;line-height:1.6!important;max-width:44ch!important;margin:0 0 26px!important;color:var(--tinta-2)!important}
+  .capa .acoes{display:flex!important;flex-wrap:wrap;gap:14px!important;margin:0!important}
+  .capa .btn-cheio{background:var(--magenta)!important;color:var(--tinta)!important;border:2px solid var(--tinta)!important;border-radius:3px!important;box-shadow:4px 4px 0 var(--tinta)!important;padding:13px 24px!important}
+  .capa .btn-cheio:hover{transform:translate(-2px,-2px)!important;box-shadow:6px 6px 0 var(--tinta)!important;background:var(--magenta)!important}
+  .capa .btn-linha{display:inline-flex!important;background:#fff!important;color:var(--tinta)!important;border:2px solid var(--tinta)!important;border-radius:3px!important;box-shadow:4px 4px 0 var(--tinta)!important;padding:13px 24px!important;text-decoration:none!important}
+  .capa .btn-linha:hover{transform:translate(-2px,-2px)!important;box-shadow:6px 6px 0 var(--tinta)!important;color:var(--tinta)!important}
+  .capa .btn-linha::after,.capa .seta{content:none!important;display:none!important}
+  /* Sem depoimento e sem cartões flutuando na capa */
+  .depo-capa,.card-video{display:none!important}
+  /* Foto em porta-retrato com sombra azul */
+  .capa-foto{grid-area:foto!important;position:relative!important;inset:auto!important;top:auto!important;right:auto!important;bottom:auto!important;height:auto!important;width:100%!important;max-width:420px!important;justify-self:center!important;align-self:center!important;aspect-ratio:auto!important;margin:0!important;transform:rotate(-1.2deg);background:#fff;border:2px solid var(--tinta);padding:14px 14px 44px;box-shadow:8px 8px 0 var(--ceu)}
+  .capa-foto .midia{aspect-ratio:4/5!important;width:100%!important;height:auto!important;background:#efebe5!important;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:hidden!important}
+  .capa-foto .midia img{object-fit:cover!important;object-position:center 15%!important}
+
+  /* Logos em círculos com bordas coloridas, numa faixa preta */
+  .marcas{background:var(--tinta)!important;padding:16px 0!important;margin:0!important;box-shadow:none!important}
+  .marcas-trilho{background:transparent!important;border:0!important}
+  .marcas-trilho ul{padding:6px clamp(8px,1vw,14px)!important;gap:clamp(16px,2vw,26px)!important}
+  .icone-marca{width:clamp(82px,7.5vw,104px)!important;border-radius:50%!important;background:#fff!important;border:5px solid var(--amarelo);box-shadow:none!important;padding:0!important}
+  .icone-marca:nth-child(3n+2){border-color:var(--ceu)}
+  .icone-marca:nth-child(3n){border-color:var(--magenta)}
+  .icone-marca.tem-logo img{object-fit:contain!important;padding:9%}
+  .icone-marca.logo-cheio img{object-fit:cover!important;padding:0}
+  .icone-marca span{font-size:.62rem!important}
+
+  /* Barra do celular: item ativo e botão do meio em amarelo */
+  @media (max-width:860px){
+    .app-nav .ativo{background:var(--amarelo)!important;color:var(--tinta)!important}
+    .app-nav .centro{background:var(--amarelo)!important;color:var(--tinta)!important}
+    .btn-parceria{display:none}
+    .marca-nome{font-size:1.25rem}
+    .capa{padding-top:calc(var(--altura-topo, 100px) + 30px)!important}
+    .capa-grid{grid-template-columns:minmax(0,1fr)!important;grid-template-areas:"topo" "frase" "acoes" "foto"!important;padding:44px 20px 30px!important;box-shadow:6px 6px 0 var(--magenta)!important}
+    .capa-resto{display:contents!important}
+    .capa .frase{grid-area:frase!important;font-size:.9rem!important;margin:0 0 20px!important;align-self:start!important}
+    .capa .acoes{grid-area:acoes!important;flex-wrap:nowrap!important}
+    .capa .acoes .btn{flex:1 1 0!important;justify-content:center;padding:12px 10px!important;font-size:.86rem!important}
+    .capa h1{font-size:clamp(3rem,16vw,4.6rem)!important}
+    .capa-foto{margin-top:30px!important;max-width:none!important;padding:12px 12px 36px}
+    .estrela-card{top:-26px;right:-20px;width:52px}
+    .fita{left:24px;width:90px;height:26px;top:-13px}
     .capa-grid{border-radius:22px;padding:22px 16px 20px;margin:0}
     .card-video{display:none}
     .capa .acoes{gap:6px;margin-top:14px}
