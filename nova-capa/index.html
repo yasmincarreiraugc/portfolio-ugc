@@ -120,15 +120,24 @@
 
   /* ===== Tablet e celular ===== */
   @media (max-width:1060px){
-    .menu{display:none}
+    /* No celular o menu vira uma lista que abre pelo botão de três linhas */
+    .topo{position:relative;padding:22px 16px}
+    .menu{display:none;position:absolute;top:100%;left:16px;right:16px;z-index:20;background:var(--cartao);border-radius:20px;padding:10px 22px;box-shadow:0 18px 40px -18px rgba(60,40,25,.35)}
+    .menu.aberto{display:block}
+    .menu > ul{flex-direction:column;gap:0}
+    .menu > ul > li{border-bottom:1px solid var(--linha)}
+    .menu > ul > li:last-child{border-bottom:0}
+    .menu a{padding:14px 0;font-size:17px}
+    .menu .seta-baixo{display:none}
+    .com-submenu{padding-bottom:0;margin-bottom:0}
+    .submenu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;background:none;padding:0 0 10px 14px;min-width:0}
+    .submenu a{padding:8px 0;font-size:15.5px;color:var(--tinta-2)}
     .hamburguer{display:block}
-    .topo{padding:22px 16px}
     .logo{gap:14px}
     .logo svg{width:38px;height:38px}
     .logo strong{font-size:21px}
     .logo span{font-size:12.5px}
-    .icones{gap:20px}
-    .icones .so-desktop{display:none}
+    .lado{gap:14px}
     .capa{display:block}
     .capa-texto{padding:28px 16px 36px;max-width:none}
     h1{font-size:clamp(46px,13.5vw,87px);margin-top:26px}
