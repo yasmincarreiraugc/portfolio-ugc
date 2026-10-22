@@ -1498,14 +1498,6 @@ window.addEventListener("resize", atualizaSetasFilme);
 atualizaSetasFilme();
 
 
-// Depoimentos
-$("#depoimentos").innerHTML = DEPOIMENTOS.map((d, i) => `
-  <li class="revela d${(i % 2) + 1}">
-    <figure class="depoimento">
-      <blockquote><p>${esc(d.texto)}</p></blockquote>
-      <figcaption><span class="avatar" aria-hidden="true">${esc(d.nome.charAt(0))}</span><span><strong>${esc(d.nome)}</strong><span>${esc(d.empresa)}</span></span></figcaption>
-    </figure>
-  </li>`).join("");
 
 // Menu sanduíche
 const hamb = $("#hamburguer"), menu = $("#menu");
