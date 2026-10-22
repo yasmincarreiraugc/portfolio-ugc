@@ -1107,6 +1107,38 @@
   @media (max-width:860px){
     .nc-logo span{font-size:21px}
   }
+
+  /* Capa um pouco menor e mais perto do menu; a foto termina logo abaixo da vela */
+  .nc-topo{padding-bottom:18px}
+  .nc-capa-texto{padding-top:40px}
+  .nc-rotulo{font-size:14px}
+  .nc-capa h1{font-size:clamp(50px,6.3vw,77px);margin-top:28px}
+  .nc-frase{font-size:18px;margin-top:22px}
+  .nc-acoes{margin-top:30px}
+  .nc-btn{height:58px;padding:0 28px;font-size:17px}
+  .nc-visual{width:64%;aspect-ratio:878/700}
+  .nc-foto img{object-position:top}
+  .nc-cartao-vantagens{top:calc(500 * var(--u))}
+  @media (max-width:1060px){
+    .nc-topo{padding-bottom:16px}
+    .nc-capa-texto{padding-top:18px}
+    .nc-capa h1{font-size:clamp(42px,12vw,78px);margin-top:20px}
+    .nc-frase{font-size:16.5px;margin-top:18px}
+    .nc-acoes{margin-top:24px}
+    .nc-btn{height:52px;font-size:16px}
+    .nc-foto{aspect-ratio:590/655}
+  }
+  @media (max-width:420px){
+    .nc-btn{padding:0 16px;font-size:15px}
+  }
+
+  /* Barra de rolagem da página: estreita, quadrada, com fundo amarelo da paleta */
+  html::-webkit-scrollbar{width:8px;height:8px}
+  html::-webkit-scrollbar-track{background:var(--amarelo-paleta)}
+  html::-webkit-scrollbar-thumb{background:var(--nc-tinta);border-radius:0}
+  @supports not selector(::-webkit-scrollbar){
+    html{scrollbar-width:thin;scrollbar-color:var(--nc-tinta) var(--amarelo-paleta)}
+  }
 </style>
 </head>
 <body>
