@@ -1982,14 +1982,6 @@ function posicionaLeque() {
   });
 }
 const giraLeque = passo => { lequeAtual = (lequeAtual + passo + cartoesLeque.length) % cartoesLeque.length; posicionaLeque(); };
-// Clicar num cartão do lado traz ele para o meio (sem abrir o vídeo)
-destaquesGrid.addEventListener("click", e => {
-  const c = e.target.closest(".leque-cartao");
-  if (!c || c.dataset.pos === "0") return;
-  e.preventDefault();
-  e.stopPropagation();
-  giraLeque(+c.dataset.pos);
-}, true);
 // Arrastar para o lado no celular
 let toqueX = null;
 destaquesGrid.addEventListener("touchstart", e => { toqueX = e.touches[0].clientX; }, { passive: true });
