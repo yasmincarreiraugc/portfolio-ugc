@@ -785,6 +785,35 @@
     .capa-foto .depo-capa{display:none}
     .depo-capa.depo-celular{display:block!important;position:static;max-width:290px;margin-top:22px}
   }
+  /* ===== Capa igual à referência "bare." ===== */
+  /* Topo e capa no mesmo tom claro; o painel da capa num bege um pouco mais escuro */
+  .topo,.topo.rolou{background:var(--creme);border-bottom:0}
+  .capa,.marcas{background:var(--creme)}
+  .capa-grid{background:#e9e4dd}
+  /* Sem estrelas soltas em volta da foto e com um botão só */
+  .capa-foto .brilho,.capa-foto .ponto{display:none}
+  .capa .btn-linha{display:none}
+  /* Depoimento: cartão branco com círculo à esquerda (estrela rosa) e frase em itálico */
+  .depo-capa.depo-celular{display:flex!important;align-items:center;gap:14px;background:#fff;border-radius:22px;padding:12px 18px 12px 12px;box-shadow:0 18px 40px -20px rgba(17,17,17,.35);max-width:340px}
+  .depo-celular blockquote{background:none!important;box-shadow:none!important;padding:0!important;border-radius:0;display:block!important}
+  .depo-celular .brilho-depo{display:none}
+  .depo-avatar{flex:none;width:62px;height:62px;border-radius:50%;background:var(--manteiga);display:grid;place-items:center}
+  .depo-avatar .brilho{position:static;width:32px;height:32px}
+  .depo-celular p,.depo-celular p:nth-child(2),.depo-celular p:nth-child(3){font-size:.74rem!important;line-height:1.45;font-style:italic;color:var(--tinta-2)}
+  /* Cartão do vídeo no formato do cartão de produto */
+  .card-video{width:clamp(170px,14vw,196px);padding:16px;border-radius:24px;gap:10px}
+  .card-video img{width:74%;align-self:center;aspect-ratio:1;border-radius:14px}
+  .card-video-base strong{font-family:var(--sans);font-weight:600;font-size:1rem;letter-spacing:0}
+  .card-video-seta{width:34px;height:34px}
+
+  @media (min-width:861px){
+    .capa-grid{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);border-radius:26px;padding:clamp(36px,7vh,70px) clamp(32px,4.5vw,64px) 150px;align-content:start}
+    /* Foto grande, com o rosto em destaque, cortada na base do painel */
+    .capa-foto{top:5%;bottom:auto;right:13%;height:132%}
+    .depo-capa.depo-celular{position:absolute;left:clamp(18px,2vw,28px);bottom:clamp(18px,3vh,28px);margin:0}
+    .card-video{top:clamp(16px,2.6vh,24px);right:clamp(16px,1.6vw,24px)}
+  }
+
   @media (max-width:860px){
     .capa{padding-left:0;padding-right:0}
     .capa-grid{border-radius:22px;padding:22px 16px 20px;margin:0}
