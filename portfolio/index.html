@@ -1273,8 +1273,8 @@
   .leque-info small{display:block;font-size:11px;opacity:.85;margin-top:2px}
   .leque-seta{flex:none;width:38px;height:38px;border-radius:50%;background:#fff;display:grid;place-items:center;transition:transform .3s}
   .leque-seta svg{width:17px;height:17px;fill:none;stroke:var(--nc-tinta);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-  .leque-cartao[data-pos="0"]:hover .leque-seta{transform:rotate(45deg) scale(1.06)}
-  .leque-cartao[data-pos="0"]:hover{animation-play-state:paused}
+  .leque-cartao:hover .leque-seta{transform:rotate(45deg) scale(1.06)}
+  .leque-cartao:hover{animation-play-state:paused}
   @media (prefers-reduced-motion:reduce){ .leque-cartao{animation:none;transition:none} }
   /* play pequeno e transparente no meio do cartão, igual à etiqueta de vidro */
   .leque-play{position:absolute;z-index:2;left:50%;top:52%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.45);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:transform .3s,background .3s}
