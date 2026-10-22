@@ -2265,6 +2265,12 @@ function ajustaTopo() {
 }
 window.addEventListener("resize", ajustaTopo);
 
+// Menu fixo: depois que a página desce, a barra vira um cartão arredondado com sombra
+const topoFixo = $("#topo");
+const marcaRolagem = () => topoFixo.classList.toggle("nc-rolou", window.scrollY > topoFixo.offsetTop + 10);
+window.addEventListener("scroll", marcaRolagem, { passive: true });
+marcaRolagem();
+
 let idiomaSalvo = "pt";
 try { idiomaSalvo = localStorage.getItem("idioma") || "pt"; } catch (e) {}
 if (idiomaSalvo === "en") aplicaIdioma("en"); else atualizaBF();
