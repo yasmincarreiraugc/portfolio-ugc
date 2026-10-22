@@ -717,7 +717,13 @@
   .capa{padding-bottom:0}
 
   /* Barra do nome em branco (a faixa da Black Friday continua como era, em amarelo) */
-  .topo,.topo.rolou{background:var(--papel);border-bottom:var(--borda)}
+  .topo,.topo.rolou{background:#fff;border-bottom:1px solid var(--linha)}
+
+  /* Capa limpa, em fundo branco (como nas referências), com a faixa das logos colada embaixo da foto */
+  .capa{background:#fff}
+  .marcas{background:#fff;padding-bottom:0!important}
+  /* Linha fina na cor do quadriculado fechando os quadrados onde ele começa */
+  .marcas,.servicos,.contato,.filme{box-shadow:0 1px 0 rgba(111,175,240,.28),0 -1px 0 rgba(111,175,240,.28)}
 
   /* Marcas rolando numa faixa azul */
   .marcas{padding-top:0}
