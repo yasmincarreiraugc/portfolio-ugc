@@ -2116,12 +2116,41 @@ $("#videoFechar").addEventListener("click", fechaVideo);
 videoFundo.addEventListener("click", e => { if (e.target === videoFundo) fechaVideo(); });
 
 // Serviços
+// Cada bloco tem um botão de ligar: ao ligar, o bloco abre e mostra os detalhes e o botão do WhatsApp
+const iconesServico = {
+  organico: `<rect x="5" y="3" width="14" height="18" rx="3"/><path d="M12 15.5s-3-1.8-3-4a1.7 1.7 0 0 1 3-1 1.7 1.7 0 0 1 3 1c0 2.2-3 4-3 4Z"/>`,
+  anuncio:  `<path d="M4 10v4h3l6 4V6L7 10H4Z"/><path d="M17 9a4 4 0 0 1 0 6M19.5 6.5a7.5 7.5 0 0 1 0 11"/>`,
+  publi:    `<rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="16.6" cy="7.4" r=".6"/>`,
+  pacote:   `<path d="M3.5 8 12 4l8.5 4v8L12 20l-8.5-4V8Z"/><path d="M3.5 8 12 12l8.5-4M12 12v8"/>`,
+  sacola:   `<path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/>`,
+  pasta:    `<path d="M3.5 7a2 2 0 0 1 2-2h4l2 2h7a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2V7Z"/>`
+};
 $("#servicosGrid").innerHTML = SERVICOS.map((s, i) => `
-  <li class="servico revela d${(i % 3) + 1}">
-    <span class="n">${doisDig(i + 1)}</span>
-    <h3>${esc(s.titulo)}</h3>
-    <p>${esc(s.descricao)}</p>
+  <li class="serv serv-${esc(s.cor)}">
+    <button type="button" class="serv-topo" aria-expanded="false" aria-controls="serv-${i}">
+      <span class="serv-icone"><svg viewBox="0 0 24 24" aria-hidden="true">${iconesServico[s.icone] || ""}</svg></span>
+      <span class="serv-chave" aria-hidden="true"></span>
+      <h3>${esc(s.titulo)}</h3>
+    </button>
+    <div class="serv-detalhe" id="serv-${i}">
+      <p>${esc(s.descricao)}</p>
+      <a class="serv-whats" href="#" target="_blank" rel="noopener" data-servico="${esc(s.titulo)}">pedir no WhatsApp →</a>
+    </div>
   </li>`).join("");
+const blocosServico = [...document.querySelectorAll("#servicosGrid .serv")];
+blocosServico.forEach(b => b.querySelector(".serv-topo").addEventListener("click", () => {
+  const abrir = !b.classList.contains("aberto");
+  blocosServico.forEach(o => { o.classList.remove("aberto"); o.querySelector(".serv-topo").setAttribute("aria-expanded", "false"); });
+  if (abrir) { b.classList.add("aberto"); b.querySelector(".serv-topo").setAttribute("aria-expanded", "true"); }
+}));
+// Mensagem do WhatsApp já com o nome do serviço
+document.querySelectorAll(".serv-whats").forEach(a => a.addEventListener("click", () => {
+  const nome = a.dataset.servico;
+  const msg = idioma === "en"
+    ? `Hi Yasmin! I found your portfolio and I'd like to know more about ${EN[nome] || nome}.`
+    : `Oi, Yasmin! Vim pelo seu portfólio e quero saber mais sobre ${nome}.`;
+  a.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg);
+}));
 
 // Fotos UGC: tira de filme com rótulo em cima e número embaixo
 $("#filmeTrilho").innerHTML = FOTOS_UGC.map((f, i) => `
