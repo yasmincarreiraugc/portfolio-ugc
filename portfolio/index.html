@@ -2002,8 +2002,10 @@ $("#galeria").innerHTML = nichos.map(nicho => VIDEOS_POR_NICHO[nicho].map(v => {
     <a href="${esc(v.link)}" target="_blank" rel="noopener" ${id ? `data-video="${id}"` : ""} data-titulo="${esc(v.marca)}" aria-label="Assistir vídeo para ${esc(v.marca)}, nicho ${esc(nicho)}">
       <div class="midia">
         ${id ? `<img src="${capaYoutube(id)}" alt="Capa do vídeo para ${esc(v.marca)}" loading="lazy" ${attrsCapa(id)}>` : ""}
-        <span class="marca-etiqueta">${esc(v.marca)}</span>
-        <span class="play">${iconePlay}</span>
+        <span class="leque-info">
+          <span><strong>${esc(v.marca)}</strong><small>${esc(nicho)}</small></span>
+          <span class="leque-seta">${iconeSeta}</span>
+        </span>
       </div>
     </a>
   </li>`;
