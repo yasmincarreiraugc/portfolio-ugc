@@ -1257,6 +1257,31 @@
   .selo-amarelo{background:var(--amarelo-paleta)}
   /* foto do Sobre mim sem a sombra preta, com cantos suaves como a capa */
   #sobre .midia{box-shadow:none!important;border:0!important;border-radius:28px!important;overflow:hidden}
+
+  /* Sobre mim sem o painel branco: só a montagem da foto com as pastinhas e o texto */
+  main > #sobre{background:transparent!important;overflow:visible}
+  #sobre .sobre-grid{grid-template-columns:1fr 1fr;align-items:center}
+  .sobre-montagem{position:relative;max-width:520px;width:100%;margin:0 auto}
+  .sobre-montagem .midia{width:66%;aspect-ratio:4/5}
+  .sobre-brilho{position:absolute;top:-14px;left:calc(66% - 26px);width:52px;height:52px;fill:var(--rosa-paleta);stroke:var(--nc-tinta);stroke-width:2;stroke-linejoin:round;overflow:visible;animation:brilhar 3s ease-in-out infinite}
+  /* as 4 pastinhas sobem por cima da parte de baixo da foto */
+  .pastas{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:16px 14px;width:84%;margin:-34% 0 0 16%}
+  .pasta{position:relative;margin:0;padding-top:44%}
+  .pasta img{position:absolute;top:0;left:11%;width:78%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;box-shadow:0 10px 22px -14px rgba(30,25,21,.6);transform:rotate(-2deg)}
+  .pasta:nth-child(even) img{transform:rotate(2deg)}
+  .pasta figcaption{position:relative;min-height:74px;display:flex;align-items:flex-end;padding:22px 14px 14px;border-radius:0 14px 14px 14px;font-family:var(--serif);font-weight:600;font-size:clamp(1.05rem,1.6vw,1.3rem);line-height:1.05;text-transform:uppercase;color:var(--nc-tinta);box-shadow:0 14px 26px -18px rgba(30,25,21,.5)}
+  .pasta figcaption::before{content:"";position:absolute;left:0;top:-13px;width:52%;height:14px;background:inherit;border-radius:10px 10px 0 0}
+  .pasta-bege figcaption{background:#e9dfd3}
+  .pasta-rosa figcaption{background:var(--rosa-paleta)}
+  .pasta-azul figcaption{background:#a9cdf6}
+  .pasta-amarela figcaption{background:var(--amarelo-paleta)}
+  @media (max-width:860px){
+    #sobre .sobre-grid{grid-template-columns:1fr;gap:40px}
+    .sobre-montagem .midia{width:72%}
+    .sobre-brilho{left:calc(72% - 22px);width:44px;height:44px}
+    .pastas{width:92%;margin:-30% 0 0 8%;gap:14px 10px}
+    .pasta figcaption{min-height:60px;padding:18px 10px 10px;font-size:.98rem}
+  }
   .contato{background:var(--ceu)!important}
   .filme{box-shadow:none!important;background:transparent!important}
   /* sem números nas seções */
