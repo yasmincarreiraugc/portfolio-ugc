@@ -1942,8 +1942,9 @@ destaquesGrid.innerHTML = DESTAQUES.map(d => {
   const id = idYoutube(d.link);
   const capa = d.capa || (id ? capaYoutube(id) : "");
   return `
-  <a class="leque-cartao" href="${esc(d.link)}" target="_blank" rel="noopener" ${id ? `data-video="${id}"` : ""} data-titulo="${esc(d.titulo)}" aria-label="Assistir: ${esc(d.titulo)}">
+  <a class="leque-cartao" href="${esc(d.link)}" target="_blank" rel="noopener" ${id ? `data-video="${id}"` : ""} data-titulo="${esc(d.titulo)} · ${esc(d.categoria)}" aria-label="Assistir: ${esc(d.titulo)}">
     ${capa ? `<img src="${esc(capa)}" alt="Capa do vídeo ${esc(d.titulo)}" loading="lazy" ${!d.capa && id ? attrsCapa(id) : ""}>` : ""}
+    <span class="leque-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span>
     <span class="leque-info">
       <span><strong>${esc(d.titulo)}</strong><small>${esc(d.categoria)}</small></span>
       <span class="leque-seta">${iconeSeta}</span>
