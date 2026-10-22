@@ -80,7 +80,7 @@
   .capa-visual{position:relative;justify-self:end;width:72%;aspect-ratio:878/820;container-type:inline-size;--u:calc(100cqw / 878)}
   .capa-visual .foto{position:absolute;inset:0;overflow:hidden}
   /* FOTO DA CAPA: para trocar, substitua o arquivo cena.jpg */
-  .capa-visual .foto img{width:100%;height:100%;object-fit:cover;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%);mask-image:linear-gradient(90deg,transparent,#000 5%)}
+  .capa-visual .foto img{width:100%;height:100%;object-fit:cover;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%),linear-gradient(180deg,transparent,#000 5%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 5%),linear-gradient(180deg,transparent,#000 5%);mask-composite:intersect}
   .cartao{position:absolute;left:calc(590 * var(--u));width:calc(265 * var(--u));background:var(--cartao);border-radius:calc(22 * var(--u));box-shadow:0 calc(18 * var(--u)) calc(40 * var(--u)) calc(-22 * var(--u)) rgba(60,40,25,.25)}
 
   .cartao-colecao{top:calc(81 * var(--u));min-height:calc(284 * var(--u));padding:calc(22 * var(--u)) calc(18 * var(--u)) calc(20 * var(--u))}
