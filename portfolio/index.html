@@ -1958,8 +1958,6 @@ function posicionaLeque() {
   });
 }
 const giraLeque = passo => { lequeAtual = (lequeAtual + passo + cartoesLeque.length) % cartoesLeque.length; posicionaLeque(); };
-$("#lequeAnterior").addEventListener("click", () => giraLeque(-1));
-$("#lequeProximo").addEventListener("click", () => giraLeque(1));
 // Clicar num cartão do lado traz ele para o meio (sem abrir o vídeo)
 destaquesGrid.addEventListener("click", e => {
   const c = e.target.closest(".leque-cartao");
