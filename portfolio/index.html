@@ -705,6 +705,26 @@
      exatamente embaixo do menu (que é opaco), sem pontas soltas aparecendo */
   .topo{background:var(--creme);-webkit-backdrop-filter:none;backdrop-filter:none}
   body{background-position:-1px calc(var(--altura-topo, 110px) - 1px);background-attachment:fixed}
+  /* Foto da capa recortada (sem fundo), sem moldura, "pousando" na faixa das marcas */
+  .capa-foto{align-self:end;width:clamp(220px,calc((100vh - 290px) * 740 / 1188),400px)}
+  .capa-foto .midia{aspect-ratio:740/1188;background:none;border:0;box-shadow:none;border-radius:0;overflow:visible}
+  .capa-foto .midia img{object-fit:contain;object-position:center bottom}
+  .capa{padding-bottom:0}
+
+  /* Topo fixo em duas cores: Black Friday em magenta e a barra do nome em branco */
+  .faixa-bf{background:var(--magenta);border-bottom:var(--borda)}
+  .bf-texto{color:rgba(17,17,17,.8)}
+  .bf-conta b{color:#fff;-webkit-text-stroke:1px var(--tinta);paint-order:stroke fill}
+  .bf-link:hover{color:#fff}
+  .topo,.topo.rolou{background:var(--papel);border-bottom:var(--borda)}
+
+  /* Marcas rolando numa faixa azul */
+  .marcas{padding-top:0}
+  .marcas h2{margin:clamp(14px,2vh,22px) 0 clamp(10px,1.6vh,16px)}
+  .marcas-trilho{background:var(--ceu);border-top:var(--borda);border-bottom:var(--borda);box-shadow:0 6px 0 rgba(17,17,17,.08)}
+  .marcas-trilho ul{padding:12px clamp(8px,1vw,13px)!important}
+  .marcas{overflow:hidden}
+
   /* Estrela amarela mais para baixo, longe do menu do topo */
   .brilho-2{top:34%;right:-22px}
   .ponto-2{top:calc(34% + 40px)}
