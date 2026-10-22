@@ -696,9 +696,11 @@
   .capa-foto .midia{aspect-ratio:4/5}
   .capa-foto .midia img{object-position:center 28%}
   /* Depoimento numa caixa só, pequena, no cantinho da foto */
-  .depo-capa{left:-46px;bottom:18px;max-width:178px;display:block}
-  .depo-capa blockquote{display:block;background:#fff;border:var(--borda);border-radius:14px 14px 14px 4px;padding:8px 11px;box-shadow:3px 3px 0 var(--tinta)}
-  .depo-capa p,.depo-capa p:nth-child(2),.depo-capa p:nth-child(3){display:block;background:none;border:0;box-shadow:none;padding:0;margin:0;border-radius:0;font-size:.66rem;line-height:1.35}
+  /* Depoimento: caixa escura por cima da foto, com a estrela no canto (metade dentro, metade fora) */
+  .depo-capa{left:-38px;bottom:13%;max-width:215px;display:block}
+  .depo-capa blockquote{position:relative;display:block;background:var(--tinta);color:var(--creme);border:0;border-radius:18px;padding:15px 20px 15px 17px;box-shadow:0 18px 36px -14px rgba(17,17,17,.55)}
+  .depo-capa p,.depo-capa p:nth-child(2),.depo-capa p:nth-child(3){display:block;background:none;border:0;box-shadow:none;padding:0;margin:0;border-radius:0;font-size:.76rem;font-weight:500;line-height:1.45;color:var(--creme)}
+  .brilho-depo{width:30px;top:-15px;right:-15px;left:auto;animation-duration:2.4s}
   /* Quadriculado começando com o quadrado fechado: a primeira linha horizontal fica
      exatamente embaixo do menu (que é opaco), sem pontas soltas aparecendo */
   .topo{background:var(--creme);-webkit-backdrop-filter:none;backdrop-filter:none}
