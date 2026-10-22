@@ -2302,7 +2302,7 @@ document.addEventListener("click", e => {
   if (link.classList.contains("pular")) { const alvo = document.getElementById(id); alvo.setAttribute("tabindex", "-1"); alvo.focus({ preventScroll: true }); }
 });
 // Quem chega por um link antigo com #secao vai para a seção e o endereço fica limpo
-window.addEventListener("load", () => { const id = location.hash.slice(1); limpaEndereco(); if (id) setTimeout(() => irPara(decodeURIComponent(id), false), 50); });
+window.addEventListener("load", () => { if (secaoInicial) setTimeout(() => irPara(secaoInicial, false), 50); });
 
 // Menu fixo: depois que a página desce, a barra vira um cartão arredondado com sombra
 const topoFixo = $("#topo");
