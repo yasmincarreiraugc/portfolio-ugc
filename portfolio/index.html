@@ -1283,6 +1283,13 @@
   .pasta img{border-radius:8px}
   .pasta figcaption{min-height:50px;padding:15px 11px 10px;border-radius:0 11px 11px 11px;font-family:var(--nc-sans);font-weight:500;font-size:12px;line-height:1.3;text-transform:none;letter-spacing:.01em}
   .pasta figcaption::before{top:-10px;height:11px;border-radius:8px 8px 0 0}
+  /* Foto principal inclinada; pastinhas retas, mais para a direita e menos por cima da foto */
+  #sobre .sobre-montagem .midia{transform:rotate(-4deg)}
+  .sobre-brilho{top:-26px}
+  .pastas{transform:none;width:72%;margin:-20% 0 0 46%}
+  @media (max-width:860px){
+    .pastas{width:70%!important;margin:-14% 0 0 30%!important}
+  }
   @media (max-width:860px){
     #sobre .sobre-grid{grid-template-columns:1fr;gap:40px}
     .sobre-montagem .midia{width:72%}
