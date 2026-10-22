@@ -1247,6 +1247,10 @@
 
   /* ===== Melhores vídeos em leque ===== */
   .leque{position:relative}
+  /* destaques mais perto do Sobre mim e os vídeos logo abaixo do texto */
+  main > #sobre{padding-bottom:4px}
+  main > #destaques{padding-top:clamp(32px,3.6vw,48px);padding-bottom:clamp(24px,3vw,40px)}
+  #destaques .cabeca{margin-bottom:6px}
   .leque-setas{display:flex;justify-content:center;gap:8px;margin-bottom:8px}
   .leque-setas button{width:52px;height:32px;border-radius:999px;border:0;background:var(--rosa-paleta);display:grid;place-items:center;cursor:pointer;transition:background .2s,transform .2s}
   .leque-setas button:hover{background:#ffb3e3;transform:translateY(-1px)}
