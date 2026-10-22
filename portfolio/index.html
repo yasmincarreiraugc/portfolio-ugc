@@ -818,6 +818,46 @@
     .card-video{top:clamp(16px,2.6vh,24px);right:clamp(16px,1.6vw,24px)}
   }
 
+  /* ===================== CAPA MAIS ELEGANTE ===================== */
+  /* Menu: nome numa cor só, links centralizados e "Trabalhos" com submenu */
+  .marca-nome em{color:inherit}
+  .topo .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px}
+  .marca-nome{justify-self:start}
+  .menu{margin:0;justify-self:center}
+  .menu ul{gap:38px;align-items:center}
+  .menu a{font-size:.9rem;font-weight:500;color:var(--tinta);display:inline-flex;align-items:center;gap:5px}
+  .chevron{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s}
+  .tem-sub{position:relative}
+  .tem-sub::after{content:"";position:absolute;left:-20px;right:-20px;top:100%;height:16px}
+  .menu .submenu{position:absolute;top:calc(100% + 14px);left:50%;transform:translate(-50%,6px);display:flex;flex-direction:column;gap:0;min-width:170px;padding:8px;margin:0;list-style:none;background:#fff;border-radius:14px;box-shadow:0 18px 40px -16px rgba(17,17,17,.3);opacity:0;visibility:hidden;transition:opacity .2s,transform .2s,visibility .2s;z-index:5}
+  .tem-sub:hover .submenu,.tem-sub:focus-within .submenu{opacity:1;visibility:visible;transform:translate(-50%,0)}
+  .tem-sub:hover .chevron,.tem-sub:focus-within .chevron{transform:rotate(180deg)}
+  .submenu a{display:block;width:100%;padding:10px 14px;border-radius:9px;font-size:.88rem}
+  .submenu a::after{display:none}
+  .submenu a:hover{background:var(--creme)}
+  /* Botão de idioma mais delicado */
+  .idioma{justify-self:end;border:1px solid var(--linha);padding:2px;background:transparent}
+  .idioma button{font-size:.66rem;font-weight:600;letter-spacing:.1em;padding:5px 10px;color:var(--tinta-2)}
+  .idioma button svg{display:none}
+  .idioma button[aria-pressed="true"]{background:var(--tinta);color:#fff}
+  .idioma button:hover:not([aria-pressed="true"]){background:transparent;color:var(--tinta)}
+
+  /* Painel bege mais largo (aparece menos branco nas laterais) */
+  .capa .wrap{max-width:none;padding:0 clamp(8px,1vw,14px)}
+  /* Sem estrelas e sem círculo no depoimento */
+  .brilho,.ponto,.depo-avatar{display:none!important}
+  /* "ser escolhida" em serifa itálica, elegante, na linha de baixo */
+  .capa h1 em{display:block;font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;font-style:italic;font-weight:500;text-transform:none;font-size:.92em;line-height:1;margin:.04em 0 0;transform:none;letter-spacing:0;white-space:normal;color:var(--magenta)}
+  /* Depoimento pequeno, à direita, na altura do braço (longe do rosto) */
+  .capa-foto .depo-capa blockquote{background:#fff;color:var(--tinta);border-radius:16px;padding:12px 15px;box-shadow:0 14px 30px -14px rgba(17,17,17,.35)}
+  .capa-foto .depo-capa p,.capa-foto .depo-capa p:nth-child(2),.capa-foto .depo-capa p:nth-child(3){font-size:.68rem!important;line-height:1.42;font-style:italic;font-weight:500;color:var(--tinta-2)}
+  .depo-capa.depo-celular{padding:12px 16px}
+  @media (min-width:861px){
+    .depo-capa.depo-celular{display:none!important}
+    .capa-foto .depo-capa{display:block!important;position:absolute;left:auto;right:-3%;top:62%;bottom:auto;max-width:205px;z-index:3}
+    .capa-grid{padding-bottom:clamp(36px,7vh,70px)}
+  }
+
   @media (max-width:860px){
     .capa{padding-left:0;padding-right:0}
     .capa-grid{border-radius:22px;padding:22px 16px 20px;margin:0}
