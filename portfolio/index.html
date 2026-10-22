@@ -1899,48 +1899,56 @@ function trocaCapa(img) {
 
 // Destaques
 const iconePlay = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg>`;
-$("#destaquesGrid").innerHTML = DESTAQUES.map((d, i) => {
+// Cartões em leque: o do meio fica reto e na frente, os outros inclinados para os lados.
+// As setas (ou arrastar no celular) giram o leque; clicar no cartão do meio abre o vídeo.
+const destaquesGrid = $("#destaquesGrid");
+const iconeSeta = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>`;
+destaquesGrid.innerHTML = DESTAQUES.map(d => {
   const id = idYoutube(d.link);
   const capa = d.capa || (id ? capaYoutube(id) : "");
   return `
-  <a class="destaque revela d${i + 1}" href="${esc(d.link)}" target="_blank" rel="noopener" ${id ? `data-video="${id}"` : ""} data-titulo="${esc(d.titulo)}" aria-label="Assistir: ${esc(d.titulo)}">
-    <div class="corpo">
-      ${d.selo ? `<span class="destaque-selo">${esc(d.selo)}</span>` : ""}
-      <div class="celular">
-        <div class="tela">
-          <span class="ilha"></span>
-          ${capa ? `<img src="${esc(capa)}" alt="Capa do vídeo ${esc(d.titulo)}" loading="lazy" ${!d.capa && id ? attrsCapa(id) : ""}>` : ""}
-          <span class="play">${iconePlay}</span>
-        </div>
-      </div>
-      <div class="notificacao">
-        <span class="notif-icone">${iconePlay}</span>
-        <span class="notif-texto">
-          <small><span>${esc(d.categoria)}</span><span>agora</span></small>
-          <strong>${esc(d.titulo)}</strong>
-          ${d.sub ? `<span class="sub">${esc(d.sub)}</span>` : ""}
-        </span>
-      </div>
-    </div>
+  <a class="leque-cartao" href="${esc(d.link)}" target="_blank" rel="noopener" ${id ? `data-video="${id}"` : ""} data-titulo="${esc(d.titulo)}" aria-label="Assistir: ${esc(d.titulo)}">
+    ${capa ? `<img src="${esc(capa)}" alt="Capa do vídeo ${esc(d.titulo)}" loading="lazy" ${!d.capa && id ? attrsCapa(id) : ""}>` : ""}
+    <span class="leque-info">
+      <span><strong>${esc(d.titulo)}</strong><small>${esc(d.categoria)}</small></span>
+      <span class="leque-seta">${iconeSeta}</span>
+    </span>
   </a>`;
 }).join("");
 
-// Celular: ao arrastar os destaques, os celulares inclinam e o do meio fica maior
-const destaquesGrid = $("#destaquesGrid");
-const carrosselCelular = window.matchMedia("(max-width: 860px)");
-function inclinaDestaques() {
-  const cards = destaquesGrid.querySelectorAll(".destaque .corpo");
-  if (!carrosselCelular.matches || reduzMovimento) { cards.forEach(c => c.style.transform = ""); return; }
-  const centro = destaquesGrid.getBoundingClientRect().left + destaquesGrid.clientWidth / 2;
-  cards.forEach(c => {
-    const b = c.parentElement.getBoundingClientRect();
-    const desvio = Math.max(-1, Math.min(1, (b.left + b.width / 2 - centro) / b.width));
-    c.style.transform = `rotate(${desvio * 6}deg) scale(${1 - Math.abs(desvio) * 0.1})`;
+const cartoesLeque = [...destaquesGrid.querySelectorAll(".leque-cartao")];
+let lequeAtual = Math.floor(cartoesLeque.length / 2);
+function posicionaLeque() {
+  const n = cartoesLeque.length;
+  cartoesLeque.forEach((c, i) => {
+    let p = i - lequeAtual;
+    if (p > n / 2) p -= n;
+    if (p < -n / 2) p += n;
+    c.dataset.pos = p;
+    c.tabIndex = p === 0 ? 0 : -1;
   });
 }
-destaquesGrid.addEventListener("scroll", () => requestAnimationFrame(inclinaDestaques), { passive: true });
-window.addEventListener("resize", inclinaDestaques);
-inclinaDestaques();
+const giraLeque = passo => { lequeAtual = (lequeAtual + passo + cartoesLeque.length) % cartoesLeque.length; posicionaLeque(); };
+$("#lequeAnterior").addEventListener("click", () => giraLeque(-1));
+$("#lequeProximo").addEventListener("click", () => giraLeque(1));
+// Clicar num cartão do lado traz ele para o meio (sem abrir o vídeo)
+destaquesGrid.addEventListener("click", e => {
+  const c = e.target.closest(".leque-cartao");
+  if (!c || c.dataset.pos === "0") return;
+  e.preventDefault();
+  e.stopPropagation();
+  giraLeque(+c.dataset.pos);
+}, true);
+// Arrastar para o lado no celular
+let toqueX = null;
+destaquesGrid.addEventListener("touchstart", e => { toqueX = e.touches[0].clientX; }, { passive: true });
+destaquesGrid.addEventListener("touchend", e => {
+  if (toqueX === null) return;
+  const dx = e.changedTouches[0].clientX - toqueX;
+  toqueX = null;
+  if (Math.abs(dx) > 40) giraLeque(dx < 0 ? 1 : -1);
+});
+posicionaLeque();
 
 // Vídeos por nicho + filtros (o primeiro nicho já começa selecionado)
 const nichos = Object.keys(VIDEOS_POR_NICHO);
