@@ -2267,7 +2267,8 @@ window.addEventListener("resize", ajustaTopo);
 
 // Menu fixo: depois que a página desce, a barra vira um cartão arredondado com sombra
 const topoFixo = $("#topo");
-const marcaRolagem = () => topoFixo.classList.toggle("nc-rolou", window.scrollY > topoFixo.offsetTop + 10);
+const faixaAcima = document.getElementById("faixaBF");
+const marcaRolagem = () => topoFixo.classList.toggle("nc-rolou", window.scrollY > (faixaAcima && !faixaAcima.hidden ? faixaAcima.offsetHeight : 0) + 10);
 window.addEventListener("scroll", marcaRolagem, { passive: true });
 marcaRolagem();
 
