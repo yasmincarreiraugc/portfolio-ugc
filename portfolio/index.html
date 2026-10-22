@@ -1215,6 +1215,35 @@
     .marcas-titulo::before,.marcas-titulo::after{width:16px}
   }
 
+  /* Botão principal no rosa da paleta */
+  .nc-btn-cheio{background:var(--rosa-paleta);color:var(--nc-tinta);box-shadow:0 10px 24px -14px rgba(214,90,170,.8)}
+  .nc-btn-cheio:hover{background:#ffb3e3}
+  /* "Marcas que confiam no meu trabalho" um pouco menor */
+  .marcas-titulo{font-size:11.5px}
+
+  /* ===== Da faixa das marcas para baixo: mesmo visual da capa =====
+     Fundo creme liso e cada seção num painel arredondado, como a capa. */
+  :root{--serif:"Barlow Condensed","Arial Narrow",sans-serif}
+  body{background:var(--nc-bege)!important;background-image:none!important}
+  h1,h2,h3{font-weight:700;letter-spacing:0}
+  main > .secao{margin:0 max(24px,calc((100% - 1220px) / 2)) 24px;border-radius:36px;background:#fff;color:var(--nc-tinta);padding:clamp(56px,7vw,88px) 0;overflow:hidden;box-shadow:none!important}
+  main > .secao .wrap{padding:0 clamp(24px,4.6vw,56px)}
+  #sobre{padding-top:clamp(36px,4vw,56px)}
+  .servicos{background:var(--nc-tinta)!important;color:#f5f2ed}
+  .contato{background:var(--ceu)!important}
+  .filme{box-shadow:none!important;background:transparent!important}
+  /* sem números nas seções */
+  .cabeca .num,.servico .n{display:none!important}
+  .cabeca{margin-bottom:clamp(28px,4vw,44px)}
+  .cabeca h2{font-size:clamp(2.4rem,5vw,3.9rem);text-transform:uppercase}
+  #titulo-sobre{font-size:clamp(2.4rem,4.6vw,3.6rem)}
+  .servico h3{font-size:1.7rem}
+  .rodape{background:var(--nc-bege)}
+  @media (max-width:1060px){
+    main > .secao{margin:0 10px 10px;border-radius:24px}
+    main > .secao .wrap{padding:0 16px}
+  }
+
   /* Barra de rolagem da página: estreita, quadrada, com fundo amarelo da paleta */
   html::-webkit-scrollbar{width:5px;height:5px}
   html::-webkit-scrollbar-track{background:var(--amarelo-paleta)}
