@@ -2275,8 +2275,23 @@ window.addEventListener("resize", ajustaTopo);
 // Endereço limpo: os links do menu continuam levando à seção certa,
 // mas o "#inicio", "#sobre"... some do endereço (fica só yasmincarreira.com/portfolio/)
 const limpaEndereco = () => { if (location.hash) history.replaceState(null, "", location.pathname + location.search); };
-window.addEventListener("hashchange", limpaEndereco);
-window.addEventListener("load", () => setTimeout(limpaEndereco, 300));
+const irPara = (id, suave) => {
+  const alvo = document.getElementById(id);
+  if (!alvo) return false;
+  if (id === "inicio" || id === "topo") window.scrollTo({ top: 0, behavior: suave ? "smooth" : "auto" });
+  else alvo.scrollIntoView({ behavior: suave ? "smooth" : "auto", block: "start" });
+  return true;
+};
+document.addEventListener("click", e => {
+  const link = e.target.closest('a[href^="#"]');
+  if (!link || e.defaultPrevented) return;
+  const id = decodeURIComponent(link.getAttribute("href").slice(1));
+  if (!id || !irPara(id, true)) return;
+  e.preventDefault();
+  if (link.classList.contains("pular")) { const alvo = document.getElementById(id); alvo.setAttribute("tabindex", "-1"); alvo.focus({ preventScroll: true }); }
+});
+// Quem chega por um link antigo com #secao vai para a seção e o endereço fica limpo
+window.addEventListener("load", () => { const id = location.hash.slice(1); limpaEndereco(); if (id) setTimeout(() => irPara(decodeURIComponent(id), false), 50); });
 
 // Menu fixo: depois que a página desce, a barra vira um cartão arredondado com sombra
 const topoFixo = $("#topo");
