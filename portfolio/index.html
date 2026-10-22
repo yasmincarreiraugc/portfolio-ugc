@@ -1273,7 +1273,7 @@
   .leque-cartao[data-pos="0"]:hover{animation-play-state:paused}
   @media (prefers-reduced-motion:reduce){ .leque-cartao{animation:none;transition:none} }
   @media (max-width:860px){
-    .leque-palco{--w:min(58vw,240px)}
+    .leque-palco{--w:min(58vw,240px);height:calc(var(--w) * 1.33 + 34px)}
     .leque-cartao[data-pos="-1"]{transform:translateX(-50%) translate(-62%,8%) rotate(-14deg) scale(.84)}
     .leque-cartao[data-pos="1"]{transform:translateX(-50%) translate(62%,8%) rotate(14deg) scale(.84)}
   }
