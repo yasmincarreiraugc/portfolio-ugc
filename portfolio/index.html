@@ -1430,6 +1430,10 @@
   @media (prefers-reduced-motion:reduce){ .sobre-cartoes li{animation:none} .sobre-cartoes li:hover img{transform:none} }
   @media (max-width:860px){
     #sobre .sobre-grid{grid-template-columns:1fr}
+    /* barra de baixo do celular branca, com ícones escuros */
+    .app-nav{background:#fff!important;box-shadow:0 14px 34px -14px rgba(30,25,21,.35),0 0 0 1px rgba(30,25,21,.06)!important}
+    .app-nav a,.app-nav button{color:#6b645d!important}
+    .app-nav .ativo,.app-nav .centro{color:var(--nc-tinta)!important}
     /* no celular a foto grande do Sobre mim não aparece, só o texto e os cartões */
     #sobre .sobre-montagem{display:none}
     .sobre-cartoes{grid-template-columns:repeat(2,minmax(0,1fr))}
