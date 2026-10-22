@@ -2281,7 +2281,10 @@ window.addEventListener("resize", ajustaTopo);
 
 // Endereço limpo: os links do menu continuam levando à seção certa,
 // mas o "#inicio", "#sobre"... some do endereço (fica só yasmincarreira.com/portfolio/)
-const limpaEndereco = () => { if (location.hash) history.replaceState(null, "", location.pathname + location.search); };
+// (também tira a barra do fim: /portfolio/ vira /portfolio; os caminhos ../fotos continuam iguais)
+const caminhoLimpo = () => location.pathname.replace(/\/portfolio\/(index\.html)?$/, "/portfolio");
+const limpaEndereco = () => { if (location.hash || caminhoLimpo() !== location.pathname) history.replaceState(null, "", caminhoLimpo() + location.search); };
+limpaEndereco();
 const irPara = (id, suave) => {
   const alvo = document.getElementById(id);
   if (!alvo) return false;
