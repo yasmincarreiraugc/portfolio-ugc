@@ -705,6 +705,11 @@
      exatamente embaixo do menu (que é opaco), sem pontas soltas aparecendo */
   .topo{background:var(--creme);-webkit-backdrop-filter:none;backdrop-filter:none}
   body{background-position:-1px calc(var(--altura-topo, 110px) - 1px);background-attachment:fixed}
+  /* Texto embaixo do título: bem menor, como na referência */
+  .capa .frase{font-size:clamp(.9rem,1.05vw,1rem)!important;line-height:1.55;max-width:46ch;color:var(--tinta-2)}
+  .capa .frase strong{font-weight:600}
+  @media (max-width:860px){ .capa .frase{font-size:.84rem!important} }
+
   /* Foto da capa recortada (sem fundo), sem moldura, "pousando" na faixa das marcas */
   .capa-foto{align-self:end;width:clamp(220px,calc((100vh - 290px) * 740 / 1188),400px)}
   .capa-foto .midia{aspect-ratio:740/1188;background:none;border:0;box-shadow:none;border-radius:0;overflow:visible}
