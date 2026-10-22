@@ -1447,36 +1447,22 @@
   <section class="secao" id="sobre" aria-labelledby="titulo-sobre">
     <div class="wrap sobre-grid">
       <!-- FOTO DO SOBRE: para trocar, substitua o arquivo fotos/sobre.jpg -->
-      <!-- Montagem: a foto do Sobre por baixo e as 4 pastinhas por cima.
-           Para trocar uma foto de pastinha, substitua fotos/pasta-1.jpg ... pasta-4.jpg -->
       <div class="sobre-montagem revela">
         <div class="midia">
           <img src="../fotos/sobre.jpg" alt="Yasmin Carreira sorrindo e segurando produtos de cabelo Eudora Siàge" loading="lazy">
-        </div>
-        <svg class="sobre-brilho" viewBox="-3 -3 46 46" aria-hidden="true"><path d="M20 0C21.6 11.5 28.5 18.4 40 20 28.5 21.6 21.6 28.5 20 40 18.4 28.5 11.5 21.6 0 20 11.5 18.4 18.4 11.5 20 0Z"/></svg>
-        <div class="pastas">
-          <figure class="pasta pasta-bege">
-            <img src="../fotos/pasta-1.jpg" alt="Yasmin soprando as velas de um bolo de aniversário" loading="lazy" style="object-position:center 30%">
-            <figcaption>32 anos</figcaption>
-          </figure>
-          <figure class="pasta pasta-rosa">
-            <img src="../fotos/pasta-2.jpg" alt="Yasmin brincando com o filho Bernardo no colo" loading="lazy" style="object-position:center 45%">
-            <figcaption>mãe do Bernardo</figcaption>
-          </figure>
-          <figure class="pasta pasta-azul">
-            <img src="../fotos/pasta-3.jpg" alt="Yasmin na praia, no litoral de São Paulo" loading="lazy" style="object-position:center 52%">
-            <figcaption>moro no litoral de SP</figcaption>
-          </figure>
-          <figure class="pasta pasta-amarela">
-            <img src="../fotos/pasta-4.jpg" alt="Yasmin sorrindo na academia" loading="lazy" style="object-position:center 32%">
-            <figcaption>se cuida e incentiva mulheres</figcaption>
-          </figure>
         </div>
       </div>
       <div class="sobre-texto">
         <span class="sobrelinha revela">Sobre mim</span>
         <h2 id="titulo-sobre" class="revela d1">Prazer, eu sou a <em>Yasmin</em>.</h2>
-        <p class="revela d1" id="sobre-p1">Tenho <strong>32 anos</strong>, sou <strong>mãe</strong> e moro no litoral de São Paulo. Crio conteúdo para mulheres sobre autocuidado, de um jeito natural e com cara de conversa de amiga.</p>
+        <!-- 4 cartões lado a lado. Para trocar uma foto, substitua fotos/pasta-1.jpg ... pasta-4.jpg -->
+        <ul class="sobre-cartoes revela d1">
+          <li class="cartao-rosa"><img src="../fotos/pasta-1.jpg" alt="Yasmin soprando as velas de um bolo de aniversário" loading="lazy" style="object-position:center 30%"><strong>32 anos</strong></li>
+          <li class="cartao-azul"><img src="../fotos/pasta-2.jpg" alt="Yasmin brincando com o filho Bernardo no colo" loading="lazy" style="object-position:center 45%"><strong>Mãe do Bernardo</strong></li>
+          <li class="cartao-amarelo"><img src="../fotos/pasta-3.jpg" alt="Yasmin na praia, no litoral de São Paulo" loading="lazy" style="object-position:center 55%"><strong>Moro no litoral de SP</strong></li>
+          <li class="cartao-rosa"><img src="../fotos/pasta-4.jpg" alt="Yasmin sorrindo na academia" loading="lazy" style="object-position:center 30%"><strong>Se cuida e incentiva mulheres</strong></li>
+        </ul>
+        <p class="revela d2">Crio conteúdo para mulheres sobre autocuidado, de um jeito natural e com cara de conversa de amiga.</p>
         <p class="revela d2" id="sobre-p2">Cada vídeo é dinâmico, alinhado com a sua campanha e pensado para levar a mensagem certa e <strong>despertar desejo</strong>. Com um olhar analítico, transformo o seu produto em desejo de consumo: <strong>conteúdo autêntico</strong> que cria <strong>conexão real</strong>, gera autoridade e traz resultado.</p>
       </div>
     </div>
