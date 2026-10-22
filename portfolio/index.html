@@ -1279,6 +1279,12 @@
   .trabalho .midia{border-radius:clamp(24px,2.6vw,34px)!important;box-shadow:0 22px 40px -26px rgba(30,25,21,.55)!important;border:0!important}
   .trabalho .midia::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.36),transparent 36%);pointer-events:none}
   .trabalho .leque-info{left:10px;right:10px;top:10px;padding:8px 8px 8px 13px;border-radius:18px}
+  /* botões dos nichos menores, todos na mesma linha (no celular, deslizam para o lado) */
+  .filtros{flex-wrap:nowrap!important;gap:6px!important;overflow-x:auto;scrollbar-width:none;padding:2px 4px 6px 0;margin-bottom:24px!important}
+  .filtros::-webkit-scrollbar{display:none}
+  .filtro{flex:none;padding:6px 11px!important;font-size:12.5px!important;border-radius:999px!important;border-width:1px!important;box-shadow:none!important;white-space:nowrap}
+  .filtro .qtd{font-size:10.5px;margin-left:4px}
+  .filtro[aria-pressed="true"]{box-shadow:none!important}
   .leque-info > span:first-child{min-width:0}
   .leque-info strong,.leque-info small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .trabalho .leque-info strong{font-size:13px}
