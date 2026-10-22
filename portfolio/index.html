@@ -1237,7 +1237,16 @@
   .contato .btn-cheio:hover{background:#ffb3e3!important}
   /* Sobre mim: título menor com "Yasmin" no azul, negrito no texto e selos com ícone */
   #titulo-sobre{font-size:clamp(2rem,3.4vw,2.8rem)!important}
-  #titulo-sobre em{color:var(--ceu)!important}
+  /* idioma escolhido no azul da paleta */
+  #topo .nc-idioma button[aria-pressed="true"]{background:var(--ceu)!important;color:var(--nc-tinta)!important}
+  /* Melhores vídeos: título e celulares menores */
+  #titulo-destaques{font-size:clamp(2rem,3.6vw,3rem)!important}
+  .destaques-grid{grid-template-columns:repeat(3,minmax(0,230px));gap:clamp(24px,3.4vw,52px)}
+  .celular{border-radius:36px;padding:9px}
+  @media (max-width:1060px){
+    .destaques-grid{padding:20px calc(50% - min(26vw,115px)) 28px}
+    .destaque{flex:0 0 52vw;max-width:230px}
+  }
   #sobre .sobre-texto strong{font-weight:700;color:var(--nc-tinta)}
   .selos{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:26px 0 0;padding:0}
   .selos li{display:inline-flex;align-items:center;gap:10px;padding:7px 16px 7px 7px;border-radius:999px;background:var(--nc-bege);font-size:14px;font-weight:600;color:var(--nc-tinta)}
