@@ -1273,7 +1273,24 @@
   .leque-info small{display:block;font-size:11px;opacity:.85;margin-top:2px}
   .leque-seta{flex:none;width:38px;height:38px;border-radius:50%;background:#fff;display:grid;place-items:center;transition:transform .3s}
   .leque-seta svg{width:17px;height:17px;fill:none;stroke:var(--nc-tinta);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-  .leque-cartao:hover .leque-seta{transform:rotate(45deg) scale(1.06)}
+  .leque-seta svg{fill:var(--nc-tinta)!important;stroke:none!important;margin-left:2px}
+  .leque-cartao:hover .leque-seta,.trabalho a:hover .leque-seta{transform:scale(1.1)}
+  /* Nichos com a mesma estética dos destaques: cartões retos, 4 por tela */
+  .trabalho .midia{border-radius:clamp(24px,2.6vw,34px)!important;box-shadow:0 22px 40px -26px rgba(30,25,21,.55)!important;border:0!important}
+  .trabalho .midia::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.36),transparent 36%);pointer-events:none}
+  .trabalho .leque-info{left:10px;right:10px;top:10px;padding:8px 8px 8px 13px;border-radius:18px}
+  .trabalho .leque-info strong{font-size:13px}
+  .trabalho .leque-info small{font-size:10.5px}
+  .trabalho .leque-seta{width:32px;height:32px}
+  .trabalho .leque-seta svg{width:14px;height:14px}
+  .trabalho a:hover .midia{transform:translateY(-4px)}
+  @media (max-width:860px){
+    .trabalho .leque-info{left:7px;right:7px;top:7px;padding:6px 6px 6px 10px;border-radius:14px}
+    .trabalho .leque-info strong{font-size:11.5px}
+    .trabalho .leque-info small{font-size:9.5px}
+    .trabalho .leque-seta{width:26px;height:26px}
+    .trabalho .leque-seta svg{width:12px;height:12px}
+  }
   .leque-cartao:hover{animation-play-state:paused}
   @media (prefers-reduced-motion:reduce){ .leque-cartao{animation:none;transition:none} }
   /* play pequeno e transparente no meio do cartão, igual à etiqueta de vidro */
