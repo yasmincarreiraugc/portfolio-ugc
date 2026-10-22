@@ -2272,6 +2272,12 @@ function ajustaTopo() {
 }
 window.addEventListener("resize", ajustaTopo);
 
+// Endereço limpo: os links do menu continuam levando à seção certa,
+// mas o "#inicio", "#sobre"... some do endereço (fica só yasmincarreira.com/portfolio/)
+const limpaEndereco = () => { if (location.hash) history.replaceState(null, "", location.pathname + location.search); };
+window.addEventListener("hashchange", limpaEndereco);
+window.addEventListener("load", () => setTimeout(limpaEndereco, 300));
+
 // Menu fixo: depois que a página desce, a barra vira um cartão arredondado com sombra
 const topoFixo = $("#topo");
 const faixaAcima = document.getElementById("faixaBF");
