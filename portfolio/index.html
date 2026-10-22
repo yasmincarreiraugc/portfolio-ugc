@@ -1285,6 +1285,13 @@
   .filtro{flex:none;padding:6px 11px!important;font-size:12.5px!important;border-radius:999px!important;border-width:1px!important;box-shadow:none!important;white-space:nowrap}
   .filtro .qtd{font-size:10.5px;margin-left:4px}
   .filtro[aria-pressed="true"]{box-shadow:none!important}
+  /* Nichos: título e texto centralizados; abas ocupando a mesma largura dos vídeos */
+  #trabalhos .cabeca{justify-items:center;text-align:center}
+  #trabalhos .cabeca p{max-width:none}
+  @media (min-width:861px){
+    #trabalhos .filtros{overflow:visible}
+    #trabalhos .filtro{flex:1 1 auto;padding:9px 10px!important;font-size:13.5px!important;text-align:center}
+  }
   .leque-info > span:first-child{min-width:0}
   .leque-info strong,.leque-info small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .trabalho .leque-info strong{font-size:13px}
