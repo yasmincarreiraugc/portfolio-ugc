@@ -1954,7 +1954,7 @@ const iconePlay = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 
 // Cartões em leque: o do meio fica reto e na frente, os outros inclinados para os lados.
 // Arrastar para o lado no celular gira o leque; clicar em qualquer cartão já abre o vídeo.
 const destaquesGrid = $("#destaquesGrid");
-const iconeSeta = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>`;
+const iconeSeta = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 6v12l9.5-6z"/></svg>`;
 destaquesGrid.innerHTML = DESTAQUES.map(d => {
   const id = idYoutube(d.link);
   const capa = d.capa || (id ? capaYoutube(id) : "");
