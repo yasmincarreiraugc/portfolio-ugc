@@ -1768,8 +1768,8 @@ function atualizaBF() {
   const en = idioma === "en";
   $("#bfConta").innerHTML = dias === 0
     ? (en ? "Black Friday is <b>today!</b>" : "A Black Friday é <b>hoje!</b>")
-    : en ? `<b>${dias}</b> day${dias > 1 ? "s" : ""} left<span class="bf-extra"> to Black Friday</span>` : `Falta${dias > 1 ? "m" : ""} <b>${dias}</b> dia${dias > 1 ? "s" : ""}<span class="bf-extra"> pra Black Friday</span>`;
-  $("#bfTexto").textContent = en ? "UGC content that sells on the big day" : "conteúdo UGC que vende no dia";
+    : en ? `${dias} day${dias > 1 ? "s" : ""} left` : `Falta${dias > 1 ? "m" : ""} ${dias} dia${dias > 1 ? "s" : ""}`;
+  $("#bfTexto").textContent = en ? "Shall we team up on your Black Friday campaign?" : "Vamos colaborar na sua campanha de Black Friday?";
   $("#bfLink").textContent = en ? "book your slot →" : "reservar agenda →";
   faixa.hidden = false;
   ajustaTopo();
