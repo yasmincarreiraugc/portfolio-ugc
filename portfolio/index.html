@@ -1244,6 +1244,37 @@
   /* Melhores vídeos: título e celulares menores */
   #titulo-destaques{font-size:clamp(2rem,3.6vw,3rem)!important}
   .cabeca > .sobrelinha{grid-column:1/-1}
+
+  /* ===== Melhores vídeos em leque ===== */
+  .leque{position:relative}
+  .leque-setas{display:flex;justify-content:center;gap:8px;margin-bottom:8px}
+  .leque-setas button{width:52px;height:32px;border-radius:999px;border:0;background:var(--rosa-paleta);display:grid;place-items:center;cursor:pointer;transition:background .2s,transform .2s}
+  .leque-setas button:hover{background:#ffb3e3;transform:translateY(-1px)}
+  .leque-setas svg{width:18px;height:18px;fill:none;stroke:var(--nc-tinta);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .leque-palco{--w:clamp(200px,22vw,280px);position:relative;height:calc(var(--w) * 1.42 + 70px);overflow:visible}
+  .leque-cartao{position:absolute;left:50%;top:10px;width:var(--w);aspect-ratio:3/4;border-radius:clamp(28px,3vw,40px);overflow:hidden;background:var(--nc-tinta);box-shadow:0 26px 44px -26px rgba(30,25,21,.6);transform-origin:50% 120%;transition:transform .6s cubic-bezier(.2,.75,.2,1),opacity .4s,filter .4s;animation:flutuar 5s ease-in-out infinite;text-decoration:none}
+  .leque-cartao img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .leque-cartao::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.38),transparent 38%)}
+  .leque-cartao[data-pos="0"]{transform:translateX(-50%);z-index:3}
+  .leque-cartao[data-pos="-1"]{transform:translateX(-50%) rotate(-16deg) translate(-12%,4%) scale(.92);z-index:2;animation-delay:-1.6s}
+  .leque-cartao[data-pos="1"]{transform:translateX(-50%) rotate(16deg) translate(12%,4%) scale(.92);z-index:2;animation-delay:-3.2s}
+  .leque-cartao[data-pos="-2"]{transform:translateX(-50%) rotate(-30deg) translate(-26%,12%) scale(.84);z-index:1;opacity:.9}
+  .leque-cartao[data-pos="2"]{transform:translateX(-50%) rotate(30deg) translate(26%,12%) scale(.84);z-index:1;opacity:.9}
+  .leque-cartao:not([data-pos="0"]){cursor:pointer;filter:saturate(.85)}
+  /* etiqueta de vidro com o nome e a setinha redonda */
+  .leque-info{position:absolute;z-index:2;left:12px;right:12px;top:12px;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 10px 10px 16px;border-radius:22px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:#fff}
+  .leque-info strong{display:block;font-size:14px;font-weight:600;line-height:1.2}
+  .leque-info small{display:block;font-size:11px;opacity:.85;margin-top:2px}
+  .leque-seta{flex:none;width:38px;height:38px;border-radius:50%;background:#fff;display:grid;place-items:center;transition:transform .3s}
+  .leque-seta svg{width:17px;height:17px;fill:none;stroke:var(--nc-tinta);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+  .leque-cartao[data-pos="0"]:hover .leque-seta{transform:rotate(45deg) scale(1.06)}
+  .leque-cartao[data-pos="0"]:hover{animation-play-state:paused}
+  @media (prefers-reduced-motion:reduce){ .leque-cartao{animation:none;transition:none} }
+  @media (max-width:860px){
+    .leque-palco{--w:min(58vw,240px)}
+    .leque-cartao[data-pos="-1"]{transform:translateX(-50%) rotate(-14deg) translate(-30%,6%) scale(.86)}
+    .leque-cartao[data-pos="1"]{transform:translateX(-50%) rotate(14deg) translate(30%,6%) scale(.86)}
+  }
   .destaques-grid{grid-template-columns:repeat(3,minmax(0,230px));gap:clamp(24px,3.4vw,52px)}
   .celular{border-radius:36px;padding:9px}
   @media (max-width:860px){
