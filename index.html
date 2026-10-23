@@ -325,9 +325,14 @@ h1 span{display:block}
   h1{font-size:clamp(38px,3.6vw,48px)}
   .intro{font-size:16px;margin-top:12px;max-width:none;white-space:nowrap}
 
-  .marcas{margin-top:56px}
-  .fita{margin:0 -60px;padding:13px 0}
-  .fita span{font-size:26px}
+  .marcas{margin-top:40px}
+  .marcas::before,.marcas::after{margin-left:24px;margin-right:24px}
+  .marcas::after{margin-top:22px}
+  .marcas-titulo{gap:18px;margin:16px 0 12px;font-size:11.5px;letter-spacing:.3em}
+  .marcas-titulo::before,.marcas-titulo::after{width:44px}
+  .marcas-trilho ul{gap:30px;padding:4px 15px}
+  .icone-marca{width:76px;height:76px}
+  .icone-marca span{font-size:10px}
 
   /* destaque mais baixo; a frase fica numa linha só */
   .destaque{margin-top:30px;padding:20px 36px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:28px}
