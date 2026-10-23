@@ -587,11 +587,26 @@ document.querySelectorAll(".js-whats").forEach(a => a.href = whats(WHATSAPP_MSG)
 document.querySelectorAll(".js-whats-msg").forEach(a => a.href = whats(a.dataset.msg));
 document.querySelectorAll(".js-whats-bf").forEach(a => a.href = whats("Oi, Yasmin! Quero conversar sobre minha campanha de Black Friday."));
 
-// EDITAR: marcas da faixa (repetida para girar sem emenda)
-const MARCAS = ["Dove", "Elseve", "Eudora", "Garnier", "Pantene", "OMO", "Mercado Livre", "Taiff", "Truss", "Haskell", "La Ganexa", "Ciça Braga"];
-const estrelinha = '<svg viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela" fill="#ff99d9"/></svg>';
-const grupo = '<span>' + MARCAS.map(m => m + estrelinha).join("") + '</span>';
-document.getElementById("fita").innerHTML = grupo + grupo.replace("<span>", '<span aria-hidden="true">');
+// EDITAR: marcas da faixa, iguais às do portfólio (logo na pasta "logos"; sem logo, aparece o nome)
+// cheio: true = a logo ocupa o círculo todo
+const MARCAS = [
+  { nome: "OMO",           logo: "logos/omo.png" },
+  { nome: "Eudora",        logo: "logos/eudora.png", cheio: true },
+  { nome: "Dove",          logo: "logos/dove.png" },
+  { nome: "Garnier",       logo: "logos/garnier.png" },
+  { nome: "Mercado Livre", logo: "logos/mercado-livre.png", cheio: true },
+  { nome: "Elseve",        logo: "logos/elseve.png" },
+  { nome: "Pantene",       logo: "" },
+  { nome: "La Ganexa",     logo: "logos/la-ganexa.png", cheio: true },
+  { nome: "Ciça Braga",    logo: "logos/cica-braga.png" }
+];
+const iconeMarca = m => m.logo
+  ? `<li class="icone-marca${m.cheio ? " logo-cheio" : ""}"><img src="${m.logo}" alt="${m.nome}" loading="lazy" decoding="async"></li>`
+  : `<li class="icone-marca"><span>${m.nome}</span></li>`;
+// a lista se repete até encher a tela, e a segunda cópia faz o giro ficar contínuo
+const voltas = Math.max(1, Math.ceil(16 / MARCAS.length));
+const listaMarcas = Array.from({ length: voltas }, () => MARCAS.map(iconeMarca).join("")).join("");
+document.getElementById("faixaMarcas").innerHTML = `<ul aria-label="Marcas atendidas">${listaMarcas}</ul><ul aria-hidden="true">${listaMarcas}</ul>`;
 
 // Aviso rápido no rodapé da tela
 const aviso = document.getElementById("aviso");
