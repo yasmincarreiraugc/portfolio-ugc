@@ -1556,6 +1556,10 @@
     #sobre .sobre-grid{max-width:1060px!important;grid-template-columns:minmax(0,340px) minmax(0,1fr)!important;gap:clamp(64px,7.5vw,110px)!important}
     #sobre .sobre-montagem{max-width:340px!important}
   }
+  /* caixinhas das redes sem sublinhado nem texto rosa (aparecia ao tocar no celular) */
+  .redes a,.redes a:hover,.redes a:focus,.redes a:active,.redes a *{text-decoration:none!important}
+  .redes a strong,.redes a:hover strong,.redes a:active strong{color:var(--nc-tinta)!important}
+  .redes a small,.redes a:hover small,.redes a:active small{color:rgba(30,25,21,.65)!important}
   /* Contato: caixas azul e branca um pouco menores */
   @media (min-width:861px){
     #contato .contato-grid{max-width:940px;gap:0!important;justify-content:center}
