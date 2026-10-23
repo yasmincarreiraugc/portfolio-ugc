@@ -2666,13 +2666,25 @@ if ("IntersectionObserver" in window && !reduzMovimento) {
   revelas.forEach(el => el.classList.add("visivel"));
 }
 
-// Formulário de contato (confirmação na tela, sem recarregar)
-// Para receber as mensagens de verdade, ligue este formulário a um serviço como Formspree.
+// Formulário de contato: ao enviar, abre o WhatsApp da Yasmin com tudo o que foi preenchido já escrito
 $("#formContato").addEventListener("submit", e => {
   e.preventDefault();
   const form = e.target;
   const invalido = [...form.elements].find(c => c.willValidate && !c.checkValidity());
   if (invalido) { invalido.focus(); form.reportValidity(); return; }
+  const v = n => form.elements[n].value.trim();
+  const en = idioma === "en";
+  const linhas = [
+    en ? "Hi Yasmin! I found your portfolio and I'd like to talk about a project." : "Oi, Yasmin! Vim pelo seu portfólio e quero conversar sobre um projeto.",
+    "",
+    `${en ? "Name" : "Nome"}: ${v("nome")}`,
+    `E-mail: ${v("email")}`,
+    v("marca") && `${en ? "Brand" : "Marca"}: ${v("marca")}`,
+    v("orcamento") && `${en ? "Budget" : "Orçamento"}: ${v("orcamento")}`,
+    "",
+    `${en ? "Project" : "Projeto"}: ${v("mensagem")}`
+  ].filter(l => l !== false && l !== "" || l === "");
+  window.open("https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(linhas.join("\n")), "_blank", "noopener");
   form.hidden = true;
   const ok = $("#confirmacao");
   ok.classList.add("ativa");
