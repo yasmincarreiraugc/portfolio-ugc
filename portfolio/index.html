@@ -1496,6 +1496,16 @@
   #contato .cabeca p{max-width:none!important}
   #contato .sobrelinha{color:var(--nc-tinta)}
   #contato .sobrelinha::before{background:#fff}
+  /* Formulário no estilo de vidro: campos claros e translúcidos sobre o azul */
+  .contato .form{background:transparent!important;box-shadow:none!important;border:0!important;padding:0!important}
+  .contato .form .duas{gap:16px}
+  .contato .form .campo{margin-bottom:18px}
+  .contato .form label{display:block;margin-bottom:8px;font-size:11.5px!important;font-weight:700!important;letter-spacing:.06em;text-transform:uppercase;color:#fff!important}
+  .contato .form input,.contato .form textarea{width:100%;font:500 15px/1.4 var(--nc-sans)!important;color:var(--nc-tinta)!important;background:rgba(255,255,255,.32)!important;border:1px solid rgba(255,255,255,.6)!important;border-radius:16px!important;padding:15px 18px!important;box-shadow:none!important;transition:background .2s,border-color .2s}
+  .contato .form input::placeholder,.contato .form textarea::placeholder{color:rgba(30,25,21,.5)}
+  .contato .form input:focus,.contato .form textarea:focus{background:rgba(255,255,255,.6)!important;border-color:#fff!important;outline:none}
+  .contato .form textarea{min-height:150px;resize:vertical}
+  .contato .form .btn-cheio{margin-top:6px;padding:14px 26px!important}
   /* a roda fica numa camada própria: fotos e setas não passam por cima da barra fixa do topo */
   #fotos .carrossel{position:relative;isolation:isolate;z-index:1}
   #fotos .seta-btn{z-index:300!important;background:#fff!important;border:0!important;box-shadow:0 8px 20px -10px rgba(30,25,21,.4)!important;width:46px;height:46px}
