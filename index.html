@@ -122,9 +122,11 @@ h1,h2,h3{font-family:var(--titulo);font-weight:700;text-transform:uppercase;marg
   display:flex;align-items:center;gap:10px;border-radius:999px;padding:9px 12px 9px 16px;
 }
 .capa-busca svg{width:17px;height:17px;flex:none}
-.capa-busca input{flex:1;min-width:0;border:0;background:transparent;font-size:12.5px;outline:none;color:var(--tinta)}
-.capa-busca input::placeholder{color:#77706a}
-.capa-busca button{flex:none;width:24px;height:24px;display:grid;place-items:center;border:0;background:none;cursor:pointer;padding:0}
+.capa-busca{color:var(--tinta);transition:box-shadow .15s}
+.capa-busca:hover{box-shadow:0 0 0 2px var(--rosa),0 10px 30px -12px rgba(0,0,0,.35)}
+.capa-busca-txt{flex:1;min-width:0;font-size:12.5px;color:#4a443f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.capa-busca-ir{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:13px;transition:background .15s}
+.capa-busca:hover .capa-busca-ir{background:var(--rosa)}
 .capa-pilula{
   position:absolute;bottom:14px;display:flex;align-items:center;gap:9px;
   border-radius:999px;padding:6px 14px 6px 6px;font-size:11px;line-height:1.25;color:var(--tinta);transition:transform .15s;
