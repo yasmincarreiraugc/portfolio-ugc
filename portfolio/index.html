@@ -1536,6 +1536,8 @@
   .contato .quadro-vidro textarea{min-height:90px!important}
   .contato .quadro-vidro .btn-cheio{width:100%;justify-content:center;margin-top:4px!important;padding:14px 22px!important;font-size:15px}
   .quadro-vidro .confirmacao{padding:24px 6px}
+  /* no celular, tocar nas logos não pausa a faixa (a pausa ao passar o mouse vale só no computador) */
+  @media (hover:none){ .marcas:hover .marcas-trilho{animation-play-state:running!important} }
   /* a mesma linha fina de cima das marcas, repetida embaixo das logos */
   .marcas::after{content:"";display:block;max-width:1172px;height:1px;margin:22px auto 0;background:#d9d3cc}
   @media (max-width:1060px){ .marcas::after{margin:20px 16px 0} }
