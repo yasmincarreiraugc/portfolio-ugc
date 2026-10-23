@@ -285,6 +285,67 @@ h2 .nota{font-family:var(--nota);text-transform:none;color:var(--magenta);font-s
 .nav .meio .bola svg{width:24px;height:24px}
 .nav .meio span{font-weight:700}
 
+/* menu do topo (só no computador) */
+.topo-menu{display:none}
+
+/* versão computador: duas colunas, foto fixa à esquerda */
+@media (min-width:960px){
+  :root{--nav:0px}
+  body{background-size:22px 22px}
+  .pagina{
+    max-width:1160px;padding:22px 40px 56px;
+    display:grid;grid-template-columns:minmax(380px,440px) 1fr;column-gap:64px;align-items:start;
+    overflow-x:visible;
+  }
+  .topo{grid-column:1/-1;margin-bottom:34px;gap:24px}
+  .topo-menu{display:flex;align-items:center;gap:26px;margin-left:auto;font-size:14px;font-weight:600}
+  .topo-menu a:not(.topo-cta){border-bottom:2px solid transparent;padding:4px 0;transition:border-color .15s}
+  .topo-menu a:not(.topo-cta):hover{border-color:var(--rosa)}
+  .topo-cta{background:var(--rosa);border:var(--borda);border-radius:999px;padding:9px 18px;box-shadow:3px 3px 0 var(--tinta);transition:transform .15s,box-shadow .15s}
+  .topo-cta:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--tinta)}
+  .marca{font-size:20px}
+  .marca svg{width:30px;height:30px}
+
+  .lado-a{position:sticky;top:28px}
+  .lado-b{min-width:0;padding-top:4px}
+  .oi{font-size:32px}
+  h1{font-size:56px}
+  .intro{font-size:16px;max-width:420px}
+  .redes{margin-bottom:0}
+
+  .links{grid-template-columns:1fr 1fr;gap:16px}
+  .btn{padding:16px;align-items:flex-start;flex-wrap:wrap;min-height:150px;align-content:space-between}
+  .btn .txt{flex-basis:100%;order:3}
+  .btn .t{font-size:24px}
+  .btn .s{font-size:13px}
+  .btn .seta{margin-left:auto}
+
+  .marcas{margin:44px 0 0}
+  .fita{transform:rotate(-1.4deg);border-radius:6px}
+  .destaque{padding:28px 28px 24px;display:grid;grid-template-columns:1.1fr 1fr;column-gap:28px;align-items:center}
+  .destaque small,.destaque h2,.destaque p{grid-column:1}
+  .destaque .contagem{grid-column:2;grid-row:1/4;margin:0}
+  .destaque .pilula{grid-column:1/-1;margin-top:8px}
+  .destaque .contagem b{font-size:42px}
+
+  .trilho{display:grid;grid-template-columns:repeat(4,1fr);overflow:visible;margin:0;padding:4px 0 6px}
+  .video{width:auto;max-width:none}
+  .video:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--tinta)}
+  .video{transition:transform .15s,box-shadow .15s}
+
+  .servicos a{font-size:14px;padding:10px 16px}
+  .sobre{padding:26px 26px 24px}
+  .sobre p{font-size:14.5px}
+
+  .conversar{margin:44px 0 0;border-radius:30px;padding:40px 36px 30px}
+  .conversar h2{font-size:58px}
+  .conversar .cta{display:inline-flex;margin-right:10px;padding:15px 26px}
+  .contatos{text-align:left}
+  .rodape{text-align:left}
+
+  .nav{display:none}
+}
+
 /* entrada suave */
 .revela{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
 .revela.visivel{opacity:1;transform:none}
