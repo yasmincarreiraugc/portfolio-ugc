@@ -416,57 +416,56 @@ h1 .cor{color:var(--magenta)}
 
 <main>
   <!-- ================= ABERTURA: foto + apresentação + links ================= -->
-  <section class="miolo abertura" aria-label="Apresentação">
-    <div class="cartao">
-      <div class="cartao-foto">
-        <img src="fotos/capa-rosa.webp" alt="Yasmin Carreira sorrindo, de blusa rosa" width="1200" height="1204" fetchpriority="high">
-      </div>
-      <div class="selo" aria-hidden="true">
-        <svg viewBox="-3 -3 46 46"><use href="#estrela" fill="#fff2c2" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/></svg>
-        <span>criada<br>pra<br>criar</span>
-      </div>
-      <svg class="brilho" viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela" stroke="#111" stroke-width="2.6" stroke-linejoin="round"/></svg>
-      <p class="oi">Oi, eu sou a <em>Yasmin</em></p>
-      <span class="apelido">Diário da sua creator</span>
+  <section class="miolo capa" aria-label="Apresentação">
+    <!-- FOTO DA CAPA: para trocar, mude o arquivo abaixo -->
+    <div class="capa-foto">
+      <img src="fotos/sobre.jpg" alt="Yasmin Carreira sorrindo, segurando produtos de cabelo" width="1000" height="1777" fetchpriority="high">
+
+      <form class="capa-busca vidro" id="busca" role="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="busca-campo" type="search" placeholder="Procure por nicho: cabelo, beleza, casa…" aria-label="Procurar trabalhos por nicho" list="nichos">
+        <datalist id="nichos"><option value="Cabelo"><option value="Beleza"><option value="Fitness"><option value="Casa e decor"><option value="Maternidade"><option value="Moda"><option value="Gastronomia"><option value="Casal"><option value="Lifestyle"></datalist>
+        <button type="button" id="busca-limpar" aria-label="Limpar"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      </form>
+
+      <a class="capa-pilula capa-marcas vidro" href="#marcas">
+        <span class="avatares" aria-hidden="true"><img src="fotos/ugc-03-dove.jpg" alt=""><img src="fotos/ugc-01-elseve.jpg" alt=""><img src="fotos/ugc-06-nivea.jpg" alt=""></span>
+        <span><b>Marcas que confiam</b>Dove, Elseve, Eudora +</span>
+      </a>
+      <a class="capa-pilula capa-agenda vidro js-whats" href="https://wa.me/5513997973883" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 14h2M14 14h2M8 17h2"/></svg></span>
+        <b>Reservar agenda</b>
+      </a>
     </div>
 
-    <div>
-      <div class="rotulo">UGC creator</div>
-      <h1>Conteúdo que faz sua marca ser <mark>escolhida.</mark></h1>
+    <div class="capa-texto">
+      <div class="rotulo">Oi, eu sou a Yasmin · UGC creator</div>
+      <h1><span>Conteúdo que faz</span><span class="cor">sua marca ser escolhida.</span></h1>
       <p class="intro">Transformo o dia a dia em vídeos autênticos, com humor leve e cara de conversa de amiga.</p>
 
-      <div class="links">
-        <a class="btn c-rosa" href="portfolio/">
-          <span class="ic"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></span>
-          <span class="txt"><span class="t">Meu portfólio UGC</span><span class="s">vídeos que fiz pra marcas</span></span>
+      <div class="lista-cab">Meus trabalhos <span class="selo-mini">Para todas as marcas</span></div>
+      <!-- EDITAR: cada linha é um botão (foto, título, subtítulo, detalhe e link) -->
+      <div class="linhas">
+        <a class="linha" href="portfolio/">
+          <img src="fotos/ugc-04-la-ganexa.jpg" alt="" loading="lazy">
+          <span class="txt"><b>Meu portfólio UGC</b><span>vídeos que fiz pra marcas</span></span>
+          <span class="meta">vídeos</span>
           <span class="seta">→</span>
         </a>
-        <a class="btn c-ceu js-whats" href="https://wa.me/5513997973883" target="_blank" rel="noopener">
-          <span class="tag">Agenda aberta</span>
-          <span class="ic"><svg viewBox="0 0 24 24"><use href="#i-mail"/></svg></span>
-          <span class="txt"><span class="t">Parcerias UGC e publis</span><span class="s">fala comigo no WhatsApp</span></span>
+        <a class="linha js-whats" href="https://wa.me/5513997973883" target="_blank" rel="noopener">
+          <img src="fotos/ugc-02-praia-fitness.jpg" alt="" loading="lazy">
+          <span class="txt"><b>Parcerias UGC e publis</b><span>fala comigo no WhatsApp</span></span>
+          <span class="meta">agenda aberta</span>
           <span class="seta">→</span>
         </a>
-        <!-- EDITAR: troque pelo link que quiser -->
-        <a class="btn c-amarelo" href="portfolio/#servicos">
-          <span class="ic"><svg viewBox="0 0 24 24"><use href="#i-brilho"/></svg></span>
-          <span class="txt"><span class="t">Como eu te ajudo</span><span class="s">UGC orgânico, anúncios, publi e pacotes</span></span>
-          <span class="seta">→</span>
-        </a>
-        <!-- EDITAR: troque pelo link que quiser -->
-        <a class="btn c-manteiga" href="portfolio/#fotos">
-          <span class="ic"><svg viewBox="0 0 24 24"><use href="#i-camera"/></svg></span>
-          <span class="txt"><span class="t">Fotos UGC</span><span class="s">luz natural, prontas pra site e catálogo</span></span>
+        <a class="linha" href="portfolio/#servicos">
+          <img src="fotos/ugc-08-taiff.jpg" alt="" loading="lazy">
+          <span class="txt"><b>Como eu te ajudo</b><span>UGC orgânico, anúncios e pacotes</span></span>
+          <span class="meta">serviços</span>
           <span class="seta">→</span>
         </a>
       </div>
-
-      <nav class="redes" aria-label="Redes sociais">
-        <a href="https://www.instagram.com/yasmincarreira_/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><use href="#i-insta"/></svg></a>
-        <a href="https://www.tiktok.com/@yasmincarreira_1" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><use href="#i-tiktok"/></svg></a>
-        <a class="js-whats" href="https://wa.me/5513997973883" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><use href="#i-whats"/></svg></a>
-        <a href="mailto:yasmin-carreira@hotmail.com" aria-label="E-mail"><svg viewBox="0 0 24 24"><use href="#i-mail"/></svg></a>
-      </nav>
+      <a class="ver-todos" href="portfolio/#trabalhos">Ver todos os trabalhos</a>
     </div>
   </section>
 
