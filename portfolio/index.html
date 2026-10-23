@@ -2234,7 +2234,7 @@ let rodaPos = 0, rodaAlvo = null, rodaPausa = false, rodaUltimo = 0;
 const rodaVelocidade = reduzMovimento ? 0 : 1 / 4500; // uma foto a cada 4,5 segundos
 function desenhaRoda() {
   const n = fotosRoda.length, celular = window.innerWidth <= 860;
-  const passo = celular ? 0.92 : 1.08, giro = celular ? 26 : 22, alcance = celular ? 1.7 : 2.6;
+  const passo = celular ? 1.04 : 1.08, giro = celular ? 24 : 22, alcance = celular ? 1.7 : 2.6;
   fotosRoda.forEach((el, i) => {
     let d = ((i - rodaPos) % n + n) % n;
     if (d > n / 2) d -= n;
