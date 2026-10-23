@@ -63,10 +63,9 @@ h1,h2,h3{font-family:var(--titulo);font-weight:700;text-transform:uppercase;marg
 /* topo fixo: acompanha a rolagem até o fim da página */
 .topo{position:sticky;top:0;z-index:15;background:#fff;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 44px 10px 40px;transition:border-radius .3s,box-shadow .3s,padding .3s}
 .topo.rolou{border-radius:0 0 28px 28px;padding-top:12px;padding-bottom:12px;box-shadow:0 14px 34px -22px rgba(30,25,21,.45)}
-/* sem o nome no topo: menu à esquerda e PT/EN à direita; no celular fica só a estrelinha de início */
-.logo-mini{display:none}
-.logo-estrela{width:30px;height:30px;fill:var(--rosa);stroke:#1e1915;stroke-width:2.2;stroke-linejoin:round;overflow:visible;animation:brilhar 3s ease-in-out infinite}
-.topo{padding-top:22px;padding-bottom:14px}
+.logo{display:flex;align-items:center;gap:16px;color:#1e1915}
+.logo-estrela{width:38px;height:38px;fill:var(--rosa);stroke:#1e1915;stroke-width:2.2;stroke-linejoin:round;overflow:visible;animation:brilhar 3s ease-in-out infinite}
+.logo strong,.logo span{display:block;font-size:21px;font-weight:600;letter-spacing:.07em;line-height:1.1;text-transform:uppercase}
 @keyframes brilhar{
   0%,100%{transform:scale(.55) rotate(0deg);opacity:.55}
   50%{transform:scale(1.1) rotate(90deg);opacity:1}
@@ -101,96 +100,85 @@ h1,h2,h3{font-family:var(--titulo);font-weight:700;text-transform:uppercase;marg
   .submenu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;background:none;padding:0 0 10px 14px;min-width:0}
   .submenu a{padding:8px 0;font-size:15.5px;color:var(--tinta-2)}
   .hamburguer{display:block}
-  .topo-lado{gap:14px;margin-left:auto}
+  .logo{gap:12px}
+  .logo-estrela{width:32px;height:32px}
+  .logo strong,.logo span{font-size:18px}
+  .topo-lado{gap:14px}
 }
 @media (max-width:420px){
   .idioma button{padding:7px 9px;gap:4px}
   .idioma button svg{display:none}
 }
 
-/* ---------- capa: nome e cargo em cima, foto no meio, painel amarelo embaixo ---------- */
-.capa{position:relative;padding-top:10px;padding-bottom:8px}
-.vidro{background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 10px 30px -12px rgba(0,0,0,.35)}
-.capa-topo{position:relative;z-index:1;display:grid;gap:14px}
-.capa-nome,.capa-cargo{margin:0;font-family:var(--titulo);text-transform:uppercase;line-height:.9}
-.capa-nome .l1,.capa-cargo .l1{display:flex;align-items:center;gap:10px;font-weight:600;font-size:clamp(28px,8vw,46px);color:var(--tinta);letter-spacing:.01em}
-.capa-nome .l1 svg{width:.85em;height:.85em;flex:none;fill:var(--rosa);stroke:var(--tinta);stroke-width:2.4;stroke-linejoin:round;overflow:visible;animation:brilhar 3s ease-in-out infinite}
-/* palavras grandes no amarelo da paleta, com contorno e sombra preta para ler bem no branco */
-.grande{
-  display:block;font-weight:700;color:var(--amarelo);letter-spacing:.01em;
-  -webkit-text-stroke:2px var(--tinta);paint-order:stroke fill;text-shadow:4px 4px 0 var(--tinta);
-}
-.capa-nome .grande{font-size:clamp(64px,19vw,116px)}
-.capa-cargo{position:relative}
-.capa-cargo .l1{font-size:clamp(22px,6vw,34px);line-height:1.05}
-.capa-cargo .grande{font-size:clamp(44px,12vw,70px);margin-top:4px}
-.capa-cargo .deco{position:absolute;right:0;top:-6px;width:34px;height:34px;fill:var(--amarelo);stroke:var(--tinta);stroke-width:2.4;stroke-linejoin:round;transform:rotate(12deg)}
-
-.capa-foto{position:relative;z-index:2;display:flex;justify-content:center;margin:10px 0 -70px;pointer-events:none}
-.capa-foto img{height:380px;width:auto;max-width:none;filter:drop-shadow(0 18px 24px rgba(0,0,0,.18))}
-.capa-orbita{position:absolute;z-index:-1;left:50%;top:14%;width:300px;height:110px;transform:translateX(-50%) rotate(-8deg);border:2px solid rgba(17,17,17,.35);border-radius:50%}
-
-.capa-painel{
-  position:relative;z-index:1;background:var(--amarelo);border-radius:28px;overflow:hidden;
-  padding:96px 18px 20px;display:grid;gap:26px;
-}
-.capa-painel::before,.capa-painel::after{content:"";position:absolute;z-index:-1;border-radius:50%;background:rgba(255,255,255,.35)}
-.capa-painel::before{width:260px;height:120px;left:50%;top:38%;transform:translateX(-60%) rotate(-12deg)}
-.capa-painel::after{width:200px;height:90px;left:50%;bottom:10%;transform:translateX(-30%) rotate(-12deg)}
-.capa-ola{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600}
-.capa-ola svg{width:14px;height:14px;fill:var(--tinta)}
-.capa-frase{margin:12px 0 0;font-size:clamp(34px,9vw,44px);line-height:.98;color:var(--tinta)}
-.capa-texto-p{margin:12px 0 0;font-size:15px;line-height:1.6;color:#2e2a26;max-width:320px}
-.capa-botoes{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-.btn-escuro,.btn-claro2{display:inline-flex;align-items:center;gap:12px;border-radius:999px;font-weight:600;font-size:14.5px;transition:transform .15s}
-.btn-escuro{background:var(--tinta);color:#fff;padding:8px 8px 8px 22px}
-.btn-escuro .seta{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1.5px solid #fff;font-size:15px}
-.btn-claro2{background:rgba(255,255,255,.55);color:var(--tinta);padding:13px 20px}
-.btn-escuro:hover,.btn-claro2:hover{transform:translateY(-2px)}
-.capa-confiam{
-  display:inline-flex;align-items:center;gap:14px;margin-top:24px;padding:12px 18px 12px 12px;
-  background:rgba(255,255,255,.45);border-radius:20px;font-size:12.5px;line-height:1.3;color:var(--tinta);transition:transform .15s;
-}
-.capa-confiam:hover{transform:translateY(-2px)}
-.capa-confiam b{display:block;font-size:13.5px}
-.capa-confiam .coracao{width:16px;height:16px;fill:#fff;margin-left:6px;align-self:flex-end}
-.avatares{display:flex}
-.avatares img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid #fff}
-.avatares img + img{margin-left:-12px}
-
-.capa-direita{display:grid;gap:22px;justify-items:center}
-.vantagens{display:flex;justify-content:center;gap:22px;list-style:none;margin:0;padding:0;text-align:center}
-.vantagens li{display:grid;justify-items:center;gap:6px;font-size:12.5px;font-weight:600;line-height:1.2;max-width:84px}
-.vantagens svg{width:24px;height:24px;fill:none;stroke:var(--tinta);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
-.destaque-rotulo{margin:0;font-size:14px;font-weight:700}
-.destaque-card{
-  width:min(100%,240px);background:#fff;border-radius:24px;padding:10px 10px 16px;text-align:center;
-  box-shadow:0 18px 40px -24px rgba(0,0,0,.45);transition:transform .15s;
-}
-.destaque-card:hover{transform:translateY(-3px)}
-.destaque-card img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:16px}
-.destaque-card b{display:block;margin-top:12px;font-size:15px}
-.destaque-card span{display:block;font-size:12.5px;color:var(--tinta-2);margin-top:2px}
-.destaque-card .ver{display:inline-flex;align-items:center;gap:8px;margin-top:12px;background:var(--tinta);color:#fff;border-radius:999px;padding:9px 18px;font-size:13px;font-weight:600}
-.destaque-card .ver svg{width:12px;height:12px;fill:currentColor}
+/* ---------- capa: foto com botões por cima + texto com lista ---------- */
+.capa{display:grid;gap:24px;padding-top:2px}
 @media (max-width:959px){
-  /* celular: capa mais curta */
-  .capa-cargo .deco{display:none}
-  .capa-foto{margin:0 0 -56px}
-  .capa-foto img{height:300px}
-  .capa-orbita{top:10%;width:250px;height:90px}
-  .capa-painel{padding-top:76px;gap:22px}
-  .capa-painel::before,.capa-painel::after{display:none}
-  .capa-confiam{display:flex}
-  .capa-confiam > span:last-of-type{flex:1}
-  .capa-direita{gap:14px}
-  .vantagens{gap:16px}
-  .destaque-card{
-    width:100%;display:grid;grid-template-columns:96px 1fr;column-gap:14px;align-items:center;text-align:left;padding:8px 14px 8px 8px;
-  }
-  .destaque-card img{grid-row:1/4;aspect-ratio:1/1;border-radius:14px}
-  .destaque-card b{margin-top:0}
-  .destaque-card .ver{justify-self:start;margin-top:8px;padding:7px 14px}
+  /* no celular o texto vem antes da foto, como no portfólio */
+  .capa-texto{order:-1;padding-top:20px}
+}
+.capa-foto{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:1/1.05;background:var(--rosa)}
+.capa-foto > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 32%}
+.vidro{background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 10px 30px -12px rgba(0,0,0,.35)}
+.capa-busca{
+  position:absolute;left:50%;top:14%;transform:translate(-50%,-50%);width:min(86%,400px);
+  display:flex;align-items:center;gap:10px;border-radius:999px;padding:9px 12px 9px 16px;
+}
+.capa-busca svg{width:17px;height:17px;flex:none}
+.capa-busca{color:var(--tinta);transition:box-shadow .15s}
+.capa-busca:hover{box-shadow:0 0 0 2px var(--rosa),0 10px 30px -12px rgba(0,0,0,.35)}
+.capa-busca-txt{flex:1;min-width:0;font-size:12.5px;color:#4a443f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.capa-busca-ir{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:13px;transition:background .15s}
+.capa-busca:hover .capa-busca-ir{background:var(--rosa)}
+.capa-pilula{
+  position:absolute;bottom:14px;display:flex;align-items:center;gap:9px;
+  border-radius:999px;padding:6px 14px 6px 6px;font-size:11px;line-height:1.25;color:var(--tinta);transition:transform .15s;
+}
+.capa-pilula:hover{transform:translateY(-2px)}
+.capa-pilula b{display:block;font-size:11.5px;font-weight:600}
+.capa-marcas{left:12px}
+.capa-agenda{right:12px;padding-right:16px}
+.avatares{display:flex}
+.avatares img{width:28px;height:28px;border-radius:50%;object-fit:cover;border:2px solid #fff}
+.avatares img + img{margin-left:-10px}
+.capa-agenda .ic{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--manteiga)}
+.capa-agenda .ic svg{width:16px;height:16px}
+
+/* letras e tamanhos iguais aos da capa do portfólio */
+.rotulo{
+  display:flex;align-items:center;gap:10px;margin:0;
+  color:var(--rosa);font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+}
+.rotulo::before{content:"";width:30px;height:1.5px;background:currentColor}
+h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:-.005em;color:#1e1915;margin-top:8px}
+h1 span{display:block}
+.intro{margin:14px 0 0;color:#57514c;font-size:16px;line-height:1.6;max-width:400px}
+
+.lista-cab{display:flex;align-items:center;gap:8px;margin:16px 0 6px;font-size:14px;font-weight:600;white-space:nowrap}
+.selo-mini{background:var(--rosa);border-radius:6px;padding:3px 8px;font-size:10.5px;font-weight:700}
+.lista-cab .ver-todos{margin:0 0 0 auto}
+.linhas{display:grid;gap:6px}
+.linha{
+  display:flex;align-items:center;gap:12px;padding:5px 6px 5px 5px;
+  background:#fff;border:1px solid #ece7e2;border-radius:14px;transition:border-color .15s,box-shadow .15s;
+}
+.linha:hover{border-color:var(--rosa);box-shadow:0 10px 24px -16px rgba(0,0,0,.35)}
+.linha img{width:54px;height:40px;flex:none;border-radius:9px;object-fit:cover}
+.linha .txt{flex:1;min-width:0}
+.linha b{display:block;font-size:14px;font-weight:600}
+.linha .txt span{display:block;font-size:11.5px;color:var(--tinta-2);margin-top:1px}
+.linha .meta{flex:none;font-size:11px;color:#8a837d}
+.linha .seta{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#f1ede8;font-size:15px;transition:background .15s}
+.linha:hover .seta{background:var(--rosa)}
+.ver-todos{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding-bottom:2px;border-bottom:2px solid var(--rosa)}
+@media (max-width:959px){
+  /* celular: "Reservar agenda" vira só o ícone e as marcas ficam numa linha, para os dois caberem */
+  .capa-agenda{padding:6px}
+  .capa-agenda b{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .capa-agenda .ic{width:34px;height:34px}
+  .capa-marcas .sub{display:none}
+}
+@media (max-width:420px){
+  .linha .meta{display:none}
 }
 
 /* ---------- faixa de marcas ---------- */
@@ -342,34 +330,19 @@ h1,h2,h3{font-family:var(--titulo);font-weight:700;text-transform:uppercase;marg
   :root{--nav:0px;--gutter:48px}
   .nav{display:none}
 
-  /* capa: nome à esquerda, cargo à direita, foto no meio saindo do painel amarelo */
-  .capa{padding-top:8px;padding-bottom:26px}
-  .capa-topo{grid-template-columns:1fr 1fr;align-items:end;gap:0;padding:0 6px}
-  .capa-cargo{padding-left:23%;padding-top:20px}
-  .capa-cargo .deco{right:2%;top:-4px;width:40px;height:40px}
-  .capa-nome .l1{font-size:40px}
-  .capa-nome .grande{font-size:clamp(72px,7.4vw,98px)}
-  .capa-cargo .l1{font-size:clamp(20px,1.9vw,26px)}
-  .capa-cargo .grande{font-size:clamp(36px,3.6vw,48px)}
-  .capa-foto{position:absolute;left:50%;bottom:26px;top:4px;margin:0;transform:translateX(-50%);align-items:flex-end}
-  .capa-foto img{height:100%}
-  .capa-orbita{top:9%;width:360px;height:120px}
-  .capa-painel{
-    margin-top:14px;padding:30px 36px 26px;
-    grid-template-columns:minmax(0,1fr) 290px minmax(0,1fr);gap:18px;align-items:stretch;
-  }
-  .capa-esquerda{grid-column:1;display:flex;flex-direction:column}
-  .capa-confiam{margin-top:auto;align-self:flex-start}
-  .capa-direita{grid-column:3;align-content:start}
-  .capa-frase{font-size:clamp(30px,2.7vw,36px)}
-  .capa-texto-p{font-size:14px;margin-top:10px}
-  .capa-botoes{margin-top:16px;gap:8px}
-  .btn-escuro{font-size:14px}
-  .btn-claro2{font-size:13.5px;padding:11px 18px}
-  .capa-confiam{margin-top:18px}
-  .capa-direita{gap:16px}
-  .destaque-card{width:230px}
-  .destaque-card img{aspect-ratio:4/3}
+  /* capa compacta: cabe na tela sem rolar */
+  .capa{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:stretch;padding-top:22px;padding-bottom:26px}
+  .capa-foto{aspect-ratio:auto;height:auto;min-height:380px}
+  .capa-busca{padding:11px 14px 11px 18px}
+  .capa-busca-txt{font-size:13.5px}
+  .capa-pilula{bottom:18px;font-size:12px;padding:7px 18px 7px 7px}
+  .capa-pilula b{font-size:13px}
+  .capa-marcas{left:18px}
+  .capa-agenda{right:18px}
+  .avatares img{width:34px;height:34px}
+  .capa-agenda .ic{width:36px;height:36px}
+  h1{font-size:clamp(44px,5.5vw,66px)}
+  .intro{font-size:17px;margin-top:16px}
 
   .marcas{margin-top:56px}
   .fita{margin:0 -60px;padding:13px 0}
@@ -426,7 +399,10 @@ h1,h2,h3{font-family:var(--titulo);font-weight:700;text-transform:uppercase;marg
 <div class="painel">
 <!-- ================= TOPO (igual ao do portfólio) ================= -->
 <header class="topo" id="inicio">
-  <a href="#inicio" class="logo-mini" aria-label="Início"><svg class="logo-estrela" viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela"/></svg></a>
+  <a href="#inicio" class="logo" aria-label="Yasmin Carreira, início">
+    <svg class="logo-estrela" viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela"/></svg>
+    <div><strong>Yasmin</strong><span>Carreira</span></div>
+  </a>
   <!-- EDITAR: nomes e links do menu -->
   <nav class="menu" id="menu" aria-label="Navegação principal">
     <ul>
@@ -453,56 +429,54 @@ h1,h2,h3{font-family:var(--titulo);font-weight:700;text-transform:uppercase;marg
 </header>
 
 <main>
-  <!-- ================= CAPA: nome e cargo em cima, foto no meio, painel amarelo embaixo ================= -->
+  <!-- ================= ABERTURA: foto + apresentação + links ================= -->
   <section class="miolo capa" aria-label="Apresentação">
-    <div class="capa-topo">
-      <h1 class="capa-nome">
-        <span class="l1"><svg viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela"/></svg>Yasmin</span>
-        <span class="grande">Carreira</span>
-      </h1>
-      <p class="capa-cargo">
-        <span class="l1">UGC creator, influenciadora, mãe,</span>
-        <span class="grande">mil e uma coisas…</span>
-        <svg class="deco" viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela"/></svg>
-      </p>
-    </div>
-
-    <!-- FOTO DA CAPA (recortada, fundo transparente): para trocar, mude o arquivo abaixo -->
+    <!-- FOTO DA CAPA: para trocar, mude o arquivo abaixo -->
     <div class="capa-foto">
-      <span class="capa-orbita" aria-hidden="true"></span>
-      <img src="fotos/capa-recorte.webp" alt="Yasmin Carreira sorrindo, olhando por cima do ombro" width="740" height="1188" fetchpriority="high">
+      <img src="fotos/sobre.jpg" alt="Yasmin Carreira sorrindo, segurando produtos de cabelo" width="1000" height="1777" fetchpriority="high">
+
+      <!-- Barra "de pesquisa" da foto: leva para o Sobre mim do portfólio -->
+      <a class="capa-busca vidro" href="portfolio/#sobre">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <span class="capa-busca-txt">Quem é Yasmin Carreira?</span>
+        <span class="capa-busca-ir" aria-hidden="true">→</span>
+      </a>
+
+      <a class="capa-pilula capa-marcas vidro" href="#marcas">
+        <span class="avatares" aria-hidden="true"><img src="fotos/ugc-03-dove.jpg" alt=""><img src="fotos/ugc-01-elseve.jpg" alt=""><img src="fotos/ugc-06-nivea.jpg" alt=""></span>
+        <span><b>Marcas que confiam</b><span class="sub">Dove, Elseve, Eudora +</span></span>
+      </a>
+      <a class="capa-pilula capa-agenda vidro js-whats" href="https://wa.me/5513997973883" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 14h2M14 14h2M8 17h2"/></svg></span>
+        <b>Reservar agenda</b>
+      </a>
     </div>
 
-    <div class="capa-painel">
-      <div class="capa-esquerda">
-        <div class="capa-ola"><svg viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela"/></svg>Olá, o que você precisa hoje?</div>
-        <h2 class="capa-frase">Conteúdo que conecta com pessoas e marcas</h2>
-        <p class="capa-texto-p">Transformo minha rotina em vídeos autênticos, com humor leve e cara de conversa de amiga.</p>
-        <div class="capa-botoes">
-          <a class="btn-escuro js-whats" href="https://wa.me/5513997973883" target="_blank" rel="noopener">Quero criar com a Yasmin <span class="seta">→</span></a>
-          <a class="btn-claro2" href="portfolio/#sobre">Quem é Yasmin Carreira?</a>
-        </div>
-        <a class="capa-confiam" href="#marcas">
-          <span class="avatares" aria-hidden="true"><img src="fotos/ugc-03-dove.jpg" alt=""><img src="fotos/ugc-01-elseve.jpg" alt=""><img src="fotos/ugc-06-nivea.jpg" alt=""></span>
-          <span><b>Marcas que confiam</b>Dove, Elseve, Eudora +</span>
-          <svg class="coracao" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.2 3 4.5 6.6 4.5c2.1 0 3.5 1.2 5.4 3.2 1.9-2 3.3-3.2 5.4-3.2 3.6 0 5.7 3.7 4.2 7.2C19.5 16.4 12 21 12 21Z"/></svg>
-        </a>
-      </div>
+    <div class="capa-texto">
+      <div class="rotulo">O que você precisa hoje?</div>
+      <h1>UGC creator, influenciadora, mãe, mil e uma coisas…</h1>
+      <p class="intro">Transformo minha rotina em conteúdo que conecta com pessoas e marcas.</p>
 
-      <div class="capa-direita">
-        <!-- EDITAR: os 3 diferenciais -->
-        <ul class="vantagens">
-          <li><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m10 9 5 3-5 3V9Z"/></svg>Vídeos autênticos</li>
-          <li><svg viewBox="0 0 24 24"><path d="M12 3c.8 4.7 3.3 7.2 8 8-4.7.8-7.2 3.3-8 8-.8-4.7-3.3-7.2-8-8 4.7-.8 7.2-3.3 8-8Z"/></svg>Humor leve</li>
-          <li><svg viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/></svg>Cara de amiga</li>
-        </ul>
-        <p class="destaque-rotulo">Vídeo em destaque</p>
-        <!-- EDITAR: vídeo em destaque (foto, marca, formato e link) -->
-        <a class="destaque-card" href="portfolio/#destaques">
-          <img src="fotos/ugc-04-la-ganexa.jpg" alt="Vídeo para La Ganexa" loading="lazy">
-          <b>La Ganexa</b>
-          <span>Humor com teatrinho</span>
-          <span class="ver"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12-7.5Z"/></svg>Ver vídeo</span>
+      <div class="lista-cab">Meus trabalhos <span class="selo-mini">Para todas as marcas</span> <a class="ver-todos" href="portfolio/#trabalhos">Ver todos</a></div>
+      <!-- EDITAR: cada linha é um botão (foto, título, subtítulo, detalhe e link) -->
+      <div class="linhas">
+        <a class="linha" href="portfolio/">
+          <img src="fotos/ugc-04-la-ganexa.jpg" alt="" loading="lazy">
+          <span class="txt"><b>Meu portfólio UGC</b><span>vídeos que fiz pra marcas</span></span>
+          <span class="meta">vídeos</span>
+          <span class="seta">→</span>
+        </a>
+        <a class="linha js-whats" href="https://wa.me/5513997973883" target="_blank" rel="noopener">
+          <img src="fotos/ugc-02-praia-fitness.jpg" alt="" loading="lazy">
+          <span class="txt"><b>Parcerias UGC e publis</b><span>fala comigo no WhatsApp</span></span>
+          <span class="meta">agenda aberta</span>
+          <span class="seta">→</span>
+        </a>
+        <a class="linha" href="portfolio/#servicos">
+          <img src="fotos/ugc-08-taiff.jpg" alt="" loading="lazy">
+          <span class="txt"><b>Como eu te ajudo</b><span>UGC orgânico, anúncios e pacotes</span></span>
+          <span class="meta">serviços</span>
+          <span class="seta">→</span>
         </a>
       </div>
     </div>
@@ -685,13 +659,9 @@ menu.addEventListener("click", e => { if (e.target.closest("a")) { menu.classLis
 // PT / EN: troca os textos da página. EDITAR: acrescente aqui as traduções dos textos novos
 const EN = {
   "Sobre": "About", "Trabalhos": "Work", "Destaques": "Highlights", "Vídeos": "Videos", "Fotos": "Photos", "Serviços": "Services", "Contato": "Contact",
-  "Olá, o que você precisa hoje?": "Hi, what do you need today?",
-  "UGC creator, influenciadora, mãe,": "UGC creator, influencer, mom,", "mil e uma coisas…": "a thousand and one things…",
-  "Conteúdo que conecta com pessoas e marcas": "Content that connects people and brands",
-  "Transformo minha rotina em vídeos autênticos, com humor leve e cara de conversa de amiga.": "I turn my routine into authentic videos, with light humor and a chat-with-a-friend feel.",
-  "Quero criar com a Yasmin": "Create with Yasmin",
-  "Vídeos autênticos": "Authentic videos", "Humor leve": "Light humor", "Cara de amiga": "Friendly vibe",
-  "Vídeo em destaque": "Featured video", "Humor com teatrinho": "Skit-style humor", "Ver vídeo": "Watch video",
+  "O que você precisa hoje?": "What do you need today?",
+  "UGC creator, influenciadora, mãe, mil e uma coisas…": "UGC creator, influencer, mom, a thousand and one things…",
+  "Transformo minha rotina em conteúdo que conecta com pessoas e marcas.": "I turn my routine into content that connects people and brands.",
   "Quem é Yasmin Carreira?": "Who is Yasmin Carreira?",
   "Marcas que confiam": "Brands that trust me", "Dove, Elseve, Eudora +": "Dove, Elseve, Eudora +", "Reservar agenda": "Book a date",
   "Meus trabalhos": "My work", "Para todas as marcas": "For every brand",
