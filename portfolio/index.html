@@ -2872,9 +2872,11 @@ function fechaModal() {
   fundo.setAttribute("aria-hidden", "true");
   if (focoAnterior && focoAnterior.focus) focoAnterior.focus();
 }
-let jaViu = false;
-try { jaViu = sessionStorage.getItem("midiaKitVisto") === "1"; } catch (e) {}
-if (!jaViu) setTimeout(abreModal, 7000);
+// O cartão do mídia kit não abre mais sozinho (a Yasmin pediu para tirar).
+// Para voltar a abrir depois de 7 segundos, descomente as linhas abaixo.
+// let jaViu = false;
+// try { jaViu = sessionStorage.getItem("midiaKitVisto") === "1"; } catch (e) {}
+// if (!jaViu) setTimeout(abreModal, 7000);
 
 $("#fecharModal").addEventListener("click", fechaModal);
 fundo.addEventListener("click", e => { if (e.target === fundo) fechaModal(); });
