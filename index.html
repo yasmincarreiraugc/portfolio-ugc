@@ -60,7 +60,9 @@ h1,h2,h3{font-family:var(--titulo);font-weight:700;text-transform:uppercase;marg
 .nota{font-family:var(--nota);text-transform:none;font-weight:700;color:var(--magenta);letter-spacing:0}
 
 /* ---------- topo (mesmo do portfólio) ---------- */
-.topo{position:relative;z-index:15;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 44px 10px 40px}
+/* topo fixo: acompanha a rolagem até o fim da página */
+.topo{position:sticky;top:0;z-index:15;background:#fff;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 44px 10px 40px;transition:border-radius .3s,box-shadow .3s,padding .3s}
+.topo.rolou{border-radius:0 0 28px 28px;padding-top:12px;padding-bottom:12px;box-shadow:0 14px 34px -22px rgba(30,25,21,.45)}
 .logo{display:flex;align-items:center;gap:16px;color:#1e1915}
 .logo-estrela{width:38px;height:38px;fill:var(--rosa);stroke:#1e1915;stroke-width:2.2;stroke-linejoin:round;overflow:visible;animation:brilhar 3s ease-in-out infinite}
 .logo strong,.logo span{display:block;font-size:21px;font-weight:600;letter-spacing:.07em;line-height:1.1;text-transform:uppercase}
