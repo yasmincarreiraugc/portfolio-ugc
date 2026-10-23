@@ -609,32 +609,6 @@ h1 span{display:block}
   </div>
 </nav>
 
-<!-- ================= CAIXA DAS REDES (abre pelo botão "Minhas redes") ================= -->
-<dialog class="redes-caixa" id="redes" aria-labelledby="redes-titulo">
-  <div class="redes-cab">
-    <div><h3 id="redes-titulo">Minhas redes</h3><p>Escolhe por onde quer me encontrar</p></div>
-    <button type="button" class="redes-fechar" id="fechar-redes" aria-label="Fechar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
-  </div>
-  <!-- EDITAR: suas redes -->
-  <ul class="caixas">
-    <li class="caixa-rosa"><a href="https://www.instagram.com/yasmincarreira_/" target="_blank" rel="noopener">
-      <span class="caixa-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg></span>
-      <span class="caixa-texto"><strong>Instagram</strong><small>@yasmincarreira_</small></span>
-      <span class="caixa-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-    </a></li>
-    <li class="caixa-azul"><a href="https://www.tiktok.com/@yasmincarreira_1" target="_blank" rel="noopener">
-      <span class="caixa-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.4 2.6 2.2 4.4 5 4.6"/></svg></span>
-      <span class="caixa-texto"><strong>TikTok</strong><small>@yasmincarreira_1</small></span>
-      <span class="caixa-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-    </a></li>
-    <li class="caixa-amarelo"><a href="mailto:yasmin-carreira@hotmail.com">
-      <span class="caixa-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6l8.5 7 8.5-7"/></svg></span>
-      <span class="caixa-texto"><strong>E-mail</strong><small>yasmin-carreira@hotmail.com</small></span>
-      <span class="caixa-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
-    </a></li>
-  </ul>
-</dialog>
-
 <div class="aviso" id="aviso" role="status" aria-live="polite"></div>
 
 <script>
@@ -704,11 +678,9 @@ const marcaRolagem = () => topo.classList.toggle("rolou", scrollY > 10);
 addEventListener("scroll", marcaRolagem, { passive: true });
 marcaRolagem();
 
-// Caixa "Minhas redes": abre pelo botão da capa e fecha no X, no Esc ou tocando fora
-const redes = document.getElementById("redes");
-document.getElementById("abrir-redes").addEventListener("click", () => redes.showModal());
-document.getElementById("fechar-redes").addEventListener("click", () => redes.close());
-redes.addEventListener("click", e => { if (e.target === redes) redes.close(); });
+// "Minhas redes": a chavinha abre e fecha a caixa ali mesmo
+const caixaRedes = document.getElementById("caixa-redes"), abrirRedes = document.getElementById("abrir-redes");
+abrirRedes.addEventListener("click", () => abrirRedes.setAttribute("aria-expanded", caixaRedes.classList.toggle("aberto")));
 
 // Menu do celular (botão de três linhas)
 const hamb = document.getElementById("hamburguer"), menu = document.getElementById("menu");
