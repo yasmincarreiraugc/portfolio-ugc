@@ -352,20 +352,36 @@ h1 mark::after{content:"";position:absolute;left:-2px;right:-2px;bottom:.06em;he
   </defs>
 </svg>
 
-<!-- ================= TOPO ================= -->
-<header class="miolo topo" id="inicio">
-  <a class="marca" href="#inicio">
-    <svg viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela" fill="#ff99d9" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/></svg>
-    Yasmin<br>Carreira
+<div class="painel">
+<!-- ================= TOPO (igual ao do portfólio) ================= -->
+<header class="topo" id="inicio">
+  <a href="#inicio" class="logo" aria-label="Yasmin Carreira, início">
+    <svg class="logo-estrela" viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela"/></svg>
+    <div><strong>Yasmin</strong><span>Carreira</span></div>
   </a>
-  <nav class="topo-menu" aria-label="Menu">
-    <a href="portfolio/">Portfólio</a>
-    <a href="#cupons">Cupons</a>
-    <a href="#mentoria">Mentoria</a>
-    <a href="#historia">Minha história</a>
-    <a class="topo-cta" href="#conversar">Bora conversar</a>
+  <!-- EDITAR: nomes e links do menu -->
+  <nav class="menu" id="menu" aria-label="Navegação principal">
+    <ul>
+      <li><a href="#historia" data-en="About">Sobre</a></li>
+      <li class="com-submenu">
+        <a href="portfolio/#trabalhos"><span data-en="Work">Trabalhos</span> <svg class="seta-baixo" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 4l3 3 3-3"/></svg></a>
+        <ul class="submenu">
+          <li><a href="portfolio/#destaques" data-en="Highlights">Destaques</a></li>
+          <li><a href="portfolio/#trabalhos" data-en="Videos">Vídeos</a></li>
+          <li><a href="portfolio/#fotos" data-en="Photos">Fotos</a></li>
+        </ul>
+      </li>
+      <li><a href="portfolio/#servicos" data-en="Services">Serviços</a></li>
+      <li><a href="#conversar" data-en="Contact">Contato</a></li>
+    </ul>
   </nav>
-  <a class="arroba" href="https://www.instagram.com/yasmincarreira_/" target="_blank" rel="noopener">@yasmincarreira_</a>
+  <div class="topo-lado">
+    <div class="idioma" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="pt" aria-pressed="true"><svg viewBox="0 0 28 20" aria-hidden="true"><rect width="28" height="20" rx="3" fill="#009b3a"/><path d="M14 3l10 7-10 7-10-7z" fill="#fedf00"/><circle cx="14" cy="10" r="4.2" fill="#002776"/></svg>PT</button>
+      <button type="button" data-lang="en" aria-pressed="false"><svg viewBox="0 0 28 20" aria-hidden="true"><rect width="28" height="20" rx="3" fill="#fff"/><path d="M0 1.5h28M0 4.6h28M0 7.7h28M0 10.8h28M0 13.9h28M0 17h28" stroke="#b22234" stroke-width="1.6"/><rect width="12.5" height="10.8" rx="2" fill="#3c3b6e"/></svg>EN</button>
+    </div>
+    <button type="button" class="hamburguer" id="hamburguer" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
 </header>
 
 <main>
