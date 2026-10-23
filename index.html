@@ -141,33 +141,20 @@ h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:
 h1 span{display:block}
 .intro{margin:14px 0 0;color:#57514c;font-size:16px;line-height:1.6;max-width:400px}
 
-.lista-cab{display:flex;align-items:center;gap:8px;margin:16px 0 6px;font-size:14px;font-weight:600;white-space:nowrap}
-.selo-mini{background:var(--rosa);border-radius:6px;padding:3px 8px;font-size:10.5px;font-weight:700}
-.lista-cab .ver-todos{margin:0 0 0 auto}
-.linhas{display:grid;gap:5px}
-.linha{
-  display:flex;align-items:center;gap:12px;padding:4px 5px 4px 4px;
-  background:#fff;border:1px solid #ece7e2;border-radius:14px;transition:border-color .15s,box-shadow .15s;
-}
-.linha:hover{border-color:var(--rosa);box-shadow:0 10px 24px -16px rgba(0,0,0,.35)}
-.linha img{width:44px;height:34px;flex:none;border-radius:8px;object-fit:cover}
-.linha .txt{flex:1;min-width:0}
-.linha b{display:block;font-size:13.5px;font-weight:600;line-height:1.2}
-.linha .txt span{display:block;font-size:11px;color:var(--tinta-2);margin-top:1px;line-height:1.25}
-.linha .meta{flex:none;font-size:11px;color:#8a837d}
-.linha .seta{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#f1ede8;font-size:15px;transition:background .15s}
-.linha:hover .seta{background:var(--rosa)}
-.ver-todos{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding-bottom:2px;border-bottom:2px solid var(--rosa)}
-@media (max-width:959px){
-  /* celular: "Reservar agenda" vira só o ícone e as marcas ficam numa linha, para os dois caberem */
-  .capa-agenda{padding:6px}
-  .capa-agenda b{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-  .capa-agenda .ic{width:34px;height:34px}
-  .capa-marcas .sub{display:none}
-}
-@media (max-width:420px){
-  .linha .meta{display:none}
-}
+/* caixinhas clicáveis iguais às do "Me encontre aqui" do portfólio */
+.caixas{display:grid;gap:8px;list-style:none;margin:18px 0 0;padding:0}
+.caixas a{display:flex;align-items:center;gap:12px;padding:8px;border-radius:18px;background:#f7f4f0;color:#1e1915;transition:transform .2s,box-shadow .2s}
+.caixas a:hover{transform:translateY(-2px);box-shadow:0 12px 22px -16px rgba(30,25,21,.5)}
+.caixa-icone{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--rosa)}
+.caixa-azul .caixa-icone{background:var(--ceu)}
+.caixa-amarelo .caixa-icone{background:var(--manteiga)}
+.caixa-icone svg{width:18px;height:18px;fill:none;stroke:#1e1915;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.caixa-texto{flex:1;min-width:0;display:flex;flex-direction:column}
+.caixa-texto strong{font-size:14px;font-weight:700;line-height:1.25}
+.caixa-texto small{font-size:12px;color:rgba(30,25,21,.65);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.caixa-seta{flex:none;width:32px;height:32px;border-radius:50%;background:#fff;display:grid;place-items:center;transition:background .2s,transform .2s}
+.caixa-seta svg{width:14px;height:14px;fill:none;stroke:#1e1915;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.caixas a:hover .caixa-seta{background:var(--rosa);transform:rotate(45deg)}
 
 /* ---------- faixa de marcas ---------- */
 .marcas{margin-top:44px}
