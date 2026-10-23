@@ -628,6 +628,15 @@ document.getElementById("lista").addEventListener("submit", e => {
   mostrarAviso("Abrindo seu e-mail…");
 });
 
+// Busca da capa: leva para os trabalhos por nicho no portfólio
+const campo = document.getElementById("busca-campo");
+document.getElementById("busca").addEventListener("submit", e => {
+  e.preventDefault();
+  location.href = "portfolio/#trabalhos";
+});
+campo.addEventListener("change", () => { if (campo.value.trim()) location.href = "portfolio/#trabalhos"; });
+document.getElementById("busca-limpar").addEventListener("click", () => { campo.value = ""; campo.focus(); });
+
 // Menu do celular (botão de três linhas)
 const hamb = document.getElementById("hamburguer"), menu = document.getElementById("menu");
 hamb.addEventListener("click", () => {
