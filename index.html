@@ -116,8 +116,9 @@ h1,h2,h3{font-family:var(--titulo);font-weight:700;text-transform:uppercase;marg
   /* no celular o texto vem antes da foto, como no portfólio */
   .capa-texto{order:-1;padding-top:20px}
 }
-.capa-foto{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:1/1.05;background:var(--rosa)}
-.capa-foto > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 32%}
+/* foto recortada (fundo transparente) sobre um fundo claro da paleta */
+.capa-foto{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:1/1.05;background:radial-gradient(circle at 60% 30%,#fff 0,var(--manteiga) 55%,#ffe58a 100%)}
+.capa-foto > img{position:absolute;left:0;right:0;bottom:0;margin:0 auto;width:auto;height:96%;max-width:none;object-fit:contain;object-position:50% 100%}
 .vidro{background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 10px 30px -12px rgba(0,0,0,.35)}
 /* caixinha "Olá, sou a Yasmin!" que flutua devagar em cima da foto */
 .capa-ola{
