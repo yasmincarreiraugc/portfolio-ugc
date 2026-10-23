@@ -2246,7 +2246,7 @@ const roda = $("#filmeTrilho");
 roda.innerHTML = [0, 1, 2].map(k => FOTOS_UGC.map(f => `<figure class="roda-foto"${k ? ' aria-hidden="true"' : ""}><img src="${esc(f.foto)}" alt="${k ? "" : esc(f.alt)}" loading="lazy" decoding="async"></figure>`).join("")).join("");
 const fotosRoda = [...roda.children];
 let rodaPos = 0, rodaAlvo = null, rodaPausa = false, rodaUltimo = 0;
-const rodaVelocidade = reduzMovimento ? 0 : 1 / 8000; // uma foto a cada 8 segundos
+const rodaVelocidade = reduzMovimento ? 0 : 1 / 14000; // uma foto a cada 14 segundos
 function desenhaRoda() {
   const n = fotosRoda.length, celular = window.innerWidth <= 860;
   const passo = celular ? 1.1 : 1.22, giro = celular ? 26 : 30;
