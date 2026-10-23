@@ -306,16 +306,10 @@ h1 span{display:block}
   .nav{display:none}
 
   /* capa compacta: cabe na tela sem rolar */
-  .capa{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:stretch;padding-top:12px;padding-bottom:20px}
+  /* foto mais estreita, texto e caixinhas mais largos */
+  .capa{grid-template-columns:minmax(0,.62fr) minmax(0,1fr);gap:48px;align-items:stretch;padding-top:12px;padding-bottom:20px}
   .capa-foto{aspect-ratio:auto;height:auto;min-height:340px}
-  .capa-busca{padding:11px 14px 11px 18px}
-  .capa-busca-txt{font-size:13.5px}
-  .capa-pilula{bottom:18px;font-size:12px;padding:7px 18px 7px 7px}
-  .capa-pilula b{font-size:13px}
-  .capa-marcas{left:18px}
-  .capa-agenda{right:18px}
-  .avatares img{width:34px;height:34px}
-  .capa-agenda .ic{width:36px;height:36px}
+  .capa-ola{left:18px;bottom:20px;font-size:14px}
   h1{font-size:clamp(38px,3.6vw,48px)}
   .intro{font-size:16px;margin-top:12px}
 
