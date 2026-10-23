@@ -1347,6 +1347,9 @@
   .leque-cartao:hover .leque-seta,.trabalho a:hover .leque-seta{transform:scale(1.1)}
   /* Nichos com a mesma estética dos destaques: cartões retos, 4 por tela */
   .trabalho .midia{border-radius:clamp(24px,2.6vw,34px)!important;box-shadow:0 22px 40px -26px rgba(30,25,21,.55)!important;border:0!important}
+  /* sombra esfumaçada: a faixa dos vídeos ganha espaço embaixo para a sombra não ser cortada reta */
+  #galeria{padding-bottom:40px!important;margin-bottom:-30px!important}
+  .trabalho .midia{box-shadow:0 18px 30px -20px rgba(30,25,21,.32)!important}
   .trabalho .midia::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.36),transparent 36%);pointer-events:none}
   .trabalho .leque-info{left:10px;right:10px;top:10px;padding:8px 8px 8px 13px;border-radius:18px}
   /* botões dos nichos menores, todos na mesma linha (no celular, deslizam para o lado) */
