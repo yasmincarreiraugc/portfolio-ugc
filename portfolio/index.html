@@ -1521,6 +1521,20 @@
   .contato .form .btn-cheio{margin-top:4px!important;padding:11px 22px!important}
   #contato .cabeca{margin-bottom:18px!important}
   main > section#contato{padding-top:clamp(24px,2.6vw,34px)!important;padding-bottom:clamp(24px,2.6vw,34px)!important}
+  /* Quadro de vidro do formulário, como na referência */
+  .contato .form.quadro-vidro{background:rgba(255,255,255,.3)!important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.65)!important;border-radius:28px!important;padding:clamp(20px,2.4vw,30px)!important;box-shadow:0 24px 50px -30px rgba(20,40,80,.55)!important}
+  .vidro-topo{display:flex;gap:14px;align-items:flex-start;margin-bottom:18px}
+  .vidro-icone{flex:none;width:46px;height:46px;border-radius:14px;background:var(--rosa-paleta);display:grid;place-items:center}
+  .vidro-icone svg{width:24px;height:24px;fill:none;stroke:var(--nc-tinta);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .vidro-topo h2{margin:0!important;font-size:clamp(1.7rem,2.6vw,2.2rem)!important;line-height:1.05;text-transform:uppercase;color:var(--nc-tinta)!important}
+  .vidro-topo h2 em{color:var(--magenta)!important;-webkit-text-stroke:0!important}
+  .vidro-topo p{margin:6px 0 0;font-size:14px;color:rgba(30,25,21,.75)}
+  .quadro-vidro form{display:flex;flex-direction:column;gap:10px}
+  .contato .quadro-vidro input,.contato .quadro-vidro textarea{background:rgba(255,255,255,.85)!important;border:1px solid rgba(255,255,255,.9)!important;border-radius:14px!important;padding:12px 16px!important;font-size:14.5px!important}
+  .contato .quadro-vidro input:focus,.contato .quadro-vidro textarea:focus{background:#fff!important;border-color:var(--rosa-paleta)!important}
+  .contato .quadro-vidro textarea{min-height:90px!important}
+  .contato .quadro-vidro .btn-cheio{width:100%;justify-content:center;margin-top:4px!important;padding:14px 22px!important;font-size:15px}
+  .quadro-vidro .confirmacao{padding:24px 6px}
   @media (min-width:861px){
     .contato-grid{align-items:stretch!important}
     .contato .canais{display:flex!important;flex-direction:column;justify-content:space-between;gap:8px!important}
