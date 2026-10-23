@@ -2345,7 +2345,10 @@ function mostraNicho(nicho) {
     item.classList.remove("entrando");
     if (mostra) { void item.offsetWidth; item.classList.add("entrando"); }
   });
+  // volta para o começo na hora (sem animação), senão no iPhone a faixa pode ficar parada além do último vídeo
+  galeria.style.scrollBehavior = "auto";
   galeria.scrollLeft = 0;
+  requestAnimationFrame(() => { galeria.scrollLeft = 0; galeria.style.scrollBehavior = ""; atualizaSetas(); });
   atualizaSetas();
 }
 
