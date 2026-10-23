@@ -1536,6 +1536,14 @@
   .contato .quadro-vidro textarea{min-height:90px!important}
   .contato .quadro-vidro .btn-cheio{width:100%;justify-content:center;margin-top:4px!important;padding:14px 22px!important;font-size:15px}
   .quadro-vidro .confirmacao{padding:24px 6px}
+  /* Rodapé: linha fina e, embaixo, o nome pequeno à esquerda e os direitos à direita */
+  .rodape{background:transparent!important;padding:0 24px 30px!important;margin:0!important;border:0!important}
+  .rodape-linha{max-width:1172px;height:1px;margin:0 auto;background:#d9d3cc}
+  .rodape-fim{max-width:1172px;margin:22px auto 0;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .rodape-assinatura strong{display:block;font-family:var(--serif);font-size:20px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--nc-tinta)}
+  .rodape-assinatura span{display:block;margin-top:2px;font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#8c95a8}
+  .rodape-direitos{font-size:12.5px;color:#8a8279}
+  @media (max-width:860px){ .rodape{padding:0 16px 24px!important} .rodape-fim{flex-direction:column;align-items:flex-start;gap:10px} }
   /* Contato como na referência: caixa azul grande com o formulário e caixa branca menor por cima, à direita */
   main > section#contato{background:transparent!important;box-shadow:none!important;padding-top:clamp(20px,2.4vw,32px)!important;padding-bottom:clamp(40px,4vw,64px)!important}
   .contato-grid{display:flex!important;align-items:center!important;position:relative;max-width:1040px;margin:0 auto}
