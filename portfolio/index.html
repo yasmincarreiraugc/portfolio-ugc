@@ -2249,15 +2249,19 @@ let rodaPos = 0, rodaAlvo = null, rodaPausa = false, rodaUltimo = 0;
 const rodaVelocidade = reduzMovimento ? 0 : 1 / 8000; // uma foto a cada 8 segundos
 function desenhaRoda() {
   const n = fotosRoda.length, celular = window.innerWidth <= 860;
-  const passo = celular ? 1.1 : 1.22, giro = celular ? 26 : 30, alcance = celular ? 1.7 : 2.6;
+  const passo = celular ? 1.1 : 1.22, giro = celular ? 26 : 30;
+  // quantas fotos cabem de cada lado até a borda da tela (+1 para entrar e sair já fora da tela)
+  const largura = fotosRoda[0].offsetWidth || 200;
+  const alcance = Math.min(n / 2 - 0.5, roda.clientWidth / 2 / (largura * passo) + 1.2);
   fotosRoda.forEach((el, i) => {
     let d = ((i - rodaPos) % n + n) % n;
     if (d > n / 2) d -= n;
     const a = Math.abs(d);
     // as fotos dos lados ficam viradas para dentro e um pouco maiores, com espaço entre elas
-    el.style.transform = `translateX(calc(-50% + ${d * passo * 100}%)) rotateY(${-d * giro}deg) scale(${1 + Math.min(a, 1.5) * 0.06})`;
+    const angulo = Math.max(-38, Math.min(38, -d * giro));
+    el.style.transform = `translateX(calc(-50% + ${d * passo * 100}%)) rotateY(${angulo}deg) scale(${1 + Math.min(a, 1.5) * 0.06})`;
     el.style.zIndex = String(100 - Math.round(a * 10));
-    el.style.opacity = a > alcance ? "0" : "1";
+    el.style.visibility = a > alcance ? "hidden" : "visible";
   });
 }
 function animaRoda(t) {
