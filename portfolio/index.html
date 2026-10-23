@@ -1795,44 +1795,34 @@
   <!-- ============ 7. BORA CRIAR JUNTOS ============ -->
   <section class="secao contato" id="contato" aria-labelledby="titulo-contato">
     <div class="wrap">
-      <div class="cabeca">
-        <span class="num revela">06</span>
-        <span class="sobrelinha revela">Contato</span>
-        <h2 id="titulo-contato" class="revela d1">Bora criar <em>juntos?</em></h2>
-        <p class="revela d2">Me conta sobre a sua marca e o que você precisa. Eu respondo em até um dia útil.</p>
-      </div>
       <div class="contato-grid">
-        <div class="form revela">
+        <!-- Quadro de vidro com o formulário (os campos vão para o WhatsApp da Yasmin) -->
+        <div class="form quadro-vidro revela">
+          <div class="vidro-topo">
+            <span class="vidro-icone" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 3.5V17H6.5A2.5 2.5 0 0 1 4 14.5z"/><path d="M8.5 9.5h7M8.5 12.5h4.5"/></svg></span>
+            <div>
+              <h2 id="titulo-contato">Vamos criar <em>juntos?</em></h2>
+              <p>Me conta sobre a sua marca e o que você precisa.</p>
+            </div>
+          </div>
           <form id="formContato" novalidate>
-            <div class="duas">
-              <div class="campo">
-                <label for="cNome">Nome</label>
-                <input id="cNome" name="nome" type="text" autocomplete="name" required placeholder="Seu nome">
-              </div>
-              <div class="campo">
-                <label for="cEmail">E-mail</label>
-                <input id="cEmail" name="email" type="email" autocomplete="email" required placeholder="voce@marca.com">
-              </div>
-            </div>
-            <div class="campo">
-              <label for="cMarca">Marca / empresa</label>
-              <input id="cMarca" name="marca" type="text" autocomplete="organization" placeholder="Nome da marca">
-            </div>
-            <div class="campo">
-              <label for="cOrcamento">Orçamento estimado</label>
-              <input id="cOrcamento" name="orcamento" type="text" placeholder="Ex: R$ 1.000 a R$ 5.000">
-            </div>
-            <div class="campo">
-              <label for="cMsg">Conta sobre o projeto</label>
-              <textarea id="cMsg" name="mensagem" required placeholder="Categoria, formato, prazo, objetivo da campanha..."></textarea>
-            </div>
+            <label class="sr-only" for="cNome">Nome</label>
+            <input id="cNome" name="nome" type="text" autocomplete="name" required placeholder="Nome">
+            <label class="sr-only" for="cWhats">WhatsApp</label>
+            <input id="cWhats" name="whatsapp" type="tel" autocomplete="tel" placeholder="WhatsApp">
+            <label class="sr-only" for="cEmail">E-mail</label>
+            <input id="cEmail" name="email" type="email" autocomplete="email" required placeholder="E-mail">
+            <label class="sr-only" for="cMarca">Marca</label>
+            <input id="cMarca" name="marca" type="text" autocomplete="organization" placeholder="Marca">
+            <label class="sr-only" for="cMsg">Conta sobre o projeto</label>
+            <textarea id="cMsg" name="mensagem" required placeholder="Conta sobre o projeto"></textarea>
             <p id="erroForm" class="sr-only" aria-live="assertive"></p>
-            <button type="submit" class="btn btn-cheio">Enviar mensagem <span class="seta" aria-hidden="true">↗</span></button>
+            <button type="submit" class="btn btn-cheio">Enviar mensagem <span class="seta" aria-hidden="true">→</span></button>
           </form>
           <div class="confirmacao" id="confirmacao" role="status" tabindex="-1">
             <div class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
-            <h3>Quase <em>lá!</em></h3>
-            <p>Abri o meu WhatsApp com a sua mensagem já escrita. É só tocar em enviar, e eu respondo em até um dia útil.</p>
+            <h3>Mensagem <em>enviada!</em></h3>
+            <p>Eu respondo em até um dia útil.</p>
           </div>
         </div>
         <div class="canais revela d1">
