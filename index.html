@@ -60,17 +60,17 @@ h1,h2,h3{font-family:var(--titulo);font-weight:700;text-transform:uppercase;marg
 .nota{font-family:var(--nota);text-transform:none;font-weight:700;color:var(--magenta);letter-spacing:0}
 
 /* ---------- topo (mesmo do portfólio) ---------- */
-.topo{position:relative;z-index:15;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:36px 48px 18px 44px}
-.logo{display:flex;align-items:center;gap:22px;color:#1e1915}
-.logo-estrela{width:48px;height:48px;fill:var(--rosa);stroke:#1e1915;stroke-width:2.2;stroke-linejoin:round;overflow:visible;animation:brilhar 3s ease-in-out infinite}
-.logo strong,.logo span{display:block;font-size:26px;font-weight:600;letter-spacing:.07em;line-height:1.1;text-transform:uppercase}
+.topo{position:relative;z-index:15;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 44px 10px 40px}
+.logo{display:flex;align-items:center;gap:16px;color:#1e1915}
+.logo-estrela{width:38px;height:38px;fill:var(--rosa);stroke:#1e1915;stroke-width:2.2;stroke-linejoin:round;overflow:visible;animation:brilhar 3s ease-in-out infinite}
+.logo strong,.logo span{display:block;font-size:21px;font-weight:600;letter-spacing:.07em;line-height:1.1;text-transform:uppercase}
 @keyframes brilhar{
   0%,100%{transform:scale(.55) rotate(0deg);opacity:.55}
   50%{transform:scale(1.1) rotate(90deg);opacity:1}
 }
-.menu > ul{list-style:none;display:flex;gap:40px;margin:0;padding:0}
+.menu > ul{list-style:none;display:flex;gap:32px;margin:0;padding:0}
 .menu li{position:relative}
-.menu a{display:inline-flex;align-items:center;gap:5px;font-size:18px;color:#2a2522}
+.menu a{display:inline-flex;align-items:center;gap:5px;font-size:16px;color:#2a2522}
 .menu a:hover{color:var(--magenta)}
 .seta-baixo{width:10px;height:10px;stroke:currentColor;stroke-width:2;fill:none;transition:transform .25s}
 .submenu{list-style:none;position:absolute;top:100%;left:-18px;margin:0;padding:10px 0;min-width:170px;background:#fcfbfa;border-radius:16px;box-shadow:0 18px 40px -18px rgba(60,40,25,.35);opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .2s,transform .2s,visibility .2s;z-index:10}
@@ -86,7 +86,7 @@ h1,h2,h3{font-family:var(--titulo);font-weight:700;text-transform:uppercase;marg
 .hamburguer{display:none;background:none;border:0;padding:0;cursor:pointer}
 .hamburguer svg{width:24px;height:24px;stroke:#1e1915;stroke-width:1.7;fill:none;stroke-linecap:round}
 @media (max-width:1060px){
-  .topo{padding:22px 16px}
+  .topo{padding:14px 16px}
   .menu{display:none;position:absolute;top:100%;left:16px;right:16px;z-index:20;background:#fcfbfa;border-radius:20px;padding:10px 22px;box-shadow:0 18px 40px -18px rgba(60,40,25,.35)}
   .menu.aberto{display:block}
   .menu > ul{flex-direction:column;gap:0}
@@ -98,9 +98,9 @@ h1,h2,h3{font-family:var(--titulo);font-weight:700;text-transform:uppercase;marg
   .submenu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;background:none;padding:0 0 10px 14px;min-width:0}
   .submenu a{padding:8px 0;font-size:15.5px;color:var(--tinta-2)}
   .hamburguer{display:block}
-  .logo{gap:14px}
-  .logo-estrela{width:38px;height:38px}
-  .logo strong,.logo span{font-size:21px}
+  .logo{gap:12px}
+  .logo-estrela{width:32px;height:32px}
+  .logo strong,.logo span{font-size:18px}
   .topo-lado{gap:14px}
 }
 @media (max-width:420px){
@@ -135,32 +135,33 @@ h1,h2,h3{font-family:var(--titulo);font-weight:700;text-transform:uppercase;marg
 .capa-agenda .ic{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--manteiga)}
 .capa-agenda .ic svg{width:16px;height:16px}
 
+/* letras e tamanhos iguais aos da capa do portfólio */
 .rotulo{
-  display:inline-flex;align-items:center;gap:8px;margin:0 0 10px;
-  color:var(--magenta);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  display:flex;align-items:center;gap:10px;margin:0;
+  color:var(--rosa);font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
 }
-.rotulo::before{content:"";width:22px;height:2px;background:var(--rosa);border-radius:2px}
-h1{font-size:clamp(38px,11vw,48px)}
+.rotulo::before{content:"";width:30px;height:1.5px;background:currentColor}
+h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:-.005em;color:#1e1915;margin-top:8px}
 h1 span{display:block}
-h1 .cor{color:var(--magenta)}
-.intro{margin:12px 0 0;color:var(--tinta-2);font-size:14px;line-height:1.55;max-width:440px}
+.intro{margin:14px 0 0;color:#57514c;font-size:16px;line-height:1.6;max-width:400px}
 
-.lista-cab{display:flex;align-items:center;gap:10px;margin:22px 0 10px;font-size:15px;font-weight:700}
+.lista-cab{display:flex;align-items:center;gap:10px;margin:20px 0 8px;font-size:14px;font-weight:600}
 .selo-mini{background:var(--rosa);border-radius:6px;padding:3px 8px;font-size:10.5px;font-weight:700}
-.linhas{display:grid;gap:8px}
+.lista-cab .ver-todos{margin:0 0 0 auto}
+.linhas{display:grid;gap:6px}
 .linha{
-  display:flex;align-items:center;gap:14px;padding:7px 8px 7px 7px;
-  background:#fff;border:1px solid #ece7e2;border-radius:16px;transition:border-color .15s,box-shadow .15s;
+  display:flex;align-items:center;gap:12px;padding:5px 6px 5px 5px;
+  background:#fff;border:1px solid #ece7e2;border-radius:14px;transition:border-color .15s,box-shadow .15s;
 }
 .linha:hover{border-color:var(--rosa);box-shadow:0 10px 24px -16px rgba(0,0,0,.35)}
-.linha img{width:66px;height:50px;flex:none;border-radius:10px;object-fit:cover}
+.linha img{width:54px;height:40px;flex:none;border-radius:9px;object-fit:cover}
 .linha .txt{flex:1;min-width:0}
 .linha b{display:block;font-size:14px;font-weight:600}
-.linha .txt span{display:block;font-size:11.5px;color:var(--tinta-2);margin-top:2px}
+.linha .txt span{display:block;font-size:11.5px;color:var(--tinta-2);margin-top:1px}
 .linha .meta{flex:none;font-size:11px;color:#8a837d}
-.linha .seta{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#f1ede8;font-size:16px;transition:background .15s}
+.linha .seta{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#f1ede8;font-size:15px;transition:background .15s}
 .linha:hover .seta{background:var(--rosa)}
-.ver-todos{display:inline-block;margin-top:14px;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding-bottom:3px;border-bottom:2px solid var(--rosa)}
+.ver-todos{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding-bottom:2px;border-bottom:2px solid var(--rosa)}
 @media (max-width:959px){
   /* celular: "Reservar agenda" vira só o ícone e as marcas ficam numa linha, para os dois caberem */
   .capa-agenda{padding:6px}
