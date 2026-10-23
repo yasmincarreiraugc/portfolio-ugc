@@ -634,6 +634,61 @@ document.getElementById("lista").addEventListener("submit", e => {
   mostrarAviso("Abrindo seu e-mail…");
 });
 
+// Menu do celular (botão de três linhas)
+const hamb = document.getElementById("hamburguer"), menu = document.getElementById("menu");
+hamb.addEventListener("click", () => {
+  const aberto = menu.classList.toggle("aberto");
+  hamb.setAttribute("aria-expanded", aberto);
+});
+menu.addEventListener("click", e => { if (e.target.closest("a")) { menu.classList.remove("aberto"); hamb.setAttribute("aria-expanded", false); } });
+
+// PT / EN: troca os textos da página. EDITAR: acrescente aqui as traduções dos textos novos
+const EN = {
+  "Sobre": "About", "Trabalhos": "Work", "Destaques": "Highlights", "Vídeos": "Videos", "Fotos": "Photos", "Serviços": "Services", "Contato": "Contact",
+  "Oi, eu sou a": "Hi, I'm", "Diário da sua creator": "Your creator's diary", "criada": "born", "pra": "to", "criar": "create",
+  "Conteúdo que faz sua marca ser": "Content that gets your brand", "escolhida.": "chosen.",
+  "Transformo o dia a dia em vídeos autênticos, com humor leve e cara de conversa de amiga.": "I turn everyday life into authentic videos, with light humor and a chat-with-a-friend feel.",
+  "Meu portfólio UGC": "My UGC portfolio", "vídeos que fiz pra marcas": "videos I made for brands",
+  "Agenda aberta": "Booking open", "Parcerias UGC e publis": "UGC & sponsored partnerships", "fala comigo no WhatsApp": "talk to me on WhatsApp",
+  "Como eu te ajudo": "How I can help", "UGC orgânico, anúncios, publi e pacotes": "organic UGC, ads, sponsored posts and packages",
+  "Fotos UGC": "UGC photos", "luz natural, prontas pra site e catálogo": "natural light, ready for website and catalog",
+  "marcas com quem já trabalhei": "brands I've worked with", "novidade": "new", "Destaque do momento": "Right now",
+  "com a Yas": "with Yas", "Garanta seus vídeos a tempo": "Get your videos in time", "reservar minha agenda": "book my schedule",
+  "Meus": "My", "cupons": "coupons", "Copia o código e usa na finalização da compra, no site da marca.": "Copy the code and use it at checkout on the brand's website.",
+  "Sou embaixadora": "Ambassador", "Nome da marca": "Brand name", "copiar": "copy", "ir pro site ↗": "visit site ↗",
+  "Vitrine da Yas": "Yas's picks", "Coisas que eu": "Things I", "indico": "recommend",
+  "Produtos de autocuidado, casa e tudo que eu uso de verdade, num lugar só.": "Self-care, home and everything I truly use, all in one place.",
+  "ver a vitrine": "see my picks", "Conheça minha": "Get to know my", "história e +": "story & more",
+  "32 anos": "32 years old", "Mãe do Bernardo": "Bernardo's mom", "Litoral de SP": "São Paulo coast", "Autocuidado": "Self-care",
+  "Crio conteúdo para mulheres sobre autocuidado, de um jeito natural, mostrando que mesmo na rotina corrida de cuidar de tudo e de todos a gente não pode se esquecer de nós mesmas.": "I create self-care content for women in a natural way, showing that even in a busy routine of caring for everything and everyone, we can't forget about ourselves.",
+  "Ver minha história completa": "Read my full story", "minha mentoria · em breve": "my mentorship · coming soon", "Mentoria": "Mentorship", "nome aqui": "name here",
+  "Para quem quer começar no UGC e tirar as coisas do papel.": "For anyone who wants to start in UGC and make it happen.",
+  "Receba notificação quando as vagas abrirem": "Get notified when spots open", "Entrar na lista": "Join the list",
+  "Só te mando e-mail quando abrir. Nada de spam.": "I'll only email you when it opens. No spam.",
+  "Bora": "Let's", "conversar?": "talk?", "Parceria, UGC, publi ou só um oi. Respondo rapidinho.": "Partnerships, UGC, sponsored posts or just a hi. I reply fast.",
+  "Chamar no WhatsApp": "Message on WhatsApp", "Mandar DM no Instagram": "DM on Instagram", "Mandar e-mail": "Send an email", "copiar e-mail": "copy email",
+  "feito pela Yas ♡ @yasmincarreira_": "made by Yas ♡ @yasmincarreira_",
+  "Início": "Home", "Portfólio": "Portfolio", "Conversar": "Talk", "Cupons": "Coupons", "História": "Story"
+};
+const textos = [];
+[document.querySelector(".painel"), document.querySelector(".nav")].forEach(raiz => {
+  const w = document.createTreeWalker(raiz, NodeFilter.SHOW_TEXT);
+  for (let n; (n = w.nextNode());) {
+    const pt = n.nodeValue.trim();
+    if (EN[pt]) textos.push({ n, pt, orig: n.nodeValue });
+  }
+});
+function aplicaIdioma(lang) {
+  document.documentElement.lang = lang === "en" ? "en" : "pt-BR";
+  textos.forEach(t => t.n.nodeValue = lang === "en" ? t.orig.replace(t.pt, EN[t.pt]) : t.orig);
+  document.querySelectorAll(".idioma button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));
+  const msg = lang === "en" ? "Hi Yasmin! I found you on Instagram and I'd like to talk about a project." : WHATSAPP_MSG;
+  document.querySelectorAll(".js-whats").forEach(a => a.href = whats(msg));
+  try { localStorage.setItem("idioma", lang); } catch (e) {}
+}
+document.querySelectorAll(".idioma button").forEach(b => b.addEventListener("click", () => aplicaIdioma(b.dataset.lang)));
+try { if (localStorage.getItem("idioma") === "en") aplicaIdioma("en"); } catch (e) {}
+
 // Entrada suave dos blocos
 const obs = "IntersectionObserver" in window && new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add("visivel"); obs.unobserve(e.target); }
