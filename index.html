@@ -316,15 +316,19 @@ h1 .cor{color:var(--magenta)}
   :root{--nav:0px;--gutter:48px}
   .nav{display:none}
 
-  .abertura{padding-top:30px}
-  .abertura{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr);gap:72px;align-items:center}
-  .cartao{max-width:470px;width:100%;justify-self:center;margin-top:20px}
-  .oi{font-size:34px}
-  .apelido{font-size:12px}
-  .selo{width:116px;height:116px;font-size:18px}
-  .rotulo{margin-top:0}
-  h1{font-size:62px}
-  .intro{font-size:16px;max-width:520px}
+  /* capa compacta: cabe na tela sem rolar */
+  .capa{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:56px;align-items:center;padding-top:4px}
+  .capa-foto{aspect-ratio:auto;height:clamp(420px,calc(100vh - 190px),540px)}
+  .capa-busca{padding:11px 14px 11px 18px}
+  .capa-busca input{font-size:13.5px}
+  .capa-pilula{bottom:18px;font-size:12px;padding:7px 18px 7px 7px}
+  .capa-pilula b{font-size:13px}
+  .capa-marcas{left:18px}
+  .capa-agenda{right:18px}
+  .avatares img{width:34px;height:34px}
+  .capa-agenda .ic{width:36px;height:36px}
+  h1{font-size:clamp(44px,4.4vw,56px)}
+  .intro{font-size:15px}
 
   .marcas{margin-top:72px}
   .fita{margin:0 -60px;padding:13px 0}
