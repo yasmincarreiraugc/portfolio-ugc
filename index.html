@@ -299,7 +299,11 @@ h1 span{display:block}
 /* ---------- celular: coluna estreita ---------- */
 @media (max-width:959px){
   body{padding:10px 10px calc(10px + var(--nav) + env(safe-area-inset-bottom))}
-  .painel{border-radius:24px}
+  .painel{border-radius:0 0 24px 24px}
+  .topo{border-radius:24px 24px 0 0}
+  .topo.rolou{border-radius:20px}
+  .conversar{border-radius:24px}
+  .capa{padding-bottom:22px}
   .miolo{max-width:460px}
 }
 
