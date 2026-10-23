@@ -2242,7 +2242,8 @@ document.querySelectorAll(".serv-whats").forEach(a => a.addEventListener("click"
 // Fotos UGC: roda curva (a do meio reta, as dos lados viradas para dentro),
 // girando devagar sozinha; as setas e o arrastar no celular giram uma foto por vez.
 const roda = $("#filmeTrilho");
-roda.innerHTML = FOTOS_UGC.map(f => `<figure class="roda-foto"><img src="${esc(f.foto)}" alt="${esc(f.alt)}" loading="lazy" decoding="async"></figure>`).join("");
+// a lista se repete (as cópias ficam escondidas para leitores de tela) para a faixa nunca acabar, mesmo em telas largas
+roda.innerHTML = [0, 1, 2].map(k => FOTOS_UGC.map(f => `<figure class="roda-foto"${k ? ' aria-hidden="true"' : ""}><img src="${esc(f.foto)}" alt="${k ? "" : esc(f.alt)}" loading="lazy" decoding="async"></figure>`).join("")).join("");
 const fotosRoda = [...roda.children];
 let rodaPos = 0, rodaAlvo = null, rodaPausa = false, rodaUltimo = 0;
 const rodaVelocidade = reduzMovimento ? 0 : 1 / 8000; // uma foto a cada 8 segundos
