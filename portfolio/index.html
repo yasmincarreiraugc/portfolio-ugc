@@ -1299,7 +1299,18 @@
   main > #sobre{padding-bottom:4px!important}
   main > #destaques{padding-top:clamp(32px,3.6vw,48px)!important;padding-bottom:clamp(24px,3vw,40px)!important}
   #destaques .cabeca{margin-bottom:6px!important}
-  @media (max-width:860px){ main > #sobre{padding-bottom:36px!important} }
+  @media (max-width:860px){
+    main > #sobre{padding-bottom:36px!important}
+    /* celular: mais espaço entre Destaques, Nichos e Serviços */
+    main > #trabalhos{padding-top:40px!important;padding-bottom:40px!important}
+    /* celular: serviços um por linha (ícone, nome e chave lado a lado), todos do mesmo tamanho */
+    .servicos-grid{grid-template-columns:1fr!important;gap:10px!important}
+    .serv.aberto{grid-column:auto}
+    .serv-topo{display:flex!important;align-items:center;gap:14px;padding:14px 16px!important}
+    .serv-icone{flex:none;width:40px!important;height:40px!important}
+    .serv h3{flex:1;margin:0!important;font-size:15.5px!important;white-space:nowrap}
+    .serv-chave{position:relative!important;top:auto!important;right:auto!important;flex:none}
+  }
   .leque-setas{display:flex;justify-content:center;gap:8px;margin-bottom:8px}
   .leque-setas button{width:52px;height:32px;border-radius:999px;border:0;background:var(--rosa-paleta);display:grid;place-items:center;cursor:pointer;transition:background .2s,transform .2s}
   .leque-setas button:hover{background:#ffb3e3;transform:translateY(-1px)}
