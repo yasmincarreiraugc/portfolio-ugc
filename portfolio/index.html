@@ -1312,6 +1312,14 @@
     .serv-icone{flex:none;width:40px!important;height:40px!important}
     .serv h3{flex:1;margin:0!important;font-size:15.5px!important;white-space:nowrap}
     .serv-chave{position:relative!important;top:auto!important;right:auto!important;flex:none;order:3}
+    /* celular: cores na sequência rosa, azul, amarelo */
+    .serv:nth-child(3n+1) .serv-icone{background:var(--rosa-paleta)}
+    .serv:nth-child(3n+2) .serv-icone{background:var(--ceu)}
+    .serv:nth-child(3n) .serv-icone{background:var(--amarelo-paleta)}
+    .serv.aberto .serv-icone{background:#fff}
+    .serv.aberto:nth-child(3n+1){background:var(--rosa-paleta);box-shadow:0 24px 40px -24px rgba(214,90,170,.6)}
+    .serv.aberto:nth-child(3n+2){background:var(--ceu);box-shadow:0 24px 40px -24px rgba(60,120,200,.6)}
+    .serv.aberto:nth-child(3n){background:#ffe38a;box-shadow:0 24px 40px -24px rgba(200,160,40,.5)}
   }
   .leque-setas{display:flex;justify-content:center;gap:8px;margin-bottom:8px}
   .leque-setas button{width:52px;height:32px;border-radius:999px;border:0;background:var(--rosa-paleta);display:grid;place-items:center;cursor:pointer;transition:background .2s,transform .2s}
