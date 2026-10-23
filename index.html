@@ -326,10 +326,13 @@ h1 span{display:block}
   .fita{margin:0 -60px;padding:13px 0}
   .fita span{font-size:26px}
 
-  .destaque{margin-top:30px;padding:34px 40px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:32px}
-  .destaque h2{font-size:48px;margin-bottom:6px}
-  .destaque-texto{margin-bottom:0;font-size:15px}
-  .pilula{min-width:360px}
+  /* destaque mais baixo; a frase fica numa linha só */
+  .destaque{margin-top:30px;padding:20px 36px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:28px}
+  .destaque h2{font-size:38px;margin-bottom:2px}
+  .destaque-texto{margin-bottom:0;font-size:14.5px;white-space:nowrap}
+  .pilula{min-width:0;padding:6px 6px 6px 18px;font-size:12px;gap:14px}
+  .pilula b{font-size:13.5px}
+  .pilula .seta{width:32px;height:32px}
 
   .grade{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px;margin-top:64px;align-items:start}
   .bloco-titulo{font-size:52px}
