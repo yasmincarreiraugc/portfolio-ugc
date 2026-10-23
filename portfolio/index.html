@@ -1775,20 +1775,28 @@
           <form id="formContato" novalidate>
             <div class="duas">
               <div class="campo">
-                <label for="cNome">Seu nome</label>
-                <input id="cNome" name="nome" type="text" autocomplete="name" required>
+                <label for="cNome">Nome</label>
+                <input id="cNome" name="nome" type="text" autocomplete="name" required placeholder="Seu nome">
               </div>
               <div class="campo">
-                <label for="cEmail">Seu e-mail</label>
-                <input id="cEmail" name="email" type="email" autocomplete="email" required>
+                <label for="cEmail">E-mail</label>
+                <input id="cEmail" name="email" type="email" autocomplete="email" required placeholder="voce@marca.com">
               </div>
             </div>
             <div class="campo">
-              <label for="cMsg">Mensagem</label>
-              <textarea id="cMsg" name="mensagem" required placeholder="Conte sobre a marca, o produto e o prazo"></textarea>
+              <label for="cMarca">Marca / empresa</label>
+              <input id="cMarca" name="marca" type="text" autocomplete="organization" placeholder="Nome da marca">
+            </div>
+            <div class="campo">
+              <label for="cOrcamento">Orçamento estimado</label>
+              <input id="cOrcamento" name="orcamento" type="text" placeholder="Ex: R$ 1.000 a R$ 5.000">
+            </div>
+            <div class="campo">
+              <label for="cMsg">Conta sobre o projeto</label>
+              <textarea id="cMsg" name="mensagem" required placeholder="Categoria, formato, prazo, objetivo da campanha..."></textarea>
             </div>
             <p id="erroForm" class="sr-only" aria-live="assertive"></p>
-            <button type="submit" class="btn btn-cheio">Enviar mensagem <span class="seta" aria-hidden="true">→</span></button>
+            <button type="submit" class="btn btn-cheio">Enviar mensagem <span class="seta" aria-hidden="true">↗</span></button>
           </form>
           <div class="confirmacao" id="confirmacao" role="status" tabindex="-1">
             <div class="check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
