@@ -2219,23 +2219,50 @@ document.querySelectorAll(".serv-whats").forEach(a => a.addEventListener("click"
   a.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg);
 }));
 
-// Fotos UGC: tira de filme com rótulo em cima e número embaixo
-$("#filmeTrilho").innerHTML = FOTOS_UGC.map((f, i) => `
-  <li class="quadro">
-    <span class="quadro-rotulo" aria-hidden="true">Fotos UGC</span>
-    <img src="${esc(f.foto)}" alt="${esc(f.alt)}" loading="lazy" decoding="async">
-    <span class="quadro-num" aria-hidden="true">▸ ${doisDig(i + 1)}</span>
-  </li>`).join("");
-const filme = $("#filmeTrilho"), filmeAnterior = $("#filmeAnterior"), filmeProxima = $("#filmeProxima");
-function atualizaSetasFilme() {
-  filmeAnterior.disabled = filme.scrollLeft <= 4;
-  filmeProxima.disabled = filme.scrollLeft >= filme.scrollWidth - filme.clientWidth - 4;
+// Fotos UGC: roda curva (a do meio reta, as dos lados viradas para dentro),
+// girando devagar sozinha; as setas e o arrastar no celular giram uma foto por vez.
+const roda = $("#filmeTrilho");
+roda.innerHTML = FOTOS_UGC.map(f => `<figure class="roda-foto"><img src="${esc(f.foto)}" alt="${esc(f.alt)}" loading="lazy" decoding="async"></figure>`).join("");
+const fotosRoda = [...roda.children];
+let rodaPos = 0, rodaAlvo = null, rodaPausa = false, rodaUltimo = 0;
+const rodaVelocidade = reduzMovimento ? 0 : 1 / 4500; // uma foto a cada 4,5 segundos
+function desenhaRoda() {
+  const n = fotosRoda.length, celular = window.innerWidth <= 860;
+  const passo = celular ? 0.92 : 1.08, giro = celular ? 26 : 22, alcance = celular ? 1.7 : 2.6;
+  fotosRoda.forEach((el, i) => {
+    let d = ((i - rodaPos) % n + n) % n;
+    if (d > n / 2) d -= n;
+    const a = Math.abs(d);
+    el.style.transform = `translateX(calc(-50% + ${d * passo * 100}%)) rotateY(${-d * giro}deg) scale(${1 + Math.min(a, 2) * 0.04})`;
+    el.style.zIndex = String(100 - Math.round(a * 10));
+    el.style.opacity = a > alcance ? "0" : "1";
+  });
 }
-filmeAnterior.addEventListener("click", () => filme.scrollBy({ left: -filme.clientWidth * 0.8 }));
-filmeProxima.addEventListener("click", () => filme.scrollBy({ left: filme.clientWidth * 0.8 }));
-filme.addEventListener("scroll", atualizaSetasFilme, { passive: true });
-window.addEventListener("resize", atualizaSetasFilme);
-atualizaSetasFilme();
+function animaRoda(t) {
+  const dt = rodaUltimo ? Math.min(t - rodaUltimo, 100) : 0;
+  rodaUltimo = t;
+  if (rodaAlvo !== null) {
+    rodaPos += (rodaAlvo - rodaPos) * Math.min(1, dt / 160);
+    if (Math.abs(rodaAlvo - rodaPos) < 0.002) { rodaPos = rodaAlvo; rodaAlvo = null; }
+  } else if (!rodaPausa && !document.hidden) {
+    rodaPos += dt * rodaVelocidade;
+  }
+  desenhaRoda();
+  requestAnimationFrame(animaRoda);
+}
+const giraRoda = passo => { rodaAlvo = Math.round(rodaAlvo ?? rodaPos) + passo; };
+$("#filmeAnterior").addEventListener("click", () => giraRoda(-1));
+$("#filmeProxima").addEventListener("click", () => giraRoda(1));
+roda.addEventListener("mouseenter", () => rodaPausa = true);
+roda.addEventListener("mouseleave", () => rodaPausa = false);
+let rodaToque = null;
+roda.addEventListener("touchstart", e => { rodaToque = e.touches[0].clientX; rodaPausa = true; }, { passive: true });
+roda.addEventListener("touchend", e => {
+  if (rodaToque !== null) { const dx = e.changedTouches[0].clientX - rodaToque; if (Math.abs(dx) > 40) giraRoda(dx < 0 ? 1 : -1); }
+  rodaToque = null; rodaPausa = false;
+});
+desenhaRoda();
+requestAnimationFrame(animaRoda);
 
 
 
