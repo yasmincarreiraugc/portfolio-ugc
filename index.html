@@ -113,15 +113,10 @@ h1,h2,h3{font-family:var(--titulo);font-weight:700;text-transform:uppercase;marg
 
 /* ---------- capa: foto com botões por cima + texto com lista ---------- */
 .capa{display:grid;gap:24px;padding-top:2px}
-@media (max-width:959px){
-  /* no celular o texto vem antes da foto, como no portfólio */
-  .capa-texto{order:-1;padding-top:20px}
-}
-/* foto recortada, com o fundo transparente */
+/* no celular a foto vem primeiro, e o texto logo abaixo */
+/* foto recortada, com o fundo transparente; a base some num sombreado branco, igual ao portfólio */
 .capa-foto{position:relative;overflow:hidden;aspect-ratio:1/1.05}
-.capa-foto > img{position:absolute;z-index:1;left:0;right:0;bottom:0;margin:0 auto;width:auto;height:96%;max-width:none;object-fit:contain;object-position:50% 100%;-webkit-mask-image:linear-gradient(to bottom,#000 80%,transparent 100%);mask-image:linear-gradient(to bottom,#000 80%,transparent 100%)}
-/* sombra suave embaixo da foto */
-.capa-foto::before{content:"";position:absolute;z-index:0;left:12%;right:12%;bottom:2px;height:38px;border-radius:50%;background:radial-gradient(closest-side,rgba(30,25,21,.3),rgba(30,25,21,0));filter:blur(3px)}
+.capa-foto > img{position:absolute;z-index:1;left:0;right:0;bottom:0;margin:0 auto;width:auto;height:96%;max-width:none;object-fit:contain;object-position:50% 100%;-webkit-mask-image:linear-gradient(to bottom,#000 68%,transparent 100%);mask-image:linear-gradient(to bottom,#000 68%,transparent 100%)}
 .capa-ola{z-index:2}
 .vidro{background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 10px 30px -12px rgba(0,0,0,.35)}
 /* caixinha "Olá, sou a Yasmin!" que flutua devagar em cima da foto */
