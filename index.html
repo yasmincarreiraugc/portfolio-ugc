@@ -119,29 +119,17 @@ h1,h2,h3{font-family:var(--titulo);font-weight:700;text-transform:uppercase;marg
 .capa-foto{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:1/1.05;background:var(--rosa)}
 .capa-foto > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 32%}
 .vidro{background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 10px 30px -12px rgba(0,0,0,.35)}
-.capa-busca{
-  position:absolute;left:50%;top:14%;transform:translate(-50%,-50%);width:min(86%,400px);
-  display:flex;align-items:center;gap:10px;border-radius:999px;padding:9px 12px 9px 16px;
+/* caixinha "Olá, sou a Yasmin!" que flutua devagar em cima da foto */
+.capa-ola{
+  position:absolute;left:14px;bottom:16px;display:inline-flex;align-items:center;gap:8px;
+  border-radius:999px;padding:9px 16px 9px 12px;font-size:13px;font-weight:600;color:var(--tinta);
+  animation:flutuar 5s ease-in-out infinite;
 }
-.capa-busca svg{width:17px;height:17px;flex:none}
-.capa-busca{color:var(--tinta);transition:box-shadow .15s}
-.capa-busca:hover{box-shadow:0 0 0 2px var(--rosa),0 10px 30px -12px rgba(0,0,0,.35)}
-.capa-busca-txt{flex:1;min-width:0;font-size:12.5px;color:#4a443f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.capa-busca-ir{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:13px;transition:background .15s}
-.capa-busca:hover .capa-busca-ir{background:var(--rosa)}
-.capa-pilula{
-  position:absolute;bottom:14px;display:flex;align-items:center;gap:9px;
-  border-radius:999px;padding:6px 14px 6px 6px;font-size:11px;line-height:1.25;color:var(--tinta);transition:transform .15s;
+.capa-ola svg{width:16px;height:16px;flex:none;fill:var(--rosa);stroke:var(--tinta);stroke-width:2.6;stroke-linejoin:round}
+@keyframes flutuar{
+  0%,100%{transform:translate(0,0)}
+  50%{transform:translate(6px,-12px)}
 }
-.capa-pilula:hover{transform:translateY(-2px)}
-.capa-pilula b{display:block;font-size:11.5px;font-weight:600}
-.capa-marcas{left:12px}
-.capa-agenda{right:12px;padding-right:16px}
-.avatares{display:flex}
-.avatares img{width:28px;height:28px;border-radius:50%;object-fit:cover;border:2px solid #fff}
-.avatares img + img{margin-left:-10px}
-.capa-agenda .ic{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--manteiga)}
-.capa-agenda .ic svg{width:16px;height:16px}
 
 /* letras e tamanhos iguais aos da capa do portfólio */
 .rotulo{
