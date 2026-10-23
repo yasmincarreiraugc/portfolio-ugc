@@ -727,7 +727,7 @@ const EN = {
   "Início": "Home", "Portfólio": "Portfolio", "Conversar": "Talk", "Cupons": "Coupons", "História": "Story"
 };
 const textos = [];
-[document.querySelector(".topo"), document.querySelector("main"), document.querySelector(".conversar"), document.querySelector(".nav"), redes].forEach(raiz => {
+[document.querySelector(".topo"), document.querySelector("main"), document.querySelector(".conversar"), document.querySelector(".nav")].forEach(raiz => {
   const w = document.createTreeWalker(raiz, NodeFilter.SHOW_TEXT);
   for (let n; (n = w.nextNode());) {
     const pt = n.nodeValue.trim();
