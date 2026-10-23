@@ -1536,6 +1536,17 @@
   .contato .quadro-vidro textarea{min-height:90px!important}
   .contato .quadro-vidro .btn-cheio{width:100%;justify-content:center;margin-top:4px!important;padding:14px 22px!important;font-size:15px}
   .quadro-vidro .confirmacao{padding:24px 6px}
+  /* Sobre mim um pouco menor no todo */
+  @media (min-width:861px){
+    #sobre .sobre-grid{max-width:1000px;margin:0 auto;grid-template-columns:minmax(0,300px) minmax(0,1fr)!important;gap:clamp(28px,3.6vw,52px)!important}
+    #sobre .sobre-montagem{max-width:300px!important}
+    #sobre .sobre-texto p{font-size:15px;line-height:1.6}
+    .sobre-cartoes{gap:10px;margin:16px 0 18px}
+    .sobre-cartoes li{padding:8px 8px 11px;border-radius:16px}
+    .sobre-cartoes strong{font-size:10.5px;margin-top:8px}
+  }
+  #titulo-sobre{font-size:clamp(1.8rem,2.9vw,2.4rem)!important}
+  main > section#sobre{padding-top:clamp(28px,3vw,44px)!important}
   /* Rodapé: linha fina e, embaixo, o nome pequeno à esquerda e os direitos à direita */
   .rodape{background:transparent!important;padding:0 24px 30px!important;margin:0!important;border:0!important}
   .rodape-linha{max-width:1172px;height:1px;margin:0 auto;background:#d9d3cc}
