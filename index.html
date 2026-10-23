@@ -689,9 +689,7 @@ const textos = [];
 function aplicaIdioma(lang) {
   document.documentElement.lang = lang === "en" ? "en" : "pt-BR";
   textos.forEach(t => t.n.nodeValue = lang === "en" ? t.orig.replace(t.pt, EN[t.pt]) : t.orig);
-  document.querySelectorAll(".idioma button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));
-  campo.placeholder = lang === "en" ? "Search by niche: hair, beauty, home…" : "Procure por nicho: cabelo, beleza, casa…";
-  const msg = lang === "en" ? "Hi Yasmin! I found you on Instagram and I'd like to talk about a project." : WHATSAPP_MSG;
+  document.querySelectorAll(".idioma button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));  const msg = lang === "en" ? "Hi Yasmin! I found you on Instagram and I'd like to talk about a project." : WHATSAPP_MSG;
   document.querySelectorAll(".js-whats").forEach(a => a.href = whats(msg));
   try { localStorage.setItem("idioma", lang); } catch (e) {}
 }
