@@ -1550,6 +1550,12 @@
   }
   #titulo-sobre{font-size:clamp(1.8rem,2.9vw,2.4rem)!important}
   main > section#sobre{padding-top:clamp(28px,3vw,44px)!important}
+  /* Sobre mim mais perto das marcas, foto um pouco maior e mais afastada do texto */
+  main > section#sobre{padding-top:clamp(10px,1.4vw,20px)!important}
+  @media (min-width:861px){
+    #sobre .sobre-grid{max-width:1060px!important;grid-template-columns:minmax(0,340px) minmax(0,1fr)!important;gap:clamp(64px,7.5vw,110px)!important}
+    #sobre .sobre-montagem{max-width:340px!important}
+  }
   /* Todos os títulos e subtítulos das seções no mesmo tamanho do Sobre mim */
   #titulo-sobre,#titulo-destaques,#titulo-trabalhos,#titulo-servicos,#titulo-fotos,.vidro-topo h2#titulo-contato{font-size:clamp(1.8rem,2.9vw,2.4rem)!important}
   main .cabeca p,.vidro-topo p{font-size:15px!important;line-height:1.6}
