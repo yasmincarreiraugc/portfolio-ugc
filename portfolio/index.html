@@ -1566,7 +1566,9 @@
     /* sobe até perto do menu; esfumado só embaixo */
     .nc-visual .nc-foto{top:0!important}
     .nc-foto img.capa-yasmin{object-position:50% 0!important;-webkit-mask-image:linear-gradient(180deg,#000 80%,transparent)!important;mask-image:linear-gradient(180deg,#000 80%,transparent)!important;-webkit-mask-composite:source-over!important;mask-composite:add!important}
-    .nc-recado{left:calc(700 * var(--u))!important}
+    .nc-recado{left:calc(700 * var(--u))!important;max-width:none!important;width:max-content!important}
+    /* frases de baixo inteiras, cada uma numa linha só */
+    .nc-recado p{white-space:nowrap;font-size:13px!important}
   }
   @media (max-width:1060px){
     .nc-foto{aspect-ratio:4/5!important;max-width:330px;margin:0 auto}
