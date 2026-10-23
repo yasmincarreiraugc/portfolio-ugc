@@ -168,8 +168,10 @@ h1 span{display:block}
 .marcas-trilho{display:flex;width:max-content;animation:rolar 50s linear infinite}
 .marcas-faixa:hover .marcas-trilho{animation-play-state:paused}
 .marcas-trilho ul{display:flex;gap:18px;list-style:none;margin:0;padding:4px 9px}
-.icone-marca{flex:none;width:62px;height:62px;border-radius:50%;overflow:hidden;background:#ebe8e4;display:grid;place-items:center}
-.icone-marca img{width:100%;height:100%;object-fit:contain;padding:16%}
+/* círculo branco: as logos que vêm em quadrado branco se misturam com o fundo e não aparece o quadrado */
+.icone-marca{flex:none;width:62px;height:62px;border-radius:50%;overflow:hidden;background:#fff;box-shadow:inset 0 0 0 1px #e7e2de;display:grid;place-items:center}
+.icone-marca img{width:100%;height:100%;object-fit:contain;padding:18%}
+.icone-marca.logo-cheio{box-shadow:none}
 .icone-marca.logo-cheio img{object-fit:cover;padding:0}
 .icone-marca span{font-family:Georgia,"Times New Roman",serif;font-size:8.5px;letter-spacing:.02em;text-transform:uppercase;color:#1d1d1b}
 @keyframes rolar{to{transform:translateX(-50%)}}
