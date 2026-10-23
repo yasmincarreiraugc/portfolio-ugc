@@ -1561,7 +1561,8 @@
   @media (min-width:1061px){
     .nc-visual{width:29%!important;margin-right:25%!important}
     /* foto inteira (sem cortar o cabelo), um pouco maior a partir do topo */
-    .nc-foto img.capa-yasmin{object-fit:contain!important;transform:scale(1.12);transform-origin:50% 0}
+    .nc-foto img.capa-yasmin{object-fit:contain!important;transform:scale(1.12);transform-origin:50% 0;-webkit-mask-image:none!important;mask-image:none!important}
+    .nc-visual .nc-foto{-webkit-mask-image:linear-gradient(180deg,#000 76%,transparent);mask-image:linear-gradient(180deg,#000 76%,transparent)}
     /* sobe até perto do menu; esfumado só embaixo */
     .nc-visual .nc-foto{top:0!important}
     .nc-foto img.capa-yasmin{object-position:50% 0!important;-webkit-mask-image:linear-gradient(180deg,#000 80%,transparent)!important;mask-image:linear-gradient(180deg,#000 80%,transparent)!important;-webkit-mask-composite:source-over!important;mask-composite:add!important}
