@@ -1479,6 +1479,14 @@
   .roda-foto{position:absolute;left:50%;top:25px;width:var(--w);aspect-ratio:2/3;margin:0;border-radius:clamp(18px,2vw,26px);overflow:hidden;background:#e9e4de;box-shadow:0 18px 30px -22px rgba(30,25,21,.45);transition:opacity .5s;will-change:transform;backface-visibility:hidden}
   .roda-foto img{width:100%;height:100%;object-fit:cover;display:block}
   @media (max-width:860px){ .roda{--w:46vw} }
+  .roda{--w:clamp(160px,15vw,215px);perspective:900px;height:calc(var(--w) * 1.5 + 80px)}
+  .roda-foto{top:40px;border-radius:clamp(18px,2vw,24px)}
+  /* setas brancas e redondas, como na referência */
+  #fotos .seta-btn{background:#fff!important;border:0!important;box-shadow:0 8px 20px -10px rgba(30,25,21,.4)!important;width:46px;height:46px}
+  #fotos .seta-btn svg{stroke:var(--nc-tinta)!important;width:18px;height:18px}
+  #fotos .seta-esq{left:clamp(14px,9vw,140px)!important}
+  #fotos .seta-dir{right:clamp(14px,9vw,140px)!important}
+  @media (max-width:860px){ .roda{--w:44vw} #fotos .seta-esq{left:8px!important} #fotos .seta-dir{right:8px!important} }
   /* sem números nas seções */
   .cabeca .num,.servico .n{display:none!important}
   .cabeca{margin-bottom:clamp(28px,4vw,44px)}
