@@ -2695,9 +2695,9 @@ $("#formContato").addEventListener("submit", e => {
     en ? "Hi Yasmin! I found your portfolio and I'd like to talk about a project." : "Oi, Yasmin! Vim pelo seu portfólio e quero conversar sobre um projeto.",
     "",
     `${en ? "Name" : "Nome"}: ${v("nome")}`,
+    v("whatsapp") ? `WhatsApp: ${v("whatsapp")}` : null,
     `E-mail: ${v("email")}`,
     v("marca") ? `${en ? "Brand" : "Marca"}: ${v("marca")}` : null,
-    v("orcamento") ? `${en ? "Budget" : "Orçamento"}: ${v("orcamento")}` : null,
     "",
     `${en ? "Project" : "Projeto"}: ${v("mensagem")}`
   ].filter(l => l !== null);
