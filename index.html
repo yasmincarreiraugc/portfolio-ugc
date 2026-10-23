@@ -126,7 +126,9 @@ h1,h2,h3{font-family:var(--titulo);font-weight:700;text-transform:uppercase;marg
   border-radius:999px;padding:9px 16px 9px 12px;font-size:13px;font-weight:600;color:var(--tinta);
   animation:flutuar 5s ease-in-out infinite;
 }
-.capa-ola svg{width:16px;height:16px;flex:none;fill:var(--rosa);stroke:var(--tinta);stroke-width:2.6;stroke-linejoin:round}@keyframes flutuar{
+/* segunda caixinha: mais embaixo, à direita, flutuando no tempo contrário (abre o WhatsApp) */
+.capa-ola-2{left:auto;right:6%;top:74%;animation-delay:-2.5s}
+.capa-ola-2:hover{box-shadow:0 0 0 2px var(--rosa),0 10px 30px -12px rgba(0,0,0,.35)}@keyframes flutuar{
   0%,100%{transform:translate(0,0)}
   50%{transform:translate(6px,-12px)}
 }
