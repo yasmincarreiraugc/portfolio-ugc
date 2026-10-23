@@ -2258,8 +2258,9 @@ function desenhaRoda() {
     if (d > n / 2) d -= n;
     const a = Math.abs(d);
     // as fotos dos lados ficam viradas para dentro e um pouco maiores, com espaço entre elas
-    const angulo = Math.max(-38, Math.min(38, -d * giro));
-    el.style.transform = `translateX(calc(-50% + ${d * passo * 100}%)) rotateY(${angulo}deg) scale(${1 + Math.min(a, 1.5) * 0.06})`;
+    // cada foto gira em volta do próprio centro (perspectiva própria), assim nenhuma passa por cima da outra
+    const angulo = -Math.sign(d) * giro * Math.min(a, 1);
+    el.style.transform = `translateX(calc(-50% + ${d * passo * 100}%)) perspective(900px) rotateY(${angulo}deg) scale(${1 + Math.min(a, 1) * 0.05})`;
     el.style.zIndex = String(100 - Math.round(a * 10));
     el.style.visibility = a > alcance ? "hidden" : "visible";
   });
