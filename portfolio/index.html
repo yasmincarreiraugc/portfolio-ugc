@@ -1576,6 +1576,15 @@
     .nc-foto{aspect-ratio:4/5!important;max-width:330px;margin:0 auto}
     .nc-foto img.capa-yasmin{width:100%!important;height:100%!important;margin-top:0!important;-webkit-mask-image:linear-gradient(180deg,#000 82%,transparent);mask-image:linear-gradient(180deg,#000 82%,transparent)}
   }
+  /* celular: as duas mensagens menores e por cima da foto, como no computador */
+  @media (max-width:1060px){
+    #inicio .nc-visual{position:relative!important;padding-bottom:16px!important}
+    #inicio .nc-recado{position:absolute!important;margin:0!important;width:max-content!important;max-width:none!important;padding:8px 11px!important;border-radius:12px!important;z-index:3}
+    #inicio .nc-recado strong{font-size:11.5px!important}
+    #inicio .nc-recado p{font-size:10.5px!important;margin-top:2px!important;white-space:nowrap}
+    #inicio .nc-recado:not(.nc-recado-2){top:38%!important;bottom:auto!important;right:8px!important;left:auto!important}
+    #inicio .nc-recado.nc-recado-2{top:auto!important;bottom:22%!important;left:8px!important;right:auto!important}
+  }
   /* botões da capa um pouco menores */
   #inicio .nc-btn{height:42px!important;padding:0 20px!important;font-size:14px!important;gap:8px!important}
   #inicio .nc-btn-cheio svg{width:15px;height:15px}
