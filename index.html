@@ -431,12 +431,12 @@ h1 span{display:block}
     <div class="capa-foto">
       <img src="fotos/sobre.jpg" alt="Yasmin Carreira sorrindo, segurando produtos de cabelo" width="1000" height="1777" fetchpriority="high">
 
-      <form class="capa-busca vidro" id="busca" role="search">
+      <!-- Barra "de pesquisa" da foto: leva para o Sobre mim do portfólio -->
+      <a class="capa-busca vidro" href="portfolio/#sobre">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        <input id="busca-campo" type="search" placeholder="Procure por nicho: cabelo, beleza, casa…" aria-label="Procurar trabalhos por nicho" list="nichos">
-        <datalist id="nichos"><option value="Cabelo"><option value="Beleza"><option value="Fitness"><option value="Casa e decor"><option value="Maternidade"><option value="Moda"><option value="Gastronomia"><option value="Casal"><option value="Lifestyle"></datalist>
-        <button type="button" id="busca-limpar" aria-label="Limpar"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
-      </form>
+        <span class="capa-busca-txt">Quem é Yasmin Carreira?</span>
+        <span class="capa-busca-ir" aria-hidden="true">→</span>
+      </a>
 
       <a class="capa-pilula capa-marcas vidro" href="#marcas">
         <span class="avatares" aria-hidden="true"><img src="fotos/ugc-03-dove.jpg" alt=""><img src="fotos/ugc-01-elseve.jpg" alt=""><img src="fotos/ugc-06-nivea.jpg" alt=""></span>
