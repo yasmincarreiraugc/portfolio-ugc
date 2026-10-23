@@ -2680,11 +2680,11 @@ $("#formContato").addEventListener("submit", e => {
     "",
     `${en ? "Name" : "Nome"}: ${v("nome")}`,
     `E-mail: ${v("email")}`,
-    v("marca") && `${en ? "Brand" : "Marca"}: ${v("marca")}`,
-    v("orcamento") && `${en ? "Budget" : "Orçamento"}: ${v("orcamento")}`,
+    v("marca") ? `${en ? "Brand" : "Marca"}: ${v("marca")}` : null,
+    v("orcamento") ? `${en ? "Budget" : "Orçamento"}: ${v("orcamento")}` : null,
     "",
     `${en ? "Project" : "Projeto"}: ${v("mensagem")}`
-  ].filter(l => l !== false && l !== "" || l === "");
+  ].filter(l => l !== null);
   window.open("https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(linhas.join("\n")), "_blank", "noopener");
   form.hidden = true;
   const ok = $("#confirmacao");
