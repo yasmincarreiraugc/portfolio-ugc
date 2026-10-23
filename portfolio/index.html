@@ -1556,6 +1556,12 @@
     #sobre .sobre-grid{max-width:1060px!important;grid-template-columns:minmax(0,340px) minmax(0,1fr)!important;gap:clamp(64px,7.5vw,110px)!important}
     #sobre .sobre-montagem{max-width:340px!important}
   }
+  /* Foto da Yasmin na capa, no lugar do vaso, com o mesmo esfumado branco nas bordas */
+  .nc-foto img.capa-yasmin{object-fit:cover!important;object-position:50% 14%!important;filter:none}
+  @media (min-width:1061px){ .nc-visual{width:46%!important} }
+  @media (max-width:1060px){
+    .nc-foto img.capa-yasmin{width:100%!important;height:100%!important;margin-top:0!important;-webkit-mask-image:linear-gradient(180deg,#000 80%,transparent);mask-image:linear-gradient(180deg,#000 80%,transparent)}
+  }
   /* menu do celular compacto, sem os espaços do menu de computador */
   @media (max-width:1060px){
     .nc-menu > ul{gap:0!important}
