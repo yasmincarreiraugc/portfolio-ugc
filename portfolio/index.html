@@ -1556,6 +1556,14 @@
     #sobre .sobre-grid{max-width:1060px!important;grid-template-columns:minmax(0,340px) minmax(0,1fr)!important;gap:clamp(64px,7.5vw,110px)!important}
     #sobre .sobre-montagem{max-width:340px!important}
   }
+  /* menu do celular compacto, sem os espaços do menu de computador */
+  @media (max-width:1060px){
+    .nc-menu > ul{gap:0!important}
+    .nc-menu{padding:6px 20px!important}
+    .nc-menu > ul > li > a{padding:12px 0!important;font-size:16px!important}
+    .nc-submenu{padding:0 0 6px 14px!important}
+    .nc-submenu a{padding:6px 0!important;font-size:14.5px!important}
+  }
   /* caixinhas das redes sem sublinhado nem texto rosa (aparecia ao tocar no celular) */
   .redes a,.redes a:hover,.redes a:focus,.redes a:active,.redes a *{text-decoration:none!important}
   .redes a strong,.redes a:hover strong,.redes a:active strong{color:var(--nc-tinta)!important}
