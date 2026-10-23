@@ -2362,7 +2362,12 @@ function atualizaSetas() {
 }
 setaAnterior.addEventListener("click", () => galeria.scrollBy({ left: -galeria.clientWidth }));
 setaProxima.addEventListener("click", () => galeria.scrollBy({ left: galeria.clientWidth }));
-galeria.addEventListener("scroll", atualizaSetas, { passive: true });
+galeria.addEventListener("scroll", () => {
+  // nunca para depois do último vídeo
+  const max = galeria.scrollWidth - galeria.clientWidth;
+  if (galeria.scrollLeft > max + 2) galeria.scrollLeft = max;
+  atualizaSetas();
+}, { passive: true });
 window.addEventListener("resize", atualizaSetas);
 
 mostraNicho(nichos[0]);
