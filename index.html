@@ -161,9 +161,14 @@ h1 .cor{color:var(--magenta)}
 .linha .seta{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#f1ede8;font-size:16px;transition:background .15s}
 .linha:hover .seta{background:var(--rosa)}
 .ver-todos{display:inline-block;margin-top:14px;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding-bottom:3px;border-bottom:2px solid var(--rosa)}
+@media (max-width:959px){
+  /* celular: "Reservar agenda" vira só o ícone e as marcas ficam numa linha, para os dois caberem */
+  .capa-agenda{padding:6px}
+  .capa-agenda b{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .capa-agenda .ic{width:34px;height:34px}
+  .capa-marcas .sub{display:none}
+}
 @media (max-width:420px){
-  .capa-pilula{font-size:10px;padding-right:11px}
-  .capa-pilula b{font-size:10.5px}
   .linha .meta{display:none}
 }
 
