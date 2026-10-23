@@ -642,6 +642,12 @@ document.getElementById("lista").addEventListener("submit", e => {
 });
 
 
+// Topo fixo: ganha sombra e fica mais baixinho quando a página rola
+const topo = document.getElementById("inicio");
+const marcaRolagem = () => topo.classList.toggle("rolou", scrollY > 10);
+addEventListener("scroll", marcaRolagem, { passive: true });
+marcaRolagem();
+
 // Menu do celular (botão de três linhas)
 const hamb = document.getElementById("hamburguer"), menu = document.getElementById("menu");
 hamb.addEventListener("click", () => {
