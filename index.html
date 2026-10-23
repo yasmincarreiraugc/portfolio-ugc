@@ -15,7 +15,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-3 -3 46 46'%3E%3Cpath d='M20 0C21.6 11.5 28.5 18.4 40 20 28.5 21.6 21.6 28.5 20 40 18.4 28.5 11.5 21.6 0 20 11.5 18.4 18.4 11.5 20 0Z' fill='%23ff99d9' stroke='%231e1915' stroke-width='2.4' stroke-linejoin='round'/%3E%3C/svg%3E">
 <script>
   // Links antigos com âncora do portfólio (ex.: yasmincarreira.com/#contato) continuam abrindo o portfólio
-  if (/^#(inicio|sobre|destaques|trabalhos|servicos|fotos|contato)$/.test(location.hash)) location.replace("portfolio/" + location.hash);
+  if (/^#(inicio|destaques|trabalhos|servicos|fotos|contato)$/.test(location.hash)) location.replace("portfolio/" + location.hash);
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,6 +37,8 @@
   --sans:"Montserrat",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --nota:"Caveat","Segoe Print",cursive;
   --nav:74px;
+  --max:1180px;
+  --gutter:16px;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:16px}
@@ -47,84 +49,65 @@ body{
   background-size:18px 18px;
   color:var(--tinta);font-family:var(--sans);
   -webkit-font-smoothing:antialiased;
-}
-a{color:inherit;text-decoration:none}
-img{display:block;max-width:100%}
-.pagina{
-  width:100%;max-width:460px;margin:0 auto;
-  padding:16px 16px calc(var(--nav) + 34px + env(safe-area-inset-bottom));
+  padding-bottom:calc(var(--nav) + env(safe-area-inset-bottom));
   overflow-x:clip;
 }
-.estrela-svg{display:block}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
+button,input{font:inherit;color:inherit}
+.miolo{width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+h1,h2,h3{font-family:var(--titulo);font-weight:700;text-transform:uppercase;margin:0;letter-spacing:.005em;line-height:.92}
+.nota{font-family:var(--nota);text-transform:none;font-weight:700;color:var(--magenta);letter-spacing:0}
 
-/* topo */
-.topo{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+/* ---------- topo ---------- */
+.topo{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:16px;padding-bottom:18px}
 .marca{display:flex;align-items:center;gap:8px;font-family:var(--titulo);font-weight:700;font-size:17px;line-height:.9;text-transform:uppercase;letter-spacing:.04em}
 .marca svg{width:24px;height:24px}
-.arroba{
-  background:var(--papel);border:var(--borda);border-radius:999px;
-  padding:6px 12px;font-size:12px;font-weight:700;
-}
+.arroba{background:var(--papel);border:var(--borda);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:700}
+.topo-menu{display:none}
 
-/* cartão de foto */
+/* ---------- abertura ---------- */
 .cartao{position:relative;margin:6px 6px 0}
 .cartao-foto{
   position:relative;aspect-ratio:1/1.02;border-radius:26px;overflow:hidden;
   background:var(--rosa);border:var(--borda);box-shadow:6px 6px 0 var(--tinta);
   transform:rotate(-2.2deg);
 }
-.cartao-foto::before{
-  content:"";position:absolute;inset:0;
-  background:radial-gradient(circle at 50% 38%,#ffc2e9 0,transparent 62%);
-}
-.cartao-foto img{position:absolute;left:50%;top:5%;width:104%;height:auto;max-width:none;transform:translateX(-50%)}
+.cartao-foto::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 38%,#ffc2e9 0,transparent 62%)}
+.cartao-foto img{position:absolute;left:50%;top:5%;width:104%;max-width:none;transform:translateX(-50%)}
 .oi{
-  position:absolute;left:-6px;bottom:52px;z-index:2;
+  position:absolute;left:-6px;bottom:52px;z-index:2;margin:0;
   background:var(--tinta);color:#fff;border-radius:999px;
-  padding:10px 20px 9px;font-family:var(--titulo);font-weight:700;font-size:28px;line-height:1;text-transform:uppercase;letter-spacing:.01em;
+  padding:10px 20px 9px;font-family:var(--titulo);font-weight:700;font-size:28px;line-height:1;text-transform:uppercase;
   transform:rotate(-3deg);box-shadow:3px 3px 0 var(--magenta);
 }
 .oi em{font-style:normal;color:var(--rosa)}
 .apelido{
   position:absolute;left:18px;bottom:20px;z-index:2;
   background:var(--amarelo);border:var(--borda);border-radius:999px;
-  padding:4px 12px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
-  transform:rotate(-1deg);
+  padding:4px 12px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transform:rotate(-1deg);
 }
 .selo{
   position:absolute;top:-14px;right:-8px;z-index:2;width:92px;height:92px;
   display:grid;place-items:center;text-align:center;
-  font-family:var(--nota);font-weight:700;font-size:18px;line-height:.95;
-  transform:rotate(14deg);
+  font-family:var(--nota);font-weight:700;font-size:18px;line-height:.95;transform:rotate(14deg);
 }
 .selo svg{position:absolute;inset:0;width:100%;height:100%}
-.selo span{position:relative;transform:translateY(1px)}
+.selo span{position:relative}
 .brilho{position:absolute;z-index:2;width:28px;height:28px;right:26px;bottom:96px;transform:rotate(-12deg)}
-.brilho path{fill:var(--amarelo)}
+.brilho path,.brilho use{fill:var(--amarelo)}
 
-/* apresentação */
 .rotulo{
   display:inline-flex;align-items:center;gap:8px;margin:30px 0 8px;
   color:var(--magenta);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
 }
 .rotulo::before{content:"";width:22px;height:2px;background:var(--rosa);border-radius:2px}
-h1,h2{font-family:var(--titulo);font-weight:700;text-transform:uppercase;margin:0;letter-spacing:.005em}
-h1{font-size:clamp(40px,12vw,52px);line-height:.92}
+h1{font-size:clamp(40px,12vw,52px)}
 h1 mark{background:none;color:inherit;position:relative;white-space:nowrap}
 h1 mark::after{content:"";position:absolute;left:-2px;right:-2px;bottom:.06em;height:.3em;background:var(--rosa);z-index:-1;border-radius:3px}
-h1 .nota{font-family:var(--nota);text-transform:none;font-weight:700;color:var(--magenta);font-size:.72em;letter-spacing:0}
 .intro{margin:12px 0 0;color:var(--tinta-2);font-size:14.5px;line-height:1.55}
 
-.redes{display:flex;gap:10px;margin:18px 0 26px}
-.redes a{
-  width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
-  background:var(--tinta);color:#fff;transition:transform .15s,box-shadow .15s;
-}
-.redes a:hover,.redes a:focus-visible{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--rosa)}
-.redes svg{width:19px;height:19px}
-
-/* botões coloridos */
-.links{display:grid;gap:12px}
+.links{display:grid;gap:12px;margin-top:22px}
 .btn{
   position:relative;display:flex;align-items:center;gap:13px;
   border:var(--borda);border-radius:18px;padding:13px 14px;
@@ -132,10 +115,7 @@ h1 .nota{font-family:var(--nota);text-transform:none;font-weight:700;color:var(-
 }
 .btn:hover,.btn:focus-visible{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--tinta)}
 .btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--tinta)}
-.btn .ic{
-  flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
-  background:var(--papel);border:var(--borda);
-}
+.btn .ic{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--papel);border:var(--borda)}
 .btn .ic svg{width:19px;height:19px}
 .btn .txt{flex:1;min-width:0}
 .btn .t{display:block;font-family:var(--titulo);font-weight:700;font-size:21px;line-height:1;text-transform:uppercase}
@@ -146,206 +126,201 @@ h1 .nota{font-family:var(--nota);text-transform:none;font-weight:700;color:var(-
 .c-amarelo{background:var(--amarelo)}
 .c-manteiga{background:var(--manteiga)}
 .tag{
-  position:absolute;top:-11px;right:16px;
-  background:var(--tinta);color:#fff;border-radius:999px;
-  font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;
-  transform:rotate(2deg);
+  position:absolute;top:-11px;right:16px;background:var(--tinta);color:#fff;border-radius:999px;
+  font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;transform:rotate(2deg);
 }
+.redes{display:flex;gap:10px;margin:22px 0 0}
+.redes a{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--tinta);color:#fff;transition:transform .15s,box-shadow .15s}
+.redes a:hover,.redes a:focus-visible{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--rosa)}
+.redes svg{width:19px;height:19px}
 
-/* faixa de marcas */
-.marcas{margin:38px -16px 0}
+/* ---------- faixa de marcas ---------- */
+.marcas{margin-top:44px}
 .marcas-titulo{text-align:center;font-family:var(--nota);font-weight:700;font-size:25px;margin:0 0 10px}
-.fita{background:var(--tinta);color:#fff;transform:rotate(-2deg);border-block:2px solid var(--tinta);overflow:hidden;padding:11px 0}
-.fita-trilho{display:flex;width:max-content;animation:correr 24s linear infinite}
+.fita{background:var(--tinta);color:#fff;transform:rotate(-2deg);margin:0 -20px;overflow:hidden;padding:11px 0}
+.fita-trilho{display:flex;width:max-content;animation:correr 32s linear infinite}
 .fita span{display:flex;align-items:center;gap:18px;padding-right:18px;font-family:var(--titulo);font-weight:600;font-size:23px;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap}
 .fita svg{width:14px;height:14px;flex:none}
 @keyframes correr{to{transform:translateX(-50%)}}
 
-/* blocos */
-.bloco{margin-top:36px}
-.bloco-cab{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:14px}
-h2{font-size:34px;line-height:.92}
-h2 .nota{font-family:var(--nota);text-transform:none;color:var(--magenta);font-size:.8em;letter-spacing:0}
-.ver-tudo{flex:none;font-size:12px;font-weight:700;border-bottom:2px solid var(--rosa);padding-bottom:1px}
-
-/* destaque do momento */
+/* ---------- destaque do momento ---------- */
 .destaque{
   position:relative;background:var(--tinta);color:#fff;border-radius:24px;
-  padding:22px 18px 18px;margin-top:40px;box-shadow:5px 5px 0 var(--rosa);
+  padding:24px 18px 18px;margin-top:48px;box-shadow:5px 5px 0 var(--rosa);
 }
 .destaque .faisca{position:absolute;top:-16px;left:-8px;width:40px;height:40px;transform:rotate(-14deg)}
-.destaque .faisca path{fill:var(--amarelo);stroke:var(--tinta)}
-.destaque .novidade{
+.selo-pilula{
   position:absolute;top:-12px;right:16px;background:var(--amarelo);color:var(--tinta);
   border:var(--borda);border-radius:999px;padding:4px 11px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;transform:rotate(4deg);
 }
 .destaque small{display:block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.65)}
-.destaque h2{margin:6px 0 8px;font-size:36px}
+.destaque h2{margin:6px 0 16px;font-size:38px}
 .destaque h2 .nota{color:var(--rosa)}
-.destaque p{margin:0 0 16px;font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.82)}
-.contagem{display:flex;gap:8px;margin:0 0 16px}
-.contagem div{flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:9px 4px 8px;text-align:center}
-.contagem b{display:block;font-family:var(--titulo);font-size:30px;line-height:1;color:var(--amarelo)}
-.contagem i{font-style:normal;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7)}
 .pilula{
-  display:flex;align-items:center;justify-content:space-between;gap:10px;
-  background:var(--rosa);color:var(--tinta);border-radius:999px;padding:8px 8px 8px 18px;
-  font-weight:700;font-size:14px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  background:var(--magenta);color:#fff;border-radius:999px;padding:9px 9px 9px 20px;
+  font-size:13px;line-height:1.3;transition:transform .15s;
 }
-.pilula b{display:block;font-size:11px;font-weight:600;opacity:.8}
-.pilula .seta{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--tinta);color:#fff}
+.pilula:hover{transform:translateX(3px)}
+.pilula b{display:block;font-size:15px}
+.pilula .seta{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#fff;color:var(--tinta);font-weight:700}
 
-/* vídeos */
-.trilho{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:4px 16px 12px;scroll-padding-inline:16px;scrollbar-width:none}
-.trilho::-webkit-scrollbar{display:none}
-.video{
-  flex:none;width:58%;max-width:220px;scroll-snap-align:start;
-  border:var(--borda);border-radius:20px;overflow:hidden;background:var(--papel);box-shadow:var(--sombra-dura);
-}
-.video .capa{position:relative;aspect-ratio:3/4;background:var(--manteiga)}
-.video .capa img{width:100%;height:100%;object-fit:cover}
-.video .play{position:absolute;right:10px;bottom:10px;width:38px;height:38px;border-radius:50%;background:var(--papel);border:var(--borda);display:grid;place-items:center}
-.video .play svg{width:14px;height:14px;margin-left:2px}
-.video .leg{padding:10px 12px 12px}
-.video .leg b{display:block;font-family:var(--titulo);font-weight:700;font-size:19px;text-transform:uppercase;line-height:1}
-.video .leg span{font-size:11.5px;color:var(--tinta-2)}
+/* ---------- grade de blocos ---------- */
+.grade{display:grid;gap:22px;margin-top:44px}
+.bloco-titulo{font-size:40px}
+.bloco-sub{margin:8px 0 18px;font-size:13.5px;color:var(--tinta-2);line-height:1.5}
+.cartao-branco{position:relative;background:var(--papel);border:var(--borda);border-radius:24px;padding:22px 18px 20px;box-shadow:var(--sombra-dura)}
+.cartao-escuro{position:relative;background:var(--tinta);color:#fff;border-radius:24px;padding:24px 20px 20px;overflow:hidden}
+.cartao-amarelo{position:relative;background:var(--manteiga);border:var(--borda);border-radius:24px;padding:22px 18px 20px;box-shadow:var(--sombra-dura)}
+.mini-rotulo{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--amarelo)}
+.mini-pilula{display:inline-block;background:var(--tinta);color:#fff;border-radius:999px;padding:4px 11px;font-size:11px;font-weight:600}
 
-/* serviços */
-.servicos{display:flex;flex-wrap:wrap;gap:8px}
-.servicos a{
-  border:var(--borda);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;background:var(--papel);
-  transition:transform .15s,box-shadow .15s;
+/* cupons */
+.cupons{display:grid;gap:16px}
+.cupom{
+  position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  background:var(--papel);border:2px dashed var(--tinta);border-radius:18px;padding:18px 14px 14px 16px;
 }
-.servicos a:nth-child(4n+1){background:var(--rosa)}
-.servicos a:nth-child(4n+2){background:var(--manteiga)}
-.servicos a:nth-child(4n+3){background:var(--ceu)}
-.servicos a:nth-child(4n){background:var(--amarelo)}
-.servicos a:hover,.servicos a:focus-visible{transform:translate(-2px,-2px);box-shadow:2px 2px 0 var(--tinta)}
+.cupom .marca-tag{position:absolute;top:-11px;left:12px;background:var(--rosa);border:var(--borda);border-radius:999px;padding:2px 10px;font-size:10.5px;font-weight:700;transform:rotate(-3deg)}
+.cupom b{display:block;font-family:var(--titulo);font-size:22px;text-transform:uppercase;line-height:1}
+.cupom code{display:block;margin-top:4px;font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--magenta)}
+.cupom-acoes{display:grid;gap:6px;flex:none}
+.cupom-acoes button,.cupom-acoes a{
+  border-radius:999px;padding:8px 14px;font-size:12px;font-weight:700;text-align:center;cursor:pointer;
+}
+.cupom-acoes button{background:var(--tinta);color:#fff;border:2px solid var(--tinta)}
+.cupom-acoes a{border:var(--borda);background:var(--papel)}
 
-/* sobre */
-.sobre{
-  position:relative;background:var(--papel);border:var(--borda);border-radius:24px;padding:20px 18px 18px;
-  box-shadow:var(--sombra-dura);
-}
-.sobre .fita-adesiva{position:absolute;top:-11px;left:50%;width:84px;height:22px;transform:translateX(-50%) rotate(-3deg);background:rgba(255,153,217,.75)}
-.sobre .mini{position:absolute;top:-22px;right:12px;width:70px;height:70px;border-radius:50%;overflow:hidden;border:var(--borda);background:var(--rosa);transform:rotate(6deg)}
-.sobre .mini img{width:100%;height:100%;object-fit:cover;object-position:50% 10%}
-.sobre h2{padding-right:70px}
-.chips{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0}
-.chips span{border:var(--borda);border-radius:999px;padding:5px 11px;font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
-.chips span:nth-child(1){background:var(--tinta);color:#fff}
-.chips span:nth-child(2){background:var(--rosa)}
-.chips span:nth-child(3){background:var(--ceu)}
-.chips span:nth-child(4){background:var(--amarelo)}
-.sobre p{margin:0 0 16px;font-size:13.5px;line-height:1.55;color:var(--tinta-2)}
-.sobre .bilhete{font-family:var(--nota);font-size:22px;line-height:1.1;font-weight:600;color:var(--tinta);margin:-4px 0 16px}
-.btn-tinta{
+/* vitrine */
+.cartao-escuro h2{font-size:44px;margin:10px 0 10px}
+.cartao-escuro h2 .nota{color:var(--rosa)}
+.cartao-escuro p{margin:0 0 20px;font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.8)}
+.cartao-escuro .deco{position:absolute;right:-20px;top:-20px;width:140px;height:140px;opacity:.18;transform:rotate(18deg)}
+.btn-claro{
   display:flex;align-items:center;justify-content:space-between;
-  background:var(--tinta);color:#fff;border-radius:999px;padding:12px 14px 12px 18px;font-weight:700;font-size:14px;
+  background:var(--amarelo);color:var(--tinta);border-radius:999px;padding:9px 9px 9px 20px;font-weight:700;font-size:14px;
 }
+.btn-claro .seta,.btn-tinta .seta{width:34px;height:34px;border-radius:50%;display:grid;place-items:center}
+.btn-claro .seta{background:var(--tinta);color:#fff}
 
-/* conversar */
-.conversar{
-  position:relative;margin:40px -16px 0;padding:34px 16px 30px;
-  background:var(--tinta);color:#fff;border-radius:30px 30px 0 0;
+/* história */
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0}
+.chips span{border:var(--borda);border-radius:12px;padding:6px 11px;font-size:12px;font-weight:700;transform:rotate(-1deg)}
+.chips span:nth-child(even){transform:rotate(1.5deg)}
+.chips span:nth-child(4n+1){background:var(--tinta);color:#fff}
+.chips span:nth-child(4n+2){background:var(--ceu)}
+.chips span:nth-child(4n+3){background:var(--amarelo)}
+.chips span:nth-child(4n){background:var(--rosa)}
+.cartao-branco p{margin:0 0 18px;font-size:13.5px;line-height:1.55;color:var(--tinta-2)}
+.cartao-branco .mini{position:absolute;top:-24px;right:14px;width:74px;height:74px;border-radius:50%;overflow:hidden;border:var(--borda);background:var(--rosa);transform:rotate(6deg)}
+.cartao-branco .mini img{width:100%;height:100%;object-fit:cover;object-position:50% 12%}
+.cartao-branco h2{padding-right:74px}
+.btn-tinta{
+  display:inline-flex;align-items:center;gap:14px;
+  background:var(--tinta);color:#fff;border-radius:999px;padding:8px 8px 8px 20px;font-weight:700;font-size:14px;
 }
-.conversar .estrela-canto{position:absolute;top:-20px;right:28px;width:46px;height:46px;transform:rotate(14deg)}
-.conversar h2{font-size:46px}
+.btn-tinta .seta{background:var(--rosa);color:var(--tinta)}
+
+/* mentoria */
+.cartao-amarelo h2{font-size:40px;margin:12px 0 8px}
+.cartao-amarelo p{margin:0 0 16px;font-size:13.5px;line-height:1.5;color:var(--tinta-2)}
+.cartao-amarelo label{display:block;font-size:13px;font-weight:700;margin-bottom:8px}
+.lista{display:grid;gap:10px}
+.lista input{width:100%;border:var(--borda);border-radius:999px;padding:13px 18px;background:var(--papel);font-size:14px}
+.lista input:focus{outline:3px solid var(--rosa);outline-offset:1px}
+.lista button{border:0;border-radius:999px;padding:14px;background:var(--tinta);color:#fff;font-weight:700;font-size:14px;cursor:pointer}
+.cartao-amarelo small{display:block;margin-top:10px;font-size:11.5px;color:var(--tinta-2);text-align:center}
+.cartao-amarelo .estrela-canto{position:absolute;right:-10px;bottom:-14px;width:54px;height:54px;transform:rotate(14deg)}
+
+/* ---------- rodapé ---------- */
+.conversar{margin-top:56px;background:var(--tinta);color:#fff;border-radius:30px 30px 0 0;position:relative}
+.conversar .miolo{padding-top:38px;padding-bottom:30px;display:grid;gap:22px}
+.conversar .estrela-canto{position:absolute;top:-22px;right:28px;width:48px;height:48px;transform:rotate(14deg)}
+.conversar h2{font-size:52px}
 .conversar h2 .nota{color:var(--rosa)}
-.conversar p{margin:8px 0 20px;font-size:14px;line-height:1.5;color:rgba(255,255,255,.8)}
+.conversar p{margin:10px 0 0;font-size:14px;line-height:1.5;color:rgba(255,255,255,.8)}
+.ctas{display:grid;gap:10px}
 .cta{
   display:flex;align-items:center;justify-content:center;gap:9px;
-  border-radius:999px;padding:15px 18px;font-weight:700;font-size:15px;margin-top:10px;
-  transition:transform .15s;
+  border-radius:999px;padding:15px 18px;font-weight:700;font-size:15px;transition:transform .15s;
 }
 .cta:active{transform:scale(.98)}
 .cta svg{width:19px;height:19px}
 .cta.rosa{background:var(--rosa);color:var(--tinta);box-shadow:3px 3px 0 var(--amarelo)}
 .cta.contorno{border:2px solid rgba(255,255,255,.85);color:#fff}
-.contatos{margin-top:22px;display:grid;gap:6px;font-size:12.5px;color:rgba(255,255,255,.75);text-align:center}
-.contatos a{color:#fff;font-weight:600}
-.rodape{margin-top:22px;text-align:center;font-family:var(--nota);font-size:20px;color:var(--rosa)}
+.copiar-email{justify-self:center;background:none;border:0;color:rgba(255,255,255,.75);font-size:12px;text-decoration:underline;cursor:pointer}
+.assinatura{grid-column:1/-1;margin:8px 0 0;text-align:center;font-family:var(--nota);font-size:21px;color:var(--rosa)}
 
-/* barra de navegação */
-.nav{
-  position:fixed;left:0;right:0;bottom:0;z-index:20;
-  padding:0 10px env(safe-area-inset-bottom);
-  background:var(--papel);border-top:var(--borda);border-radius:22px 22px 0 0;
+/* aviso de copiado */
+.aviso{
+  position:fixed;left:50%;bottom:calc(var(--nav) + 24px + env(safe-area-inset-bottom));z-index:30;
+  background:var(--tinta);color:#fff;border:2px solid var(--rosa);border-radius:999px;padding:10px 18px;font-size:13px;font-weight:600;
+  transform:translate(-50%,20px);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;
 }
+.aviso.mostra{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- barra de navegação (celular) ---------- */
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:0 10px env(safe-area-inset-bottom);background:var(--papel);border-top:var(--borda);border-radius:22px 22px 0 0}
 .nav-dentro{max-width:460px;margin:0 auto;height:var(--nav);display:grid;grid-template-columns:repeat(5,1fr);align-items:center}
 .nav a{display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;color:var(--tinta-2)}
 .nav a svg{width:21px;height:21px}
 .nav a.ativo{color:var(--tinta)}
 .nav a.ativo::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--magenta);margin-top:-1px}
 .nav .meio{position:relative;top:-18px;color:var(--tinta)}
-.nav .meio .bola{
-  width:58px;height:58px;border-radius:50%;display:grid;place-items:center;
-  background:var(--rosa);border:var(--borda);box-shadow:3px 3px 0 var(--tinta);
-}
+.nav .meio .bola{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:var(--rosa);border:var(--borda);box-shadow:3px 3px 0 var(--tinta)}
 .nav .meio .bola svg{width:24px;height:24px}
 .nav .meio span{font-weight:700}
 
-/* menu do topo (só no computador) */
-.topo-menu{display:none}
+/* ---------- celular: coluna estreita ---------- */
+@media (max-width:959px){
+  .miolo{max-width:460px}
+}
 
-/* versão computador: duas colunas, foto fixa à esquerda */
+/* ---------- computador ---------- */
 @media (min-width:960px){
-  :root{--nav:0px}
+  :root{--nav:0px;--gutter:40px}
   body{background-size:22px 22px}
-  .pagina{
-    max-width:1160px;padding:22px 40px 56px;
-    display:grid;grid-template-columns:minmax(380px,440px) 1fr;column-gap:64px;align-items:start;
-    overflow-x:visible;
-  }
-  .topo{grid-column:1/-1;margin-bottom:34px;gap:24px}
-  .topo-menu{display:flex;align-items:center;gap:26px;margin-left:auto;font-size:14px;font-weight:600}
-  .topo-menu a:not(.topo-cta){border-bottom:2px solid transparent;padding:4px 0;transition:border-color .15s}
-  .topo-menu a:not(.topo-cta):hover{border-color:var(--rosa)}
-  .topo-cta{background:var(--rosa);border:var(--borda);border-radius:999px;padding:9px 18px;box-shadow:3px 3px 0 var(--tinta);transition:transform .15s,box-shadow .15s}
-  .topo-cta:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--tinta)}
+  .nav{display:none}
+  .topo{padding-top:24px;padding-bottom:30px}
   .marca{font-size:20px}
   .marca svg{width:30px;height:30px}
+  .topo-menu{display:flex;align-items:center;gap:28px;margin-left:auto;font-size:14px;font-weight:600}
+  .topo-menu a:not(.topo-cta){border-bottom:2px solid transparent;padding:4px 0;transition:border-color .15s}
+  .topo-menu a:not(.topo-cta):hover{border-color:var(--rosa)}
+  .topo-cta{background:var(--tinta);color:#fff;border-radius:999px;padding:10px 20px;box-shadow:3px 3px 0 var(--rosa);transition:transform .15s,box-shadow .15s}
+  .topo-cta:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--rosa)}
+  .arroba{display:none}
 
-  .lado-a{position:sticky;top:28px}
-  .cartao{max-width:370px;margin:6px 0 0 6px}
-  .lado-a .rotulo{margin-top:26px}
-  .lado-b{min-width:0;padding-top:4px}
-  .oi{font-size:32px}
-  h1{font-size:50px}
-  .intro{font-size:16px;max-width:420px}
-  .redes{margin-bottom:0}
+  .abertura{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr);gap:72px;align-items:center}
+  .cartao{max-width:470px;width:100%;justify-self:center;margin-top:20px}
+  .oi{font-size:34px}
+  .apelido{font-size:12px}
+  .selo{width:108px;height:108px;font-size:21px}
+  .rotulo{margin-top:0}
+  h1{font-size:62px}
+  .intro{font-size:16px;max-width:520px}
 
-  .links{grid-template-columns:1fr 1fr;gap:16px}
-  .btn{padding:16px;align-items:flex-start;flex-wrap:wrap;min-height:150px;align-content:space-between}
-  .btn .txt{flex-basis:100%;order:3}
-  .btn .t{font-size:24px}
-  .btn .s{font-size:13px}
-  .btn .seta{margin-left:auto}
+  .marcas{margin-top:72px}
+  .fita{margin:0 calc(50% - 50vw);padding:13px 0}
+  .fita span{font-size:26px}
 
-  .marcas{margin:44px 0 0}
-  .fita{transform:rotate(-1.4deg);border-radius:6px}
-  .destaque{padding:28px 28px 24px;display:grid;grid-template-columns:1.1fr 1fr;column-gap:28px;align-items:center}
-  .destaque small,.destaque h2,.destaque p{grid-column:1}
-  .destaque .contagem{grid-column:2;grid-row:1/4;margin:0}
-  .destaque .pilula{grid-column:1/-1;margin-top:8px}
-  .destaque .contagem b{font-size:42px}
+  .destaque{margin-top:72px;padding:34px 40px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:32px}
+  .destaque h2{font-size:48px;margin-bottom:0}
+  .pilula{min-width:360px}
 
-  .trilho{display:grid;grid-template-columns:repeat(4,1fr);overflow:visible;margin:0;padding:4px 0 6px}
-  .video{width:auto;max-width:none}
-  .video:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--tinta)}
-  .video{transition:transform .15s,box-shadow .15s}
+  .grade{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px;margin-top:64px;align-items:start}
+  .bloco-titulo{font-size:52px}
+  .cartao-escuro,.cartao-branco,.cartao-amarelo{padding:30px 28px 28px}
+  .cartao-escuro h2{font-size:52px}
+  .cartao-amarelo h2{font-size:46px}
+  .grade-cupons .cartao-escuro{margin-top:6px}
 
-  .servicos a{font-size:14px;padding:10px 16px}
-  .sobre{padding:26px 26px 24px}
-  .sobre p{font-size:14.5px}
-
-  .conversar{margin:44px 0 0;border-radius:30px;padding:40px 36px 30px}
-  .conversar h2{font-size:58px}
-  .conversar .cta{display:inline-flex;margin-right:10px;padding:15px 26px}
-  .contatos{text-align:left}
-  .rodape{text-align:left}
-
-  .nav{display:none}
+  .conversar{margin-top:80px;border-radius:0}
+  .conversar .miolo{grid-template-columns:1fr minmax(0,440px);align-items:center;column-gap:60px;padding-top:64px;padding-bottom:40px}
+  .conversar h2{font-size:72px}
+  .conversar .estrela-canto{right:12%}
+  .assinatura{margin-top:24px}
+  .aviso{bottom:32px}
 }
 
 /* entrada suave */
@@ -370,177 +345,198 @@ h2 .nota{font-family:var(--nota);text-transform:none;color:var(--magenta);font-s
     <g id="i-grade" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></g>
     <g id="i-chat" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/><path d="M8.5 11h7M8.5 14h4.5"/></g>
     <g id="i-casa" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4.5v-6h-5v6H5a1 1 0 0 1-1-1Z"/></g>
-    <g id="i-pessoa" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></g>
-    <g id="i-camera" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13.5" r="3.5"/></g>
+    <g id="i-livro" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3Z"/><path d="M5 17a3 3 0 0 1 3-3h11"/></g>
+    <g id="i-cupom" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4Z"/><path d="M10 9v6" stroke-dasharray="2 2"/></g>
     <g id="i-brilho" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3c.8 4.7 3.3 7.2 8 8-4.7.8-7.2 3.3-8 8-.8-4.7-3.3-7.2-8-8 4.7-.8 7.2-3.3 8-8Z"/></g>
+    <g id="i-camera" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13.5" r="3.5"/></g>
   </defs>
 </svg>
 
-<main class="pagina" id="inicio">
+<!-- ================= TOPO ================= -->
+<header class="miolo topo" id="inicio">
+  <a class="marca" href="#inicio">
+    <svg viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela" fill="#ff99d9" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/></svg>
+    Yasmin<br>Carreira
+  </a>
+  <nav class="topo-menu" aria-label="Menu">
+    <a href="portfolio/">Portfólio</a>
+    <a href="#cupons">Cupons</a>
+    <a href="#mentoria">Mentoria</a>
+    <a href="#historia">Minha história</a>
+    <a class="topo-cta" href="#conversar">Bora conversar</a>
+  </nav>
+  <a class="arroba" href="https://www.instagram.com/yasmincarreira_/" target="_blank" rel="noopener">@yasmincarreira_</a>
+</header>
 
-  <header class="topo">
-    <a class="marca" href="#inicio">
-      <svg viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela" fill="#ff99d9" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/></svg>
-      Yasmin<br>Carreira
-    </a>
-    <nav class="topo-menu" aria-label="Menu">
-      <a href="portfolio/">Portfólio</a>
-      <a href="#videos">Vídeos</a>
-      <a href="#servicos">Serviços</a>
-      <a href="#sobre">Sobre</a>
-      <a class="topo-cta js-whats" href="https://wa.me/5513997973883" target="_blank" rel="noopener">Bora conversar →</a>
-    </nav>
-    <a class="arroba" href="https://www.instagram.com/yasmincarreira_/" target="_blank" rel="noopener">@yasmincarreira_</a>
-  </header>
-
-  <div class="lado-a">
-  <section class="cartao" aria-label="Apresentação">
-    <div class="cartao-foto">
-      <img src="fotos/capa-rosa.webp" alt="Yasmin Carreira sorrindo, de blusa rosa" width="1200" height="1204" fetchpriority="high">
+<main>
+  <!-- ================= ABERTURA: foto + apresentação + links ================= -->
+  <section class="miolo abertura" aria-label="Apresentação">
+    <div class="cartao">
+      <div class="cartao-foto">
+        <img src="fotos/capa-rosa.webp" alt="Yasmin Carreira sorrindo, de blusa rosa" width="1200" height="1204" fetchpriority="high">
+      </div>
+      <div class="selo" aria-hidden="true">
+        <svg viewBox="-3 -3 46 46"><use href="#estrela" fill="#fff2c2" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        <span>criada<br>pra criar</span>
+      </div>
+      <svg class="brilho" viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela" stroke="#111" stroke-width="2.6" stroke-linejoin="round"/></svg>
+      <p class="oi">Oi, eu sou a <em>Yasmin</em></p>
+      <span class="apelido">Diário da sua creator</span>
     </div>
-    <div class="selo" aria-hidden="true">
-      <svg viewBox="-3 -3 46 46"><use href="#estrela" fill="#fff2c2" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/></svg>
-      <span>UGC<br>creator</span>
+
+    <div>
+      <div class="rotulo">UGC creator</div>
+      <h1>Conteúdo que faz sua marca ser <mark>escolhida.</mark></h1>
+      <p class="intro">Transformo o dia a dia em vídeos autênticos, com humor leve e cara de conversa de amiga.</p>
+
+      <div class="links">
+        <a class="btn c-rosa" href="portfolio/">
+          <span class="ic"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></span>
+          <span class="txt"><span class="t">Meu portfólio UGC</span><span class="s">vídeos que fiz pra marcas</span></span>
+          <span class="seta">→</span>
+        </a>
+        <a class="btn c-ceu js-whats" href="https://wa.me/5513997973883" target="_blank" rel="noopener">
+          <span class="tag">Agenda aberta</span>
+          <span class="ic"><svg viewBox="0 0 24 24"><use href="#i-mail"/></svg></span>
+          <span class="txt"><span class="t">Parcerias UGC e publis</span><span class="s">fala comigo no WhatsApp</span></span>
+          <span class="seta">→</span>
+        </a>
+        <!-- EDITAR: troque pelo link que quiser -->
+        <a class="btn c-amarelo" href="portfolio/#servicos">
+          <span class="ic"><svg viewBox="0 0 24 24"><use href="#i-brilho"/></svg></span>
+          <span class="txt"><span class="t">Como eu te ajudo</span><span class="s">UGC orgânico, anúncios, publi e pacotes</span></span>
+          <span class="seta">→</span>
+        </a>
+        <!-- EDITAR: troque pelo link que quiser -->
+        <a class="btn c-manteiga" href="portfolio/#fotos">
+          <span class="ic"><svg viewBox="0 0 24 24"><use href="#i-camera"/></svg></span>
+          <span class="txt"><span class="t">Fotos UGC</span><span class="s">luz natural, prontas pra site e catálogo</span></span>
+          <span class="seta">→</span>
+        </a>
+      </div>
+
+      <nav class="redes" aria-label="Redes sociais">
+        <a href="https://www.instagram.com/yasmincarreira_/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><use href="#i-insta"/></svg></a>
+        <a href="https://www.tiktok.com/@yasmincarreira_1" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><use href="#i-tiktok"/></svg></a>
+        <a class="js-whats" href="https://wa.me/5513997973883" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><use href="#i-whats"/></svg></a>
+        <a href="mailto:yasmin-carreira@hotmail.com" aria-label="E-mail"><svg viewBox="0 0 24 24"><use href="#i-mail"/></svg></a>
+      </nav>
     </div>
-    <svg class="brilho" viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela" stroke="#111" stroke-width="2.6" stroke-linejoin="round"/></svg>
-    <p class="oi">Oi, eu sou a <em>Yasmin</em></p>
-    <span class="apelido">Diário da sua creator</span>
   </section>
 
-  <section>
-    <div class="rotulo">Vídeos com cara de vida real</div>
-    <h1>Conteúdo que faz sua marca ser <mark>escolhida.</mark></h1>
-    <p class="intro">Transformo o dia a dia em vídeos autênticos, com humor leve e cara de conversa de amiga.</p>
-
-    <nav class="redes" aria-label="Redes sociais">
-      <a href="https://www.instagram.com/yasmincarreira_/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><use href="#i-insta"/></svg></a>
-      <a href="https://www.tiktok.com/@yasmincarreira_1" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><use href="#i-tiktok"/></svg></a>
-      <a class="js-whats" href="https://wa.me/5513997973883" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><use href="#i-whats"/></svg></a>
-      <a href="mailto:yasmin-carreira@hotmail.com" aria-label="E-mail"><svg viewBox="0 0 24 24"><use href="#i-mail"/></svg></a>
-    </nav>
-  </section>
-  </div>
-
-  <div class="lado-b">
-  <section class="links revela" aria-label="Links principais">
-    <a class="btn c-rosa" href="portfolio/">
-      <span class="ic"><svg viewBox="0 0 24 24"><use href="#i-grade"/></svg></span>
-      <span class="txt"><span class="t">Meu portfólio UGC</span><span class="s">Vídeos, marcas e como eu trabalho</span></span>
-      <span class="seta">→</span>
-    </a>
-    <a class="btn c-ceu js-whats" href="https://wa.me/5513997973883" target="_blank" rel="noopener">
-      <span class="tag">Agenda aberta</span>
-      <span class="ic"><svg viewBox="0 0 24 24"><use href="#i-whats"/></svg></span>
-      <span class="txt"><span class="t">Parcerias e orçamentos</span><span class="s">Fala comigo no WhatsApp</span></span>
-      <span class="seta">→</span>
-    </a>
-    <a class="btn c-amarelo" href="portfolio/#servicos">
-      <span class="ic"><svg viewBox="0 0 24 24"><use href="#i-brilho"/></svg></span>
-      <span class="txt"><span class="t">Como eu te ajudo</span><span class="s">UGC orgânico, anúncios, publi e pacotes</span></span>
-      <span class="seta">→</span>
-    </a>
-    <a class="btn c-manteiga" href="portfolio/#fotos">
-      <span class="ic"><svg viewBox="0 0 24 24"><use href="#i-camera"/></svg></span>
-      <span class="txt"><span class="t">Fotos UGC</span><span class="s">Luz natural, prontas para site e catálogo</span></span>
-      <span class="seta">→</span>
-    </a>
-  </section>
-
-  <section class="marcas revela" aria-label="Marcas com quem já trabalhei">
-    <p class="marcas-titulo">marcas que confiam no meu trabalho</p>
+  <!-- ================= FAIXA DE MARCAS (lista no script lá embaixo) ================= -->
+  <section class="miolo marcas revela" aria-label="Marcas com quem já trabalhei">
+    <p class="marcas-titulo">marcas com quem já trabalhei</p>
     <div class="fita"><div class="fita-trilho" id="fita"></div></div>
   </section>
 
-  <section class="destaque revela" id="bf" hidden>
-    <svg class="faisca" viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela" stroke-width="2.4" stroke-linejoin="round"/></svg>
-    <span class="novidade">Black Friday</span>
-    <small>Destaque do momento</small>
-    <h2>Sua campanha<br><span class="nota">pronta a tempo</span></h2>
-    <p>As vagas de novembro são limitadas. Garante já os seus vídeos para vender mais na Black Friday.</p>
-    <div class="contagem" aria-live="polite">
-      <div><b id="bf-d">00</b><i>dias</i></div>
-      <div><b id="bf-h">00</b><i>horas</i></div>
-      <div><b id="bf-m">00</b><i>min</i></div>
-    </div>
-    <a class="pilula" id="bf-link" href="https://wa.me/5513997973883" target="_blank" rel="noopener">
-      <span>Reservar minha agenda<b>resposta rapidinha no WhatsApp</b></span>
-      <span class="seta">→</span>
-    </a>
-  </section>
-
-  <section class="bloco revela" id="videos">
-    <div class="bloco-cab">
-      <h2>Meus <span class="nota">queridinhos</span></h2>
-      <a class="ver-tudo" href="portfolio/#trabalhos">ver todos →</a>
-    </div>
-    <div class="trilho">
-      <a class="video" href="portfolio/#destaques">
-        <div class="capa"><img src="fotos/ugc-04-la-ganexa.jpg" alt="Vídeo para La Ganexa" loading="lazy"><span class="play"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5Z"/></svg></span></div>
-        <div class="leg"><b>La Ganexa</b><span>Humor com teatrinho</span></div>
-      </a>
-      <a class="video" href="portfolio/#trabalhos">
-        <div class="capa"><img src="fotos/ugc-01-elseve.jpg" alt="Vídeo para Elseve" loading="lazy"><span class="play"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5Z"/></svg></span></div>
-        <div class="leg"><b>Elseve</b><span>Antes e depois</span></div>
-      </a>
-      <a class="video" href="portfolio/#trabalhos">
-        <div class="capa"><img src="fotos/ugc-03-dove.jpg" alt="Vídeo para Dove" loading="lazy"><span class="play"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5Z"/></svg></span></div>
-        <div class="leg"><b>Dove</b><span>Prova social</span></div>
-      </a>
-      <a class="video" href="portfolio/#trabalhos">
-        <div class="capa"><img src="fotos/ugc-08-taiff.jpg" alt="Vídeo para Taiff" loading="lazy"><span class="play"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5Z"/></svg></span></div>
-        <div class="leg"><b>Taiff</b><span>Tutorial</span></div>
+  <!-- ================= DESTAQUE DO MOMENTO ================= -->
+  <section class="miolo revela">
+    <div class="destaque">
+      <svg class="faisca" viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela" fill="#f2db33" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/></svg>
+      <span class="selo-pilula">novidade</span>
+      <div>
+        <small>Destaque do momento</small>
+        <!-- EDITAR: título e link do destaque -->
+        <h2>Black Friday <span class="nota">com a Yas</span></h2>
+      </div>
+      <a class="pilula js-whats-bf" href="https://wa.me/5513997973883" target="_blank" rel="noopener">
+        <span>Garanta seus vídeos a tempo<b>reservar minha agenda</b></span>
+        <span class="seta">→</span>
       </a>
     </div>
   </section>
 
-  <section class="bloco revela" id="servicos">
-    <div class="bloco-cab"><h2>Como eu <span class="nota">te ajudo</span></h2></div>
-    <div class="servicos">
-      <a class="js-servico" href="portfolio/#servicos">UGC orgânico</a>
-      <a class="js-servico" href="portfolio/#servicos">UGC para anúncios</a>
-      <a class="js-servico" href="portfolio/#servicos">Publi post</a>
-      <a class="js-servico" href="portfolio/#servicos">Pacotes</a>
-      <a class="js-servico" href="portfolio/#servicos">TikTok Shop</a>
-      <a class="js-servico" href="portfolio/#fotos">Fotos UGC</a>
-      <a class="js-servico" href="portfolio/#servicos">Criação de portfólios</a>
+  <!-- ================= CUPONS + VITRINE ================= -->
+  <section class="miolo grade grade-cupons revela">
+    <div id="cupons">
+      <h2 class="bloco-titulo">Meus <span class="nota">cupons</span></h2>
+      <p class="bloco-sub">Copia o código e usa na finalização da compra, no site da marca.</p>
+      <div class="cupons">
+        <!-- EDITAR: cada bloco é um cupom (marca, código e site) -->
+        <div class="cupom">
+          <span class="marca-tag">Sou embaixadora</span>
+          <div><b>Nome da marca</b><code>YASMIN10</code></div>
+          <div class="cupom-acoes"><button type="button" data-copiar="YASMIN10">copiar</button><a href="#" target="_blank" rel="noopener">ir pro site ↗</a></div>
+        </div>
+        <div class="cupom">
+          <div><b>Nome da marca</b><code>YAS15</code></div>
+          <div class="cupom-acoes"><button type="button" data-copiar="YAS15">copiar</button><a href="#" target="_blank" rel="noopener">ir pro site ↗</a></div>
+        </div>
+        <div class="cupom">
+          <span class="marca-tag">Sou embaixadora</span>
+          <div><b>Nome da marca</b><code>UGCYASMIN</code></div>
+          <div class="cupom-acoes"><button type="button" data-copiar="UGCYASMIN">copiar</button><a href="#" target="_blank" rel="noopener">ir pro site ↗</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartao-escuro">
+      <svg class="deco" viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela" fill="#ff99d9"/></svg>
+      <span class="mini-rotulo">Vitrine da Yas</span>
+      <h2>Coisas que eu <span class="nota">indico</span></h2>
+      <p>Produtos de autocuidado, casa e tudo que eu uso de verdade, num lugar só.</p>
+      <!-- EDITAR: link da sua vitrine (Amazon, Shopee, TikTok Shop...) -->
+      <a class="btn-claro" href="#" target="_blank" rel="noopener">ver a vitrine <span class="seta">→</span></a>
     </div>
   </section>
 
-  <section class="bloco revela" id="sobre">
-    <div class="sobre">
-      <span class="fita-adesiva" aria-hidden="true"></span>
+  <!-- ================= HISTÓRIA + MENTORIA ================= -->
+  <section class="miolo grade revela">
+    <div class="cartao-branco" id="historia">
       <div class="mini"><img src="fotos/sobre.jpg" alt="" loading="lazy"></div>
-      <h2>Prazer, <span class="nota">eu sou a Yas</span></h2>
-      <div class="chips"><span>32 anos</span><span>Mãe do Bernardo</span><span>Litoral de SP</span><span>Amo me cuidar</span></div>
+      <h2 class="bloco-titulo">Conheça minha <span class="nota">história e +</span></h2>
+      <div class="chips"><span>32 anos</span><span>Mãe do Bernardo</span><span>Litoral de SP</span><span>Autocuidado</span><span>UGC</span></div>
       <p>Crio conteúdo para mulheres sobre autocuidado, de um jeito natural, mostrando que mesmo na rotina corrida de cuidar de tudo e de todos a gente não pode se esquecer de nós mesmas.</p>
-      <p class="bilhete">Seu produto, no meu dia a dia, do jeitinho que seu cliente gosta de ver. ♡</p>
-      <a class="btn-tinta" href="portfolio/#sobre"><span>Conhecer minha história</span><span>→</span></a>
+      <a class="btn-tinta" href="portfolio/#sobre">Ver minha história completa <span class="seta">→</span></a>
     </div>
-  </section>
 
-  <section class="conversar revela" id="conversar">
-    <svg class="estrela-canto" viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela" fill="#f2db33" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/></svg>
-    <h2>Bora <span class="nota">conversar?</span></h2>
-    <p>Parceria, UGC, publi ou só um oi. Me conta sobre a sua marca que eu respondo rapidinho.</p>
-    <a class="cta rosa js-whats" href="https://wa.me/5513997973883" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><use href="#i-whats"/></svg>Chamar no WhatsApp</a>
-    <a class="cta contorno" href="https://ig.me/m/yasmincarreira_" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><use href="#i-insta"/></svg>Mandar DM no Instagram</a>
-    <div class="contatos">
-      <span>ou por e-mail: <a href="mailto:yasmin-carreira@hotmail.com">yasmin-carreira@hotmail.com</a></span>
+    <div class="cartao-amarelo" id="mentoria">
+      <span class="mini-pilula">minha mentoria · em breve</span>
+      <!-- EDITAR: nome e descrição da mentoria -->
+      <h2>Mentoria <span class="nota">nome aqui</span></h2>
+      <p>Para quem quer começar no UGC e tirar as coisas do papel.</p>
+      <form class="lista" id="lista">
+        <label for="email-lista">Receba notificação quando as vagas abrirem</label>
+        <input id="email-lista" type="email" placeholder="seu@email.com" required autocomplete="email">
+        <button type="submit">Entrar na lista</button>
+      </form>
+      <small>Só te mando e-mail quando abrir. Nada de spam.</small>
+      <svg class="estrela-canto" viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela" fill="#ff99d9" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/></svg>
     </div>
-    <p class="rodape">feito com carinho ♡ yasmincarreira.com</p>
   </section>
-  </div>
 </main>
 
+<!-- ================= BORA CONVERSAR ================= -->
+<footer class="conversar" id="conversar">
+  <svg class="estrela-canto" viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela" fill="#f2db33" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/></svg>
+  <div class="miolo">
+    <div>
+      <h2>Bora <span class="nota">conversar?</span></h2>
+      <p>Parceria, UGC, publi ou só um oi. Respondo rapidinho.</p>
+    </div>
+    <div class="ctas">
+      <a class="cta rosa js-whats" href="https://wa.me/5513997973883" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><use href="#i-whats"/></svg>Chamar no WhatsApp</a>
+      <a class="cta contorno" href="https://ig.me/m/yasmincarreira_" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><use href="#i-insta"/></svg>Mandar DM no Instagram</a>
+      <a class="cta contorno" href="mailto:yasmin-carreira@hotmail.com"><svg viewBox="0 0 24 24"><use href="#i-mail"/></svg>Mandar e-mail</a>
+      <button class="copiar-email" type="button" data-copiar="yasmin-carreira@hotmail.com">copiar e-mail</button>
+    </div>
+    <p class="assinatura">feito pela Yas ♡ @yasmincarreira_</p>
+  </div>
+</footer>
+
+<!-- ================= BARRA DE BAIXO (só no celular) ================= -->
 <nav class="nav" aria-label="Navegação">
   <div class="nav-dentro">
     <a class="ativo" href="#inicio"><svg viewBox="0 0 24 24"><use href="#i-casa"/></svg>Início</a>
     <a href="portfolio/"><svg viewBox="0 0 24 24"><use href="#i-grade"/></svg>Portfólio</a>
-    <a class="meio js-whats" href="https://wa.me/5513997973883" target="_blank" rel="noopener"><span class="bola"><svg viewBox="0 0 24 24"><use href="#i-chat"/></svg></span><span>Conversar</span></a>
-    <a href="#videos"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg>Vídeos</a>
-    <a href="#sobre"><svg viewBox="0 0 24 24"><use href="#i-pessoa"/></svg>Sobre</a>
+    <a class="meio" href="#conversar"><span class="bola"><svg viewBox="0 0 24 24"><use href="#i-chat"/></svg></span><span>Conversar</span></a>
+    <a href="#cupons"><svg viewBox="0 0 24 24"><use href="#i-cupom"/></svg>Cupons</a>
+    <a href="#historia"><svg viewBox="0 0 24 24"><use href="#i-livro"/></svg>História</a>
   </div>
 </nav>
+
+<div class="aviso" id="aviso" role="status" aria-live="polite"></div>
 
 <script>
 // WhatsApp com mensagem pronta (mesmo número do portfólio)
@@ -548,30 +544,43 @@ const WHATSAPP = "5513997973883";
 const WHATSAPP_MSG = "Oi, Yasmin! Vim pelo seu Instagram e quero conversar sobre um projeto.";
 const whats = msg => "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg);
 document.querySelectorAll(".js-whats").forEach(a => a.href = whats(WHATSAPP_MSG));
+document.querySelectorAll(".js-whats-bf").forEach(a => a.href = whats("Oi, Yasmin! Quero conversar sobre minha campanha de Black Friday."));
 
-// Faixa de marcas (repetida para girar sem emenda)
+// EDITAR: marcas da faixa (repetida para girar sem emenda)
 const MARCAS = ["Dove", "Elseve", "Eudora", "Garnier", "Pantene", "OMO", "Mercado Livre", "Taiff", "Truss", "Haskell", "La Ganexa", "Ciça Braga"];
 const estrelinha = '<svg viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela" fill="#ff99d9"/></svg>';
 const grupo = '<span>' + MARCAS.map(m => m + estrelinha).join("") + '</span>';
 document.getElementById("fita").innerHTML = grupo + grupo.replace("<span>", '<span aria-hidden="true">');
 
-// Black Friday: contagem até 30/11; o card só aparece em outubro e novembro
-(function () {
-  const agora = new Date();
-  const fim = new Date(agora.getFullYear(), 10, 30, 23, 59, 59);
-  if (agora.getMonth() < 9 || agora > fim) return;
-  const bf = document.getElementById("bf");
-  document.getElementById("bf-link").href = whats("Oi, Yasmin! Quero conversar sobre minha campanha de Black Friday.");
-  const dois = n => String(n).padStart(2, "0");
-  function tique() {
-    const s = Math.max(0, Math.floor((fim - new Date()) / 1000));
-    document.getElementById("bf-d").textContent = dois(Math.floor(s / 86400));
-    document.getElementById("bf-h").textContent = dois(Math.floor(s % 86400 / 3600));
-    document.getElementById("bf-m").textContent = dois(Math.floor(s % 3600 / 60));
+// Aviso rápido no rodapé da tela
+const aviso = document.getElementById("aviso");
+let avisoTempo;
+function mostrarAviso(txt) {
+  aviso.textContent = txt;
+  aviso.classList.add("mostra");
+  clearTimeout(avisoTempo);
+  avisoTempo = setTimeout(() => aviso.classList.remove("mostra"), 1800);
+}
+
+// Botões "copiar" (cupons e e-mail)
+document.querySelectorAll("[data-copiar]").forEach(b => b.addEventListener("click", async () => {
+  const txt = b.dataset.copiar;
+  try { await navigator.clipboard.writeText(txt); }
+  catch (e) {
+    const t = document.createElement("textarea");
+    t.value = txt; document.body.appendChild(t); t.select(); document.execCommand("copy"); t.remove();
   }
-  tique(); setInterval(tique, 30000);
-  bf.hidden = false;
-})();
+  mostrarAviso("Copiado: " + txt);
+}));
+
+// Lista da mentoria: sem servidor, abre um e-mail pronto para a Yasmin
+document.getElementById("lista").addEventListener("submit", e => {
+  e.preventDefault();
+  const email = document.getElementById("email-lista").value.trim();
+  location.href = "mailto:yasmin-carreira@hotmail.com?subject=" + encodeURIComponent("Lista da mentoria") +
+    "&body=" + encodeURIComponent("Oi, Yasmin! Quero ser avisada quando a mentoria abrir. Meu e-mail: " + email);
+  mostrarAviso("Abrindo seu e-mail…");
+});
 
 // Entrada suave dos blocos
 const obs = "IntersectionObserver" in window && new IntersectionObserver(es => es.forEach(e => {
