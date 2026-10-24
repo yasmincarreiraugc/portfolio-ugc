@@ -519,62 +519,24 @@ h1 span{display:block}
     <div class="marcas-faixa"><div class="marcas-trilho" id="faixaMarcas"></div></div>
   </section>
 
-  <!-- ================= CUPONS + VITRINE ================= -->
-  <section class="miolo grade grade-cupons revela">
-    <div id="cupons">
-      <h2 class="bloco-titulo">Meus <span class="nota">cupons</span></h2>
-      <p class="bloco-sub">Copia o código e usa na finalização da compra, no site da marca.</p>
-      <div class="cupons">
-        <!-- EDITAR: cada bloco é um cupom (marca, código e site) -->
-        <div class="cupom">
-          <span class="marca-tag">Sou embaixadora</span>
-          <div><b>Nome da marca</b><code>YASMIN10</code></div>
-          <div class="cupom-acoes"><button type="button" data-copiar="YASMIN10">copiar</button><a href="#" target="_blank" rel="noopener">ir pro site ↗</a></div>
-        </div>
-        <div class="cupom">
-          <div><b>Nome da marca</b><code>YAS15</code></div>
-          <div class="cupom-acoes"><button type="button" data-copiar="YAS15">copiar</button><a href="#" target="_blank" rel="noopener">ir pro site ↗</a></div>
-        </div>
-        <div class="cupom">
-          <span class="marca-tag">Sou embaixadora</span>
-          <div><b>Nome da marca</b><code>UGCYASMIN</code></div>
-          <div class="cupom-acoes"><button type="button" data-copiar="UGCYASMIN">copiar</button><a href="#" target="_blank" rel="noopener">ir pro site ↗</a></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="cartao-escuro">
+  <!-- ================= DUAS CAIXAS: MINHA HISTÓRIA + CRIAÇÃO DE PORTFÓLIOS (estilo da antiga "Vitrine da Yas") ================= -->
+  <section class="miolo grade grade-duas revela">
+    <div class="cartao-escuro" id="historia">
       <svg class="deco" viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela" fill="#ff99d9"/></svg>
-      <span class="mini-rotulo">Vitrine da Yas</span>
-      <h2>Coisas que eu <span class="nota">indico</span></h2>
-      <p>Produtos de autocuidado, casa e tudo que eu uso de verdade, num lugar só.</p>
-      <!-- EDITAR: link da sua vitrine (Amazon, Shopee, TikTok Shop...) -->
-      <a class="btn-claro" href="#" target="_blank" rel="noopener">ver a vitrine <span class="seta">→</span></a>
-    </div>
-  </section>
-
-  <!-- ================= HISTÓRIA + MENTORIA ================= -->
-  <section class="miolo grade revela">
-    <div class="cartao-branco" id="historia">
-      <div class="mini"><img src="fotos/sobre.jpg" alt="" loading="lazy"></div>
-      <h2 class="bloco-titulo">Conheça minha <span class="nota">história e +</span></h2>
-      <div class="chips"><span>32 anos</span><span>Mãe do Bernardo</span><span>Litoral de SP</span><span>Autocuidado</span><span>UGC</span></div>
-      <p>Crio conteúdo para mulheres sobre autocuidado, de um jeito natural, mostrando que mesmo na rotina corrida de cuidar de tudo e de todos a gente não pode se esquecer de nós mesmas.</p>
-      <a class="btn-tinta" href="portfolio/#sobre">Ver minha história completa <span class="seta">→</span></a>
+      <span class="mini-rotulo">Prazer, eu sou a Yas</span>
+      <h2>Minha <span class="nota">história</span></h2>
+      <p>32 anos, mãe do Bernardo e moradora do litoral de SP. Crio conteúdo para mulheres sobre autocuidado, de um jeito natural, mostrando que mesmo na rotina corrida a gente não pode se esquecer de nós mesmas.</p>
+      <!-- EDITAR: link da sua história -->
+      <a class="btn-claro" href="portfolio/#sobre">ver minha história completa <span class="seta">→</span></a>
     </div>
 
-    <div class="cartao-amarelo" id="mentoria">
-      <span class="mini-pilula">minha mentoria · em breve</span>
-      <!-- EDITAR: nome e descrição da mentoria -->
-      <h2>Mentoria <span class="nota">nome aqui</span></h2>
-      <p>Para quem quer começar no UGC e tirar as coisas do papel.</p>
-      <form class="lista" id="lista">
-        <label for="email-lista">Receba notificação quando as vagas abrirem</label>
-        <input id="email-lista" type="email" placeholder="seu@email.com" required autocomplete="email">
-        <button type="submit">Entrar na lista</button>
-      </form>
-      <small>Só te mando e-mail quando abrir. Nada de spam.</small>
-      <svg class="estrela-canto" viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela" fill="#ff99d9" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/></svg>
+    <div class="cartao-escuro" id="criacao">
+      <svg class="deco" viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela" fill="#78b4f4"/></svg>
+      <span class="mini-rotulo">Criação de portfólios e sites</span>
+      <h2>Seu portfólio <span class="nota">com a sua cara</span></h2>
+      <p>Gostou deste bio link? Eu crio portfólios e sites para creators e marcas, do jeitinho do seu estilo, prontos para fechar parcerias.</p>
+      <!-- EDITAR: texto e mensagem do WhatsApp -->
+      <a class="btn-claro js-whats-msg" data-msg="Oi, Yasmin! Vim pelo seu Instagram e quero falar sobre criação de portfólio e site." href="https://wa.me/5513997973883" target="_blank" rel="noopener">me chama no WhatsApp <span class="seta">→</span></a>
     </div>
   </section>
   </div>
@@ -662,14 +624,6 @@ document.querySelectorAll("[data-copiar]").forEach(b => b.addEventListener("clic
   mostrarAviso("Copiado: " + txt);
 }));
 
-// Lista da mentoria: sem servidor, abre um e-mail pronto para a Yasmin
-document.getElementById("lista").addEventListener("submit", e => {
-  e.preventDefault();
-  const email = document.getElementById("email-lista").value.trim();
-  location.href = "mailto:yasmin-carreira@hotmail.com?subject=" + encodeURIComponent("Lista da mentoria") +
-    "&body=" + encodeURIComponent("Oi, Yasmin! Quero ser avisada quando a mentoria abrir. Meu e-mail: " + email);
-  mostrarAviso("Abrindo seu e-mail…");
-});
 
 
 // Topo fixo: ganha sombra e fica mais baixinho quando a página rola
