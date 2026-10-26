@@ -139,8 +139,37 @@ h1{font-size:clamp(44px,5.5vw,66px);margin-top:8px}
 
 <script>
   // WhatsApp com mensagem pronta (mesmo número do bio link)
-  document.getElementById("whats").href = "https://wa.me/5513997973883?text=" +
+  const linkWhats = "https://wa.me/5513997973883?text=" +
     encodeURIComponent("Oi, Yasmin! Li a sua história e quero conversar sobre um projeto.");
+  document.querySelectorAll(".js-whats").forEach(a => a.href = linkWhats);
+
+  // EDITAR: momentos do mural.
+  // foto: caminho da foto (ex.: "../fotos/historia-2017.jpg"). Sem foto, aparece um espaço reservado.
+  // posicao: opcional, qual parte da foto aparece (ex.: "center 30%")
+  const MURAL = [
+    { ano: "2017",        titulo: "Formada em Contabilidade", texto: "Me formei em Contabilidade.", foto: "" },
+    { ano: "2018 – 2021", titulo: "Na contabilidade",          texto: "Trabalhei em um escritório de contabilidade. Somando com os anos antes de me formar, foram 7 anos e meio na área.", foto: "" },
+    { ano: "2021",        titulo: "Comecei a empreender",      texto: "Comecei a empreender nas unhas.", foto: "" },
+    { ano: "2022",        titulo: "Meu salão de beleza",       texto: "Abri o meu salão de beleza.", foto: "" },
+    { ano: "2024",        titulo: "Virei mãe",                 texto: "Nasceu o Bernardo, meu filho.", foto: "../fotos/pasta-2.jpg", posicao: "center 45%" },
+    { ano: "2025",        titulo: "Hora do digital",           texto: "Deixei de empreender no salão para começar a trabalhar com o digital e o UGC.", foto: "../fotos/ugc-01-elseve.jpg", posicao: "center 30%" }
+  ];
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const espacoFoto = `<div class="sem-foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13.5" r="3.5"/></svg><span>foto em breve</span></div>`;
+  document.getElementById("linhaTempo").innerHTML = MURAL.map(m => `
+    <li class="momento">
+      <span class="ponto" aria-hidden="true"></span>
+      <article class="momento-cartao">
+        <div class="momento-foto">${m.foto
+          ? `<img src="${esc(m.foto)}" alt="${esc(m.titulo)}" loading="lazy"${m.posicao ? ` style="object-position:${esc(m.posicao)}"` : ""}>`
+          : espacoFoto}</div>
+        <div class="momento-texto">
+          <span class="ano">${esc(m.ano)}</span>
+          <h3>${esc(m.titulo)}</h3>
+          <p>${esc(m.texto)}</p>
+        </div>
+      </article>
+    </li>`).join("");
 </script>
 </body>
 </html>
