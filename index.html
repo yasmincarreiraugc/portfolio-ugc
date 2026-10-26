@@ -667,7 +667,7 @@ const botoesNav = [...document.querySelectorAll("#nav a[data-alvo]")];
 function marcaNav() {
   const meio = innerHeight * 0.45;
   let atual = "comeco";
-  ["caixa-redes", "historia", "conversar"].forEach(id => {
+  ["historia", "conversar"].forEach(id => {
     const el = document.getElementById(id);
     if (el && el.getBoundingClientRect().top < meio) atual = id;
   });
