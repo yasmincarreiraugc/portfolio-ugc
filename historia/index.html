@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Minha história | Yasmin Carreira</title>
+<meta name="description" content="Prazer, eu sou a Yasmin: 32 anos, mãe do Bernardo, moro no litoral de SP e crio conteúdo UGC com cara de conversa de amiga.">
+<meta name="theme-color" content="#f5f2ed">
+<link rel="canonical" href="https://yasmincarreira.com/historia/">
+<meta property="og:title" content="Minha história | Yasmin Carreira">
+<meta property="og:image" content="https://yasmincarreira.com/fotos/capa-perfil.webp">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-3 -3 46 46'%3E%3Cpath d='M20 0C21.6 11.5 28.5 18.4 40 20 28.5 21.6 21.6 28.5 20 40 18.4 28.5 11.5 21.6 0 20 11.5 18.4 18.4 11.5 20 0Z' fill='%23ff99d9' stroke='%231e1915' stroke-width='2.4' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --creme:#f5f2ed;
+  --tinta:#1e1915;
+  --tinta-2:#57514c;
+  --rosa:#ff99d9;
+  --ceu:#78b4f4;
+  --manteiga:#fff2c2;
+  --titulo:"Barlow Condensed","Arial Narrow",sans-serif;
+  --sans:"Montserrat",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;overflow-x:clip}
+body{margin:0;min-height:100vh;background:var(--creme);color:var(--tinta);font-family:var(--sans);-webkit-font-smoothing:antialiased;padding:24px 24px 40px}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
+h1,h2{font-family:var(--titulo);font-weight:600;text-transform:uppercase;line-height:1;letter-spacing:-.005em;margin:0}
+
+/* cartão branco, igual ao do bio link */
+.painel{max-width:1220px;margin:0 auto;background:#fff;border-radius:36px;overflow:clip}
+
+/* topo: voltar + nome */
+.topo{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 44px 10px 40px}
+.voltar{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:#f1ede8;font-size:13px;font-weight:600;transition:background .2s}
+.voltar:hover{background:var(--rosa)}
+.logo{display:flex;align-items:center;gap:14px}
+.logo svg{width:32px;height:32px;fill:var(--rosa);stroke:var(--tinta);stroke-width:2.2;stroke-linejoin:round;overflow:visible}
+.logo strong,.logo span{display:block;font-size:18px;font-weight:600;letter-spacing:.07em;line-height:1.1;text-transform:uppercase}
+
+/* conteúdo */
+.conteudo{display:grid;gap:32px;padding:16px 48px 44px}
+.foto{position:relative;align-self:end}
+.foto img{width:100%;max-width:360px;margin:0 auto;-webkit-mask-image:linear-gradient(to bottom,#000 70%,transparent 100%);mask-image:linear-gradient(to bottom,#000 70%,transparent 100%)}
+.rotulo{display:flex;align-items:center;gap:10px;margin:0;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.rotulo::before{content:"";width:30px;height:2px;background:var(--rosa)}
+h1{font-size:clamp(44px,5.5vw,66px);margin-top:8px}
+.texto p{margin:16px 0 0;font-size:16px;line-height:1.7;color:var(--tinta-2);max-width:620px}
+.texto strong{color:var(--tinta);font-weight:600}
+
+/* 4 cartões com foto (iguais aos do portfólio) */
+.cartoes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;list-style:none;margin:24px 0 0;padding:0}
+.cartoes li{border-radius:20px;overflow:hidden;background:var(--rosa);display:flex;flex-direction:column}
+.cartoes li:nth-child(2){background:var(--ceu)}
+.cartoes li:nth-child(3){background:var(--manteiga)}
+.cartoes img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.cartoes strong{display:block;padding:10px 12px 12px;font-size:12.5px;font-weight:700;line-height:1.3}
+
+/* botões */
+.botoes{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:12px;border-radius:999px;padding:8px 8px 8px 20px;font-size:14px;font-weight:600;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn .seta{width:34px;height:34px;border-radius:50%;display:grid;place-items:center}
+.btn-rosa{background:var(--rosa)}
+.btn-rosa .seta{background:var(--tinta);color:#fff}
+.btn-linha{border:2px solid var(--tinta);padding:6px 6px 6px 18px}
+.btn-linha .seta{background:#f1ede8}
+
+.assinatura{max-width:1220px;margin:18px auto 0;text-align:center;font-size:13px;font-weight:500;color:var(--tinta-2)}
+
+@media (min-width:960px){
+  .conteudo{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;align-items:center;padding-top:20px}
+}
+@media (max-width:959px){
+  body{padding:10px 10px 28px}
+  .painel{border-radius:24px}
+  .topo{padding:14px 16px}
+  .logo svg{width:28px;height:28px}
+  .logo strong,.logo span{font-size:15px}
+  .conteudo{padding:8px 16px 28px;gap:20px}
+  .foto img{max-width:280px}
+  h1{font-size:clamp(38px,11vw,56px)}
+  .texto p{font-size:15px}
+  .cartoes{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+</style>
+</head>
+<body>
+<div class="painel">
+  <header class="topo">
+    <a class="voltar" href="../">← voltar</a>
+    <a class="logo" href="../" aria-label="Yasmin Carreira, voltar ao início">
+      <svg viewBox="-3 -3 46 46" aria-hidden="true"><path d="M20 0C21.6 11.5 28.5 18.4 40 20 28.5 21.6 21.6 28.5 20 40 18.4 28.5 11.5 21.6 0 20 11.5 18.4 18.4 11.5 20 0Z"/></svg>
+      <div><strong>Yasmin</strong><span>Carreira</span></div>
+    </a>
+  </header>
+
+  <main class="conteudo">
+    <!-- FOTO: para trocar, mude o arquivo abaixo -->
+    <div class="foto">
+      <img src="../fotos/capa-perfil.webp" alt="Yasmin Carreira sorrindo, de blusa rosa" width="781" height="1448">
+    </div>
+
+    <div class="texto">
+      <p class="rotulo">Prazer, sou a Yas</p>
+      <h1>Minha história</h1>
+
+      <!-- EDITAR: os 4 cartões (foto e texto) -->
+      <ul class="cartoes">
+        <li><img src="../fotos/pasta-1.jpg" alt="Yasmin soprando as velas de um bolo de aniversário" loading="lazy" style="object-position:center 30%"><strong>32 anos</strong></li>
+        <li><img src="../fotos/pasta-2.jpg" alt="Yasmin brincando com o filho Bernardo no colo" loading="lazy" style="object-position:center 45%"><strong>Mãe do Bernardo</strong></li>
+        <li><img src="../fotos/pasta-3.jpg" alt="Yasmin na praia, no litoral de São Paulo" loading="lazy" style="object-position:center 55%"><strong>Moro no litoral de SP</strong></li>
+        <li><img src="../fotos/pasta-4.jpg" alt="Yasmin sorrindo na academia" loading="lazy" style="object-position:center 30%"><strong>Amo me cuidar e motivar mulheres</strong></li>
+      </ul>
+
+      <!-- EDITAR: sua história -->
+      <p>Crio conteúdo para mulheres sobre autocuidado, de um jeito natural e com <strong>cara de conversa de amiga</strong>, mostrando que, mesmo na rotina corrida de cuidar de tudo e de todos, a gente não pode se esquecer de nós mesmas.</p>
+      <p>Cada vídeo é dinâmico, alinhado com a sua campanha e pensado para levar a mensagem certa e <strong>despertar desejo</strong>. Com um olhar analítico, transformo o seu produto em desejo de consumo: <strong>conteúdo autêntico</strong> que cria <strong>conexão real</strong>, gera autoridade e traz resultado.</p>
+
+      <div class="botoes">
+        <a class="btn btn-rosa" id="whats" href="https://wa.me/5513997973883" target="_blank" rel="noopener">Bora criar juntas? <span class="seta">→</span></a>
+        <a class="btn btn-linha" href="../portfolio/">Ver meu portfólio <span class="seta">→</span></a>
+      </div>
+    </div>
+  </main>
+</div>
+<p class="assinatura">feito pela Yas ♡ @yasmincarreira_</p>
+
+<script>
+  // WhatsApp com mensagem pronta (mesmo número do bio link)
+  document.getElementById("whats").href = "https://wa.me/5513997973883?text=" +
+    encodeURIComponent("Oi, Yasmin! Li a sua história e quero conversar sobre um projeto.");
+</script>
+</body>
+</html>
