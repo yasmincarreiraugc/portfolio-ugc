@@ -633,9 +633,10 @@ const WHATSAPP_MSG = "Oi, Yasmin! Vim pelo seu Instagram e quero conversar sobre
 const whats = msg => "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg);
 
 // TikTok dentro do Instagram/Facebook: o navegador interno deles fica preso na tela "abra o app".
-// Então, só nesses navegadores, o link sai de lá:
-// no iPhone abre no Safari (que leva ao perfil ou ao app); no Android abre direto o app do TikTok.
-// Se no iPhone o Instagram não deixar sair, aparece uma caixinha de ajuda.
+// Então, só nesses navegadores, o botão chama direto o app do TikTok no perfil da Yasmin
+// (no iPhone pelo link interno do app, no Android pelo "intent"). Se a pessoa não tiver o app,
+// abre o perfil no navegador.
+const TIKTOK_ID = "6819469517346604038"; // número da conta @yasmincarreira_1 no TikTok
 (function () {
   const ua = navigator.userAgent || "";
   if (!/Instagram|FBAN|FBAV|FB_IAB/i.test(ua)) return;
@@ -653,19 +654,11 @@ const whats = msg => "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent
       const marcaSaida = () => { saiu = true; };
       document.addEventListener("visibilitychange", marcaSaida, { once: true });
       addEventListener("pagehide", marcaSaida, { once: true });
-      location.href = "x-safari-" + url.href;   // tenta abrir no Safari
-      setTimeout(() => { if (!saiu && document.visibilityState === "visible") abrirAjudaTiktok(url.href); }, 1500);
+      location.href = "snssdk1233://user/profile/" + TIKTOK_ID;   // abre o app do TikTok no perfil
+      setTimeout(() => { if (!saiu && document.visibilityState === "visible") location.href = url.href; }, 1600);
     });
   });
 })();
-function abrirAjudaTiktok(link) {
-  const caixa = document.getElementById("ajuda-tiktok");
-  caixa.querySelector(".ajuda-abrir").href = link;
-  caixa.hidden = false;
-}
-document.getElementById("ajuda-tiktok").addEventListener("click", e => {
-  if (e.target.id === "ajuda-tiktok" || e.target.closest(".ajuda-fechar")) e.currentTarget.hidden = true;
-});
 document.querySelectorAll(".js-whats").forEach(a => a.href = whats(WHATSAPP_MSG));
 document.querySelectorAll(".js-whats-msg").forEach(a => a.href = whats(a.dataset.msg));
 document.querySelectorAll(".js-whats-bf").forEach(a => a.href = whats("Oi, Yasmin! Quero conversar sobre minha campanha de Black Friday."));
