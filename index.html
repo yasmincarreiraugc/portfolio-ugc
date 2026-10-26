@@ -600,6 +600,24 @@ h1 span{display:block}
 const WHATSAPP = "5513997973883";
 const WHATSAPP_MSG = "Oi, Yasmin! Vim pelo seu Instagram e quero conversar sobre um projeto.";
 const whats = msg => "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg);
+
+// TikTok dentro do Instagram/Facebook: o navegador interno deles fica preso na tela "abra o app".
+// Então, só nesses navegadores, o link sai de lá:
+// no iPhone abre no Safari (que leva ao perfil ou ao app); no Android abre direto o app do TikTok.
+(function () {
+  const ua = navigator.userAgent || "";
+  if (!/Instagram|FBAN|FBAV|FB_IAB/i.test(ua)) return;
+  const ehAndroid = /Android/i.test(ua), ehIphone = /iPhone|iPad|iPod/i.test(ua);
+  document.querySelectorAll('a[href*="tiktok.com"]').forEach(a => {
+    const url = new URL(a.href);
+    if (ehAndroid) {
+      a.href = "intent://" + url.host + url.pathname + "#Intent;scheme=https;package=com.zhiliaoapp.musically;S.browser_fallback_url=" + encodeURIComponent(url.href) + ";end";
+    } else if (ehIphone) {
+      a.href = "x-safari-" + url.href;
+    }
+    a.removeAttribute("target");
+  });
+})();
 document.querySelectorAll(".js-whats").forEach(a => a.href = whats(WHATSAPP_MSG));
 document.querySelectorAll(".js-whats-msg").forEach(a => a.href = whats(a.dataset.msg));
 document.querySelectorAll(".js-whats-bf").forEach(a => a.href = whats("Oi, Yasmin! Quero conversar sobre minha campanha de Black Friday."));
