@@ -662,6 +662,21 @@ document.querySelectorAll('.js-abre-redes, .menu a[href="#caixa-redes"]').forEac
   caixaRedes.classList.add("aberto"); abrirRedes.setAttribute("aria-expanded", "true");
 }));
 
+// Barra de baixo: o botão da parte que está na tela fica em rosa
+const botoesNav = [...document.querySelectorAll("#nav a[data-alvo]")];
+function marcaNav() {
+  const meio = innerHeight * 0.45;
+  let atual = "comeco";
+  ["caixa-redes", "historia", "conversar"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top < meio) atual = id;
+  });
+  if (innerHeight + scrollY >= document.documentElement.scrollHeight - 4) atual = "conversar";
+  botoesNav.forEach(b => b.classList.toggle("ativo", b.dataset.alvo === atual && !b.classList.contains("centro")));
+}
+addEventListener("scroll", marcaNav, { passive: true });
+marcaNav();
+
 // Menu do celular (botão de três linhas)
 const hamb = document.getElementById("hamburguer"), menu = document.getElementById("menu");
 hamb.addEventListener("click", () => {
