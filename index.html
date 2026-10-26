@@ -663,6 +663,9 @@ function abrirAjudaTiktok(link) {
   caixa.querySelector(".ajuda-abrir").href = link;
   caixa.hidden = false;
 }
+document.getElementById("ajuda-tiktok").addEventListener("click", e => {
+  if (e.target.id === "ajuda-tiktok" || e.target.closest(".ajuda-fechar")) e.currentTarget.hidden = true;
+});
 document.querySelectorAll(".js-whats").forEach(a => a.href = whats(WHATSAPP_MSG));
 document.querySelectorAll(".js-whats-msg").forEach(a => a.href = whats(a.dataset.msg));
 document.querySelectorAll(".js-whats-bf").forEach(a => a.href = whats("Oi, Yasmin! Quero conversar sobre minha campanha de Black Friday."));
