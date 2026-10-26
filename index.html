@@ -585,14 +585,12 @@ h1 span{display:block}
 <p class="assinatura">feito pela Yas ♡ @yasmincarreira_</p>
 
 <!-- ================= BARRA DE BAIXO (só no celular) ================= -->
-<nav class="nav" aria-label="Navegação">
-  <div class="nav-dentro">
-    <a class="ativo" href="#comeco"><svg viewBox="0 0 24 24"><use href="#i-casa"/></svg>Início</a>
-    <a href="portfolio/"><svg viewBox="0 0 24 24"><use href="#i-grade"/></svg>Portfólio</a>
-    <a class="meio" href="#conversar"><span class="bola"><svg viewBox="0 0 24 24"><use href="#i-chat"/></svg></span><span>Conversar</span></a>
-    <a href="#caixa-redes" class="js-abre-redes"><svg viewBox="0 0 24 24"><use href="#i-insta"/></svg>Redes</a>
-    <a href="#historia"><svg viewBox="0 0 24 24"><use href="#i-livro"/></svg>História</a>
-  </div>
+<nav class="nav" id="nav" aria-label="Navegação">
+  <a class="ativo" href="#comeco" data-alvo="comeco"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5L12 4l8 6.5V20h-5v-6H9v6H4z"/></svg>Início</a>
+  <a href="portfolio/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="3"/><path d="M10 9.2v5.6l4.6-2.8z"/></svg>Portfólio</a>
+  <a class="centro" href="#conversar" data-alvo="conversar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4c4.7 0 8.5 3.2 8.5 7.2s-3.8 7.2-8.5 7.2c-1 0-2-.1-2.9-.4L5 20l1-3.6c-1.5-1.3-2.5-3.1-2.5-5.2C3.5 7.2 7.3 4 12 4z"/><path d="M8.5 11.3h.01M12 11.3h.01M15.5 11.3h.01" stroke-width="2.6"/></svg>Conversar</a>
+  <a href="#caixa-redes" class="js-abre-redes" data-alvo="caixa-redes"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".6"/></svg>Redes</a>
+  <a href="#historia" data-alvo="historia"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3Z"/><path d="M5 17a3 3 0 0 1 3-3h11"/></svg>História</a>
 </nav>
 
 <div class="aviso" id="aviso" role="status" aria-live="polite"></div>
