@@ -97,6 +97,9 @@ h1{font-size:clamp(44px,5.5vw,66px);margin-top:8px}
 .momento-texto p{margin:0;font-size:13.5px;line-height:1.55;color:var(--tinta-2)}
 @media (max-width:959px){
   .mural{padding:32px 16px 36px}
+  /* no celular o título do mural fica no canto esquerdo */
+  .mural .rotulo-centro{justify-content:flex-start}
+  .mural h2{text-align:left}
   .linha-tempo{margin-top:26px}
   /* no celular a linha fica à esquerda e os cartões todos à direita */
   .linha-tempo::before{left:9px}
