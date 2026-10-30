@@ -624,7 +624,7 @@ form.addEventListener("change", atualizaCampos);
 function salvarRascunho() {
   const dados = {};
   form.querySelectorAll("input, textarea, select").forEach(c => {
-    if (!c.name || c.type === "hidden" || c.name === "_honey") return;
+    if (!c.name || (c.type === "hidden" && c !== campoCores) || c.name === "_honey") return;
     if (c.type === "checkbox") dados[c.name + "|" + c.value] = c.checked;
     else if (c.type === "radio") { if (c.checked) dados[c.name] = c.value; }
     else dados[c.name] = c.value;
