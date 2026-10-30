@@ -163,7 +163,10 @@ em{font-style:normal;color:var(--rosa-escuro);background:linear-gradient(transpa
 /* destaques: 3 cartões centralizados, o do meio maior e mais alto, flutuando de leve */
 .cabeca.centro{display:block;text-align:center}
 .cabeca.centro .olho{justify-content:center}
-.destaques-lista{display:grid;grid-template-columns:1fr 1.22fr 1fr;gap:22px;align-items:start;max-width:880px;margin:0 auto}
+.destaques-lista{position:relative;display:grid;grid-template-columns:1fr 1.22fr 1fr;gap:22px;align-items:start;max-width:880px;margin:0 auto}
+/* setas e barra de app: só aparecem no celular */
+.rolagem{position:relative}
+.seta.seta-cel,.barra-app{display:none}
 .destaque{position:relative;display:block;animation:flutua 5s ease-in-out infinite}
 /* pin segurando cada vídeo, como num mural */
 .destaque::before{content:"";position:absolute;z-index:3;top:-11px;left:50%;width:22px;height:22px;margin-left:-11px;border:2px solid var(--tinta);border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffb3d4 0 22%,var(--rosa) 55%,var(--rosa-escuro));box-shadow:2px 3px 0 var(--tinta)}
