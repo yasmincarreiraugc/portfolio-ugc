@@ -629,28 +629,34 @@ grade.addEventListener("click", e => {
 document.getElementById("cor-livre").addEventListener("change", e => { novaCor(e.target.value); salvarRascunho(); });
 
 // ===== FONTES: títulos, textos e detalhes =====
-// EDITAR: fontes que a cliente pode escolher (precisam estar no link do Google Fonts lá em cima)
-// grupo: separa a lista em blocos, como no Canva
-const LISTA_FONTES = [
-  { nome: "Barlow Condensed",   grupo: "Fontes recomendadas" },
-  { nome: "Montserrat",         grupo: "Fontes recomendadas" },
-  { nome: "Open Sans",          grupo: "Fontes recomendadas" },
-  { nome: "Caveat",             grupo: "Fontes recomendadas" },
-  { nome: "DM Sans",            grupo: "Fontes recomendadas" },
-  { nome: "Hanken Grotesk",     grupo: "Fontes recomendadas" },
-  { nome: "Poppins",            grupo: "Modernas" },
-  { nome: "Inter",              grupo: "Modernas" },
-  { nome: "Lato",               grupo: "Modernas" },
-  { nome: "Nunito",             grupo: "Modernas" },
-  { nome: "Raleway",            grupo: "Modernas" },
-  { nome: "Bebas Neue",         grupo: "Modernas" },
-  { nome: "Playfair Display",   grupo: "Elegantes" },
-  { nome: "DM Serif Display",   grupo: "Elegantes" },
-  { nome: "Cormorant Garamond", grupo: "Elegantes" },
-  { nome: "Lora",               grupo: "Elegantes" },
-  { nome: "Dancing Script",     grupo: "Manuscritas" },
-  { nome: "Great Vibes",        grupo: "Manuscritas" }
-];
+// EDITAR: fontes que a cliente pode escolher (fontes do Canva que existem no Google Fonts), separadas por "|"
+// cada grupo vira um bloco da lista, como no Canva
+const GRUPOS_FONTES = {
+  "Fontes recomendadas": "Barlow Condensed|Montserrat|Open Sans|Caveat|DM Sans|Hanken Grotesk|Poppins|Playfair Display",
+  "Modernas (sem serifa)": "Inter|Lato|Nunito|Raleway|Roboto|Work Sans|Quicksand|Rubik|Karla|Manrope|Outfit|Plus Jakarta Sans|Urbanist|Sora|Lexend|Mulish|Josefin Sans|League Spartan|Kumbh Sans|Archivo|Figtree|Red Hat Display|Questrial|Comfortaa|Varela Round|Space Grotesk|Syne|Epilogue|Be Vietnam Pro|Libre Franklin|Source Sans 3|Noto Sans|PT Sans|Fira Sans|Cabin|Arimo|Heebo|Titillium Web|Exo 2|Jost|Albert Sans|Didact Gothic|Gothic A1|Tenor Sans|Barlow|Oxygen|Assistant",
+  "Títulos fortes": "Bebas Neue|Anton|Oswald|Archivo Black|Alfa Slab One|Abril Fatface|Bungee|Righteous|Fredoka|Lilita One|Paytone One|Passion One|Bowlby One|Luckiest Guy|Chewy|Bangers|Black Ops One|Staatliches|Teko|Big Shoulders Display|League Gothic|Fjalla One|Russo One|Monoton|Shrikhand|Rammetto One|Titan One|Coiny|Dela Gothic One|Unbounded|Rubik Mono One|Poller One|Gloock|Ultra|Krona One|Syncopate|Michroma|Orbitron|Audiowide|Press Start 2P|Six Caps|Antonio",
+  "Elegantes (com serifa)": "DM Serif Display|Cormorant Garamond|Lora|Libre Baskerville|Merriweather|EB Garamond|Cinzel|Prata|Bodoni Moda|Marcellus|Cormorant|Crimson Text|Spectral|Fraunces|Young Serif|Gilda Display|Bellefair|Italiana|Forum|Yeseva One|Rozha One|Della Respira|Cardo|Old Standard TT|Noto Serif Display|Libre Caslon Text|Poiret One|Josefin Slab|Zilla Slab|Roboto Slab|Arvo|Bitter|Domine|Rufina|Abhaya Libre|Cinzel Decorative|Playfair Display SC",
+  "Manuscritas": "Dancing Script|Great Vibes|Pacifico|Satisfy|Sacramento|Allura|Parisienne|Alex Brush|Pinyon Script|Tangerine|Kaushan Script|Yellowtail|Cookie|Amatic SC|Shadows Into Light|Indie Flower|Homemade Apple|Mrs Saint Delafield|Monsieur La Doulaise|Petit Formal Script|Herr Von Muellerhoff|Nothing You Could Do|Reenie Beanie|Gochi Hand|Patrick Hand|Kalam|Courgette|Lobster|Lobster Two|Leckerli One|Marck Script|Rouge Script|Arizonia|Italianno|Meow Script|Birthstone|Ephesis|Water Brush|Corinthia|La Belle Aurore|Over the Rainbow|Covered By Your Grace|Architects Daughter|Permanent Marker|Rock Salt|Nanum Pen Script|Sue Ellen Francisco|Mea Culpa|Qwitcher Grypen|Comforter Brush",
+  "Divertidas e retrô": "Baloo 2|Sniglet|Grandstander|Cherry Bomb One|Modak|Rampart One|Rubik Bubbles|Bagel Fat One|Gluten|Sigmar|Bungee Shade|Bungee Inline|Fascinate|Climate Crisis|Londrina Solid|Chicle|Limelight|Nixie One|Silkscreen|VT323|Special Elite|Courier Prime|Space Mono|IBM Plex Mono|Major Mono Display|Cutive Mono"
+};
+const LISTA_FONTES = Object.entries(GRUPOS_FONTES).flatMap(([grupo, nomes]) => nomes.split("|").map(nome => ({ nome, grupo })));
+// carrega as fontes do Google só quando a lista abre: primeiro só as letras do nome (rápido), e a fonte inteira quando é escolhida
+const urlFonte = nomes => "https://fonts.googleapis.com/css2?" + nomes.map(n => "family=" + n.replace(/ /g, "+")).join("&");
+const addCss = href => { const l = document.createElement("link"); l.rel = "stylesheet"; l.href = href; document.head.appendChild(l); };
+let listaCarregada = false;
+function carregaLista() {
+  if (listaCarregada) return;
+  listaCarregada = true;
+  const letras = encodeURIComponent([...new Set(LISTA_FONTES.map(f => f.nome).join("") + "AaBbCc")].join(""));
+  for (let i = 0; i < LISTA_FONTES.length; i += 20)
+    addCss(urlFonte(LISTA_FONTES.slice(i, i + 20).map(f => f.nome)) + "&text=" + letras + "&display=swap");
+}
+const inteiras = new Set(["Barlow Condensed", "Montserrat"]);
+function fonteInteira(nome) {
+  if (inteiras.has(nome)) return;
+  inteiras.add(nome);
+  addCss(urlFonte([nome]) + "&display=swap");
+}
 const PAPEIS = [
   { id: "titulo",  nome: "Títulos",  campo: "Fonte dos títulos",  exemplo: "Seu nome aqui" },
   { id: "texto",   nome: "Textos",   campo: "Fonte dos textos",   exemplo: "Texto de apresentação" },
