@@ -109,12 +109,6 @@ em{font-style:normal;color:var(--rosa-escuro);background:linear-gradient(transpa
 .capa .botoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
 .capa-foto{position:relative;max-width:280px;width:100%;justify-self:end;rotate:2deg}
 .capa-foto .foto{aspect-ratio:4/5;border-radius:2px}
-/* caixinhas flutuando ao lado da foto (resultado e depoimento): bilhetes */
-.caixinha{position:absolute;z-index:3;display:grid;gap:2px;max-width:220px;margin:0;padding:11px 14px;border:2px solid var(--tinta);border-radius:12px;background:var(--amarelo-claro);box-shadow:3px 3px 0 var(--tinta);font-size:12.5px;line-height:1.35;animation:flutua 4.5s ease-in-out infinite}
-.caixinha b{font-weight:900}
-.caixinha span{color:var(--rosa-escuro);font-weight:700}
-.caixinha.um{top:30%;right:-60px;rotate:3deg}
-.caixinha.dois{bottom:66px;left:-78px;rotate:-4deg;background:var(--rosa-claro);animation-delay:-2.2s}
 @keyframes flutua{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
 .numeros{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .numeros div{padding:8px 16px;border:2px solid var(--tinta);border-radius:14px;background:#fff;box-shadow:3px 3px 0 var(--tinta)}
@@ -265,7 +259,7 @@ em{font-style:normal;color:var(--rosa-escuro);background:linear-gradient(transpa
 /* animação ao rolar */
 .surge{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s}
 .surge.visto{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.surge{opacity:1;transform:none}.marcas-trilho,.caixinha,.destaque{animation:none}}
+@media (prefers-reduced-motion:reduce){.surge{opacity:1;transform:none}.marcas-trilho,.destaque,.borboleta,.asa{animation:none}}
 
 /* ---------- celular ---------- */
 @media (max-width:900px){
@@ -291,14 +285,11 @@ em{font-style:normal;color:var(--rosa-escuro);background:linear-gradient(transpa
   .numeros span{font-size:10.5px;line-height:1.3;display:block}
   .capa .btn{padding:10px 14px;font-size:13px}
   .capa .botoes{gap:8px}
-  .edicao{font-size:16px;margin-bottom:10px}
+  .edicao{font-size:14px;margin-bottom:10px}
   .numeros b{font-size:21px}
   .capa-foto-celular .capa-foto{margin:0 auto;max-width:280px}
-  .caixinha{max-width:180px;padding:9px 12px;font-size:11.5px}
-  .caixinha.um{right:-10px;top:26%}
-  .caixinha.dois{left:-10px;bottom:60px}
   .sobre .largura{grid-template-columns:1fr;gap:30px}
-  .sobre .polaroid{max-width:300px;margin:0 auto}
+  .sobre .polaroid{width:100%;max-width:300px;margin:0 auto}
   .destaques-lista{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:70%;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 8px 16px}
   .destaque{scroll-snap-align:start}
   .destaque:nth-child(1),.destaque:nth-child(3){margin-top:0}
