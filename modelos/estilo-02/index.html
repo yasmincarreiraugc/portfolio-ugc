@@ -218,7 +218,8 @@ em{font-style:normal;color:var(--rosa-escuro);background:linear-gradient(transpa
 .quero{grid-column:1;grid-row:2;align-self:end;display:inline-flex;align-items:center;gap:10px;font-size:13.5px;font-weight:700}
 .quero i{width:28px;height:28px;border-radius:50%;background:var(--tinta);color:#fff;display:grid;place-items:center;font-style:normal;font-size:14px;transition:transform .2s}
 .servico:hover .quero i{transform:rotate(45deg)}
-.desenho{grid-column:2;grid-row:1 / 3;align-self:center;width:150px;height:auto;fill:none;stroke:var(--tinta);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+#servicos .intro{max-width:340px}
+.desenho{grid-column:2;grid-row:1 / 3;align-self:center;width:172px;height:auto;fill:none;stroke:var(--tinta);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .desenho .cheio{fill:var(--tinta)}
 .desenho .branco{fill:#fff}
 .servico-amarelo{background:var(--amarelo)}
@@ -328,7 +329,10 @@ em{font-style:normal;color:var(--rosa-escuro);background:linear-gradient(transpa
   .seta{width:38px;height:38px;margin-top:-19px;font-size:21px}
   .seta.ant{left:-8px}
   .seta.prox{right:-8px}
-  .servicos{grid-template-columns:1fr;gap:20px}
+  .servicos{grid-template-columns:1fr;gap:18px}
+  .servico{min-height:150px;padding:22px 18px 18px}
+  .servico h3{font-size:19px}
+  .desenho{width:112px}
   .faixa-rosa{font-size:14px}
   .faixa-rosa-trilho span{padding-right:36px}
   .faixa-rosa-trilho span::before{margin-right:36px}
