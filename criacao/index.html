@@ -37,12 +37,18 @@ h1,h2,h3{font-family:var(--titulo);font-weight:600;text-transform:uppercase;line
 /* cartão branco, igual ao do bio link */
 .painel{max-width:1220px;margin:0 auto;background:#fff;border-radius:36px;overflow:clip}
 
-/* topo: voltar + nome */
+/* topo: nome à esquerda + botão Entrar (área da cliente) à direita */
 .topo{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 44px 10px 40px}
-.voltar{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:#f1ede8;font-size:13px;font-weight:600;transition:background .2s}
-.voltar:hover{background:var(--rosa)}
+.entrar{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:999px;background:var(--tinta);color:#fff;font-size:14px;font-weight:600;transition:transform .2s,background .2s}
+.entrar:hover{transform:translateY(-2px);background:#3a332d}
+.entrar svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .logo{display:flex;align-items:center;gap:14px}
-.logo svg{width:32px;height:32px;fill:var(--rosa);stroke:var(--tinta);stroke-width:2.2;stroke-linejoin:round;overflow:visible}
+/* estrela com movimento, igual à do bio link */
+.logo svg{width:32px;height:32px;fill:var(--rosa);stroke:var(--tinta);stroke-width:2.2;stroke-linejoin:round;overflow:visible;animation:brilhar 3s ease-in-out infinite}
+@keyframes brilhar{
+  0%,100%{transform:scale(.55) rotate(0deg);opacity:.55}
+  50%{transform:scale(1.1) rotate(90deg);opacity:1}
+}
 .logo strong,.logo span{display:block;font-size:18px;font-weight:600;letter-spacing:.07em;line-height:1.1;text-transform:uppercase}
 
 /* frase pequena com tracinho */
