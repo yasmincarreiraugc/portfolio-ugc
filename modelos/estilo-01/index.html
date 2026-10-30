@@ -593,7 +593,7 @@ document.querySelector(".idiomas").addEventListener("click", e => {
 });
 try { if (localStorage.getItem("modelo-idioma") === "en") idioma("en"); } catch (e) {}
 
-// carrosséis: setas passam um item; no fim volta ao começo. Com data-auto passa sozinho a cada 3 s
+// carrossel dos depoimentos: setas passam um item; no fim volta ao começo
 document.querySelectorAll(".carrossel").forEach(c => {
   const trilho = c.querySelector(".trilho");
   const passo = () => trilho.firstElementChild.getBoundingClientRect().width + parseFloat(getComputedStyle(trilho).columnGap);
