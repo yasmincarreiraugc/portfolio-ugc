@@ -636,11 +636,13 @@ function carregarRascunho() {
   let dados; try { dados = JSON.parse(ler(CHAVE_RASCUNHO) || "null"); } catch (e) { dados = null; }
   if (!dados) return;
   form.querySelectorAll("input, textarea, select").forEach(c => {
-    if (!c.name || c.type === "hidden") return;
+    if (!c.name || (c.type === "hidden" && c !== campoCores)) return;
     if (c.type === "checkbox") c.checked = !!dados[c.name + "|" + c.value];
     else if (c.type === "radio") c.checked = dados[c.name] === c.value;
     else if (dados[c.name] !== undefined) c.value = dados[c.name];
   });
+  // refaz os quadradinhos de "Minhas cores"
+  if (campoCores.value) campoCores.value.split(", ").forEach(novaCor);
   atualizaCampos();
 }
 form.addEventListener("input", salvarRascunho);
