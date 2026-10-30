@@ -517,47 +517,62 @@ document.getElementById("modelos").innerHTML = Object.keys(MINIATURAS).map(tipo 
     </div>
   </div>`).join("");
 
-// ===== PALETAS (no estilo do Canva) =====
-// EDITAR: paletas prontas, 5 cores cada (da mais forte à mais escura)
-const PALETAS = [
-  { nome: "Rosa e creme",    cores: ["#ff99d9", "#ffc8e8", "#fff2c2", "#f5f2ed", "#1e1915"] },
-  { nome: "Azul e areia",    cores: ["#78b4f4", "#c9e2fb", "#f1e6d6", "#ffffff", "#1e1915"] },
-  { nome: "Terracota",       cores: ["#c8643b", "#e8a77f", "#f3d9c4", "#fbf6f0", "#2b1d16"] },
-  { nome: "Verde sálvia",    cores: ["#9fb59a", "#c9d8c4", "#e9efe4", "#ffffff", "#22301f"] },
-  { nome: "Lilás",           cores: ["#b79cf2", "#d9c9fb", "#efe7ff", "#ffffff", "#241a33"] },
-  { nome: "Coral e menta",   cores: ["#ff7a6b", "#ffc1b8", "#bfe8dc", "#fffaf6", "#23302d"] },
-  { nome: "Neutros",         cores: ["#d8cfc4", "#b5a899", "#8c7b6b", "#f7f3ee", "#2f2a25"] },
-  { nome: "Preto e dourado", cores: ["#c9a45c", "#e6cf9a", "#f5f2ed", "#2b2520", "#1e1915"] }
-];
-document.getElementById("paletas").innerHTML = PALETAS.map(p => `
-  <label class="paleta"><input type="radio" name="Paleta" value="${p.nome} (${p.cores.join(", ")})" data-cores="${p.cores.join(",")}">
-    <span class="paleta-faixa">${p.cores.map(c => `<i style="background:${c}"></i>`).join("")}</span>
-    <span class="paleta-nome">${p.nome}</span>
-  </label>`).join("");
-
-// Minhas cores: "+" adiciona um quadradinho de cor (até 6), "×" tira
-const caixaCores = document.getElementById("minhas-cores"), botaoMais = document.getElementById("cor-mais");
+// ===== CORES (no estilo do Canva) =====
+// Grade de bolinhas: cada fileira é uma cor, da mais escura à mais clara (7 tons)
+const MAX_CORES = 6;
+const hex = (h, s, l) => {
+  s /= 100; l /= 100;
+  const k = n => (n + h / 30) % 12, a = s * Math.min(l, 1 - l);
+  const f = n => Math.round(255 * (l - a * Math.max(-1, Math.min(k(n) - 3, 9 - k(n), 1))));
+  return "#" + [f(0), f(8), f(4)].map(v => v.toString(16).padStart(2, "0")).join("");
+};
+// EDITAR: [matiz, saturação] de cada fileira
+const FILEIRAS = [[0, 0], [30, 25], [20, 45], [0, 75], [10, 85], [25, 90], [45, 95], [80, 55], [140, 45], [170, 55], [195, 75], [220, 80], [245, 75], [265, 70], [285, 60], [310, 65], [330, 75]];
+const TONS = [12, 24, 38, 52, 66, 80, 92];
+const caixaCores = document.getElementById("minhas-cores");
 const campoCores = document.getElementById("cores-escolhidas");
-function guardaMinhasCores() {
-  campoCores.value = [...caixaCores.querySelectorAll("input[type=color]")].map(i => i.value).join(", ");
-  botaoMais.hidden = caixaCores.querySelectorAll(".minha-cor").length >= 6;
+const grade = document.getElementById("grade-cores");
+grade.innerHTML = FILEIRAS.map(([h, s]) => TONS.map(l => { const c = hex(h, s, l); return `<button type="button" class="bolinha" style="background:${c}" data-cor="${c}" aria-label="Cor ${c}"></button>`; }).join("")).join("");
+let escolhidas = [];
+function desenhaCores() {
+  caixaCores.querySelectorAll(".minha-cor").forEach(e => e.remove());
+  const ref = document.getElementById("cor-mais") || caixaCores.querySelector(".cor-mais");
+  escolhidas.forEach(c => {
+    const item = document.createElement("div");
+    item.className = "minha-cor";
+    item.innerHTML = `<i style="background:${c}"></i><small>${c}</small><button type="button" class="tirar" aria-label="Tirar cor">×</button>`;
+    item.querySelector(".tirar").addEventListener("click", () => { escolhidas = escolhidas.filter(x => x !== c); desenhaCores(); salvarRascunho(); });
+    caixaCores.insertBefore(item, caixaCores.querySelector(".cor-mais"));
+  });
+  campoCores.value = escolhidas.join(", ");
+  document.getElementById("vazio-cores").hidden = escolhidas.length > 0;
+  grade.querySelectorAll(".bolinha").forEach(b => b.classList.toggle("escolhida", escolhidas.includes(b.dataset.cor)));
+  atualizaPrevia();
 }
-function novaCor(valor) {
-  const item = document.createElement("div");
-  item.className = "minha-cor";
-  item.innerHTML = `<input type="color" value="${valor}" aria-label="Cor"><small>${valor}</small><button type="button" class="tirar" aria-label="Tirar cor">×</button>`;
-  const seletor = item.querySelector("input");
-  seletor.addEventListener("input", () => { item.querySelector("small").textContent = seletor.value; guardaMinhasCores(); atualizaPrevia(); });
-  item.querySelector(".tirar").addEventListener("click", () => { item.remove(); guardaMinhasCores(); atualizaPrevia(); salvarRascunho(); });
-  caixaCores.insertBefore(item, botaoMais);
-  guardaMinhasCores();
+function novaCor(c) {
+  c = c.trim().toLowerCase();
+  if (!c || escolhidas.includes(c)) return;
+  if (escolhidas.length >= MAX_CORES) { alert("Você já escolheu " + MAX_CORES + " cores. Tire uma para escolher outra."); return; }
+  escolhidas.push(c);
+  desenhaCores();
 }
-botaoMais.addEventListener("click", () => {
-  const sugestoes = ["#ff99d9", "#fff2c2", "#78b4f4", "#f5f2ed", "#1e1915", "#c9a45c"];
-  novaCor(sugestoes[caixaCores.querySelectorAll(".minha-cor").length] || "#cccccc");
-  caixaCores.querySelector(".minha-cor:last-of-type input").click();   // já abre o seletor de cor
-  atualizaPrevia(); salvarRascunho();
+grade.addEventListener("click", e => {
+  const b = e.target.closest(".bolinha");
+  if (!b) return;
+  if (escolhidas.includes(b.dataset.cor)) { escolhidas = escolhidas.filter(x => x !== b.dataset.cor); desenhaCores(); }
+  else novaCor(b.dataset.cor);
+  salvarRascunho();
 });
+// "+" arco-íris: escolhe qualquer cor
+document.getElementById("cor-livre").addEventListener("change", e => { novaCor(e.target.value); salvarRascunho(); });
+// conta-gotas: só aparece nos navegadores que permitem pegar cor da tela
+if ("EyeDropper" in window) {
+  const gotas = document.getElementById("conta-gotas");
+  gotas.hidden = false;
+  gotas.addEventListener("click", async () => {
+    try { const r = await new EyeDropper().open(); novaCor(r.sRGBHex); salvarRascunho(); } catch (e) {}
+  });
+}
 
 // ===== FONTES: títulos, textos e detalhes =====
 // EDITAR: fontes que a cliente pode escolher (precisam estar no link do Google Fonts lá em cima)
