@@ -424,7 +424,7 @@ const MINIATURAS = {
   "Site": () => `<div class="tela"><div class="nav"><i></i><b><i></i><i></i><i></i></b></div><div class="banner"><span class="barra"></span></div><div class="grade3"><span></span><span></span><span></span></div><span class="barra fina"></span><span class="barra fina curta"></span><span class="rodape"></span></div>`
 };
 document.getElementById("modelos").innerHTML = Object.keys(MINIATURAS).map(tipo => `
-  <div class="tipo-modelos">
+  <div class="tipo-modelos" data-tipo="${tipo}" hidden>
     <h3>${tipo}</h3>
     <div class="modelos">
       ${ESTILOS.map(e => `
