@@ -674,6 +674,23 @@ if (esteira) {
   esteira.querySelector(".prox").addEventListener("click", () => alvo = (alvo ?? pos) + passo());
 }
 
+// formulário de contato: abre o WhatsApp da cliente com a mensagem já escrita
+// EDITAR: número com DDD (só números, com 55 na frente)
+const WHATSAPP = "5500000000000";
+document.getElementById("form-contato").addEventListener("submit", e => {
+  e.preventDefault();
+  const d = new FormData(e.target);
+  const linhas = [
+    "Oi! Vi seu portfólio e quero conversar.",
+    "Nome: " + d.get("nome"),
+    d.get("marca") && "Marca: " + d.get("marca"),
+    d.get("whatsapp") && "WhatsApp: " + d.get("whatsapp"),
+    d.get("email") && "E-mail: " + d.get("email"),
+    d.get("projeto") && "Projeto: " + d.get("projeto")
+  ].filter(Boolean);
+  window.open("https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(linhas.join("\n")), "_blank");
+});
+
 // blocos aparecem ao rolar
 const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visto"); obs.unobserve(e.target); } }), { threshold: .12 });
 document.querySelectorAll(".surge").forEach(el => obs.observe(el));
