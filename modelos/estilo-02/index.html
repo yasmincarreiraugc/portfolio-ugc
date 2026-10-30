@@ -60,7 +60,20 @@ em{font-style:normal;color:var(--rosa-escuro);background:linear-gradient(transpa
 /* moldura de polaroid com fita adesiva */
 .polaroid{position:relative;background:#fff;padding:10px 10px 34px;border:2px solid var(--tinta);border-radius:6px;box-shadow:6px 6px 0 var(--tinta)}
 .polaroid::before{content:"";position:absolute;z-index:2;top:-14px;left:50%;width:110px;height:28px;margin-left:-55px;background:rgba(255,210,63,.75);border-left:2px dashed rgba(42,29,36,.15);border-right:2px dashed rgba(42,29,36,.15);rotate:-3deg}
-.polaroid .legenda{position:absolute;left:0;right:0;bottom:10px;text-align:center;font-family:var(--mao);font-size:20px;color:var(--tinta)}
+/* borboleta voando delicada em cima da foto da capa */
+.borboleta{position:absolute;z-index:4;top:-50px;right:-26px;width:58px;overflow:visible;animation:voar 7s ease-in-out infinite}
+.asa{transform-box:view-box;transform-origin:30px 26px;animation:bater .45s ease-in-out infinite alternate}
+.asa path{fill:var(--rosa-claro);stroke:var(--rosa);stroke-width:1.3;stroke-linejoin:round}
+.asa path + path{fill:var(--amarelo-claro)}
+.borboleta .corpo{fill:none;stroke:var(--rosa-escuro);stroke-width:2;stroke-linecap:round}
+.borboleta .antena{fill:none;stroke:var(--rosa-escuro);stroke-width:1.1;stroke-linecap:round}
+@keyframes bater{from{transform:scaleX(1)}to{transform:scaleX(.3)}}
+@keyframes voar{
+  0%,100%{transform:translate(0,0) rotate(-8deg)}
+  25%{transform:translate(-16px,-10px) rotate(4deg)}
+  50%{transform:translate(-6px,-22px) rotate(-4deg)}
+  75%{transform:translate(10px,-8px) rotate(8deg)}
+}
 
 /* ---------- topo ---------- */
 .topo{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);border-bottom:2px solid var(--tinta)}
