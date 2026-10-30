@@ -175,13 +175,18 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--rosa);bo
 .papel-escolha.vazio{font-family:var(--sans);font-size:14px;color:#a59d95}
 .papel summary::after{content:"▾";flex:none;font-size:14px;color:var(--tinta-2);transition:transform .2s}
 .papel[open] summary::after{transform:rotate(180deg)}
-.lista-fontes{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px;max-height:330px;overflow:auto;padding:4px 14px 16px}
+/* lista de fontes no estilo do Canva: nome na própria fonte + "AaBbCc" + ✓ */
+.lista-fontes{display:grid;gap:2px;max-height:360px;overflow:auto;padding:4px 8px 12px;border-top:1px solid var(--linha)}
+.fonte-grupo{margin:12px 12px 4px;font-family:var(--sans);font-size:12px;font-weight:700;color:var(--tinta-2)}
 .fonte{position:relative;display:block;cursor:pointer}
 .fonte input{position:absolute;opacity:0;pointer-events:none}
-.fonte span{display:block;padding:12px 14px;border:2px solid var(--linha);border-radius:14px;font-size:20px;line-height:1.15;transition:border-color .2s,background .2s}
-.fonte small{display:block;margin-top:4px;font-family:var(--sans);font-size:11px;font-weight:600;color:#a59d95}
-.fonte input:checked + span{border-color:var(--tinta);background:#fff6fb}
-.fonte input:focus-visible + span{outline:3px solid var(--ceu);outline-offset:2px}
+.fonte-linha{display:flex;align-items:baseline;gap:12px;padding:12px 14px 12px 40px;border-radius:14px;font-size:21px;line-height:1.2;position:relative;transition:background .15s}
+.fonte-linha::before{content:"";position:absolute;left:14px;top:50%;width:16px;height:16px;transform:translateY(-50%);font-family:var(--sans);font-size:17px;line-height:16px}
+.fonte:hover .fonte-linha{background:#f7f4f0}
+.fonte input:checked + .fonte-linha{background:#f1e9fb}
+.fonte input:checked + .fonte-linha::before{content:"✓";color:var(--tinta)}
+.fonte input:focus-visible + .fonte-linha{outline:3px solid var(--ceu);outline-offset:-2px}
+.fonte-linha em{font-style:normal;color:#9b948d}
 /* prévia */
 .previa{display:grid;gap:8px;margin-top:16px;padding:22px 20px;border-radius:20px;background:var(--pv-fundo,#faf8f5);color:var(--pv-texto,var(--tinta));box-shadow:0 0 0 1px #ece7e2}
 .previa-rotulo{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.5}
