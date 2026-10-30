@@ -164,20 +164,30 @@ em{font-style:normal;background:linear-gradient(transparent 56%,var(--lima) 56%,
 .video-legenda{position:absolute;left:14px;right:14px;bottom:14px;z-index:1}
 .video-legenda b{display:block;font-size:17px;font-weight:800;letter-spacing:-.02em;line-height:1.1;text-transform:lowercase}
 .video-legenda span{font-size:11.5px;color:var(--cinza)}
-/* destaques: 3 cartões centralizados, o do meio maior e mais alto, flutuando de leve */
+/* destaques: faixa preta com anéis e 3 caixas, cada uma com texto e um celular completo (metade dentro, metade fora da caixa) */
 .cabeca.centro{display:block;text-align:center}
 .cabeca.centro .olho{justify-content:center}
-.destaques-lista{position:relative;display:grid;grid-template-columns:1fr 1.22fr 1fr;gap:22px;align-items:start;max-width:880px;margin:0 auto}
+.destaques-tec{padding:18px 0 10px}
+.faixa-preta{margin:0 14px;padding:58px 0 150px;border-radius:32px;color:#fff;background:repeating-radial-gradient(circle at 50% 135%,transparent 0 46px,rgba(255,255,255,.07) 47px 48px),var(--tinta)}
+.faixa-preta h2 em{color:var(--lima);background:none}
+.faixa-preta .olho{color:var(--tinta)}
+.destaques-lista{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start;max-width:940px;margin:-112px auto 0;padding-bottom:150px}
 /* setas e barra de app: só aparecem no celular */
 .rolagem{position:relative}
 .seta.seta-cel,.barra-app{display:none}
-.destaque{position:relative;display:block;padding:10px 10px 16px;border-radius:26px;background:var(--branco);box-shadow:var(--sombra);animation:boia 5s ease-in-out infinite}
-.destaque:nth-child(1),.destaque:nth-child(3){margin-top:34px}
-.destaque:nth-child(2){animation-delay:-1.7s}
-.destaque:nth-child(3){animation-delay:-3.4s}
-.destaque .video{aspect-ratio:4/5;box-shadow:none;border-radius:18px}
-.destaque-legenda{display:block;margin:12px 6px 0;font-size:12.5px;line-height:1.45;color:var(--cinza)}
-.destaque-legenda b{display:block;font-size:17px;font-weight:800;letter-spacing:-.02em;text-transform:lowercase;color:var(--tinta)}
+.destaque{position:relative;display:flex;flex-direction:column;align-items:center;gap:22px;height:310px;padding:28px 18px 0;border-radius:28px;text-align:center;background:repeating-radial-gradient(circle at 50% 100%,transparent 0 34px,rgba(17,20,18,.05) 35px 36px),var(--branco);box-shadow:var(--sombra)}
+.destaque-legenda{display:block;font-size:12.5px;line-height:1.45;color:var(--cinza)}
+.destaque-legenda b{display:block;margin-bottom:4px;font-size:19px;font-weight:800;letter-spacing:-.02em;text-transform:lowercase;color:var(--tinta)}
+/* o celular completo, com a "ilha" em cima */
+.celular{position:relative;flex:none;display:block;width:172px;padding:7px;border-radius:32px;background:var(--tinta);box-shadow:var(--sombra-alta);animation:boia 6s ease-in-out infinite}
+.celular::before{content:"";position:absolute;z-index:2;top:14px;left:50%;width:46px;height:12px;margin-left:-23px;border-radius:8px;background:var(--tinta)}
+.celular .video{aspect-ratio:9/19;border-radius:26px;box-shadow:none}
+.celular .resultado{top:34px}
+/* a do meio: o celular sai por cima da caixa, e o texto fica embaixo */
+.destaque.meio{margin-top:150px;padding:0 18px 26px;justify-content:flex-end}
+.destaque.meio .celular{order:-1;margin-top:-196px;animation-delay:-2s}
+.destaque:nth-child(3) .celular{animation-delay:-4s}
+
 .filtros{display:flex;flex-wrap:wrap;gap:8px}
 .filtro{padding:9px 16px;border:0;border-radius:999px;background:var(--branco);box-shadow:var(--sombra);font:inherit;font-size:13px;font-weight:700;text-transform:lowercase;color:var(--tinta);cursor:pointer}
 .filtro.ativo{background:var(--tinta);color:#fff}
@@ -200,7 +210,6 @@ em{font-style:normal;background:linear-gradient(transparent 56%,var(--lima) 56%,
 /* quadro branco perto das bordas (destaques, serviços e depoimentos) */
 .secao.com-quadro{padding:18px 0}
 .quadro{margin:0 14px;padding:52px 0;border-radius:32px;background:var(--branco);box-shadow:var(--sombra)}
-#destaques .quadro{background:transparent;box-shadow:none}
 
 #servicos .intro{max-width:340px}
 
@@ -319,9 +328,12 @@ em{font-style:normal;background:linear-gradient(transparent 56%,var(--lima) 56%,
   .capa .botoes{gap:8px;margin-top:18px}
   .sobre .largura{grid-template-columns:1fr;gap:30px}
   .sobre .polaroid{width:100%;max-width:320px;margin:6px auto 0;order:2}
-  .destaques-lista{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:72%;overflow-x:auto;scroll-snap-type:x mandatory;padding:16px 14% 18px}
+  .faixa-preta{margin:0 8px;padding:44px 0 130px;border-radius:24px}
+  .destaques-lista{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:76%;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:-100px;padding:0 12% 170px}
   .destaque{scroll-snap-align:center}
-  .destaque:nth-child(1),.destaque:nth-child(3){margin-top:0}
+  .destaque.meio{margin-top:0;padding:28px 18px 0;justify-content:flex-start}
+  .destaque.meio .celular{order:0;margin-top:0}
+  #destaques .rolagem .seta{top:150px}
   .videos{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:68%;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 6px 14px}
   .video{scroll-snap-align:start}
   .galeria{grid-auto-columns:52%}
@@ -448,26 +460,35 @@ em{font-style:normal;background:linear-gradient(transparent 56%,var(--lima) 56%,
   </section>
 
   <!-- destaques -->
-  <section class="secao com-quadro" id="destaques">
-    <div class="quadro"><div class="largura">
-      <div class="cabeca centro surge">
+  <section class="secao destaques-tec" id="destaques">
+    <!-- faixa preta com o título e os anéis de fundo -->
+    <div class="faixa-preta">
+      <div class="largura cabeca centro surge">
         <p class="olho"><b data-en="Highlights">Destaques</b></p>
         <h2 data-en="Best <em>results</em>">Melhores <em>resultados</em></h2>
       </div>
-      <!-- EDITAR: os 3 vídeos de destaque (o do meio fica maior) -->
+    </div>
+    <div class="largura">
+      <!-- EDITAR: os 3 vídeos de destaque; cada caixa tem o texto e o celular (metade dentro, metade fora) -->
       <div class="rolagem surge">
       <button type="button" class="seta ant seta-cel" aria-label="Vídeo anterior">‹</button>
       <div class="destaques-lista">
-        <a class="destaque" href="#"><span class="video" style="--c1:#ffc2dc;--c2:#e8508f"><span class="resultado" data-en="+300 sales">+300 vendas</span><span class="play"></span></span>
-          <span class="destaque-legenda"><b data-en="New home unboxing">Unboxing da casa nova</b><span data-en="Brand Two · TikTok. The video that sold the most.">Marca Dois · TikTok. O vídeo que mais vendeu.</span></span></a>
-        <a class="destaque" href="#"><span class="video" style="--c1:#f27bb0;--c2:#a3245f"><span class="resultado">2,4M views</span><span class="play"></span></span>
-          <span class="destaque-legenda"><b data-en="Skincare routine">Rotina de skincare</b><span data-en="Brand One · Reels. Went viral in one week.">Marca Um · Reels. Viralizou em uma semana.</span></span></a>
-        <a class="destaque" href="#"><span class="video" style="--c1:#ffd23f;--c2:#c9871a"><span class="resultado" data-en="890K views">890 mil views</span><span class="play"></span></span>
-          <span class="destaque-legenda"><b data-en="1-minute recipe">Receita em 1 minuto</b><span data-en="Brand Three · Reels. The most saved one.">Marca Três · Reels. O mais salvo.</span></span></a>
+        <a class="destaque" href="#">
+          <span class="destaque-legenda"><b data-en="New home unboxing">Unboxing da casa nova</b><span data-en="Brand Two · TikTok. The video that sold the most.">Marca Dois · TikTok. O vídeo que mais vendeu.</span></span>
+          <span class="celular"><span class="video"><span class="resultado" data-en="+300 sales">+300 vendas</span><span class="play"></span></span></span>
+        </a>
+        <a class="destaque meio" href="#">
+          <span class="destaque-legenda"><b data-en="Skincare routine">Rotina de skincare</b><span data-en="Brand One · Reels. Went viral in one week.">Marca Um · Reels. Viralizou em uma semana.</span></span>
+          <span class="celular"><span class="video"><span class="resultado">2,4M views</span><span class="play"></span></span></span>
+        </a>
+        <a class="destaque" href="#">
+          <span class="destaque-legenda"><b data-en="1-minute recipe">Receita em 1 minuto</b><span data-en="Brand Three · Reels. The most saved one.">Marca Três · Reels. O mais salvo.</span></span>
+          <span class="celular"><span class="video"><span class="resultado" data-en="890K views">890 mil views</span><span class="play"></span></span></span>
+        </a>
       </div>
       <button type="button" class="seta prox seta-cel" aria-label="Próximo vídeo">›</button>
       </div>
-    </div></div>
+    </div>
   </section>
 
   <!-- nichos com filtros -->
