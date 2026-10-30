@@ -317,7 +317,12 @@ em{font-style:normal;color:var(--rosa-escuro);background:linear-gradient(transpa
   .videos{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:68%;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 6px 12px}
   .video{scroll-snap-align:start}
   .galeria{grid-auto-columns:52%}
-  .fita .foto{width:190px}
+  /* fotos: 3 por vez */
+  .fita{gap:12px;padding-right:12px}
+  .fita .foto{width:calc((100vw - 56px) / 3);border-width:5px;border-bottom-width:18px}
+  .fita .foto::before{top:-14px;width:15px;height:15px;margin-left:-7.5px;border-width:1.5px;box-shadow:1px 2px 0 var(--tinta)}
+  .fita .foto::after{display:none}
+  .esteira{padding-top:20px}
   .quadro{margin:0 8px;padding:34px 0;border-radius:22px;box-shadow:4px 4px 0 var(--rosa-escuro)}
   .quadro .largura{width:calc(100% - 32px)}
   .contato-area{grid-template-columns:1fr}
