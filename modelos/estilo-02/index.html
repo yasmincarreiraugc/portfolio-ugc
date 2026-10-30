@@ -89,13 +89,13 @@ em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 5
 .abrir-menu span::before{content:"";position:absolute;top:5px}
 
 /* ---------- capa ---------- */
-.capa{padding:40px 0 44px}
+.capa{padding:24px 0 28px}
 .capa .largura{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center}
-.edicao{display:inline-block;margin:0 0 20px;padding:6px 16px;border:2px solid var(--tinta);border-radius:999px;background:var(--azul);color:#fff;font-family:var(--mao);font-size:19px;box-shadow:3px 3px 0 var(--tinta);rotate:-3deg}
-.capa h1{font-size:clamp(42px,5.4vw,70px);color:var(--verde-escuro)}
-.capa p.apresenta{max-width:440px;margin:20px 0 0;font-size:16px;color:var(--cinza)}
-.capa .botoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
-.capa-foto{position:relative;max-width:330px;width:100%;justify-self:end;rotate:2deg}
+.edicao{display:inline-block;margin:0 0 14px;padding:6px 16px;border:2px solid var(--tinta);border-radius:999px;background:var(--azul);color:#fff;font-family:var(--mao);font-size:19px;box-shadow:3px 3px 0 var(--tinta);rotate:-3deg}
+.capa h1{font-size:clamp(40px,4.6vw,60px);color:var(--verde-escuro)}
+.capa p.apresenta{max-width:440px;margin:14px 0 0;font-size:16px;color:var(--cinza)}
+.capa .botoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.capa-foto{position:relative;max-width:280px;width:100%;justify-self:end;rotate:2deg}
 .capa-foto .foto{aspect-ratio:4/5;border-radius:2px}
 /* caixinhas flutuando ao lado da foto (resultado e depoimento): bilhetes */
 .caixinha{position:absolute;z-index:3;display:grid;gap:2px;max-width:220px;margin:0;padding:11px 14px;border:2px solid var(--tinta);border-radius:12px;background:var(--amarelo-claro);box-shadow:3px 3px 0 var(--tinta);font-size:12.5px;line-height:1.35;animation:flutua 4.5s ease-in-out infinite}
@@ -104,7 +104,7 @@ em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 5
 .caixinha.um{top:30%;right:-60px;rotate:3deg}
 .caixinha.dois{bottom:66px;left:-78px;rotate:-4deg;background:var(--verde-claro);animation-delay:-2.2s}
 @keyframes flutua{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-.numeros{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.numeros{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .numeros div{padding:8px 16px;border:2px solid var(--tinta);border-radius:14px;background:#fff;box-shadow:3px 3px 0 var(--tinta)}
 .numeros div:nth-child(2){background:var(--amarelo-claro)}
 .numeros div:nth-child(3){background:var(--verde-claro)}
@@ -113,13 +113,13 @@ em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 5
 
 /* ---------- marcas: faixa verde e marcas rolando em bolinhas ---------- */
 .marcas{padding:0 0 30px}
-.marcas::before{content:"✦ UGC orgânico ✦ Criativos para anúncio ✦ Roteiros ✦ Fotos de produto ✦ Publi ✦ UGC orgânico ✦ Criativos para anúncio ✦ Roteiros ✦ Fotos de produto ✦ Publi";display:block;margin:0 0 26px;padding:12px 0;border-top:2px solid var(--tinta);border-bottom:2px solid var(--tinta);background:var(--verde);color:var(--amarelo);font-family:var(--titulo);font-size:16px;font-weight:600;white-space:nowrap;overflow:hidden;text-align:center}
-.marcas-titulo{display:flex;align-items:center;justify-content:center;gap:16px;margin:0 auto 18px;width:min(1080px,100% - 32px);font-family:var(--mao);font-size:22px;color:var(--tinta);text-align:center}
+.marcas::before{content:"✦ UGC orgânico ✦ Criativos para anúncio ✦ Roteiros ✦ Fotos de produto ✦ Publi ✦ UGC orgânico ✦ Criativos para anúncio ✦ Roteiros ✦ Fotos de produto ✦ Publi";display:block;margin:0 0 16px;padding:9px 0;border-top:2px solid var(--tinta);border-bottom:2px solid var(--tinta);background:var(--verde);color:var(--amarelo);font-family:var(--titulo);font-size:16px;font-weight:600;white-space:nowrap;overflow:hidden;text-align:center}
+.marcas-titulo{display:flex;align-items:center;justify-content:center;gap:16px;margin:0 auto 10px;width:min(1080px,100% - 32px);font-family:var(--mao);font-size:22px;color:var(--tinta);text-align:center}
 .marcas-titulo::before,.marcas-titulo::after{content:"";flex:0 1 70px;height:2px;background:var(--tinta)}
 .marcas-janela{overflow:hidden;padding:4px 0 8px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
 .marcas-trilho{display:flex;gap:18px;width:max-content;padding:4px 18px 4px 0;animation:correr 36s linear infinite}
 .marcas-janela:hover .marcas-trilho{animation-play-state:paused}
-.marca-bola{flex:none;width:92px;height:92px;border-radius:50%;display:grid;place-items:center;background:#fff;border:2px solid var(--tinta);box-shadow:3px 3px 0 var(--tinta);font-family:var(--titulo);font-size:15px;font-weight:600;text-align:center;line-height:1}
+.marca-bola{flex:none;width:82px;height:82px;border-radius:50%;display:grid;place-items:center;background:#fff;border:2px solid var(--tinta);box-shadow:3px 3px 0 var(--tinta);font-family:var(--titulo);font-size:15px;font-weight:600;text-align:center;line-height:1}
 .marca-bola:nth-child(3n+2){background:var(--amarelo-claro)}
 .marca-bola:nth-child(3n){background:var(--verde-claro)}
 .marca-bola img{width:70%;height:70%;object-fit:contain}
@@ -271,12 +271,16 @@ em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 5
   .capa{padding:24px 0 28px}
   .capa .largura{grid-template-columns:1fr;gap:0}
   .capa .capa-foto{display:none}
-  .capa h1{font-size:42px}
+  .capa h1{font-size:37px}
   .capa p.apresenta{font-size:14.5px;margin-top:14px}
   .capa .botoes{margin-top:18px}
-  .numeros{margin-top:22px;gap:8px}
-  .numeros div{padding:6px 12px}
-  .numeros b{font-size:23px}
+  .numeros{display:grid;grid-template-columns:repeat(3,1fr);margin-top:18px;gap:8px}
+  .numeros div{padding:6px 9px}
+  .numeros span{font-size:10.5px;line-height:1.3;display:block}
+  .capa .btn{padding:10px 14px;font-size:13px}
+  .capa .botoes{gap:8px}
+  .edicao{font-size:16px;margin-bottom:10px}
+  .numeros b{font-size:21px}
   .capa-foto-celular .capa-foto{margin:0 auto;max-width:280px}
   .caixinha{max-width:180px;padding:9px 12px;font-size:11.5px}
   .caixinha.um{right:-10px;top:26%}
@@ -410,11 +414,11 @@ em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 5
       </div>
       <!-- EDITAR: os 3 vídeos de destaque (o do meio fica maior) -->
       <div class="destaques-lista surge">
-        <a class="destaque" href="#"><span class="video" style="--c1:#c9a27a;--c2:#3b2c22"><span class="resultado" data-en="+300 sales">+300 vendas</span><span class="play"></span></span>
+        <a class="destaque" href="#"><span class="video" style="--c1:#9bd3ae;--c2:#1b8a46"><span class="resultado" data-en="+300 sales">+300 vendas</span><span class="play"></span></span>
           <span class="destaque-legenda"><b data-en="New home unboxing">Unboxing da casa nova</b><span data-en="Brand Two · TikTok. The video that sold the most.">Marca Dois · TikTok. O vídeo que mais vendeu.</span></span></a>
-        <a class="destaque" href="#"><span class="video" style="--c1:#3d55e0;--c2:#15172a"><span class="resultado">2,4M views</span><span class="play"></span></span>
+        <a class="destaque" href="#"><span class="video" style="--c1:#2f8f57;--c2:#0e4f2a"><span class="resultado">2,4M views</span><span class="play"></span></span>
           <span class="destaque-legenda"><b data-en="Skincare routine">Rotina de skincare</b><span data-en="Brand One · Reels. Went viral in one week.">Marca Um · Reels. Viralizou em uma semana.</span></span></a>
-        <a class="destaque" href="#"><span class="video" style="--c1:#8fa1ff;--c2:#2340d9"><span class="resultado" data-en="890K views">890 mil views</span><span class="play"></span></span>
+        <a class="destaque" href="#"><span class="video" style="--c1:#ffd23f;--c2:#c9871a"><span class="resultado" data-en="890K views">890 mil views</span><span class="play"></span></span>
           <span class="destaque-legenda"><b data-en="1-minute recipe">Receita em 1 minuto</b><span data-en="Brand Three · Reels. The most saved one.">Marca Três · Reels. O mais salvo.</span></span></a>
       </div>
     </div></div>
@@ -437,7 +441,7 @@ em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 5
       <!-- EDITAR: um <a class="video"> para cada vídeo; data-nicho igual ao do filtro -->
       <div class="videos galeria surge" id="galeria">
         <a class="video" href="#" data-nicho="beleza" style="--c1:#e8b4c8;--c2:#5a2a3c"><span class="play"></span><span class="video-legenda"><b data-en="5-minute makeup">Make de 5 minutos</b><span data-en="Beauty">Beleza</span></span></a>
-        <a class="video" href="#" data-nicho="beleza" style="--c1:#c3ccff;--c2:#2340d9"><span class="play"></span><span class="video-legenda"><b data-en="Curly hair">Cabelo cacheado</b><span data-en="Beauty">Beleza</span></span></a>
+        <a class="video" href="#" data-nicho="beleza" style="--c1:#7fb0ff;--c2:#2a4bd0"><span class="play"></span><span class="video-legenda"><b data-en="Curly hair">Cabelo cacheado</b><span data-en="Beauty">Beleza</span></span></a>
         <a class="video" href="#" data-nicho="beleza" style="--c1:#f0d7c8;--c2:#7a4a35"><span class="play"></span><span class="video-legenda"><b data-en="Sunscreen">Protetor solar</b><span data-en="Beauty">Beleza</span></span></a>
         <a class="video" href="#" data-nicho="beleza" style="--c1:#d9b8e8;--c2:#3c2a5a"><span class="play"></span><span class="video-legenda"><b data-en="Night routine">Rotina da noite</b><span data-en="Beauty">Beleza</span></span></a>
         <a class="video" href="#" data-nicho="casa" style="--c1:#b9c7a5;--c2:#2e3a24"><span class="play"></span><span class="video-legenda"><b data-en="Kitchen organizing">Organização da cozinha</b><span data-en="Home">Casa</span></span></a>
