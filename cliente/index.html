@@ -596,10 +596,15 @@ function atualizaPrevia() {
   if (minhas.length) cores = minhas;
   const previa = document.getElementById("previa");
   ["--pv-cor", "--pv-fundo", "--pv-texto"].forEach(v => previa.style.removeProperty(v));
-  if (cores.length >= 2) {
+  if (cores.length) {
+    // texto na cor mais escura (ou preto) e fundo na mais clara (ou branco), para sempre dar para ler
+    const luz = c => { const n = parseInt(c.trim().slice(1), 16); return 0.299 * (n >> 16) + 0.587 * (n >> 8 & 255) + 0.114 * (n & 255); };
+    const ordem = [...cores].sort((a, b) => luz(a) - luz(b));
+    const escura = luz(ordem[0]) < 90 ? ordem[0] : "#1e1915";
+    const clara = luz(ordem[ordem.length - 1]) > 225 ? ordem[ordem.length - 1] : "#ffffff";
     previa.style.setProperty("--pv-cor", cores[0]);
-    previa.style.setProperty("--pv-fundo", cores.length >= 4 ? cores[cores.length - 2] : "#ffffff");
-    previa.style.setProperty("--pv-texto", cores[cores.length - 1]);
+    previa.style.setProperty("--pv-fundo", clara);
+    previa.style.setProperty("--pv-texto", escura);
   }
 }
 
