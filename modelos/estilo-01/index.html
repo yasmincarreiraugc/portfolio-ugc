@@ -633,6 +633,7 @@ if (!new URLSearchParams(location.search).has("print")) document.querySelectorAl
 function filtrar(nicho) {
   document.querySelectorAll(".filtro").forEach(b => b.classList.toggle("ativo", b.dataset.nicho === nicho));
   document.querySelectorAll("#galeria .video").forEach(v => v.hidden = v.dataset.nicho !== nicho);
+  document.getElementById("galeria").scrollLeft = 0;
 }
 document.getElementById("filtros").addEventListener("click", e => {
   const f = e.target.closest(".filtro");
