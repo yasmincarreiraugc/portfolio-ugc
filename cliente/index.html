@@ -488,49 +488,125 @@ document.getElementById("modelos").innerHTML = Object.keys(MINIATURAS).map(tipo 
     </div>
   </div>`).join("");
 
-// ===== PALETAS =====
-// EDITAR: paletas prontas (as cores aparecem nas bolinhas)
+// ===== PALETAS (no estilo do Canva) =====
+// EDITAR: paletas prontas, 5 cores cada (da mais forte à mais escura)
 const PALETAS = [
-  { nome: "Rosa e creme",       desc: "doce e feminina",      cores: ["#ff99d9", "#fff2c2", "#f5f2ed", "#1e1915"] },
-  { nome: "Azul e areia",       desc: "leve e fresca",        cores: ["#78b4f4", "#f1e6d6", "#ffffff", "#1e1915"] },
-  { nome: "Terracota",          desc: "quente e acolhedora",  cores: ["#c8643b", "#f3d9c4", "#fbf6f0", "#2b1d16"] },
-  { nome: "Verde sálvia",       desc: "natural e calma",      cores: ["#9fb59a", "#e9efe4", "#ffffff", "#22301f"] },
-  { nome: "Lilás",              desc: "criativa e suave",     cores: ["#b79cf2", "#efe7ff", "#ffffff", "#241a33"] },
-  { nome: "Preto e dourado",    desc: "elegante e marcante",  cores: ["#c9a45c", "#1e1915", "#2b2520", "#f5f2ed"] },
-  { nome: "Quero escolher",     desc: "monte a sua paleta",   cores: null }
+  { nome: "Rosa e creme",    cores: ["#ff99d9", "#ffc8e8", "#fff2c2", "#f5f2ed", "#1e1915"] },
+  { nome: "Azul e areia",    cores: ["#78b4f4", "#c9e2fb", "#f1e6d6", "#ffffff", "#1e1915"] },
+  { nome: "Terracota",       cores: ["#c8643b", "#e8a77f", "#f3d9c4", "#fbf6f0", "#2b1d16"] },
+  { nome: "Verde sálvia",    cores: ["#9fb59a", "#c9d8c4", "#e9efe4", "#ffffff", "#22301f"] },
+  { nome: "Lilás",           cores: ["#b79cf2", "#d9c9fb", "#efe7ff", "#ffffff", "#241a33"] },
+  { nome: "Coral e menta",   cores: ["#ff7a6b", "#ffc1b8", "#bfe8dc", "#fffaf6", "#23302d"] },
+  { nome: "Neutros",         cores: ["#d8cfc4", "#b5a899", "#8c7b6b", "#f7f3ee", "#2f2a25"] },
+  { nome: "Preto e dourado", cores: ["#c9a45c", "#e6cf9a", "#f5f2ed", "#2b2520", "#1e1915"] }
 ];
 document.getElementById("paletas").innerHTML = PALETAS.map(p => `
-  <label class="opcao"><input type="radio" name="Paleta" value="${p.nome}"${p.cores ? "" : ' data-personalizada'}>
-    <span class="opcao-cartao">
-      <span class="cores">${(p.cores || ["#ffffff", "#ffffff", "#ffffff"]).map(c => `<i style="background:${c}"></i>`).join("")}</span>
-      <span class="opcao-texto">${p.nome}<small>${p.desc}</small></span><span class="marcado">✓</span>
-    </span></label>`).join("");
+  <label class="paleta"><input type="radio" name="Paleta" value="${p.nome} (${p.cores.join(", ")})" data-cores="${p.cores.join(",")}">
+    <span class="paleta-faixa">${p.cores.map(c => `<i style="background:${c}"></i>`).join("")}</span>
+    <span class="paleta-nome">${p.nome}</span>
+  </label>`).join("");
 
-// ===== FONTES =====
-// EDITAR: pares de fontes (título + texto)
-const FONTES = [
-  { nome: "Moderna e forte",    titulo: "'Barlow Condensed'",   texto: "Montserrat", par: "Barlow Condensed + Montserrat", maiusc: true },
-  { nome: "Elegante",           titulo: "'Playfair Display'",   texto: "Lato",       par: "Playfair Display + Lato" },
-  { nome: "Simples e redonda",  titulo: "Poppins",              texto: "Poppins",    par: "Poppins" },
-  { nome: "Sofisticada",        titulo: "'DM Serif Display'",   texto: "'DM Sans'",  par: "DM Serif Display + DM Sans" },
-  { nome: "Impactante",         titulo: "'Bebas Neue'",         texto: "Inter",      par: "Bebas Neue + Inter", maiusc: true },
-  { nome: "Você escolhe",       titulo: "Montserrat",           texto: "Montserrat", par: "Fontes que a cliente vai indicar nas observações" }
+// Minhas cores: "+" adiciona um quadradinho de cor (até 6), "×" tira
+const caixaCores = document.getElementById("minhas-cores"), botaoMais = document.getElementById("cor-mais");
+const campoCores = document.getElementById("cores-escolhidas");
+function guardaMinhasCores() {
+  campoCores.value = [...caixaCores.querySelectorAll("input[type=color]")].map(i => i.value).join(", ");
+  botaoMais.hidden = caixaCores.querySelectorAll(".minha-cor").length >= 6;
+}
+function novaCor(valor) {
+  const item = document.createElement("div");
+  item.className = "minha-cor";
+  item.innerHTML = `<input type="color" value="${valor}" aria-label="Cor"><small>${valor}</small><button type="button" class="tirar" aria-label="Tirar cor">×</button>`;
+  const seletor = item.querySelector("input");
+  seletor.addEventListener("input", () => { item.querySelector("small").textContent = seletor.value; guardaMinhasCores(); atualizaPrevia(); });
+  item.querySelector(".tirar").addEventListener("click", () => { item.remove(); guardaMinhasCores(); atualizaPrevia(); salvarRascunho(); });
+  caixaCores.insertBefore(item, botaoMais);
+  guardaMinhasCores();
+}
+botaoMais.addEventListener("click", () => {
+  const sugestoes = ["#ff99d9", "#fff2c2", "#78b4f4", "#f5f2ed", "#1e1915", "#c9a45c"];
+  novaCor(sugestoes[caixaCores.querySelectorAll(".minha-cor").length] || "#cccccc");
+  caixaCores.querySelector(".minha-cor:last-of-type input").click();   // já abre o seletor de cor
+  atualizaPrevia(); salvarRascunho();
+});
+
+// ===== FONTES: títulos, textos e detalhes =====
+// EDITAR: fontes que a cliente pode escolher (precisam estar no link do Google Fonts lá em cima)
+const LISTA_FONTES = [
+  { nome: "Montserrat",         estilo: "moderna" },
+  { nome: "Poppins",            estilo: "redonda" },
+  { nome: "Inter",              estilo: "limpa" },
+  { nome: "Lato",               estilo: "leve" },
+  { nome: "DM Sans",            estilo: "moderna" },
+  { nome: "Nunito",             estilo: "suave" },
+  { nome: "Raleway",            estilo: "elegante" },
+  { nome: "Barlow Condensed",   estilo: "forte", maiusc: true },
+  { nome: "Bebas Neue",         estilo: "impactante", maiusc: true },
+  { nome: "Playfair Display",   estilo: "elegante" },
+  { nome: "DM Serif Display",   estilo: "sofisticada" },
+  { nome: "Cormorant Garamond", estilo: "clássica" },
+  { nome: "Lora",               estilo: "clássica" },
+  { nome: "Caveat",             estilo: "manuscrita" },
+  { nome: "Dancing Script",     estilo: "manuscrita" },
+  { nome: "Great Vibes",        estilo: "caligrafia" }
 ];
-document.getElementById("fontes").innerHTML = FONTES.map(f => `
-  <label class="opcao"><input type="radio" name="Fontes" value="${f.nome} (${f.par})">
-    <span class="opcao-cartao">
-      <span class="fonte-previa">
-        <span class="f-tit" style="font-family:${f.titulo};${f.maiusc ? "text-transform:uppercase;" : ""}font-weight:600">Seu nome aqui</span>
-        <span class="f-txt" style="font-family:${f.texto}">Texto de apresentação do seu portfólio</span>
-        <span class="f-nome">${f.nome}</span>
-      </span><span class="marcado">✓</span>
-    </span></label>`).join("");
+const PAPEIS = [
+  { id: "titulo",  nome: "Títulos",  campo: "Fonte dos títulos",  exemplo: "Seu nome aqui" },
+  { id: "texto",   nome: "Textos",   campo: "Fonte dos textos",   exemplo: "Texto de apresentação" },
+  { id: "detalhe", nome: "Detalhes", campo: "Fonte dos detalhes", exemplo: "detalhes e destaques" }
+];
+const estiloFonte = f => `font-family:'${f.nome}';${f.maiusc ? "text-transform:uppercase;" : ""}`;
+document.getElementById("fontes").innerHTML = PAPEIS.map(p => `
+  <details class="papel" data-papel="${p.id}">
+    <summary><span class="papel-nome">${p.nome}</span><span class="papel-escolha vazio">Escolher fonte</span></summary>
+    <div class="lista-fontes">
+      ${LISTA_FONTES.map(f => `
+        <label class="fonte"><input type="radio" name="${p.campo}" value="${f.nome}">
+          <span style="${estiloFonte(f)}">${p.exemplo}<small>${f.nome} · ${f.estilo}</small></span></label>`).join("")}
+    </div>
+  </details>`).join("");
+
+// mostra a escolha no topo de cada caixa, fecha a lista e atualiza a prévia
+function atualizaFontes() {
+  document.querySelectorAll(".papel").forEach(caixa => {
+    const papel = PAPEIS.find(p => p.id === caixa.dataset.papel);
+    const marcada = caixa.querySelector("input:checked");
+    const alvo = caixa.querySelector(".papel-escolha");
+    const fonte = marcada && LISTA_FONTES.find(f => f.nome === marcada.value);
+    alvo.classList.toggle("vazio", !fonte);
+    alvo.textContent = fonte ? fonte.nome : "Escolher fonte";
+    alvo.style.cssText = fonte ? estiloFonte(fonte) : "";
+    const prev = document.getElementById("pv-" + papel.id);
+    prev.style.cssText = fonte ? estiloFonte(fonte) : "";
+    if (papel.id === "texto") document.getElementById("pv-botao").style.fontFamily = fonte ? `'${fonte.nome}'` : "";
+  });
+}
+document.getElementById("fontes").addEventListener("change", e => {
+  atualizaFontes();
+  const caixa = e.target.closest(".papel");
+  if (caixa) caixa.open = false;
+});
+
+// prévia com as cores da paleta escolhida (ou de "Minhas cores")
+function atualizaPrevia() {
+  const pal = form.querySelector('input[name="Paleta"]:checked');
+  let cores = pal ? pal.dataset.cores.split(",") : [];
+  const minhas = campoCores.value ? campoCores.value.split(", ") : [];
+  if (minhas.length) cores = minhas;
+  const previa = document.getElementById("previa");
+  ["--pv-cor", "--pv-fundo", "--pv-texto"].forEach(v => previa.style.removeProperty(v));
+  if (cores.length >= 2) {
+    previa.style.setProperty("--pv-cor", cores[0]);
+    previa.style.setProperty("--pv-fundo", cores.length >= 4 ? cores[cores.length - 2] : "#ffffff");
+    previa.style.setProperty("--pv-texto", cores[cores.length - 1]);
+  }
+}
 
 // ===== MOSTRAR / ESCONDER CAMPOS =====
 const form = document.getElementById("briefing");
 function atualizaCampos() {
-  const pal = form.querySelector('input[name="Paleta"]:checked');
-  document.getElementById("cores-personalizadas").hidden = !(pal && pal.hasAttribute("data-personalizada"));
+  atualizaPrevia();
+  atualizaFontes();
   const end = form.querySelector('input[name="Endereço"]:checked');
   document.getElementById("campos-dominio").hidden = !(end && end.value === "Domínio próprio");
   // modelos: só aparecem os do que a cliente marcou que contratou
