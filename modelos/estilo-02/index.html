@@ -310,7 +310,7 @@ em{font-style:normal;color:var(--rosa-escuro);background:linear-gradient(transpa
   .edicao{font-size:14px;margin-bottom:10px}
   .numeros b{font-size:21px}
   .sobre .largura{grid-template-columns:1fr;gap:30px}
-  .sobre .polaroid{width:100%;max-width:300px;margin:0 auto}
+  .sobre .polaroid{width:100%;max-width:300px;margin:6px auto 0;order:2}
   .destaques-lista{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:70%;overflow-x:auto;scroll-snap-type:x mandatory;padding:16px 8px 16px}
   .destaque{scroll-snap-align:start}
   .destaque:nth-child(1),.destaque:nth-child(3){margin-top:0}
@@ -647,6 +647,15 @@ em{font-style:normal;color:var(--rosa-escuro);background:linear-gradient(transpa
     </nav>
   </div>
 </footer>
+
+<!-- barra de baixo igual de app (só no celular) -->
+<nav class="barra-app" aria-label="Atalhos">
+  <a href="#" data-alvo="inicio" class="ativo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 12 4l8 7v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/></svg><span data-en="Home">Início</span></a>
+  <a href="#sobre" data-alvo="sobre"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20a8 8 0 0 1 16 0"/></svg><span data-en="About">Sobre</span></a>
+  <a href="#contato" data-alvo="contato" class="conversar"><span class="bola"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18.5V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H8z"/><path d="M8 10h8M8 13h5"/></svg></span><span data-en="Let's talk">Conversar</span></a>
+  <a href="#destaques" data-alvo="trabalhos"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="m10 9 5 3-5 3z"/></svg><span data-en="Work">Trabalhos</span></a>
+  <a href="#servicos" data-alvo="servicos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.6 5.6 6 .7-4.5 4.1 1.2 6-5.3-3-5.3 3 1.2-6L3.4 9.3l6-.7z"/></svg><span data-en="Services">Serviços</span></a>
+</nav>
 
 <script>
 // menu do celular
