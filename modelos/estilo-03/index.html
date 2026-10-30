@@ -80,48 +80,68 @@ em{font-style:normal;background:linear-gradient(transparent 56%,var(--lima) 56%,
 .abrir-menu span::before{content:"";position:absolute;top:5px}
 
 /* ---------- capa ---------- */
-.capa{padding:44px 0 56px}
+.capa{padding:26px 0 34px}
 .capa .largura{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.edicao{display:inline-block;margin:0 0 18px;padding:7px 14px;border-radius:999px;background:var(--branco);box-shadow:var(--sombra);font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-.capa h1{font-size:clamp(44px,5vw,66px)}
-.capa p.apresenta{max-width:440px;margin:20px 0 0;font-size:15.5px;color:var(--cinza)}
-.capa .botoes{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.edicao{display:inline-block;margin:0 0 14px;padding:7px 14px;border-radius:999px;background:var(--branco);box-shadow:var(--sombra);font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.capa h1{font-size:clamp(38px,4.3vw,56px)}
+.capa p.apresenta{max-width:430px;margin:16px 0 0;font-size:14.5px;color:var(--cinza)}
+.capa .botoes{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .numeros{display:flex;flex-wrap:wrap;gap:34px;margin-top:30px}
 .numeros b{display:block;font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1}
 .numeros span{font-size:12px;color:var(--cinza)}
 
-/* tela de editor de vídeo flutuando */
-.editor{position:relative;padding:12px;border-radius:26px;background:var(--branco);box-shadow:var(--sombra-alta);animation:boia 6s ease-in-out infinite}
-.editor-barra{display:flex;align-items:center;gap:6px;padding:2px 6px 10px}
-.editor-barra i{width:9px;height:9px;border-radius:50%;background:var(--linha)}
-.editor-barra span{margin-left:8px;font-size:11px;font-weight:600;color:var(--cinza)}
-.editor-corpo{display:flex;gap:10px}
-.ferramentas{display:flex;flex-direction:column;gap:8px;padding:6px 0}
-.ferramentas b{width:30px;height:30px;border-radius:9px;background:var(--fundo)}
-.ferramentas b.ligada{background:var(--lima)}
-.editor .foto{flex:1;aspect-ratio:4/3;border:2px solid var(--lima);border-radius:14px}
-/* linha do tempo com os cortes e a agulha andando */
-.linha-tempo{position:relative;display:flex;gap:4px;margin-top:12px;padding:8px;border-radius:12px;background:var(--fundo)}
-.linha-tempo span{flex:1;height:22px;border-radius:6px;background:var(--lima)}
-.linha-tempo span:nth-child(2){flex:1.6;background:var(--lima-escuro)}
-.linha-tempo span:nth-child(4){flex:.7}
-.agulha{position:absolute;top:2px;bottom:2px;left:10%;width:2px;border-radius:2px;background:var(--tinta);animation:agulha 7s linear infinite}
-.agulha::before{content:"";position:absolute;top:-4px;left:-4px;width:10px;height:10px;border-radius:3px;background:var(--tinta)}
-@keyframes agulha{from{left:4%}to{left:96%}}
-/* etiquetas flutuando em volta do editor */
-.etiqueta-flutua{position:absolute;z-index:2;padding:9px 14px;border-radius:999px;background:var(--branco);box-shadow:var(--sombra-alta);font-size:12.5px;font-weight:800;white-space:nowrap;animation:boia 5s ease-in-out infinite}
-.etiqueta-flutua.um{top:22%;right:-34px}
-.etiqueta-flutua.dois{top:44%;right:-22px;background:var(--tinta);color:#fff;animation-delay:-1.8s}
-.etiqueta-flutua.tres{bottom:22%;left:-46px;background:var(--lima);animation-delay:-3.4s}
 @keyframes boia{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
+/* janela de computador com a foto da capa, moldura de seleção, ícones de app e 3 notificações */
+.janela-area{position:relative;max-width:420px;width:100%;justify-self:center;padding:34px 0 18px}
+.janela{position:relative;width:78%;border-radius:18px;background:var(--branco);box-shadow:var(--sombra-alta);overflow:hidden;animation:boia 7s ease-in-out infinite}
+.janela-barra{display:flex;align-items:center;gap:6px;padding:10px 12px}
+.janela-barra i{width:10px;height:10px;border-radius:50%;background:#ff5f57}
+.janela-barra i:nth-child(2){background:#febc2e}
+.janela-barra i:nth-child(3){background:#28c840}
+.janela-barra span{flex:1;margin-right:28px;text-align:center;font-size:11.5px;font-weight:600;color:var(--cinza)}
+.janela .foto{aspect-ratio:4/5}
+/* moldura de seleção, como num programa de design */
+.selecao{position:absolute;z-index:0;top:16px;left:-14px;width:calc(78% + 28px);bottom:4px;border:1.5px solid var(--tinta);rotate:-2deg;pointer-events:none}
+.selecao i{position:absolute;width:12px;height:12px;border:2px solid var(--tinta);border-radius:50%;background:var(--lima)}
+.selecao i:nth-child(1){top:-7px;left:-7px}
+.selecao i:nth-child(2){top:-7px;left:calc(50% - 6px)}
+.selecao i:nth-child(3){top:-7px;right:-7px}
+.selecao i:nth-child(4){bottom:-7px;left:-7px}
+.selecao i:nth-child(5){bottom:-7px;right:-7px}
+.selecao i:nth-child(6){top:calc(50% - 6px);left:-7px}
+/* "disponível pra novos projetos" com bolinha verde */
+.disponivel{position:absolute;z-index:3;top:0;left:-6px;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:var(--tinta);color:#fff;font-size:12px;font-weight:600;box-shadow:var(--sombra)}
+.disponivel::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--lima);box-shadow:0 0 0 3px rgba(200,240,79,.25)}
+/* ícones de app desfocados flutuando */
+.app-icone{position:absolute;z-index:0;width:56px;height:56px;border-radius:16px;filter:blur(2px);animation:boia 5s ease-in-out infinite}
+.app-icone.a1{top:30px;left:34%;background:var(--lima);rotate:-10deg}
+.app-icone.a2{bottom:-6px;right:-10px;background:var(--tinta);rotate:12deg;animation-delay:-2s}
+/* notificações por cima da foto */
+.notificacoes{position:absolute;z-index:2;top:22%;right:-34px;width:60%;display:grid;gap:10px;margin:0}
+.notif{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:18px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:var(--sombra-alta);animation:boia 6s ease-in-out infinite}
+.notif:nth-child(2){margin-left:-12px;animation-delay:-2s}
+.notif:nth-child(3){margin-left:-24px;animation-delay:-4s}
+.notif-icone{flex:none;width:40px;height:40px;border-radius:12px;background:var(--lima);display:grid;place-items:center}
+.notif-icone.escuro{background:var(--tinta)}
+.notif-icone.escuro svg{stroke:var(--lima)}
+.notif-icone.branco{background:var(--fundo)}
+.notif-icone svg{width:20px;height:20px;fill:none;stroke:var(--tinta);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.notif p{margin:0;display:grid;line-height:1.2;min-width:0}
+.notif small{display:flex;justify-content:space-between;gap:8px;font-size:9.5px;font-weight:800;letter-spacing:.1em;color:var(--cinza)}
+.notif small i{font-style:normal;font-weight:600;letter-spacing:0}
+.notif b{margin-top:2px;font-size:19px;font-weight:800;letter-spacing:-.02em}
+.notif p > span{font-size:11.5px;color:var(--cinza)}
+
 /* ---------- marcas: faixa branca fininha com os nomes passando ---------- */
-.marcas{padding:16px 0;background:var(--branco);border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
+.marcas{padding:14px 0 26px}
 .marcas-janela{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-.marcas-trilho{display:flex;gap:42px;width:max-content;padding-right:42px;animation:correr 40s linear infinite}
+.marcas-trilho{display:flex;gap:14px;width:max-content;padding:8px 14px 14px 0;animation:correr 40s linear infinite}
 .marcas-janela:hover .marcas-trilho{animation-play-state:paused}
-.marca-bola{flex:none;font-size:14px;font-weight:600;color:var(--cinza);white-space:nowrap}
-.marca-bola img{height:26px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.7}
+.marca-bola{flex:none;width:92px;height:92px;display:grid;place-items:center;padding:8px;border-radius:22px;background:var(--branco);box-shadow:var(--sombra);font-size:12px;font-weight:800;text-align:center;line-height:1.2}
+.marca-bola:nth-child(4n+2){background:var(--tinta);color:#fff}
+.marca-bola:nth-child(4n+3){background:var(--lima)}
+.marca-bola img{width:78%;height:78%;object-fit:contain}
 @keyframes correr{to{transform:translateX(-50%)}}
 
 /* ---------- sobre ---------- */
@@ -247,7 +267,7 @@ em{font-style:normal;background:linear-gradient(transparent 56%,var(--lima) 56%,
 /* animação ao rolar */
 .surge{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s}
 .surge.visto{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.surge{opacity:1;transform:none}.marcas-trilho,.destaque,.editor,.etiqueta-flutua,.agulha,.encontre{animation:none}}
+@media (prefers-reduced-motion:reduce){.surge{opacity:1;transform:none}.marcas-trilho,.destaque,.janela,.notif,.app-icone,.encontre{animation:none}}
 
 /* ---------- celular ---------- */
 @media (max-width:900px){
@@ -261,21 +281,25 @@ em{font-style:normal;background:linear-gradient(transparent 56%,var(--lima) 56%,
   .submenu a{padding:10px 0;border-radius:0;border-bottom:1px solid var(--linha);font-size:15px}
   .abrir-menu{display:grid}
   .marca{font-size:16px}
-  /* capa: o editor vem depois do texto */
+  /* capa: a janela com a foto vem depois do texto */
   .capa{padding:24px 0 40px}
   .capa .largura{grid-template-columns:1fr;gap:0}
-  .capa .capa-foto{margin:46px 10px 0}
-  .capa h1{font-size:42px}
+  .capa .capa-foto{margin:30px auto 0;max-width:360px}
+  .janela{width:74%}
+  .app-icone.a2{right:4px}
+  .selecao{left:-8px;width:calc(74% + 16px)}
+  .notificacoes{right:-4px;width:68%;top:26%}
+  .notif{padding:9px 10px;gap:9px;border-radius:14px}
+  .notif:nth-child(2){margin-left:-8px}
+  .notif:nth-child(3){margin-left:-16px}
+  .notif-icone{width:32px;height:32px;border-radius:10px}
+  .notif-icone svg{width:16px;height:16px}
+  .marca-bola{width:78px;height:78px;border-radius:18px;font-size:11px}
+  .capa h1{font-size:38px}
   .capa p.apresenta{font-size:14.5px;margin-top:14px}
   .capa .btn{padding:11px 16px;font-size:13px}
   .capa .botoes{gap:8px;margin-top:18px}
-  .numeros{gap:24px;margin-top:24px}
-  .numeros b{font-size:24px}
-  .etiqueta-flutua{padding:7px 11px;font-size:11px}
-  .etiqueta-flutua.um{top:-16px;right:8px}
-  .etiqueta-flutua.dois{top:38%;right:-8px}
-  .etiqueta-flutua.tres{bottom:28%;left:-8px}
-  .ferramentas b{width:24px;height:24px}
+  .notif b{font-size:16px}
   .sobre .largura{grid-template-columns:1fr;gap:30px}
   .sobre .polaroid{width:100%;max-width:320px;margin:6px auto 0;order:2}
   .destaques-lista{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:72%;overflow-x:auto;scroll-snap-type:x mandatory;padding:16px 14% 18px}
@@ -357,23 +381,23 @@ em{font-style:normal;background:linear-gradient(transparent 56%,var(--lima) 56%,
           <a class="btn btn-azul" href="#contato" data-en="I want to create with Seu Nome →">Quero criar com Seu Nome →</a>
           <a class="btn btn-linha" href="#destaques" data-en="See my work">Ver trabalhos</a>
         </div>
-        <div class="numeros">
-          <div><b>+120</b><span data-en="videos delivered">vídeos entregues</span></div>
-          <div><b>+40</b><span data-en="brands served">marcas atendidas</span></div>
-          <div><b>2,4M</b><span data-en="total views">views somadas</span></div>
-        </div>
       </div>
-      <!-- tela de editor de vídeo flutuando, com a foto da capa na prévia -->
-      <div class="capa-foto editor" aria-label="Foto da capa">
-        <div class="editor-barra" aria-hidden="true"><i></i><i></i><i></i><span>meu_video_ugc.mp4</span></div>
-        <div class="editor-corpo">
-          <div class="ferramentas" aria-hidden="true"><b></b><b class="ligada"></b><b></b><b></b></div>
+      <!-- foto da capa numa janela de computador, com moldura de seleção e 3 notificações por cima -->
+      <div class="capa-foto janela-area">
+        <span class="disponivel" data-en="available for new projects">disponível pra novos projetos</span>
+        <span class="app-icone a1" aria-hidden="true"></span>
+        <span class="app-icone a2" aria-hidden="true"></span>
+        <div class="selecao" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="janela">
+          <div class="janela-barra" aria-hidden="true"><i></i><i></i><i></i><span>seunome.jpg</span></div>
           <div class="foto" data-texto="Foto da capa · 4:5"></div>
         </div>
-        <div class="linha-tempo" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><i class="agulha"></i></div>
-        <span class="etiqueta-flutua um" data-en="✦ Effects">✦ Efeitos</span>
-        <span class="etiqueta-flutua dois" data-en="Captions ✓">Legendas ✓</span>
-        <span class="etiqueta-flutua tres" data-en="Hook in 3s">Gancho em 3s</span>
+        <!-- EDITAR: os 3 resultados que aparecem como notificação (os números contam sozinhos) -->
+        <div class="notificacoes numeros">
+          <div class="notif"><span class="notif-icone"><svg viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-7"/><path d="M14 9h6v6"/></svg></span><p><small><span data-en="RESULTS">RESULTADO</span><i data-en="now">agora</i></small><b>+R$100 mil</b><span data-en="generated for brands">gerados pra marcas</span></p></div>
+          <div class="notif"><span class="notif-icone escuro"><svg viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><p><small><span data-en="REACH">ALCANCE</span><i data-en="2 min">2 min</i></small><b>4,6M views</b><span data-en="in campaigns">em campanhas</span></p></div>
+          <div class="notif"><span class="notif-icone branco"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><p><small><span data-en="BRANDS">MARCAS</span><i data-en="yesterday">ontem</i></small><b>+200 marcas</b><span data-en="already trusted me">já confiaram</span></p></div>
+        </div>
       </div>
     </div>
   </section>
