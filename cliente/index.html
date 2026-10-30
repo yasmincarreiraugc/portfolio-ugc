@@ -536,7 +536,6 @@ grade.innerHTML = FILEIRAS.map(([h, s]) => TONS.map(l => { const c = hex(h, s, l
 let escolhidas = [];
 function desenhaCores() {
   caixaCores.querySelectorAll(".minha-cor").forEach(e => e.remove());
-  const ref = document.getElementById("cor-mais") || caixaCores.querySelector(".cor-mais");
   escolhidas.forEach(c => {
     const item = document.createElement("div");
     item.className = "minha-cor";
