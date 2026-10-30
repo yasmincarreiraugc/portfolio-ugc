@@ -208,22 +208,30 @@ em{font-style:normal;color:var(--rosa-escuro);background:linear-gradient(transpa
 .secao.com-quadro{padding:16px 0;border-top:0}
 .quadro{margin:0 14px;padding:48px 0;border:2px solid var(--tinta);border-radius:28px;background:#fff;box-shadow:6px 6px 0 var(--rosa-escuro)}
 
-/* ---------- serviços em caixas ---------- */
-.servicos{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch}
-.servico{position:relative;display:flex;flex-direction:column;padding:28px 22px 22px;border:2px solid var(--tinta);border-radius:20px;background:var(--papel);box-shadow:var(--sombra);transition:transform .2s,box-shadow .2s}
+/* ---------- serviços: cartões largos com título marcado, desenho de traço e seta ---------- */
+.servicos{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.servico{position:relative;display:grid;grid-template-columns:1fr auto;grid-template-rows:1fr auto;gap:14px 10px;min-height:178px;padding:26px 24px 22px;border:2px solid var(--tinta);border-radius:22px;background:#f4f1ee;box-shadow:var(--sombra);transition:transform .2s,box-shadow .2s}
 .servico:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--tinta)}
-.servico svg{width:44px;height:44px;padding:9px;border:2px solid var(--tinta);border-radius:12px;background:var(--amarelo);fill:none;stroke:var(--tinta);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;box-shadow:2px 2px 0 var(--tinta)}
-.servico h3{margin-top:18px;font-size:22px}
-.servico p{margin:10px 0 0;font-size:14px;color:var(--cinza)}
-.servico ul{margin:16px 0 22px;padding:0;list-style:none;display:grid;gap:6px;font-size:13.5px;font-weight:700;color:var(--rosa)}
-.servico li::before{content:"✓";margin-right:8px}
-.quero{margin-top:auto;padding:11px;border:2px solid var(--tinta);border-radius:999px;background:#fff;text-align:center;font-size:14px;font-weight:800;box-shadow:2px 2px 0 var(--tinta);transition:background .2s}
-.quero:hover{background:var(--amarelo)}
-.destaque-servico{background:var(--rosa);color:#fff}
-.destaque-servico p{color:rgba(255,255,255,.85)}
-.destaque-servico ul{color:var(--amarelo)}
-.destaque-servico .quero{background:var(--amarelo);color:var(--tinta)}
-.etiqueta{position:absolute;top:-14px;right:16px;padding:5px 12px;border:2px solid var(--tinta);border-radius:999px;background:var(--vermelho);color:#fff;font-size:11px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;box-shadow:2px 2px 0 var(--tinta);rotate:4deg}
+.servico h3{grid-column:1;font-size:22px;line-height:1.5}
+/* título marcado, linha por linha */
+.servico h3 span{padding:1px 7px;background:var(--amarelo);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.quero{grid-column:1;grid-row:2;align-self:end;display:inline-flex;align-items:center;gap:10px;font-size:13.5px;font-weight:700}
+.quero i{width:28px;height:28px;border-radius:50%;background:var(--tinta);color:#fff;display:grid;place-items:center;font-style:normal;font-size:14px;transition:transform .2s}
+.servico:hover .quero i{transform:rotate(45deg)}
+.desenho{grid-column:2;grid-row:1 / 3;align-self:center;width:150px;height:auto;fill:none;stroke:var(--tinta);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.desenho .cheio{fill:var(--tinta)}
+.desenho .branco{fill:#fff}
+.servico-amarelo{background:var(--amarelo)}
+.servico-amarelo h3 span{background:#fff}
+.servico-escuro{background:var(--tinta);color:#fff;box-shadow:4px 4px 0 var(--rosa)}
+.servico-escuro:hover{box-shadow:7px 7px 0 var(--rosa)}
+.servico-escuro h3 span{background:#fff;color:var(--tinta)}
+.servico-escuro .quero i{background:#fff;color:var(--tinta)}
+.servico-escuro .desenho{stroke:#fff}
+.servico-escuro .desenho .cheio{fill:var(--rosa);stroke:var(--rosa)}
+.servico-escuro .desenho .branco{fill:var(--tinta)}
+.servico-rosa{background:var(--rosa-claro)}
+.servico-rosa h3 span{background:#fff}
 
 /* ---------- depoimentos: bilhetes coloridos em carrossel ---------- */
 .frases{grid-auto-columns:calc((100% - 36px) / 3);padding:40px 6px 10px}
