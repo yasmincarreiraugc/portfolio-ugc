@@ -277,10 +277,11 @@ em{font-style:normal;color:var(--rosa-escuro);background:linear-gradient(transpa
   .submenu a{padding:10px 0;border-radius:0;border-bottom:1px dashed rgba(42,29,36,.25);font-size:15px;color:var(--cinza)}
   .abrir-menu{display:grid}
   .marca{font-size:19px}
-  /* capa: a foto vai para depois das marcas, para as marcas aparecerem logo */
-  .capa{padding:24px 0 28px}
+  /* capa: a foto vem depois do texto; a borboleta voa no canto de cima da foto */
+  .capa{padding:24px 0 34px}
   .capa .largura{grid-template-columns:1fr;gap:0}
-  .capa .capa-foto{display:none}
+  .capa .capa-foto{justify-self:center;max-width:280px;margin-top:40px}
+  .borboleta{top:-44px;left:-18px}
   .capa h1{font-size:37px}
   .capa p.apresenta{font-size:14.5px;margin-top:14px}
   .capa .botoes{margin-top:18px}
