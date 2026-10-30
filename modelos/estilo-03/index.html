@@ -92,46 +92,46 @@ em{font-style:normal;background:linear-gradient(transparent 56%,var(--lima) 56%,
 
 @keyframes boia{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
-/* janela de computador com a foto da capa, moldura de seleção, ícones de app e 3 notificações */
-.janela-area{position:relative;max-width:420px;width:100%;justify-self:center;padding:34px 0 18px}
-.janela{position:relative;width:78%;border-radius:18px;background:var(--branco);box-shadow:var(--sombra-alta);overflow:hidden;animation:boia 7s ease-in-out infinite}
-.janela-barra{display:flex;align-items:center;gap:6px;padding:10px 12px}
-.janela-barra i{width:10px;height:10px;border-radius:50%;background:#ff5f57}
-.janela-barra i:nth-child(2){background:#febc2e}
-.janela-barra i:nth-child(3){background:#28c840}
-.janela-barra span{flex:1;margin-right:28px;text-align:center;font-size:11.5px;font-weight:600;color:var(--cinza)}
-.janela .foto{aspect-ratio:4/5}
-/* moldura de seleção, como num programa de design */
-.selecao{position:absolute;z-index:0;top:16px;left:-14px;width:calc(78% + 28px);bottom:4px;border:1.5px solid var(--tinta);rotate:-2deg;pointer-events:none}
-.selecao i{position:absolute;width:12px;height:12px;border:2px solid var(--tinta);border-radius:50%;background:var(--lima)}
-.selecao i:nth-child(1){top:-7px;left:-7px}
-.selecao i:nth-child(2){top:-7px;left:calc(50% - 6px)}
-.selecao i:nth-child(3){top:-7px;right:-7px}
-.selecao i:nth-child(4){bottom:-7px;left:-7px}
-.selecao i:nth-child(5){bottom:-7px;right:-7px}
-.selecao i:nth-child(6){top:calc(50% - 6px);left:-7px}
-/* "disponível pra novos projetos" com bolinha verde */
-.disponivel{position:absolute;z-index:3;top:0;left:-6px;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:var(--tinta);color:#fff;font-size:12px;font-weight:600;box-shadow:var(--sombra)}
-.disponivel::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--lima);box-shadow:0 0 0 3px rgba(200,240,79,.25)}
-/* ícones de app desfocados flutuando */
-.app-icone{position:absolute;z-index:0;width:56px;height:56px;border-radius:16px;filter:blur(2px);animation:boia 5s ease-in-out infinite}
-.app-icone.a1{top:30px;left:34%;background:var(--lima);rotate:-10deg}
-.app-icone.a2{bottom:-6px;right:-10px;background:var(--tinta);rotate:12deg;animation-delay:-2s}
-/* notificações por cima da foto */
-.notificacoes{position:absolute;z-index:2;top:22%;right:-34px;width:60%;display:grid;gap:10px;margin:0}
-.notif{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:18px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:var(--sombra-alta);animation:boia 6s ease-in-out infinite}
-.notif:nth-child(2){margin-left:-12px;animation-delay:-2s}
-.notif:nth-child(3){margin-left:-24px;animation-delay:-4s}
-.notif-icone{flex:none;width:40px;height:40px;border-radius:12px;background:var(--lima);display:grid;place-items:center}
-.notif-icone.escuro{background:var(--tinta)}
-.notif-icone.escuro svg{stroke:var(--lima)}
-.notif-icone.branco{background:var(--fundo)}
-.notif-icone svg{width:20px;height:20px;fill:none;stroke:var(--tinta);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.notif p{margin:0;display:grid;line-height:1.2;min-width:0}
-.notif small{display:flex;justify-content:space-between;gap:8px;font-size:9.5px;font-weight:800;letter-spacing:.1em;color:var(--cinza)}
-.notif small i{font-style:normal;font-weight:600;letter-spacing:0}
-.notif b{margin-top:2px;font-size:19px;font-weight:800;letter-spacing:-.02em}
-.notif p > span{font-size:11.5px;color:var(--cinza)}
+/* visor de câmera gravando com a foto da capa, onda de áudio e 3 resultados em cartões espalhados */
+.visor-area{position:relative;max-width:400px;width:100%;justify-self:center;padding:22px 30px 34px}
+.visor{position:relative;border-radius:26px;overflow:hidden;background:var(--tinta);box-shadow:var(--sombra-alta)}
+.visor .foto{aspect-ratio:4/5}
+/* barrinhas de progresso, como nos stories */
+.story{position:absolute;top:12px;left:14px;right:14px;display:flex;gap:4px}
+.story i{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.55);overflow:hidden}
+.story i:first-child{background:#fff}
+.story i:nth-child(2)::before{content:"";display:block;height:100%;background:#fff;animation:carrega 6s linear infinite}
+@keyframes carrega{from{width:0}to{width:100%}}
+/* REC piscando e contador de tempo */
+.rec{position:absolute;top:26px;left:16px;display:flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:rgba(17,20,18,.6);color:#fff;font-size:10.5px;font-weight:800;letter-spacing:.12em}
+.rec::before{content:"";width:8px;height:8px;border-radius:50%;background:#ff3b30;animation:pisca 1.2s ease-in-out infinite}
+@keyframes pisca{50%{opacity:.2}}
+.tempo{position:absolute;top:26px;right:16px;padding:5px 10px;border-radius:999px;background:rgba(17,20,18,.6);color:#fff;font-size:10.5px;font-weight:700;font-variant-numeric:tabular-nums}
+/* cantinhos de enquadramento da câmera */
+.canto{position:absolute;width:26px;height:26px;border:0 solid var(--lima)}
+.canto.c1{top:60px;left:16px;border-top-width:3px;border-left-width:3px;border-top-left-radius:6px}
+.canto.c2{top:60px;right:16px;border-top-width:3px;border-right-width:3px;border-top-right-radius:6px}
+.canto.c3{bottom:16px;left:16px;border-bottom-width:3px;border-left-width:3px;border-bottom-left-radius:6px}
+.canto.c4{bottom:16px;right:16px;border-bottom-width:3px;border-right-width:3px;border-bottom-right-radius:6px}
+/* onda de áudio */
+.onda{position:absolute;z-index:2;bottom:8px;left:50%;display:flex;align-items:center;gap:4px;height:46px;padding:0 16px;border-radius:999px;background:var(--lima);box-shadow:var(--sombra-alta);transform:translateX(-50%)}
+.onda i{width:4px;height:12px;border-radius:2px;background:var(--tinta);animation:som 1s ease-in-out infinite}
+.onda i:nth-child(3n){animation-delay:-.3s}
+.onda i:nth-child(3n+1){animation-delay:-.6s}
+.onda i:nth-child(4n){animation-duration:.8s}
+@keyframes som{0%,100%{height:8px}50%{height:28px}}
+/* resultados: cartões escuros espalhados em volta da foto */
+.notificacoes{position:absolute;inset:0;z-index:3;margin:0;pointer-events:none}
+.notif{position:absolute;display:flex;align-items:center;gap:10px;padding:10px 14px 10px 10px;border-radius:16px;background:rgba(17,20,18,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;box-shadow:var(--sombra-alta);animation:boia 6s ease-in-out infinite}
+.notif.n1{top:16%;right:-30px}
+.notif.n2{top:48%;left:-40px;animation-delay:-2s}
+.notif.n3{bottom:22%;right:-22px;animation-delay:-4s}
+.notif-icone{flex:none;width:34px;height:34px;border-radius:50%;background:var(--lima);display:grid;place-items:center}
+.notif-icone svg{width:17px;height:17px;fill:none;stroke:var(--tinta);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.notif p{margin:0;display:grid;line-height:1.2}
+.notif small{font-size:9px;font-weight:800;letter-spacing:.14em;color:var(--lima)}
+.notif b{font-size:18px;font-weight:800;letter-spacing:-.02em}
+.notif p > span{font-size:11px;color:rgba(255,255,255,.65)}
 
 /* ---------- marcas: faixa branca fininha com os nomes passando ---------- */
 .marcas{padding:14px 0 26px}
@@ -267,7 +267,7 @@ em{font-style:normal;background:linear-gradient(transparent 56%,var(--lima) 56%,
 /* animação ao rolar */
 .surge{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s}
 .surge.visto{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.surge{opacity:1;transform:none}.marcas-trilho,.destaque,.janela,.notif,.app-icone,.encontre{animation:none}}
+@media (prefers-reduced-motion:reduce){.surge{opacity:1;transform:none}.marcas-trilho,.destaque,.notif,.onda i,.story i::before,.rec::before,.encontre{animation:none}}
 
 /* ---------- celular ---------- */
 @media (max-width:900px){
@@ -281,25 +281,23 @@ em{font-style:normal;background:linear-gradient(transparent 56%,var(--lima) 56%,
   .submenu a{padding:10px 0;border-radius:0;border-bottom:1px solid var(--linha);font-size:15px}
   .abrir-menu{display:grid}
   .marca{font-size:16px}
-  /* capa: a janela com a foto vem depois do texto */
+  /* capa: o visor com a foto vem depois do texto */
   .capa{padding:24px 0 40px}
   .capa .largura{grid-template-columns:1fr;gap:0}
-  .capa .capa-foto{margin:30px auto 0;max-width:360px}
-  .janela{width:74%}
-  .app-icone.a2{right:4px}
-  .selecao{left:-8px;width:calc(74% + 16px)}
-  .notificacoes{right:-4px;width:68%;top:26%}
-  .notif{padding:9px 10px;gap:9px;border-radius:14px}
-  .notif:nth-child(2){margin-left:-8px}
-  .notif:nth-child(3){margin-left:-16px}
-  .notif-icone{width:32px;height:32px;border-radius:10px}
-  .notif-icone svg{width:16px;height:16px}
+  .capa .capa-foto{margin:18px auto 0;max-width:340px;padding:18px 26px 30px}
+  .notif{padding:8px 11px 8px 8px;gap:8px;border-radius:13px}
+  .notif.n1{right:-4px}
+  .notif.n2{left:-4px}
+  .notif.n3{right:-2px}
+  .notif-icone{width:28px;height:28px}
+  .notif-icone svg{width:14px;height:14px}
+  .notif b{font-size:15px}
+  .notif p > span{font-size:10px}
   .marca-bola{width:78px;height:78px;border-radius:18px;font-size:11px}
   .capa h1{font-size:38px}
   .capa p.apresenta{font-size:14.5px;margin-top:14px}
   .capa .btn{padding:11px 16px;font-size:13px}
   .capa .botoes{gap:8px;margin-top:18px}
-  .notif b{font-size:16px}
   .sobre .largura{grid-template-columns:1fr;gap:30px}
   .sobre .polaroid{width:100%;max-width:320px;margin:6px auto 0;order:2}
   .destaques-lista{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:72%;overflow-x:auto;scroll-snap-type:x mandatory;padding:16px 14% 18px}
@@ -382,21 +380,22 @@ em{font-style:normal;background:linear-gradient(transparent 56%,var(--lima) 56%,
           <a class="btn btn-linha" href="#destaques" data-en="See my work">Ver trabalhos</a>
         </div>
       </div>
-      <!-- foto da capa numa janela de computador, com moldura de seleção e 3 notificações por cima -->
-      <div class="capa-foto janela-area">
-        <span class="disponivel" data-en="available for new projects">disponível pra novos projetos</span>
-        <span class="app-icone a1" aria-hidden="true"></span>
-        <span class="app-icone a2" aria-hidden="true"></span>
-        <div class="selecao" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-        <div class="janela">
-          <div class="janela-barra" aria-hidden="true"><i></i><i></i><i></i><span>seunome.jpg</span></div>
+      <!-- foto da capa num visor de câmera gravando, com 3 resultados em cartões espalhados em volta -->
+      <div class="capa-foto visor-area">
+        <div class="visor">
           <div class="foto" data-texto="Foto da capa · 4:5"></div>
+          <div class="story" aria-hidden="true"><i></i><i></i><i></i></div>
+          <span class="rec" aria-hidden="true">REC</span>
+          <span class="tempo" aria-hidden="true">00:00:15</span>
+          <span class="canto c1" aria-hidden="true"></span><span class="canto c2" aria-hidden="true"></span><span class="canto c3" aria-hidden="true"></span><span class="canto c4" aria-hidden="true"></span>
         </div>
-        <!-- EDITAR: os 3 resultados que aparecem como notificação (os números contam sozinhos) -->
+        <!-- onda de áudio animada -->
+        <div class="onda" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <!-- EDITAR: os 3 resultados (os números contam sozinhos) -->
         <div class="notificacoes numeros">
-          <div class="notif"><span class="notif-icone"><svg viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-7"/><path d="M14 9h6v6"/></svg></span><p><small><span data-en="RESULTS">RESULTADO</span><i data-en="now">agora</i></small><b>+R$100 mil</b><span data-en="generated for brands">gerados pra marcas</span></p></div>
-          <div class="notif"><span class="notif-icone escuro"><svg viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><p><small><span data-en="REACH">ALCANCE</span><i data-en="2 min">2 min</i></small><b>4,6M views</b><span data-en="in campaigns">em campanhas</span></p></div>
-          <div class="notif"><span class="notif-icone branco"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><p><small><span data-en="BRANDS">MARCAS</span><i data-en="yesterday">ontem</i></small><b>+200 marcas</b><span data-en="already trusted me">já confiaram</span></p></div>
+          <div class="notif n1"><span class="notif-icone"><svg viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-7"/><path d="M14 9h6v6"/></svg></span><p><small data-en="RESULTS">RESULTADO</small><b>+R$100 mil</b><span data-en="generated for brands">gerados pra marcas</span></p></div>
+          <div class="notif n2"><span class="notif-icone"><svg viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><p><small data-en="REACH">ALCANCE</small><b>4,6M views</b><span data-en="in campaigns">em campanhas</span></p></div>
+          <div class="notif n3"><span class="notif-icone"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><p><small data-en="BRANDS">MARCAS</small><b>+200 marcas</b><span data-en="already trusted me">já confiaram</span></p></div>
         </div>
       </div>
     </div>
