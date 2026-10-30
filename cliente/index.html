@@ -91,17 +91,30 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--rosa);bo
 .tipo-modelos{margin-top:30px}
 .aviso-marcar{margin:18px 0 0;padding:16px 18px;border-radius:18px;background:#f7f4f0;font-size:14px;font-weight:600}
 .tipo-modelos h3{font-family:var(--sans);font-size:17px;font-weight:700;text-transform:none;letter-spacing:0}
-.modelos{display:grid;gap:14px;margin-top:14px}
-.modelo{position:relative;display:block;cursor:pointer}
-.modelo input{position:absolute;opacity:0;pointer-events:none}
-.modelo-cartao{display:block;padding:12px;border:2px solid var(--linha);border-radius:22px;background:#faf8f5;transition:border-color .2s,box-shadow .2s,transform .2s}
-.modelo:hover .modelo-cartao{transform:translateY(-2px)}
-.modelo input:checked + .modelo-cartao{border-color:var(--tinta);box-shadow:0 0 0 4px var(--rosa)}
-.modelo input:focus-visible + .modelo-cartao{outline:3px solid var(--ceu);outline-offset:2px}
-.modelo-nome{display:flex;align-items:center;justify-content:space-between;margin-top:12px;font-size:14px;font-weight:700}
-.modelo-nome small{display:block;font-size:12px;font-weight:500;color:var(--tinta-2)}
+/* filtros por categoria */
+.filtros{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.filtro{border:2px solid var(--tinta);border-radius:999px;background:#fff;padding:8px 14px;font:inherit;font-size:13px;font-weight:600;cursor:pointer;transition:background .15s,color .15s}
+.filtro.ativo{background:var(--tinta);color:#fff}
+/* galeria de modelos */
+.modelos{display:grid;gap:16px;margin-top:16px}
+.modelo{position:relative;padding:12px;border:2px solid var(--linha);border-radius:22px;background:#faf8f5;transition:border-color .2s,box-shadow .2s}
+.modelo:has(input:checked){border-color:var(--tinta);box-shadow:0 0 0 4px var(--rosa)}
+.modelo-num{position:absolute;top:22px;left:22px;z-index:1;padding:4px 9px;border-radius:8px;background:var(--tinta);color:#fff;font-family:var(--titulo);font-size:15px;font-weight:700}
+.modelo-img{display:block;height:210px;border-radius:14px;overflow:hidden;background:#fff}
+.modelo-img img{width:100%;height:100%;object-fit:cover;object-position:top}
+.modelo-img .mini{height:100%}
+.modelo-nome{display:block;margin-top:12px;font-size:15px;font-weight:700}
+.modelo-nome small{display:block;margin-top:2px;font-size:12px;font-weight:500;color:var(--tinta-2)}
+.modelo-acoes{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.modelo-acoes a,.escolher span{display:flex;align-items:center;justify-content:center;gap:6px;height:42px;border-radius:12px;font-size:13.5px;font-weight:700;text-decoration:none;cursor:pointer}
+.modelo-acoes a{border:2px solid var(--tinta);background:#fff}
+.modelo-acoes a.sem-link{opacity:.4;pointer-events:none}
+.escolher{position:relative;display:block}
+.escolher input{position:absolute;opacity:0;pointer-events:none}
+.escolher span{background:#d6338a;color:#fff}
+.escolher input:checked + span{background:var(--tinta)}
+.escolher input:focus-visible + span{outline:3px solid var(--ceu);outline-offset:2px}
 .marcado{width:24px;height:24px;border-radius:50%;border:2px solid #d8d2cb;display:grid;place-items:center;font-size:13px;color:transparent;flex:none}
-.modelo input:checked + .modelo-cartao .marcado,
 .opcao input:checked + .opcao-cartao .marcado{background:var(--tinta);border-color:var(--tinta);color:#fff}
 
 /* a miniatura de cada modelo */
