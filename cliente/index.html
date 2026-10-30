@@ -592,7 +592,7 @@ const TONS = [12, 24, 38, 52, 66, 80, 92];
 const caixaCores = document.getElementById("minhas-cores");
 const campoCores = document.getElementById("cores-escolhidas");
 const grade = document.getElementById("grade-cores");
-grade.innerHTML = FILEIRAS.map(([h, s]) => TONS.map(l => { const c = hex(h, s, l); return `<button type="button" class="bolinha" style="background:${c}" data-cor="${c}" aria-label="Cor ${c}"></button>`; }).join("")).join("");
+grade.innerHTML = TONS.map(l => FILEIRAS.map(([h, s]) => { const c = hex(h, s, l); return `<button type="button" class="bolinha" style="background:${c}" data-cor="${c}" aria-label="Cor ${c}"></button>`; }).join("")).join("");
 let escolhidas = [];
 function desenhaCores() {
   caixaCores.querySelectorAll(".minha-cor").forEach(e => e.remove());
