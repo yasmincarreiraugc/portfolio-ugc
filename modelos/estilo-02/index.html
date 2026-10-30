@@ -231,21 +231,19 @@ em{font-style:normal;color:var(--rosa-escuro);background:linear-gradient(transpa
 .servico-rosa-forte p{color:rgba(255,255,255,.9)}
 .servico-rosa-forte .quero i{background:#fff;color:var(--tinta)}
 
-/* ---------- depoimentos: bilhetes coloridos em carrossel ---------- */
-.frases{grid-auto-columns:calc((100% - 36px) / 3);padding:40px 6px 10px}
-.frase{margin:0;padding:50px 24px 22px;border:2px solid var(--tinta);border-radius:6px;background:var(--amarelo-claro);text-align:center;position:relative;display:flex;flex-direction:column;align-items:center;box-shadow:4px 4px 0 var(--tinta)}
-.frase:nth-child(4n+2){background:var(--rosa-claro)}
-.frase:nth-child(4n+3){background:#fde7d3}
-.frase:nth-child(4n){background:#ffe1dc}
-.logo-marca{position:absolute;top:-34px;left:50%;width:72px;height:72px;margin-left:-36px;border:2px solid var(--tinta);border-radius:50%;background:#fff;box-shadow:3px 3px 0 var(--tinta);display:grid;place-items:center;overflow:hidden;font-family:var(--titulo);font-size:14px;font-weight:600;color:var(--cinza)}
-.logo-marca img{width:72%;height:72%;object-fit:contain}
-.arroba{font-family:var(--titulo);font-size:19px;font-weight:700}
-.nota{margin-top:2px;font-size:14px;letter-spacing:3px;color:var(--vermelho)}
-.tipo{margin-top:4px;font-size:10.5px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--rosa)}
-.frase blockquote{margin:12px 0 18px;font-family:var(--mao);font-size:19px;line-height:1.35;color:var(--tinta)}
-.frase figcaption{margin-top:auto;padding-top:14px;width:100%;border-top:2px dashed rgba(42,29,36,.3);display:grid;gap:2px}
-.frase figcaption b{font-family:var(--titulo);font-size:26px;font-weight:700;line-height:1;color:var(--rosa-escuro)}
-.frase figcaption span{font-size:10.5px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--cinza)}
+/* ---------- depoimentos: caixas brancas e limpas, sem logo, passando para o lado ---------- */
+.depoimentos .quadro{background:#f2ece6}
+.frases{grid-auto-columns:31%;padding:8px 2px 12px}
+.frase{margin:0;min-height:290px;padding:24px 24px 22px;border-radius:24px;background:#fff;position:relative;display:flex;flex-direction:column;text-align:left;transition:transform .25s}
+.frase:first-child{background:#fdf7f2}
+.frase:hover{transform:translateY(-4px)}
+.arroba{font-family:var(--titulo);font-size:20px;font-weight:600}
+.tipo{margin-top:2px;font-size:13px;color:var(--cinza)}
+.frase blockquote{margin:22px 0 18px;font-size:15px;line-height:1.55;color:var(--tinta)}
+.frase figcaption{margin-top:auto;display:grid;gap:3px;padding-right:44px}
+.frase figcaption b{font-family:var(--titulo);font-size:24px;font-weight:600;line-height:1;color:var(--rosa-escuro)}
+.frase figcaption span{font-size:12px;color:var(--cinza)}
+.frase::after{content:"⟶";position:absolute;right:24px;bottom:18px;font-size:24px;line-height:1;color:var(--tinta)}
 .depoimentos .seta{margin-top:-3px}
 
 /* ---------- contato: caixa rosa com formulário + cartão das redes por cima ---------- */
@@ -321,8 +319,8 @@ em{font-style:normal;color:var(--rosa-escuro);background:linear-gradient(transpa
   .contato-area{grid-template-columns:1fr}
   .caixa-contato{margin-right:0;padding:26px 18px 62px;border-radius:22px}
   .encontre{grid-column:1;margin:-46px 10px 0}
-  .frases{grid-auto-columns:86%}
-  .frase{padding-left:38px;padding-right:38px}
+  .frases{grid-auto-columns:80%}
+  .frase{min-height:260px;padding-left:30px;padding-right:30px}
   .seta{width:38px;height:38px;margin-top:-19px;font-size:21px}
   .seta.ant{left:-8px}
   .seta.prox{right:-8px}
@@ -552,20 +550,20 @@ em{font-style:normal;color:var(--rosa-escuro);background:linear-gradient(transpa
         </div>
         <p class="intro" data-en="Feedback from brands that saw results with my content.">Feedback de marcas que viram resultado com o meu conteúdo.</p>
       </div>
-      <!-- EDITAR: um cartão por depoimento; para usar a logo: <span class="logo-marca"><img src="..." alt="..."></span> -->
+      <!-- EDITAR: um cartão por depoimento (@ da marca, tipo de trabalho, texto e resultado) -->
       <div class="carrossel surge">
         <button type="button" class="seta ant" aria-label="Depoimento anterior">‹</button>
         <div class="trilho frases">
-          <figure class="frase"><span class="logo-marca">Logo</span><b class="arroba">@marcaum</b><span class="nota" aria-label="5 estrelas">★★★★★</span><small class="tipo" data-en="Ads creative">Criativo para anúncio</small>
+          <figure class="frase"><b class="arroba">@marcaum</b><small class="tipo" data-en="Ads creative">Criativo para anúncio</small>
             <blockquote data-en="The video became our best ad of the month. Fast and very careful delivery.">O vídeo virou o nosso melhor anúncio do mês. Entrega rápida e muito cuidadosa.</blockquote>
             <figcaption><b>2,4M</b><span data-en="views · campaign">views · campanha</span></figcaption></figure>
-          <figure class="frase"><span class="logo-marca">Logo</span><b class="arroba">@marcadois</b><span class="nota" aria-label="5 estrelas">★★★★★</span><small class="tipo" data-en="Recurring content">Conteúdo recorrente</small>
+          <figure class="frase"><b class="arroba">@marcadois</b><small class="tipo" data-en="Recurring content">Conteúdo recorrente</small>
             <blockquote data-en="We've already booked 3 campaigns, and each one performed better than the last.">Já fechamos 3 campanhas, e cada uma performou melhor que a anterior.</blockquote>
             <figcaption><b>3+</b><span data-en="active campaigns">campanhas ativas</span></figcaption></figure>
-          <figure class="frase"><span class="logo-marca">Logo</span><b class="arroba">@marcatres</b><span class="nota" aria-label="5 estrelas">★★★★★</span><small class="tipo" data-en="E-commerce content">Conteúdo para e-commerce</small>
+          <figure class="frase"><b class="arroba">@marcatres</b><small class="tipo" data-en="E-commerce content">Conteúdo para e-commerce</small>
             <blockquote data-en="She understood the product better than we did. It looked like a real customer recommending it.">Ela entendeu o produto melhor que a gente. Parecia uma cliente real indicando.</blockquote>
             <figcaption><b>+300</b><span data-en="sales · e-commerce">vendas · e-commerce</span></figcaption></figure>
-          <figure class="frase"><span class="logo-marca">Logo</span><b class="arroba">@marcaquatro</b><span class="nota" aria-label="5 estrelas">★★★★★</span><small class="tipo" data-en="Sponsored post">Publi post</small>
+          <figure class="frase"><b class="arroba">@marcaquatro</b><small class="tipo" data-en="Sponsored post">Publi post</small>
             <blockquote data-en="Beautiful, careful content that sells. We'll definitely work together again.">Conteúdo lindo, cuidadoso e que vende. Com certeza vamos fechar de novo.</blockquote>
             <figcaption><b>890 mil</b><span data-en="views · Reels">views · Reels</span></figcaption></figure>
         </div>
