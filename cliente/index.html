@@ -586,7 +586,7 @@ const hex = (h, s, l) => {
   const f = n => Math.round(255 * (l - a * Math.max(-1, Math.min(k(n) - 3, 9 - k(n), 1))));
   return "#" + [f(0), f(8), f(4)].map(v => v.toString(16).padStart(2, "0")).join("");
 };
-// EDITAR: [matiz, saturação] de cada fileira
+// EDITAR: [matiz, saturação] de cada coluna
 const FILEIRAS = [[0, 0], [30, 25], [20, 45], [0, 75], [10, 85], [25, 90], [45, 95], [80, 55], [140, 45], [170, 55], [195, 75], [220, 80], [245, 75], [265, 70], [285, 60], [310, 65], [330, 75]];
 const TONS = [12, 24, 38, 52, 66, 80, 92];
 const caixaCores = document.getElementById("minhas-cores");
