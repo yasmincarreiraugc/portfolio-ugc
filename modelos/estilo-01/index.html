@@ -698,6 +698,33 @@ if (esteira) {
   esteira.querySelector(".prox").addEventListener("click", () => alvo = (alvo ?? pos) + passo());
 }
 
+// celular: setas dos destaques e dos nichos passam um vídeo para o lado
+document.querySelectorAll(".rolagem").forEach(r => {
+  const lista = r.querySelector(".destaques-lista, .galeria");
+  const passo = () => {
+    const item = [...lista.children].find(i => !i.hidden);
+    return item.getBoundingClientRect().width + parseFloat(getComputedStyle(lista).columnGap || 0);
+  };
+  r.querySelector(".ant").addEventListener("click", () => lista.scrollBy({ left: -passo(), behavior: "smooth" }));
+  r.querySelector(".prox").addEventListener("click", () => lista.scrollBy({ left: passo(), behavior: "smooth" }));
+});
+// celular: os destaques começam mostrando o vídeo do meio
+const listaDestaques = document.querySelector(".destaques-lista");
+if (matchMedia("(max-width:900px)").matches) {
+  const meio = listaDestaques.children[1];
+  listaDestaques.scrollLeft = meio.offsetLeft - (listaDestaques.clientWidth - meio.offsetWidth) / 2;
+}
+
+// barra de app: marca o atalho da parte que está na tela
+const PARTES = { sobre: "sobre", destaques: "trabalhos", nichos: "trabalhos", fotos: "trabalhos", servicos: "servicos", depoimentos: "servicos", contato: "contato" };
+const atalhos = document.querySelectorAll(".barra-app a");
+function marcaAtalho() {
+  let atual = "inicio";
+  Object.keys(PARTES).forEach(id => { if (document.getElementById(id).getBoundingClientRect().top < innerHeight * .45) atual = PARTES[id]; });
+  atalhos.forEach(a => a.classList.toggle("ativo", a.dataset.alvo === atual));
+}
+addEventListener("scroll", marcaAtalho, { passive: true });
+
 // formulário de contato: abre o WhatsApp da cliente com a mensagem já escrita
 // EDITAR: número com DDD (só números, com 55 na frente)
 const WHATSAPP = "5500000000000";
