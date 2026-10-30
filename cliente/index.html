@@ -383,12 +383,13 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--rosa);bo
         <!-- 6. fotos e vídeos -->
         <div class="etapa">
           <h3><em>6</em>Fotos e vídeos</h3>
-          <p class="dica" style="margin-top:8px">Pelo Google Drive (com acesso "Qualquer pessoa com o link") ou pelo YouTube, para manter a qualidade original.</p>
+          <p class="dica" style="margin-top:8px">Coloque tudo numa pasta só do Google Drive (fotos, vídeos, logos das marcas e prints dos depoimentos), com acesso "Qualquer pessoa com o link".</p>
           <div class="grade-campos">
-            <label class="campo"><span>Link da pasta do Drive com suas fotos <b class="obrigatorio">*</b></span><input type="url" name="Drive: fotos" required placeholder="https://drive.google.com/..."><small>Inclua a foto principal (a que vai na capa) e as fotos para o "sobre você".</small></label>
-            <label class="campo"><span>Link da pasta do Drive com seus vídeos</span><input type="url" name="Drive: vídeos" placeholder="https://drive.google.com/..."></label>
-            <label class="campo"><span>Links de vídeos no YouTube</span><textarea name="Vídeos no YouTube" placeholder="Um link por linha. Se quiser, coloque ao lado a marca e o tipo de vídeo."></textarea></label>
-            <label class="campo"><span>Qual foto vai na capa?</span><input type="text" name="Foto da capa" placeholder="Ex.: a foto 'capa.jpg' da pasta, ou descreva"></label>
+            <label class="campo"><span>Link da pasta do Drive <b class="obrigatorio">*</b></span><input type="url" name="Link do Drive" required placeholder="https://drive.google.com/..."></label>
+          </div>
+          <div class="grade-campos duas">
+            <label class="campo"><span>Qual foto vai na capa?</span><input type="text" name="Foto da capa" placeholder="Ex.: o nome do arquivo, ou descreva a foto"></label>
+            <label class="campo"><span>Qual foto vai no "sobre mim"?</span><input type="text" name="Foto do sobre mim" placeholder="Ex.: o nome do arquivo, ou descreva a foto"></label>
           </div>
         </div>
 
