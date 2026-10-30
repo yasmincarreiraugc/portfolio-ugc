@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Modelo 02 · Scrapbook verde e amarelo | Yasmin Carreira</title>
+<meta name="description" content="Modelo de portfólio UGC criado por Yasmin Carreira.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#fdf6e3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito+Sans:wght@400;600;700;800;900&family=Gochi+Hand&display=swap" rel="stylesheet">
+<style>
+/* EDITAR: cores e fontes do modelo (scrapbook verde e amarelo) */
+:root{
+  --creme:#fdf6e3;
+  --papel:#fffbf1;
+  --verde:#1b8a46;
+  --verde-escuro:#0e4f2a;
+  --verde-claro:#dcf1e2;
+  --amarelo:#ffd23f;
+  --amarelo-claro:#fff3b8;
+  --azul:#2a4bd0;
+  --vermelho:#e8483b;
+  --tinta:#1d2a22;
+  --cinza:#55625a;
+  --linha:#1d2a22;
+  --sombra:4px 4px 0 var(--tinta);
+  --titulo:"Fredoka","Arial Rounded MT Bold",system-ui,sans-serif;
+  --sans:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mao:"Gochi Hand","Comic Sans MS",cursive;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px;-webkit-text-size-adjust:100%;overflow-x:clip}
+/* fundo de papel quadriculado */
+body{margin:0;background-color:var(--creme);background-image:linear-gradient(rgba(29,42,34,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,42,34,.055) 1px,transparent 1px);background-size:28px 28px;color:var(--tinta);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+[hidden]{display:none!important}
+h1,h2,h3{font-family:var(--titulo);font-weight:700;line-height:1.02;margin:0;letter-spacing:-.01em}
+/* palavra de destaque: marca-texto amarelo */
+em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 58%,var(--amarelo) 58%,var(--amarelo) 92%,transparent 92%);padding:0 .08em}
+.largura{width:min(1080px,100% - 48px);margin:0 auto}
+.secao{padding:56px 0;border-top:2px dashed rgba(29,42,34,.18)}
+/* etiqueta de cada parte: adesivo verde */
+.olho{display:inline-flex;align-items:center;margin:0 0 14px;padding:6px 14px;border:2px solid var(--tinta);border-radius:999px;background:var(--verde);color:var(--amarelo);font-family:var(--titulo);font-size:14px;font-weight:600;letter-spacing:.02em;box-shadow:3px 3px 0 var(--tinta);rotate:-2deg}
+.secao h2{font-size:clamp(34px,4.2vw,52px)}
+.intro{max-width:440px;margin:12px 0 0;font-size:14.5px;color:var(--cinza)}
+.cabeca{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:34px}
+
+/* botões com sombra "dura" */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border:2px solid var(--tinta);border-radius:999px;font-weight:800;font-size:14px;box-shadow:var(--sombra);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--tinta)}
+.btn-azul{background:var(--amarelo);color:var(--tinta)}
+.btn-linha{background:#fff}
+
+/* foto provisória (a cliente troca pela foto dela) */
+.foto{position:relative;overflow:hidden;background:linear-gradient(160deg,#9bd3ae,#2f8f57 55%,#1d4fa8)}
+.foto::after{content:attr(data-texto);position:absolute;left:12px;bottom:10px;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+.foto img{width:100%;height:100%;object-fit:cover}
+/* moldura de polaroid com fita adesiva */
+.polaroid{position:relative;background:#fff;padding:10px 10px 46px;border:2px solid var(--tinta);border-radius:6px;box-shadow:6px 6px 0 var(--tinta)}
+.polaroid::before{content:"";position:absolute;z-index:2;top:-14px;left:50%;width:110px;height:28px;margin-left:-55px;background:rgba(255,210,63,.75);border-left:2px dashed rgba(29,42,34,.15);border-right:2px dashed rgba(29,42,34,.15);rotate:-3deg}
+.polaroid .legenda{position:absolute;left:0;right:0;bottom:10px;text-align:center;font-family:var(--mao);font-size:20px;color:var(--tinta)}
+
+/* ---------- topo ---------- */
+.topo{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);border-bottom:2px solid var(--tinta)}
+.topo .largura{display:flex;align-items:center;justify-content:space-between;gap:20px;height:62px}
+.marca{display:flex;align-items:center;gap:8px;font-family:var(--titulo);font-size:22px;font-weight:700;line-height:1}
+.marca::before{content:"UGC";padding:5px 7px;border:2px solid var(--tinta);border-radius:8px;background:var(--vermelho);color:#fff;font-size:11px;letter-spacing:.06em;box-shadow:2px 2px 0 var(--tinta);rotate:-6deg}
+.marca i{font-style:normal;color:var(--verde)}
+.menu{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:800}
+.menu > a,.menu-trabalhos > a{position:relative;padding:8px 0}
+.menu > a::after,.menu-trabalhos > a::after{content:"";position:absolute;left:0;right:100%;bottom:2px;height:3px;border-radius:2px;background:var(--amarelo);transition:right .25s}
+.menu > a:hover::after,.menu-trabalhos:hover > a::after{right:0}
+/* submenu de "Trabalhos" */
+.menu-trabalhos{position:relative;margin-right:12px}
+.menu-trabalhos > a::before{content:"▾";position:absolute;right:-13px;top:9px;font-size:10px}
+.submenu{position:absolute;top:100%;left:-16px;min-width:170px;padding:8px;border:2px solid var(--tinta);border-radius:16px;background:#fff;box-shadow:var(--sombra);display:grid;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .2s,transform .2s,visibility .2s}
+.menu-trabalhos:hover .submenu,.menu-trabalhos:focus-within .submenu{opacity:1;visibility:visible;transform:none}
+.submenu a{padding:9px 12px;border-radius:10px}
+.submenu a:hover{background:var(--amarelo-claro)}
+.direita{display:flex;align-items:center;gap:10px}
+/* PT | EN */
+.idiomas{display:flex;padding:3px;border:2px solid var(--tinta);border-radius:999px;background:#fff;box-shadow:2px 2px 0 var(--tinta)}
+.idiomas button{border:0;background:none;padding:5px 11px;border-radius:999px;font:inherit;font-size:12px;font-weight:900;letter-spacing:.06em;color:var(--tinta);cursor:pointer}
+.idiomas button.ativo{background:var(--verde);color:#fff}
+.abrir-menu{display:none;width:40px;height:40px;border:2px solid var(--tinta);border-radius:50%;background:var(--amarelo);cursor:pointer;place-items:center;box-shadow:2px 2px 0 var(--tinta)}
+.abrir-menu span,.abrir-menu span::before{display:block;width:16px;height:2px;background:var(--tinta);position:relative}
+.abrir-menu span::before{content:"";position:absolute;top:5px}
+
+/* ---------- capa ---------- */
+.capa{padding:40px 0 44px}
+.capa .largura{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center}
+.edicao{display:inline-block;margin:0 0 20px;padding:6px 16px;border:2px solid var(--tinta);border-radius:999px;background:var(--azul);color:#fff;font-family:var(--mao);font-size:19px;box-shadow:3px 3px 0 var(--tinta);rotate:-3deg}
+.capa h1{font-size:clamp(42px,5.4vw,70px);color:var(--verde-escuro)}
+.capa p.apresenta{max-width:440px;margin:20px 0 0;font-size:16px;color:var(--cinza)}
+.capa .botoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.capa-foto{position:relative;max-width:330px;width:100%;justify-self:end;rotate:2deg}
+.capa-foto .foto{aspect-ratio:4/5;border-radius:2px}
+/* caixinhas flutuando ao lado da foto (resultado e depoimento): bilhetes */
+.caixinha{position:absolute;z-index:3;display:grid;gap:2px;max-width:220px;margin:0;padding:11px 14px;border:2px solid var(--tinta);border-radius:12px;background:var(--amarelo-claro);box-shadow:3px 3px 0 var(--tinta);font-size:12.5px;line-height:1.35;animation:flutua 4.5s ease-in-out infinite}
+.caixinha b{font-weight:900}
+.caixinha span{color:var(--verde-escuro);font-weight:700}
+.caixinha.um{top:30%;right:-60px;rotate:3deg}
+.caixinha.dois{bottom:66px;left:-78px;rotate:-4deg;background:var(--verde-claro);animation-delay:-2.2s}
+@keyframes flutua{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.numeros{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.numeros div{padding:8px 16px;border:2px solid var(--tinta);border-radius:14px;background:#fff;box-shadow:3px 3px 0 var(--tinta)}
+.numeros div:nth-child(2){background:var(--amarelo-claro)}
+.numeros div:nth-child(3){background:var(--verde-claro)}
+.numeros b{display:block;font-family:var(--titulo);font-size:28px;font-weight:700;line-height:1.1;color:var(--verde-escuro)}
+.numeros span{font-size:12px;font-weight:700;color:var(--cinza)}
+
+/* ---------- marcas: faixa verde e marcas rolando em bolinhas ---------- */
+.marcas{padding:0 0 30px}
+.marcas::before{content:"✦ UGC orgânico ✦ Criativos para anúncio ✦ Roteiros ✦ Fotos de produto ✦ Publi ✦ UGC orgânico ✦ Criativos para anúncio ✦ Roteiros ✦ Fotos de produto ✦ Publi";display:block;margin:0 0 26px;padding:12px 0;border-top:2px solid var(--tinta);border-bottom:2px solid var(--tinta);background:var(--verde);color:var(--amarelo);font-family:var(--titulo);font-size:16px;font-weight:600;white-space:nowrap;overflow:hidden;text-align:center}
+.marcas-titulo{display:flex;align-items:center;justify-content:center;gap:16px;margin:0 auto 18px;width:min(1080px,100% - 32px);font-family:var(--mao);font-size:22px;color:var(--tinta);text-align:center}
+.marcas-titulo::before,.marcas-titulo::after{content:"";flex:0 1 70px;height:2px;background:var(--tinta)}
+.marcas-janela{overflow:hidden;padding:4px 0 8px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.marcas-trilho{display:flex;gap:18px;width:max-content;padding:4px 18px 4px 0;animation:correr 36s linear infinite}
+.marcas-janela:hover .marcas-trilho{animation-play-state:paused}
+.marca-bola{flex:none;width:92px;height:92px;border-radius:50%;display:grid;place-items:center;background:#fff;border:2px solid var(--tinta);box-shadow:3px 3px 0 var(--tinta);font-family:var(--titulo);font-size:15px;font-weight:600;text-align:center;line-height:1}
+.marca-bola:nth-child(3n+2){background:var(--amarelo-claro)}
+.marca-bola:nth-child(3n){background:var(--verde-claro)}
+.marca-bola img{width:70%;height:70%;object-fit:contain}
+@keyframes correr{to{transform:translateX(-50%)}}
+
+/* ---------- sobre ---------- */
+.sobre .largura{display:grid;grid-template-columns:.75fr 1.25fr;gap:56px;align-items:start}
+.sobre .polaroid{max-width:340px;rotate:-2deg}
+.sobre .foto{aspect-ratio:3/4}
+.sobre-texto p{margin:16px 0 0;font-size:15px;color:var(--cinza)}
+.sobre-texto p:first-of-type{font-family:var(--mao);font-size:26px;line-height:1.25;color:var(--verde-escuro)}
+.etiquetas{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;padding:0;list-style:none}
+.etiquetas li{padding:7px 14px;border:2px solid var(--tinta);border-radius:999px;background:var(--amarelo);font-size:13px;font-weight:800;box-shadow:2px 2px 0 var(--tinta)}
+.etiquetas li:nth-child(2){background:var(--verde-claro);rotate:2deg}
+.etiquetas li:nth-child(3){background:#fff;rotate:-2deg}
+
+/* ---------- vídeos (destaques e nichos) ---------- */
+.videos{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.video{position:relative;display:block;aspect-ratio:9/16;border:2px solid var(--tinta);border-radius:16px;overflow:hidden;color:#fff;background:linear-gradient(170deg,var(--c1,#2f8f57),var(--c2,#0e4f2a));box-shadow:var(--sombra)}
+.video::before{content:"";position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(0,0,0,.5))}
+.play{position:absolute;top:50%;left:50%;width:52px;height:52px;margin:-26px 0 0 -26px;border:2px solid var(--tinta);border-radius:50%;background:#fff;display:grid;place-items:center;transition:transform .25s}
+.play::after{content:"";margin-left:4px;border-left:14px solid var(--verde);border-top:9px solid transparent;border-bottom:9px solid transparent}
+.video:hover .play{transform:scale(1.1)}
+.resultado{position:absolute;z-index:1;top:12px;left:12px;padding:5px 11px;border:2px solid var(--tinta);border-radius:999px;background:var(--amarelo);color:var(--tinta);font-size:11.5px;font-weight:900}
+.video-legenda{position:absolute;left:14px;right:14px;bottom:14px;z-index:1}
+.video-legenda b{display:block;font-family:var(--titulo);font-size:20px;font-weight:600;line-height:1.05}
+.video-legenda span{font-size:12px;opacity:.9}
+/* destaques: 3 cartões centralizados, o do meio maior e mais alto, flutuando de leve */
+.cabeca.centro{display:block;text-align:center}
+.cabeca.centro .olho{justify-content:center}
+.destaques-lista{display:grid;grid-template-columns:1fr 1.22fr 1fr;gap:22px;align-items:start;max-width:880px;margin:0 auto}
+.destaque{display:block;animation:flutua 5s ease-in-out infinite}
+.destaque:nth-child(1),.destaque:nth-child(3){margin-top:34px}
+.destaque:nth-child(1){rotate:-2deg}
+.destaque:nth-child(2){animation-delay:-1.7s}
+.destaque:nth-child(3){rotate:2deg;animation-delay:-3.4s}
+.destaque .video{aspect-ratio:4/5}
+.destaque-legenda{display:block;margin-top:12px;font-size:12.5px;line-height:1.45;color:var(--cinza)}
+.destaque-legenda b{display:block;font-family:var(--titulo);font-size:17px;font-weight:600;color:var(--tinta)}
+.filtros{display:flex;flex-wrap:wrap;gap:8px}
+.filtro{padding:8px 15px;border:2px solid var(--tinta);border-radius:999px;background:#fff;font:inherit;font-size:13px;font-weight:800;color:var(--tinta);cursor:pointer;box-shadow:2px 2px 0 var(--tinta)}
+.filtro.ativo{background:var(--verde);color:#fff}
+.galeria{grid-template-columns:repeat(4,1fr);gap:16px}
+.galeria .video-legenda b{font-size:18px}
+
+/* carrossel (depoimentos): passa para o lado, com setas */
+.carrossel{position:relative}
+.trilho{display:grid;grid-auto-flow:column;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none}
+.trilho::-webkit-scrollbar{display:none}
+.trilho > *{scroll-snap-align:start}
+.seta{position:absolute;top:50%;z-index:3;width:44px;height:44px;margin-top:-22px;border:2px solid var(--tinta);border-radius:50%;background:var(--amarelo);box-shadow:3px 3px 0 var(--tinta);font:inherit;font-size:24px;font-weight:900;line-height:1;color:var(--tinta);cursor:pointer;display:grid;place-items:center;padding-bottom:3px;transition:transform .2s}
+.seta:hover{transform:scale(1.08)}
+.seta.ant{left:-22px}
+.seta.prox{right:-22px}
+
+/* esteira: fotos em polaroid de ponta a ponta, passando devagar para a esquerda */
+.esteira{position:relative;overflow:hidden;padding:16px 0 22px}
+.fita{display:flex;gap:22px;width:max-content;padding-right:22px;will-change:transform}
+.fita .foto{flex:none;width:250px;aspect-ratio:4/5;border:8px solid #fff;border-bottom-width:34px;border-radius:4px;outline:2px solid var(--tinta);box-shadow:5px 5px 0 var(--tinta)}
+.fita .foto:nth-child(odd){rotate:-2deg}
+.fita .foto:nth-child(even){rotate:2deg;background:linear-gradient(160deg,#ffe58a,#f0a93b 55%,#2f8f57)}
+.esteira .seta.ant{left:16px}
+.esteira .seta.prox{right:16px}
+/* nichos: filtros embaixo do título */
+.cabeca.empilhada{display:block}
+.cabeca.empilhada .filtros{margin-top:18px}
+/* quadro branco perto das bordas (destaques e depoimentos) */
+.secao.com-quadro{padding:16px 0;border-top:0}
+.quadro{margin:0 14px;padding:48px 0;border:2px solid var(--tinta);border-radius:28px;background:#fff;box-shadow:6px 6px 0 var(--verde-escuro)}
+
+/* ---------- serviços em caixas ---------- */
+.servicos{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch}
+.servico{position:relative;display:flex;flex-direction:column;padding:28px 22px 22px;border:2px solid var(--tinta);border-radius:20px;background:var(--papel);box-shadow:var(--sombra);transition:transform .2s,box-shadow .2s}
+.servico:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--tinta)}
+.servico svg{width:44px;height:44px;padding:9px;border:2px solid var(--tinta);border-radius:12px;background:var(--amarelo);fill:none;stroke:var(--tinta);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;box-shadow:2px 2px 0 var(--tinta)}
+.servico h3{margin-top:18px;font-size:22px}
+.servico p{margin:10px 0 0;font-size:14px;color:var(--cinza)}
+.servico ul{margin:16px 0 22px;padding:0;list-style:none;display:grid;gap:6px;font-size:13.5px;font-weight:700;color:var(--verde)}
+.servico li::before{content:"✓";margin-right:8px}
+.quero{margin-top:auto;padding:11px;border:2px solid var(--tinta);border-radius:999px;background:#fff;text-align:center;font-size:14px;font-weight:800;box-shadow:2px 2px 0 var(--tinta);transition:background .2s}
+.quero:hover{background:var(--amarelo)}
+.destaque-servico{background:var(--verde);color:#fff}
+.destaque-servico p{color:rgba(255,255,255,.85)}
+.destaque-servico ul{color:var(--amarelo)}
+.destaque-servico .quero{background:var(--amarelo);color:var(--tinta)}
+.etiqueta{position:absolute;top:-14px;right:16px;padding:5px 12px;border:2px solid var(--tinta);border-radius:999px;background:var(--vermelho);color:#fff;font-size:11px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;box-shadow:2px 2px 0 var(--tinta);rotate:4deg}
+
+/* ---------- depoimentos: bilhetes coloridos em carrossel ---------- */
+.frases{grid-auto-columns:calc((100% - 36px) / 3);padding:40px 6px 10px}
+.frase{margin:0;padding:50px 24px 22px;border:2px solid var(--tinta);border-radius:6px;background:var(--amarelo-claro);text-align:center;position:relative;display:flex;flex-direction:column;align-items:center;box-shadow:4px 4px 0 var(--tinta)}
+.frase:nth-child(4n+2){background:var(--verde-claro)}
+.frase:nth-child(4n+3){background:#e3e8ff}
+.frase:nth-child(4n){background:#ffe1dc}
+.logo-marca{position:absolute;top:-34px;left:50%;width:72px;height:72px;margin-left:-36px;border:2px solid var(--tinta);border-radius:50%;background:#fff;box-shadow:3px 3px 0 var(--tinta);display:grid;place-items:center;overflow:hidden;font-family:var(--titulo);font-size:14px;font-weight:600;color:var(--cinza)}
+.logo-marca img{width:72%;height:72%;object-fit:contain}
+.arroba{font-family:var(--titulo);font-size:19px;font-weight:700}
+.nota{margin-top:2px;font-size:14px;letter-spacing:3px;color:var(--vermelho)}
+.tipo{margin-top:4px;font-size:10.5px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--verde)}
+.frase blockquote{margin:12px 0 18px;font-family:var(--mao);font-size:19px;line-height:1.35;color:var(--tinta)}
+.frase figcaption{margin-top:auto;padding-top:14px;width:100%;border-top:2px dashed rgba(29,42,34,.3);display:grid;gap:2px}
+.frase figcaption b{font-family:var(--titulo);font-size:26px;font-weight:700;line-height:1;color:var(--verde-escuro)}
+.frase figcaption span{font-size:10.5px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--cinza)}
+.depoimentos .seta{margin-top:-3px}
+
+/* ---------- contato: caixa verde com formulário + cartão das redes por cima ---------- */
+.contato-area{position:relative;display:grid;grid-template-columns:1fr 310px;align-items:center;max-width:900px}
+.caixa-contato{grid-column:1 / 2;display:grid;gap:9px;margin-right:-90px;padding:32px 126px 32px 32px;border:2px solid var(--tinta);border-radius:24px;background:var(--verde);color:#fff;box-shadow:6px 6px 0 var(--tinta)}
+.caixa-contato h2{font-size:clamp(30px,3.4vw,42px)}
+.caixa-contato h2 em{color:var(--tinta)}
+.caixa-contato p{margin:2px 0 8px;font-size:13.5px;color:rgba(255,255,255,.9)}
+.caixa-contato input,.caixa-contato textarea{width:100%;padding:10px 14px;border:2px solid var(--tinta);border-radius:12px;background:#fff;font:inherit;font-size:13.5px;color:var(--tinta);outline:none;transition:box-shadow .2s}
+.caixa-contato textarea{min-height:76px;resize:vertical}
+.caixa-contato ::placeholder{color:#8a948e}
+.caixa-contato input:focus,.caixa-contato textarea:focus{box-shadow:3px 3px 0 var(--amarelo)}
+.caixa-contato button{margin-top:4px;padding:12px;border:2px solid var(--tinta);border-radius:999px;background:var(--amarelo);font:inherit;font-size:14px;font-weight:900;color:var(--tinta);cursor:pointer;box-shadow:3px 3px 0 var(--tinta);transition:transform .15s}
+.caixa-contato button:hover{transform:translate(-2px,-2px)}
+.encontre{position:relative;z-index:1;grid-column:2 / 3;display:grid;gap:9px;padding:20px 18px;border:2px solid var(--tinta);border-radius:20px;background:var(--papel);box-shadow:6px 6px 0 var(--tinta);rotate:1.5deg}
+.encontre h3{margin-bottom:2px;font-size:23px}
+.rede{display:flex;align-items:center;gap:10px;padding:8px 10px;border:2px solid var(--tinta);border-radius:14px;background:#fff;transition:background .2s}
+.rede:hover{background:var(--amarelo-claro)}
+.rede-icone{flex:none;width:36px;height:36px;border:2px solid var(--tinta);border-radius:10px;background:var(--amarelo);display:grid;place-items:center}
+.rede-icone svg{width:18px;height:18px;fill:none;stroke:var(--tinta);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.rede-texto{flex:1;min-width:0;display:grid}
+.rede-texto b{font-size:13.5px;font-weight:900}
+.rede-texto small{font-size:12px;color:var(--cinza);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rede i{flex:none;width:26px;height:26px;border:2px solid var(--tinta);border-radius:50%;background:var(--verde-claro);display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:900}
+.rodape{margin-top:20px;padding:24px 0 34px;border-top:2px solid var(--tinta);background:var(--verde-escuro);font-size:12.5px;color:var(--creme)}
+.rodape .largura{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.rodape nav{display:flex;gap:20px;font-weight:800;color:var(--amarelo)}
+
+/* animação ao rolar */
+.surge{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s}
+.surge.visto{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.surge{opacity:1;transform:none}.marcas-trilho,.caixinha,.destaque{animation:none}}
+
+/* ---------- celular ---------- */
+@media (max-width:900px){
+  .largura{width:min(100% - 32px,1080px)}
+  .secao{padding:42px 0}
+  .menu{position:absolute;top:62px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:6px 16px 16px;background:#fff;border-bottom:2px solid var(--tinta);display:none}
+  .menu.aberto{display:flex}
+  .menu > a,.menu-trabalhos > a{display:block;padding:12px 0;font-size:16px;border-bottom:1px dashed rgba(29,42,34,.25)}
+  .menu > a::after,.menu-trabalhos > a::after,.menu-trabalhos > a::before{display:none}
+  .submenu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;background:none;padding:0 0 0 14px;min-width:0}
+  .submenu a{padding:10px 0;border-radius:0;border-bottom:1px dashed rgba(29,42,34,.25);font-size:15px;color:var(--cinza)}
+  .abrir-menu{display:grid}
+  .marca{font-size:19px}
+  /* capa: a foto vai para depois das marcas, para as marcas aparecerem logo */
+  .capa{padding:24px 0 28px}
+  .capa .largura{grid-template-columns:1fr;gap:0}
+  .capa .capa-foto{display:none}
+  .capa h1{font-size:42px}
+  .capa p.apresenta{font-size:14.5px;margin-top:14px}
+  .capa .botoes{margin-top:18px}
+  .numeros{margin-top:22px;gap:8px}
+  .numeros div{padding:6px 12px}
+  .numeros b{font-size:23px}
+  .capa-foto-celular .capa-foto{margin:0 auto;max-width:280px}
+  .caixinha{max-width:180px;padding:9px 12px;font-size:11.5px}
+  .caixinha.um{right:-10px;top:26%}
+  .caixinha.dois{left:-10px;bottom:60px}
+  .sobre .largura{grid-template-columns:1fr;gap:30px}
+  .sobre .polaroid{max-width:300px;margin:0 auto}
+  .destaques-lista{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:70%;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 8px 16px}
+  .destaque{scroll-snap-align:start}
+  .destaque:nth-child(1),.destaque:nth-child(3){margin-top:0}
+  .videos{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:68%;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 6px 12px}
+  .video{scroll-snap-align:start}
+  .galeria{grid-auto-columns:52%}
+  .fita .foto{width:190px}
+  .quadro{margin:0 8px;padding:34px 0;border-radius:22px;box-shadow:4px 4px 0 var(--verde-escuro)}
+  .quadro .largura{width:calc(100% - 32px)}
+  .contato-area{grid-template-columns:1fr}
+  .caixa-contato{margin-right:0;padding:26px 18px 62px;border-radius:22px}
+  .encontre{grid-column:1;margin:-46px 10px 0}
+  .frases{grid-auto-columns:86%}
+  .frase{padding-left:38px;padding-right:38px}
+  .seta{width:38px;height:38px;margin-top:-19px;font-size:21px}
+  .seta.ant{left:-8px}
+  .seta.prox{right:-8px}
+  .servicos{grid-template-columns:1fr;gap:20px}
+  .capa-foto-celular{display:block;padding:10px 0 44px}
+  .marcas::before{font-size:14px;padding:10px 0}
+  .marcas-titulo{font-size:19px;gap:10px;white-space:nowrap}
+  .marcas-titulo::before,.marcas-titulo::after{flex-basis:28px}
+  .marca-bola{width:74px;height:74px;font-size:13px}
+  .marcas-trilho{gap:12px;padding-right:12px}
+}
+@media (min-width:901px){.capa-foto-celular{display:none}}
+</style>
+</head>
+<body>
+<!-- EDITAR: troque "Seu Nome" pelo nome da cliente em todo o arquivo.
+     Textos em inglês: ficam no atributo data-en de cada elemento. -->
+<header class="topo">
+  <div class="largura">
+    <a class="marca" href="#">Seu <i>Nome</i></a>
+    <nav class="menu" id="menu" aria-label="Menu">
+      <a href="#sobre" data-en="About">Sobre</a>
+      <div class="menu-trabalhos">
+        <a href="#destaques" data-en="Work">Trabalhos</a>
+        <div class="submenu">
+          <a href="#destaques" data-en="Highlights">Destaques</a>
+          <a href="#nichos" data-en="Niches">Nichos</a>
+          <a href="#fotos" data-en="Photos">Fotos</a>
+        </div>
+      </div>
+      <a href="#servicos" data-en="Services">Serviços</a>
+      <a href="#depoimentos" data-en="Testimonials">Depoimentos</a>
+      <a href="#contato" data-en="Contact">Contato</a>
+    </nav>
+    <div class="direita">
+      <div class="idiomas" role="group" aria-label="Idioma">
+        <button type="button" data-idioma="pt" class="ativo">PT</button>
+        <button type="button" data-idioma="en">EN</button>
+      </div>
+      <button class="abrir-menu" id="abrir-menu" aria-label="Abrir menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- capa -->
+  <section class="capa">
+    <div class="largura">
+      <div>
+        <p class="edicao"><span data-en="UGC Portfolio · 2026">Portfólio UGC · 2026</span></p>
+        <h1 data-en="Videos that <em>sell</em> without looking like ads.">Vídeos que <em>vendem</em> sem parecer anúncio.</h1>
+        <p class="apresenta" data-en="I'm Seu Nome, a UGC creator for beauty, home and wellness brands. Real content that feels like a friend's recommendation.">Sou Seu Nome, criadora de conteúdo UGC para marcas de beleza, casa e bem-estar. Conteúdo real, com cara de recomendação de amiga.</p>
+        <div class="botoes">
+          <a class="btn btn-azul" href="#contato" data-en="I want to create with Seu Nome →">Quero criar com Seu Nome →</a>
+          <a class="btn btn-linha" href="#destaques" data-en="See my work">Ver trabalhos</a>
+        </div>
+        <div class="numeros">
+          <div><b>+120</b><span data-en="videos delivered">vídeos entregues</span></div>
+          <div><b>+40</b><span data-en="brands served">marcas atendidas</span></div>
+          <div><b>2,4M</b><span data-en="total views">views somadas</span></div>
+        </div>
+      </div>
+      <div class="capa-foto">
+        <div class="foto" data-texto="Foto da capa"></div>
+        <!-- EDITAR: resultado e depoimento que aparecem ao lado da foto -->
+        <p class="caixinha um"><b data-en="Results for Brand X">Resultado da Marca X</b><span data-en="+2.4M views in 7 days">+2,4M de views em 7 dias</span></p>
+        <p class="caixinha dois"><b data-en="Testimonial from Brand X">Depoimento da Marca X</b><span data-en="“The video turned out SO beautiful!”">“O vídeo ficou LINDO demais!”</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- marcas -->
+  <section class="marcas">
+    <p class="marcas-titulo" data-en="Brands that trust my work">Marcas que confiam no meu trabalho</p>
+    <!-- EDITAR: uma bolinha por marca; para usar a logo: <span class="marca-bola"><img src="..." alt="Nome da marca"></span> -->
+    <div class="marcas-janela">
+      <div class="marcas-trilho" id="faixa">
+        <span class="marca-bola">Marca 1</span><span class="marca-bola">Marca 2</span><span class="marca-bola">Marca 3</span><span class="marca-bola">Marca 4</span><span class="marca-bola">Marca 5</span><span class="marca-bola">Marca 6</span><span class="marca-bola">Marca 7</span><span class="marca-bola">Marca 8</span><span class="marca-bola">Marca 9</span><span class="marca-bola">Marca 10</span>
+      </div>
+    </div>
+  </section>
+  <!-- no celular, a foto da capa aparece aqui, depois das marcas -->
+  <div class="capa-foto-celular largura"><div class="capa-foto">
+    <div class="foto" data-texto="Foto da capa"></div>
+    <p class="caixinha um"><b data-en="Results for Brand X">Resultado da Marca X</b><span data-en="+2.4M views in 7 days">+2,4M de views em 7 dias</span></p>
+    <p class="caixinha dois"><b data-en="Testimonial from Brand X">Depoimento da Marca X</b><span data-en="“The video turned out SO beautiful!”">“O vídeo ficou LINDO demais!”</span></p>
+  </div></div>
+
+  <!-- sobre -->
+  <section class="secao sobre" id="sobre">
+    <div class="largura">
+      <div class="foto surge" data-texto="Foto do sobre mim"></div>
+      <div class="sobre-texto surge">
+        <p class="olho"><b data-en="About me">Sobre mim</b></p>
+        <h2 data-en="Hi, I'm <em>Seu Nome.</em>">Prazer, <em>Seu Nome.</em></h2>
+        <p data-en="I turn products into stories that make people stop scrolling.">Eu transformo produtos em histórias que fazem as pessoas pararem de rolar a tela.</p>
+        <p data-en="This is where the client's text goes: who she is, where she's from, how long she's been creating content and what she loves to film. Two or three sentences, in her own voice.">Aqui entra o texto da cliente: quem ela é, de onde vem, há quanto tempo cria conteúdo e o que mais gosta de gravar. Duas ou três frases, bem do jeito dela.</p>
+        <ul class="etiquetas">
+          <li data-en="Strength 1">Diferencial 1</li><li data-en="Strength 2">Diferencial 2</li><li data-en="Strength 3">Diferencial 3</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- destaques -->
+  <section class="secao com-quadro" id="destaques">
+    <div class="quadro"><div class="largura">
+      <div class="cabeca centro surge">
+        <p class="olho"><b data-en="Highlights">Destaques</b></p>
+        <h2 data-en="Best <em>results</em>">Melhores <em>resultados</em></h2>
+      </div>
+      <!-- EDITAR: os 3 vídeos de destaque (o do meio fica maior) -->
+      <div class="destaques-lista surge">
+        <a class="destaque" href="#"><span class="video" style="--c1:#c9a27a;--c2:#3b2c22"><span class="resultado" data-en="+300 sales">+300 vendas</span><span class="play"></span></span>
+          <span class="destaque-legenda"><b data-en="New home unboxing">Unboxing da casa nova</b><span data-en="Brand Two · TikTok. The video that sold the most.">Marca Dois · TikTok. O vídeo que mais vendeu.</span></span></a>
+        <a class="destaque" href="#"><span class="video" style="--c1:#3d55e0;--c2:#15172a"><span class="resultado">2,4M views</span><span class="play"></span></span>
+          <span class="destaque-legenda"><b data-en="Skincare routine">Rotina de skincare</b><span data-en="Brand One · Reels. Went viral in one week.">Marca Um · Reels. Viralizou em uma semana.</span></span></a>
+        <a class="destaque" href="#"><span class="video" style="--c1:#8fa1ff;--c2:#2340d9"><span class="resultado" data-en="890K views">890 mil views</span><span class="play"></span></span>
+          <span class="destaque-legenda"><b data-en="1-minute recipe">Receita em 1 minuto</b><span data-en="Brand Three · Reels. The most saved one.">Marca Três · Reels. O mais salvo.</span></span></a>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- nichos com filtros -->
+  <section class="secao" id="nichos">
+    <div class="largura">
+      <div class="cabeca empilhada surge">
+        <div>
+          <p class="olho"><b data-en="Niches">Nichos</b></p>
+          <h2 data-en="Work by <em>niche</em>">Trabalhos por <em>nicho</em></h2>
+        </div>
+        <div class="filtros" id="filtros">
+          <button class="filtro ativo" data-nicho="beleza" data-en="Beauty">Beleza</button>
+          <button class="filtro" data-nicho="casa" data-en="Home">Casa</button>
+          <button class="filtro" data-nicho="comida" data-en="Food">Comida</button>
+        </div>
+      </div>
+      <!-- EDITAR: um <a class="video"> para cada vídeo; data-nicho igual ao do filtro -->
+      <div class="videos galeria surge" id="galeria">
+        <a class="video" href="#" data-nicho="beleza" style="--c1:#e8b4c8;--c2:#5a2a3c"><span class="play"></span><span class="video-legenda"><b data-en="5-minute makeup">Make de 5 minutos</b><span data-en="Beauty">Beleza</span></span></a>
+        <a class="video" href="#" data-nicho="beleza" style="--c1:#c3ccff;--c2:#2340d9"><span class="play"></span><span class="video-legenda"><b data-en="Curly hair">Cabelo cacheado</b><span data-en="Beauty">Beleza</span></span></a>
+        <a class="video" href="#" data-nicho="beleza" style="--c1:#f0d7c8;--c2:#7a4a35"><span class="play"></span><span class="video-legenda"><b data-en="Sunscreen">Protetor solar</b><span data-en="Beauty">Beleza</span></span></a>
+        <a class="video" href="#" data-nicho="beleza" style="--c1:#d9b8e8;--c2:#3c2a5a"><span class="play"></span><span class="video-legenda"><b data-en="Night routine">Rotina da noite</b><span data-en="Beauty">Beleza</span></span></a>
+        <a class="video" href="#" data-nicho="casa" style="--c1:#b9c7a5;--c2:#2e3a24"><span class="play"></span><span class="video-legenda"><b data-en="Kitchen organizing">Organização da cozinha</b><span data-en="Home">Casa</span></span></a>
+        <a class="video" href="#" data-nicho="casa" style="--c1:#d9cbb4;--c2:#4a3b28"><span class="play"></span><span class="video-legenda"><b data-en="Before and after">Antes e depois</b><span data-en="Home">Casa</span></span></a>
+        <a class="video" href="#" data-nicho="comida" style="--c1:#f2c879;--c2:#6b3b12"><span class="play"></span><span class="video-legenda"><b data-en="Breakfast">Café da manhã</b><span data-en="Food">Comida</span></span></a>
+        <a class="video" href="#" data-nicho="comida" style="--c1:#e6a58c;--c2:#5b2414"><span class="play"></span><span class="video-legenda"><b data-en="Healthy snack">Lanche saudável</b><span data-en="Food">Comida</span></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- fotos -->
+  <section class="secao" id="fotos">
+    <div class="largura">
+      <div class="cabeca surge">
+        <div>
+          <p class="olho"><b data-en="Photos">Fotos</b></p>
+          <h2 data-en="Product <em>photos</em>">Fotos de <em>produto</em></h2>
+        </div>
+        <p class="intro" data-en="Lifestyle photos with natural light, ready for websites and social media.">Fotos lifestyle com luz natural, prontas para site e redes.</p>
+      </div>
+    </div>
+    <!-- EDITAR: troque cada <div class="foto"> por <div class="foto"><img src="..." alt="..."></div>
+         as fotos ocupam a tela de ponta a ponta e passam devagar para a esquerda, sem parar; as setas adiantam ou voltam -->
+    <div class="esteira surge">
+      <button type="button" class="seta ant" aria-label="Foto anterior">‹</button>
+      <div class="fita">
+        <div class="foto" data-texto="Foto 1"></div>
+        <div class="foto" data-texto="Foto 2"></div>
+        <div class="foto" data-texto="Foto 3"></div>
+        <div class="foto" data-texto="Foto 4"></div>
+        <div class="foto" data-texto="Foto 5"></div>
+        <div class="foto" data-texto="Foto 6"></div>
+        <div class="foto" data-texto="Foto 7"></div>
+        <div class="foto" data-texto="Foto 8"></div>
+      </div>
+      <button type="button" class="seta prox" aria-label="Próxima foto">›</button>
+    </div>
+  </section>
+
+  <!-- serviços -->
+  <section class="secao" id="servicos">
+    <div class="largura">
+      <div class="cabeca centro surge">
+        <p class="olho"><b data-en="Services">Serviços</b></p>
+        <h2 data-en="How I <em>help</em> your brand">Como eu <em>ajudo</em> a sua marca</h2>
+      </div>
+      <!-- EDITAR: um cartão por serviço; o com class="servico destaque-servico" fica escuro, com a etiqueta "Mais pedido" -->
+      <div class="servicos surge">
+        <article class="servico destaque-servico">
+          <span class="etiqueta" data-en="Most requested">Mais pedido</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>
+          <h3 data-en="UGC for ads">UGC para anúncios</h3>
+          <p data-en="Creatives for Meta, TikTok and YouTube, made to sell more.">Criativos para Meta, TikTok e YouTube, feitos para vender mais.</p>
+          <ul><li>Meta</li><li>TikTok</li><li>YouTube</li></ul>
+          <a class="quero" href="#contato" data-en="I want this">Quero esse</a>
+        </article>
+        <article class="servico">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+          <h3 data-en="UGC for e-commerce">UGC para e-commerce</h3>
+          <p data-en="Product videos that feel like a real customer, for your store to sell every day.">Vídeo de produto com cara de cliente real, para a loja vender todo dia.</p>
+          <ul><li>Review</li><li>Unboxing</li><li data-en="Real use">Uso real</li></ul>
+          <a class="quero" href="#contato" data-en="I want this">Quero esse</a>
+        </article>
+        <article class="servico">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h3l7 4V6l-7 4H4Z"/><path d="M17 9a4 4 0 0 1 0 6"/></svg>
+          <h3 data-en="Sponsored post">Publi post</h3>
+          <p data-en="Your brand on my profile, talking to people who already trust me.">Sua marca no meu perfil, falando com quem já confia em mim.</p>
+          <ul><li>Reels</li><li>Stories</li><li>TikTok</li></ul>
+          <a class="quero" href="#contato" data-en="I want this">Quero esse</a>
+        </article>
+        <article class="servico">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="13" rx="2"/><circle cx="12" cy="12.5" r="3"/><path d="M9 6l1.5-2h3L15 6"/></svg>
+          <h3 data-en="Product photos">Fotos de produto</h3>
+          <p data-en="Lifestyle photos with natural light, ready for websites and social media.">Fotos lifestyle com luz natural, prontas para site e redes.</p>
+          <ul><li>Lifestyle</li><li data-en="Website">Site</li><li data-en="Social media">Redes</li></ul>
+          <a class="quero" href="#contato" data-en="I want this">Quero esse</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- depoimentos -->
+  <section class="secao depoimentos com-quadro" id="depoimentos">
+    <div class="quadro"><div class="largura">
+      <div class="cabeca surge">
+        <div>
+          <p class="olho"><b data-en="Testimonials">Depoimentos</b></p>
+          <h2 data-en="What brands <em>say</em>">O que as marcas <em>dizem</em></h2>
+        </div>
+        <p class="intro" data-en="Feedback from brands that saw results with my content.">Feedback de marcas que viram resultado com o meu conteúdo.</p>
+      </div>
+      <!-- EDITAR: um cartão por depoimento; para usar a logo: <span class="logo-marca"><img src="..." alt="..."></span> -->
+      <div class="carrossel surge">
+        <button type="button" class="seta ant" aria-label="Depoimento anterior">‹</button>
+        <div class="trilho frases">
+          <figure class="frase"><span class="logo-marca">Logo</span><b class="arroba">@marcaum</b><span class="nota" aria-label="5 estrelas">★★★★★</span><small class="tipo" data-en="Ads creative">Criativo para anúncio</small>
+            <blockquote data-en="The video became our best ad of the month. Fast and very careful delivery.">O vídeo virou o nosso melhor anúncio do mês. Entrega rápida e muito cuidadosa.</blockquote>
+            <figcaption><b>2,4M</b><span data-en="views · campaign">views · campanha</span></figcaption></figure>
+          <figure class="frase"><span class="logo-marca">Logo</span><b class="arroba">@marcadois</b><span class="nota" aria-label="5 estrelas">★★★★★</span><small class="tipo" data-en="Recurring content">Conteúdo recorrente</small>
+            <blockquote data-en="We've already booked 3 campaigns, and each one performed better than the last.">Já fechamos 3 campanhas, e cada uma performou melhor que a anterior.</blockquote>
+            <figcaption><b>3+</b><span data-en="active campaigns">campanhas ativas</span></figcaption></figure>
+          <figure class="frase"><span class="logo-marca">Logo</span><b class="arroba">@marcatres</b><span class="nota" aria-label="5 estrelas">★★★★★</span><small class="tipo" data-en="E-commerce content">Conteúdo para e-commerce</small>
+            <blockquote data-en="She understood the product better than we did. It looked like a real customer recommending it.">Ela entendeu o produto melhor que a gente. Parecia uma cliente real indicando.</blockquote>
+            <figcaption><b>+300</b><span data-en="sales · e-commerce">vendas · e-commerce</span></figcaption></figure>
+          <figure class="frase"><span class="logo-marca">Logo</span><b class="arroba">@marcaquatro</b><span class="nota" aria-label="5 estrelas">★★★★★</span><small class="tipo" data-en="Sponsored post">Publi post</small>
+            <blockquote data-en="Beautiful, careful content that sells. We'll definitely work together again.">Conteúdo lindo, cuidadoso e que vende. Com certeza vamos fechar de novo.</blockquote>
+            <figcaption><b>890 mil</b><span data-en="views · Reels">views · Reels</span></figcaption></figure>
+        </div>
+        <button type="button" class="seta prox" aria-label="Próximo depoimento">›</button>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- contato -->
+  <section class="secao contato" id="contato">
+    <div class="largura contato-area surge">
+      <!-- caixa azul com o formulário: ao enviar, abre o WhatsApp com a mensagem pronta -->
+      <form class="caixa-contato" id="form-contato">
+        <h2 data-en="Let's create <em>together?</em>">Vamos criar <em>juntas?</em></h2>
+        <p data-en="Tell me about your brand and what you need.">Me conta sobre a sua marca e o que você precisa.</p>
+        <input type="text" name="nome" placeholder="Nome" data-ph-en="Name" required>
+        <input type="tel" name="whatsapp" placeholder="WhatsApp">
+        <input type="email" name="email" placeholder="E-mail">
+        <input type="text" name="marca" placeholder="Marca" data-ph-en="Brand">
+        <textarea name="projeto" placeholder="Conta sobre o projeto" data-ph-en="Tell me about the project"></textarea>
+        <button type="submit"><span data-en="Send message">Enviar mensagem</span> →</button>
+      </form>
+      <!-- EDITAR: links e dados de contato da cliente -->
+      <aside class="encontre">
+        <h3 data-en="Find me here">Me encontre aqui</h3>
+        <a class="rede" href="https://wa.me/5500000000000" target="_blank" rel="noopener">
+          <span class="rede-icone"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 1c-1-.5-2-1.5-2.5-2.5l1-1-1-2z"/></svg></span>
+          <span class="rede-texto"><b>WhatsApp</b><small>(00) 00000-0000</small></span><i>↗</i></a>
+        <a class="rede" href="mailto:seuemail@email.com">
+          <span class="rede-icone"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+          <span class="rede-texto"><b>E-mail</b><small>seuemail@email.com</small></span><i>↗</i></a>
+        <a class="rede" href="#" target="_blank" rel="noopener">
+          <span class="rede-icone"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></span>
+          <span class="rede-texto"><b>Instagram</b><small>@seuusuario</small></span><i>↗</i></a>
+        <a class="rede" href="#" target="_blank" rel="noopener">
+          <span class="rede-icone"><svg viewBox="0 0 24 24"><path d="M14 3v11a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.5 2.5 4.5 5 4.5"/></svg></span>
+          <span class="rede-texto"><b>TikTok</b><small>@seuusuario</small></span><i>↗</i></a>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="largura">
+    <span>© 2026 Seu Nome · UGC creator</span>
+    <nav aria-label="Redes sociais">
+      <a href="#" target="_blank" rel="noopener">Instagram</a>
+      <a href="#" target="_blank" rel="noopener">TikTok</a>
+      <a href="#" target="_blank" rel="noopener">YouTube</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+// menu do celular
+const menu = document.getElementById("menu"), abrir = document.getElementById("abrir-menu");
+abrir.addEventListener("click", () => abrir.setAttribute("aria-expanded", menu.classList.toggle("aberto")));
+menu.addEventListener("click", e => { if (e.target.closest("a")) { menu.classList.remove("aberto"); abrir.setAttribute("aria-expanded", "false"); } });
+
+// faixa de marcas: duplica para girar sem emenda
+const faixa = document.getElementById("faixa");
+faixa.innerHTML += faixa.innerHTML;
+
+// números da capa: contam rapidinho do zero até o número escrito (ex.: +120, 2,4M)
+// (com ?print no endereço os números já aparecem parados: usado para tirar a imagem da galeria)
+if (!new URLSearchParams(location.search).has("print")) document.querySelectorAll(".numeros b").forEach(el => {
+  const m = el.textContent.trim().match(/^(\D*)([\d.,]+)(.*)$/);
+  if (!m) return;
+  const [, antes, num, depois] = m;
+  const casas = num.includes(",") ? num.split(",")[1].length : 0;
+  const alvo = parseFloat(num.replace(/\./g, "").replace(",", "."));
+  const escreve = v => el.textContent = antes + v.toLocaleString("pt-BR", { minimumFractionDigits: casas, maximumFractionDigits: casas }) + depois;
+  const inicio = performance.now(), duracao = 1400;
+  escreve(0);
+  (function passo(t) {
+    const p = Math.min((t - inicio) / duracao, 1);
+    escreve(alvo * (1 - Math.pow(1 - p, 3)));
+    if (p < 1) requestAnimationFrame(passo); else el.textContent = antes + num + depois;
+  })(inicio);
+});
+
+// filtros dos nichos (começa no primeiro)
+function filtrar(nicho) {
+  document.querySelectorAll(".filtro").forEach(b => b.classList.toggle("ativo", b.dataset.nicho === nicho));
+  document.querySelectorAll("#galeria .video").forEach(v => v.hidden = v.dataset.nicho !== nicho);
+}
+document.getElementById("filtros").addEventListener("click", e => {
+  const f = e.target.closest(".filtro");
+  if (f) filtrar(f.dataset.nicho);
+});
+filtrar(document.querySelector(".filtro").dataset.nicho);
+
+// PT | EN: troca os textos pelo atributo data-en
+const traduziveis = [...document.querySelectorAll("[data-en]")];
+traduziveis.forEach(el => el.dataset.pt = el.innerHTML);
+function idioma(lingua) {
+  traduziveis.forEach(el => el.innerHTML = lingua === "en" ? el.dataset.en : el.dataset.pt);
+  // textos de dentro dos campos do formulário (placeholder)
+  document.querySelectorAll("[data-ph-en]").forEach(el => {
+    el.dataset.phPt = el.dataset.phPt || el.placeholder;
+    el.placeholder = lingua === "en" ? el.dataset.phEn : el.dataset.phPt;
+  });
+  document.documentElement.lang = lingua === "en" ? "en" : "pt-BR";
+  document.querySelectorAll(".idiomas button").forEach(b => b.classList.toggle("ativo", b.dataset.idioma === lingua));
+  try { localStorage.setItem("modelo-idioma", lingua); } catch (e) {}
+}
+document.querySelector(".idiomas").addEventListener("click", e => {
+  const b = e.target.closest("button");
+  if (b) idioma(b.dataset.idioma);
+});
+try { if (localStorage.getItem("modelo-idioma") === "en") idioma("en"); } catch (e) {}
+
+// carrossel dos depoimentos: setas passam um item; no fim volta ao começo
+document.querySelectorAll(".carrossel").forEach(c => {
+  const trilho = c.querySelector(".trilho");
+  const passo = () => trilho.firstElementChild.getBoundingClientRect().width + parseFloat(getComputedStyle(trilho).columnGap);
+  const anda = dir => {
+    const noFim = trilho.scrollLeft + trilho.clientWidth >= trilho.scrollWidth - 4;
+    if (dir > 0 && noFim) trilho.scrollTo({ left: 0 });
+    else if (dir < 0 && trilho.scrollLeft <= 4) trilho.scrollTo({ left: trilho.scrollWidth });
+    else trilho.scrollBy({ left: dir * passo() });
+  };
+  c.querySelector(".ant").addEventListener("click", () => anda(-1));
+  c.querySelector(".prox").addEventListener("click", () => anda(1));
+});
+
+// fotos: passam devagar para a esquerda sem parar; as setas adiantam ou voltam uma foto
+const esteira = document.querySelector(".esteira");
+if (esteira) {
+  const fita = esteira.querySelector(".fita");
+  fita.innerHTML += fita.innerHTML; // duplica para girar sem emenda
+  const VELOCIDADE = 0.03; // pixels por milissegundo (30 px por segundo)
+  let pos = 0, alvo = null, ultimo = performance.now();
+  const passo = () => fita.firstElementChild.getBoundingClientRect().width + parseFloat(getComputedStyle(fita).columnGap);
+  (function quadro(t) {
+    const dt = Math.min(t - ultimo, 50);
+    ultimo = t;
+    if (alvo === null) pos += dt * VELOCIDADE;
+    else { pos += (alvo - pos) * Math.min(dt / 110, 1); if (Math.abs(alvo - pos) < .5) { pos = alvo; alvo = null; } }
+    const metade = fita.offsetWidth / 2;
+    if (pos >= metade) { pos -= metade; if (alvo !== null) alvo -= metade; }
+    if (pos < 0) { pos += metade; if (alvo !== null) alvo += metade; }
+    fita.style.transform = `translateX(${-pos}px)`;
+    requestAnimationFrame(quadro);
+  })(ultimo);
+  esteira.querySelector(".ant").addEventListener("click", () => alvo = (alvo ?? pos) - passo());
+  esteira.querySelector(".prox").addEventListener("click", () => alvo = (alvo ?? pos) + passo());
+}
+
+// formulário de contato: abre o WhatsApp da cliente com a mensagem já escrita
+// EDITAR: número com DDD (só números, com 55 na frente)
+const WHATSAPP = "5500000000000";
+document.getElementById("form-contato").addEventListener("submit", e => {
+  e.preventDefault();
+  const d = new FormData(e.target);
+  const linhas = [
+    "Oi! Vi seu portfólio e quero conversar.",
+    "Nome: " + d.get("nome"),
+    d.get("marca") && "Marca: " + d.get("marca"),
+    d.get("whatsapp") && "WhatsApp: " + d.get("whatsapp"),
+    d.get("email") && "E-mail: " + d.get("email"),
+    d.get("projeto") && "Projeto: " + d.get("projeto")
+  ].filter(Boolean);
+  window.open("https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(linhas.join("\n")), "_blank");
+});
+
+// blocos aparecem ao rolar
+const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visto"); obs.unobserve(e.target); } }), { threshold: .12 });
+document.querySelectorAll(".surge").forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
