@@ -761,15 +761,6 @@ form.addEventListener("input", salvarRascunho);
 form.addEventListener("change", salvarRascunho);
 carregarRascunho();
 atualizaCampos();
-
-// ===== ENVIO: confere o "o que contratou" (pelo menos um) =====
-form.addEventListener("submit", e => {
-  if (!form.querySelector("#contratou input:checked")) {
-    e.preventDefault();
-    alert("Marque o que você contratou: bio link, portfólio ou site.");
-    form.querySelector("#contratou input").focus();
-  }
-});
 </script>
 </body>
 </html>
