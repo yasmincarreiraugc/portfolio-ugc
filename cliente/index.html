@@ -606,14 +606,15 @@ const PAPEIS = [
   { id: "texto",   nome: "Textos",   campo: "Fonte dos textos",   exemplo: "Texto de apresentação" },
   { id: "detalhe", nome: "Detalhes", campo: "Fonte dos detalhes", exemplo: "detalhes e destaques" }
 ];
-const estiloFonte = f => `font-family:'${f.nome}';${f.maiusc ? "text-transform:uppercase;" : ""}`;
+const estiloFonte = f => `font-family:'${f.nome}';`;
+const grupos = [...new Set(LISTA_FONTES.map(f => f.grupo))];
 document.getElementById("fontes").innerHTML = PAPEIS.map(p => `
   <details class="papel" data-papel="${p.id}">
     <summary><span class="papel-nome">${p.nome}</span><span class="papel-escolha vazio">Escolher fonte</span></summary>
     <div class="lista-fontes">
-      ${LISTA_FONTES.map(f => `
+      ${grupos.map(g => `<p class="fonte-grupo">${g}</p>` + LISTA_FONTES.filter(f => f.grupo === g).map(f => `
         <label class="fonte"><input type="radio" name="${p.campo}" value="${f.nome}">
-          <span style="${estiloFonte(f)}">${p.exemplo}<small>${f.nome} · ${f.estilo}</small></span></label>`).join("")}
+          <span class="fonte-linha" style="${estiloFonte(f)}">${f.nome} <em>AaBbCc</em></span></label>`).join("")).join("")}
     </div>
   </details>`).join("");
 
