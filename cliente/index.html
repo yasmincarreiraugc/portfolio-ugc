@@ -624,14 +624,6 @@ grade.addEventListener("click", e => {
 });
 // "+" arco-íris: escolhe qualquer cor
 document.getElementById("cor-livre").addEventListener("change", e => { novaCor(e.target.value); salvarRascunho(); });
-// conta-gotas: só aparece nos navegadores que permitem pegar cor da tela
-if ("EyeDropper" in window) {
-  const gotas = document.getElementById("conta-gotas");
-  gotas.hidden = false;
-  gotas.addEventListener("click", async () => {
-    try { const r = await new EyeDropper().open(); novaCor(r.sRGBHex); salvarRascunho(); } catch (e) {}
-  });
-}
 
 // ===== FONTES: títulos, textos e detalhes =====
 // EDITAR: fontes que a cliente pode escolher (precisam estar no link do Google Fonts lá em cima)
