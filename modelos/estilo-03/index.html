@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Modelo 02 · Scrapbook rosa e amarelo | Yasmin Carreira</title>
+<meta name="description" content="Modelo de portfólio UGC criado por Yasmin Carreira.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#fdf6e3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito+Sans:wght@400;600;700;800;900&family=Gochi+Hand&display=swap" rel="stylesheet">
+<style>
+/* EDITAR: cores e fontes do modelo (scrapbook rosa e amarelo) */
+:root{
+  --creme:#fdf6e3;
+  --papel:#fffbf1;
+  --rosa:#e8508f;
+  --rosa-escuro:#a3245f;
+  --rosa-claro:#ffe1ef;
+  --amarelo:#ffd23f;
+  --amarelo-claro:#fff3b8;
+  --azul:#2a4bd0;
+  --vermelho:#e8483b;
+  --tinta:#2a1d24;
+  --cinza:#6a5a62;
+  --linha:#2a1d24;
+  --sombra:4px 4px 0 var(--tinta);
+  --titulo:"Fredoka","Arial Rounded MT Bold",system-ui,sans-serif;
+  --sans:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mao:"Gochi Hand","Comic Sans MS",cursive;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px;-webkit-text-size-adjust:100%;overflow-x:clip}
+/* fundo de papel quadriculado */
+body{margin:0;background-color:var(--creme);background-image:linear-gradient(rgba(42,29,36,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(42,29,36,.055) 1px,transparent 1px);background-size:28px 28px;color:var(--tinta);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+[hidden]{display:none!important}
+h1,h2,h3{font-family:var(--titulo);font-weight:700;line-height:1.02;margin:0;letter-spacing:-.01em}
+/* palavra de destaque: marca-texto amarelo */
+em{font-style:normal;color:var(--rosa-escuro);background:linear-gradient(transparent 58%,var(--amarelo) 58%,var(--amarelo) 92%,transparent 92%);padding:0 .08em}
+.largura{width:min(1080px,100% - 48px);margin:0 auto}
+.secao{padding:56px 0;border-top:2px dashed rgba(42,29,36,.18)}
+/* etiqueta de cada parte: adesivo pequeno e delicado */
+.olho{display:inline-flex;align-items:center;margin:0 0 12px;padding:3px 11px;border:1.5px solid var(--rosa);border-radius:999px;background:var(--rosa-claro);color:var(--rosa-escuro);font-family:var(--titulo);font-size:12.5px;font-weight:600;letter-spacing:.03em;rotate:-2deg}
+.secao h2{font-size:clamp(34px,4.2vw,52px)}
+.intro{max-width:440px;margin:12px 0 0;font-size:14.5px;color:var(--cinza)}
+.cabeca{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:34px}
+
+/* botões com sombra "dura" */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border:2px solid var(--tinta);border-radius:999px;font-weight:800;font-size:14px;box-shadow:var(--sombra);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--tinta)}
+.btn-azul{background:var(--amarelo);color:var(--tinta)}
+.btn-linha{background:#fff}
+
+/* foto provisória (a cliente troca pela foto dela) */
+.foto{position:relative;overflow:hidden;background:linear-gradient(160deg,#ffc2dc,#f27bb0 55%,#ffd23f)}
+.foto::after{content:attr(data-texto);position:absolute;left:12px;bottom:10px;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+.foto img{width:100%;height:100%;object-fit:cover}
+/* moldura de polaroid com fita adesiva */
+.polaroid{position:relative;background:#fff;padding:10px 10px 34px;border:2px solid var(--tinta);border-radius:6px;box-shadow:6px 6px 0 var(--tinta)}
+.polaroid::before{content:"";position:absolute;z-index:2;top:-14px;left:50%;width:110px;height:28px;margin-left:-55px;background:rgba(255,210,63,.75);border-left:2px dashed rgba(42,29,36,.15);border-right:2px dashed rgba(42,29,36,.15);rotate:-3deg}
+/* borboleta voando delicada em cima da foto da capa */
+.borboleta{position:absolute;z-index:4;top:34%;left:-82px;width:58px;overflow:visible;animation:voar 7s ease-in-out infinite}
+.asa{transform-box:view-box;transform-origin:30px 26px;animation:bater .45s ease-in-out infinite alternate}
+/* segunda borboleta: menor, mais embaixo e no seu próprio ritmo */
+.borboleta.dois{top:68%;left:-52px;width:40px;animation:voar 9s ease-in-out -3s infinite reverse}
+.borboleta.dois .asa{animation-duration:.38s}
+.asa path{fill:var(--rosa-claro);stroke:var(--rosa);stroke-width:1.3;stroke-linejoin:round}
+.asa path + path{fill:var(--amarelo-claro)}
+.borboleta .corpo{fill:none;stroke:var(--rosa-escuro);stroke-width:2;stroke-linecap:round}
+.borboleta .antena{fill:none;stroke:var(--rosa-escuro);stroke-width:1.1;stroke-linecap:round}
+@keyframes bater{from{transform:scaleX(1)}to{transform:scaleX(.3)}}
+@keyframes voar{
+  0%,100%{transform:translate(0,0) rotate(-8deg)}
+  25%{transform:translate(-16px,-10px) rotate(4deg)}
+  50%{transform:translate(-6px,-22px) rotate(-4deg)}
+  75%{transform:translate(10px,-8px) rotate(8deg)}
+}
+
+/* ---------- topo ---------- */
+.topo{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);border-bottom:2px solid var(--tinta)}
+.topo .largura{display:flex;align-items:center;justify-content:space-between;gap:20px;height:62px}
+.marca{display:flex;align-items:center;gap:8px;font-family:var(--titulo);font-size:22px;font-weight:700;line-height:1}
+.marca i{font-style:normal;color:var(--rosa)}
+.menu{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:800}
+.menu > a,.menu-trabalhos > a{position:relative;padding:8px 0}
+.menu > a::after,.menu-trabalhos > a::after{content:"";position:absolute;left:0;right:100%;bottom:2px;height:3px;border-radius:2px;background:var(--amarelo);transition:right .25s}
+.menu > a:hover::after,.menu-trabalhos:hover > a::after{right:0}
+/* submenu de "Trabalhos" */
+.menu-trabalhos{position:relative;margin-right:12px}
+.menu-trabalhos > a::before{content:"▾";position:absolute;right:-13px;top:9px;font-size:10px}
+.submenu{position:absolute;top:100%;left:-16px;min-width:170px;padding:8px;border:2px solid var(--tinta);border-radius:16px;background:#fff;box-shadow:var(--sombra);display:grid;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .2s,transform .2s,visibility .2s}
+.menu-trabalhos:hover .submenu,.menu-trabalhos:focus-within .submenu{opacity:1;visibility:visible;transform:none}
+.submenu a{padding:9px 12px;border-radius:10px}
+.submenu a:hover{background:var(--amarelo-claro)}
+.direita{display:flex;align-items:center;gap:10px}
+/* PT | EN */
+.idiomas{display:flex;padding:3px;border:2px solid var(--tinta);border-radius:999px;background:#fff;box-shadow:2px 2px 0 var(--tinta)}
+.idiomas button{border:0;background:none;padding:5px 11px;border-radius:999px;font:inherit;font-size:12px;font-weight:900;letter-spacing:.06em;color:var(--tinta);cursor:pointer}
+.idiomas button.ativo{background:var(--rosa);color:#fff}
+.abrir-menu{display:none;width:40px;height:40px;border:2px solid var(--tinta);border-radius:50%;background:var(--amarelo);cursor:pointer;place-items:center;box-shadow:2px 2px 0 var(--tinta)}
+.abrir-menu span,.abrir-menu span::before{display:block;width:16px;height:2px;background:var(--tinta);position:relative}
+.abrir-menu span::before{content:"";position:absolute;top:5px}
+
+/* ---------- capa ---------- */
+.capa{padding:24px 0 28px}
+.capa .largura{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center}
+.edicao{display:inline-block;margin:0 0 14px;padding:3px 12px;border:1.5px solid var(--rosa);border-radius:999px;background:var(--rosa-claro);color:var(--rosa-escuro);font-family:var(--mao);font-size:15px;rotate:-2deg}
+.capa h1{font-size:clamp(40px,4.6vw,60px);color:var(--rosa-escuro)}
+.capa p.apresenta{max-width:440px;margin:14px 0 0;font-size:16px;color:var(--cinza)}
+.capa .botoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.capa-foto{position:relative;max-width:280px;width:100%;justify-self:end;rotate:2deg}
+.capa-foto .foto{aspect-ratio:4/5;border-radius:2px}
+@keyframes flutua{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.numeros{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.numeros div{padding:8px 16px;border:2px solid var(--tinta);border-radius:14px;background:#fff;box-shadow:3px 3px 0 var(--tinta)}
+.numeros div:nth-child(2){background:var(--amarelo-claro)}
+.numeros div:nth-child(3){background:var(--rosa-claro)}
+.numeros b{display:block;font-family:var(--titulo);font-size:28px;font-weight:700;line-height:1.1;color:var(--rosa-escuro)}
+.numeros span{font-size:12px;font-weight:700;color:var(--cinza)}
+
+/* ---------- marcas: faixa rosa e marcas rolando em bolinhas ---------- */
+.marcas{padding:34px 0 36px;border-top:2px dashed rgba(42,29,36,.18)}
+/* faixa rosa com os serviços rolando para o lado, com espaço entre os textos */
+.faixa-rosa{overflow:hidden;padding:9px 0;border-top:2px solid var(--tinta);border-bottom:2px solid var(--tinta);background:var(--rosa);color:#fff;font-family:var(--titulo);font-size:16px;font-weight:600}
+.faixa-rosa-trilho{display:flex;width:max-content;animation:correr 70s linear infinite}
+.faixa-rosa-trilho span{white-space:nowrap;padding-right:56px}
+.faixa-rosa-trilho span::before{content:"✦";margin-right:56px;color:var(--amarelo)}
+.marcas-titulo{display:flex;align-items:center;justify-content:center;gap:16px;margin:0 auto 10px;width:min(1080px,100% - 32px);font-family:var(--mao);font-size:22px;color:var(--tinta);text-align:center}
+.marcas-titulo::before,.marcas-titulo::after{content:"";flex:0 1 70px;height:2px;background:var(--tinta)}
+.marcas-janela{overflow:hidden;padding:4px 0 8px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.marcas-trilho{display:flex;gap:18px;width:max-content;padding:4px 18px 4px 0;animation:correr 36s linear infinite}
+.marcas-janela:hover .marcas-trilho{animation-play-state:paused}
+.marca-bola{flex:none;width:82px;height:82px;border-radius:50%;display:grid;place-items:center;background:#fff;border:2px solid var(--tinta);box-shadow:3px 3px 0 var(--tinta);font-family:var(--titulo);font-size:15px;font-weight:600;text-align:center;line-height:1}
+.marca-bola:nth-child(3n+2){background:var(--amarelo-claro)}
+.marca-bola:nth-child(3n){background:var(--rosa-claro)}
+.marca-bola img{width:70%;height:70%;object-fit:contain}
+@keyframes correr{to{transform:translateX(-50%)}}
+
+/* ---------- sobre ---------- */
+.sobre .largura{display:grid;grid-template-columns:.75fr 1.25fr;gap:56px;align-items:start}
+.sobre .polaroid{max-width:340px;rotate:-2deg}
+.sobre .foto{aspect-ratio:3/4}
+.sobre-texto p{margin:16px 0 0;font-size:15px;color:var(--cinza)}
+.sobre-texto p:first-of-type{font-family:var(--mao);font-size:26px;line-height:1.25;color:var(--rosa-escuro)}
+.etiquetas{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;padding:0;list-style:none}
+.etiquetas li{padding:7px 14px;border:2px solid var(--tinta);border-radius:999px;background:var(--amarelo);font-size:13px;font-weight:800;box-shadow:2px 2px 0 var(--tinta)}
+.etiquetas li:nth-child(2){background:var(--rosa-claro);rotate:2deg}
+.etiquetas li:nth-child(3){background:#fff;rotate:-2deg}
+
+/* ---------- vídeos (destaques e nichos) ---------- */
+.videos{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.video{position:relative;display:block;aspect-ratio:9/16;border:2px solid var(--tinta);border-radius:16px;overflow:hidden;color:#fff;background:linear-gradient(170deg,var(--c1,#f27bb0),var(--c2,#a3245f));box-shadow:var(--sombra)}
+.video::before{content:"";position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(0,0,0,.5))}
+.play{position:absolute;top:50%;left:50%;width:52px;height:52px;margin:-26px 0 0 -26px;border:2px solid var(--tinta);border-radius:50%;background:#fff;display:grid;place-items:center;transition:transform .25s}
+.play::after{content:"";margin-left:4px;border-left:14px solid var(--rosa);border-top:9px solid transparent;border-bottom:9px solid transparent}
+.video:hover .play{transform:scale(1.1)}
+.resultado{position:absolute;z-index:1;top:12px;left:12px;padding:5px 11px;border:2px solid var(--tinta);border-radius:999px;background:var(--amarelo);color:var(--tinta);font-size:11.5px;font-weight:900}
+.video-legenda{position:absolute;left:14px;right:14px;bottom:14px;z-index:1}
+.video-legenda b{display:block;font-family:var(--titulo);font-size:20px;font-weight:600;line-height:1.05}
+.video-legenda span{font-size:12px;opacity:.9}
+/* destaques: 3 cartões centralizados, o do meio maior e mais alto, flutuando de leve */
+.cabeca.centro{display:block;text-align:center}
+.cabeca.centro .olho{justify-content:center}
+.destaques-lista{position:relative;display:grid;grid-template-columns:1fr 1.22fr 1fr;gap:22px;align-items:start;max-width:880px;margin:0 auto}
+/* setas e barra de app: só aparecem no celular */
+.rolagem{position:relative}
+.seta.seta-cel,.barra-app{display:none}
+.destaque{position:relative;display:block;animation:flutua 5s ease-in-out infinite}
+/* pin segurando cada vídeo, como num mural */
+.destaque::before{content:"";position:absolute;z-index:3;top:-11px;left:50%;width:22px;height:22px;margin-left:-11px;border:2px solid var(--tinta);border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffb3d4 0 22%,var(--rosa) 55%,var(--rosa-escuro));box-shadow:2px 3px 0 var(--tinta)}
+.destaque:nth-child(1),.destaque:nth-child(3){margin-top:34px}
+.destaque:nth-child(1){rotate:-2deg}
+.destaque:nth-child(2){animation-delay:-1.7s}
+.destaque:nth-child(3){rotate:2deg;animation-delay:-3.4s}
+.destaque .video{aspect-ratio:4/5}
+.destaque-legenda{display:block;margin-top:12px;font-size:12.5px;line-height:1.45;color:var(--cinza)}
+.destaque-legenda b{display:block;font-family:var(--titulo);font-size:17px;font-weight:600;color:var(--tinta)}
+.filtros{display:flex;flex-wrap:wrap;gap:8px}
+.filtro{padding:8px 15px;border:2px solid var(--tinta);border-radius:999px;background:#fff;font:inherit;font-size:13px;font-weight:800;color:var(--tinta);cursor:pointer;box-shadow:2px 2px 0 var(--tinta)}
+.filtro.ativo{background:var(--rosa);color:#fff}
+.galeria{grid-template-columns:repeat(4,1fr);gap:16px}
+.galeria .video-legenda b{font-size:18px}
+
+/* carrossel (depoimentos): passa para o lado, com setas */
+.carrossel{position:relative}
+.trilho{display:grid;grid-auto-flow:column;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none}
+.trilho::-webkit-scrollbar{display:none}
+.trilho > *{scroll-snap-align:start}
+.seta{position:absolute;top:50%;z-index:3;width:44px;height:44px;margin-top:-22px;border:2px solid var(--tinta);border-radius:50%;background:var(--amarelo);box-shadow:3px 3px 0 var(--tinta);font:inherit;font-size:24px;font-weight:900;line-height:1;color:var(--tinta);cursor:pointer;display:grid;place-items:center;padding-bottom:3px;transition:transform .2s}
+.seta:hover{transform:scale(1.08)}
+.seta.ant{left:-22px}
+.seta.prox{right:-22px}
+
+/* fotos em polaroid de ponta a ponta, paradas e presas com pin (rosa e amarelo); as setas passam para o lado */
+.esteira{position:relative;overflow:hidden;padding:26px 0 22px}
+.fita{display:flex;gap:22px;width:max-content;padding-right:22px;will-change:transform}
+.fita .foto{flex:none;width:250px;overflow:visible;aspect-ratio:4/5;border:8px solid #fff;border-bottom-width:34px;border-radius:4px;outline:2px solid var(--tinta);box-shadow:5px 5px 0 var(--tinta)}
+.fita .foto:nth-child(odd){rotate:-2deg}
+.fita .foto img{border-radius:2px}
+.fita .foto::before{content:"";position:absolute;z-index:2;top:-19px;left:50%;width:20px;height:20px;margin-left:-10px;border:2px solid var(--tinta);border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffb3d4 0 22%,var(--rosa) 55%,var(--rosa-escuro));box-shadow:2px 3px 0 var(--tinta)}
+.fita .foto:nth-child(3n)::before{background:radial-gradient(circle at 35% 35%,#fff6c9 0 22%,var(--amarelo) 55%,#c9971a)}
+.fita .foto:nth-child(even){rotate:2deg;background:linear-gradient(160deg,#ffe58a,#f0a93b 55%,#f27bb0)}
+.esteira .seta.ant{left:16px}
+.esteira .seta.prox{right:16px}
+/* nichos: filtros embaixo do título */
+.cabeca.empilhada{display:block}
+.cabeca.empilhada .filtros{margin-top:18px}
+/* quadro branco perto das bordas (destaques e depoimentos) */
+.secao.com-quadro{padding:16px 0;border-top:0}
+.quadro{margin:0 14px;padding:48px 0;border:2px solid var(--tinta);border-radius:28px;background:#fff;box-shadow:6px 6px 0 var(--rosa-escuro)}
+
+/* ---------- serviços: cartões largos com título marcado, texto e seta (cores do modelo) ---------- */
+.servicos{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.servico{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:12px;min-height:178px;padding:26px 24px 22px;border:2px solid var(--tinta);border-radius:22px;background:#f4f1ee;box-shadow:var(--sombra);transition:transform .2s,box-shadow .2s}
+.servico:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--tinta)}
+.servico h3{font-size:22px;line-height:1.5}
+.servico p{margin:0;max-width:420px;font-size:14px;color:var(--cinza)}
+/* título marcado, linha por linha */
+.servico h3 span{padding:1px 7px;background:var(--amarelo);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.quero{margin-top:auto;padding-top:6px;display:inline-flex;align-items:center;gap:10px;font-size:13.5px;font-weight:700}
+.quero i{width:28px;height:28px;border-radius:50%;background:var(--tinta);color:#fff;display:grid;place-items:center;font-style:normal;font-size:14px;transition:transform .2s}
+.servico:hover .quero i{transform:rotate(45deg)}
+#servicos .intro{max-width:340px}
+.servico-amarelo{background:var(--amarelo-claro)}
+.servico-amarelo p{color:var(--tinta)}
+.servico-amarelo h3 span{background:#fff}
+.servico-rosa{background:var(--rosa-claro)}
+.servico-rosa h3 span{background:#fff}
+.servico-claro{background:var(--papel)}
+.servico-rosa-forte{background:var(--rosa);color:#fff}
+.servico-rosa-forte h3 span{background:#fff;color:var(--tinta)}
+.servico-rosa-forte p{color:rgba(255,255,255,.9)}
+.servico-rosa-forte .quero i{background:#fff;color:var(--tinta)}
+
+/* ---------- depoimentos: caixas brancas e limpas, sem logo, passando para o lado ---------- */
+.depoimentos .quadro{background:#f2ece6}
+.frases{grid-auto-columns:31%;padding:8px 2px 12px}
+.frase{margin:0;min-height:290px;padding:24px 24px 22px;border-radius:24px;background:#fff;position:relative;display:flex;flex-direction:column;text-align:left;transition:transform .25s}
+.frase:first-child{background:#fdf7f2}
+.frase:hover{transform:translateY(-4px)}
+.arroba{font-family:var(--titulo);font-size:20px;font-weight:600}
+.tipo{margin-top:2px;font-size:13px;color:var(--cinza)}
+.frase blockquote{margin:22px 0 18px;font-size:15px;line-height:1.55;color:var(--tinta)}
+.frase figcaption{margin-top:auto;display:grid;gap:3px;padding-right:44px}
+.frase figcaption b{font-family:var(--titulo);font-size:24px;font-weight:600;line-height:1;color:var(--rosa-escuro)}
+.frase figcaption span{font-size:12px;color:var(--cinza)}
+.frase::after{content:"⟶";position:absolute;right:24px;bottom:18px;font-size:24px;line-height:1;color:var(--tinta)}
+.depoimentos .seta{margin-top:-3px}
+
+/* ---------- contato: caixa rosa com formulário + cartão das redes por cima ---------- */
+.contato-area{position:relative;display:grid;grid-template-columns:1fr 310px;align-items:center;max-width:900px}
+.caixa-contato{grid-column:1 / 2;display:grid;gap:9px;margin-right:-90px;padding:32px 126px 32px 32px;border:2px solid var(--tinta);border-radius:24px;background:var(--rosa);color:#fff;box-shadow:6px 6px 0 var(--tinta)}
+.caixa-contato h2{font-size:clamp(30px,3.4vw,42px)}
+.caixa-contato h2 em{color:var(--tinta)}
+.caixa-contato p{margin:2px 0 8px;font-size:13.5px;color:rgba(255,255,255,.9)}
+.caixa-contato input,.caixa-contato textarea{width:100%;padding:10px 14px;border:2px solid var(--tinta);border-radius:12px;background:#fff;font:inherit;font-size:13.5px;color:var(--tinta);outline:none;transition:box-shadow .2s}
+.caixa-contato textarea{min-height:76px;resize:vertical}
+.caixa-contato ::placeholder{color:#9a8a92}
+.caixa-contato input:focus,.caixa-contato textarea:focus{box-shadow:3px 3px 0 var(--amarelo)}
+.caixa-contato button{margin-top:4px;padding:12px;border:2px solid var(--tinta);border-radius:999px;background:var(--amarelo);font:inherit;font-size:14px;font-weight:900;color:var(--tinta);cursor:pointer;box-shadow:3px 3px 0 var(--tinta);transition:transform .15s}
+.caixa-contato button:hover{transform:translate(-2px,-2px)}
+.encontre{position:relative;z-index:1;grid-column:2 / 3;display:grid;gap:9px;padding:20px 18px;border:2px solid var(--tinta);border-radius:20px;background:var(--papel);box-shadow:6px 6px 0 var(--tinta);rotate:1.5deg}
+.encontre h3{margin-bottom:2px;font-size:23px}
+.rede{display:flex;align-items:center;gap:10px;padding:8px 10px;border:2px solid var(--tinta);border-radius:14px;background:#fff;transition:background .2s}
+.rede:hover{background:var(--amarelo-claro)}
+.rede-icone{flex:none;width:36px;height:36px;border:2px solid var(--tinta);border-radius:10px;background:var(--amarelo);display:grid;place-items:center}
+.rede-icone svg{width:18px;height:18px;fill:none;stroke:var(--tinta);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.rede-texto{flex:1;min-width:0;display:grid}
+.rede-texto b{font-size:13.5px;font-weight:900}
+.rede-texto small{font-size:12px;color:var(--cinza);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rede i{flex:none;width:26px;height:26px;border:2px solid var(--tinta);border-radius:50%;background:var(--rosa-claro);display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:900}
+.rodape{margin-top:20px;padding:24px 0 34px;border-top:2px solid var(--tinta);background:var(--rosa-escuro);font-size:12.5px;color:var(--creme)}
+.rodape .largura{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.rodape nav{display:flex;gap:20px;font-weight:800;color:var(--amarelo)}
+
+/* animação ao rolar */
+.surge{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s}
+.surge.visto{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.surge{opacity:1;transform:none}.marcas-trilho,.faixa-rosa-trilho,.destaque,.borboleta,.asa{animation:none}}
+
+/* ---------- celular ---------- */
+@media (max-width:900px){
+  .largura{width:min(100% - 32px,1080px)}
+  .secao{padding:42px 0}
+  .menu{position:absolute;top:62px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:6px 16px 16px;background:#fff;border-bottom:2px solid var(--tinta);display:none}
+  .menu.aberto{display:flex}
+  .menu > a,.menu-trabalhos > a{display:block;padding:12px 0;font-size:16px;border-bottom:1px dashed rgba(42,29,36,.25)}
+  .menu > a::after,.menu-trabalhos > a::after,.menu-trabalhos > a::before{display:none}
+  .submenu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;background:none;padding:0 0 0 14px;min-width:0}
+  .submenu a{padding:10px 0;border-radius:0;border-bottom:1px dashed rgba(42,29,36,.25);font-size:15px;color:var(--cinza)}
+  .abrir-menu{display:grid}
+  .marca{font-size:19px}
+  /* capa: a foto vem depois do texto; a borboleta voa no canto de cima da foto */
+  .capa{padding:24px 0 34px}
+  .capa .largura{grid-template-columns:1fr;gap:0}
+  .capa .capa-foto{justify-self:center;max-width:280px;margin-top:40px}
+  /* borboletas: uma de cada lado da foto (direita mais em cima, esquerda mais embaixo) */
+  .borboleta{top:12%;left:auto;right:-30px;width:50px}
+  .borboleta.dois{top:auto;bottom:16%;left:-26px;right:auto;width:38px}
+  .capa h1{font-size:37px}
+  .capa p.apresenta{font-size:14.5px;margin-top:14px}
+  .capa .botoes{margin-top:18px}
+  .numeros{display:grid;grid-template-columns:repeat(3,1fr);margin-top:18px;gap:8px}
+  .numeros div{padding:6px 9px}
+  .numeros span{font-size:10.5px;line-height:1.3;display:block}
+  .capa .btn{padding:10px 14px;font-size:13px}
+  .capa .botoes{gap:8px}
+  .edicao{font-size:14px;margin-bottom:10px}
+  .numeros b{font-size:21px}
+  .sobre .largura{grid-template-columns:1fr;gap:30px}
+  .sobre .polaroid{width:100%;max-width:300px;margin:6px auto 0;order:2}
+  .destaques-lista{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:70%;overflow-x:auto;scroll-snap-type:x mandatory;padding:16px 8px 16px}
+  .destaque{scroll-snap-align:start}
+  .destaque:nth-child(1),.destaque:nth-child(3){margin-top:0}
+  .videos{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:68%;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 6px 12px}
+  .video{scroll-snap-align:start}
+  .galeria{grid-auto-columns:52%}
+  /* fotos: 3 por vez */
+  .fita{gap:12px;padding-right:12px}
+  .fita .foto{width:calc((100vw - 56px) / 3);border-width:5px;border-bottom-width:18px}
+  .fita .foto::before{top:-14px;width:15px;height:15px;margin-left:-7.5px;border-width:1.5px;box-shadow:1px 2px 0 var(--tinta)}
+  .fita .foto::after{display:none}
+  .esteira{padding-top:20px}
+  .quadro{margin:0 8px;padding:34px 0;border-radius:22px;box-shadow:4px 4px 0 var(--rosa-escuro)}
+  .quadro .largura{width:calc(100% - 32px)}
+  .contato-area{grid-template-columns:1fr}
+  .caixa-contato{margin-right:0;padding:26px 18px 62px;border-radius:22px}
+  .encontre{grid-column:1;margin:-46px 10px 0}
+  /* depoimentos: 1 por vez */
+  .frases{grid-auto-columns:100%}
+  .frase{min-height:250px;padding-left:38px;padding-right:38px}
+  /* destaques começam no vídeo do meio; setas nos destaques e nos nichos */
+  .destaques-lista{grid-auto-columns:72%;padding:16px 14% 16px}
+  .destaque{scroll-snap-align:center}
+  .seta.seta-cel{display:grid}
+  .rolagem .seta{top:42%}
+  /* barra de baixo, igual de app */
+  body{padding-bottom:92px}
+  .barra-app{position:fixed;z-index:30;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,1fr);align-items:end;padding:8px 4px 7px;border:2px solid var(--tinta);border-radius:22px;background:#fff;box-shadow:4px 4px 0 var(--tinta)}
+  .barra-app a{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10.5px;font-weight:800;color:var(--cinza)}
+  .barra-app svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .barra-app a.ativo{color:var(--rosa)}
+  .barra-app .bola{width:50px;height:50px;margin-top:-30px;border:2px solid var(--tinta);border-radius:50%;background:var(--rosa);color:#fff;display:grid;place-items:center;box-shadow:3px 3px 0 var(--tinta)}
+  .barra-app .conversar{color:var(--tinta)}
+  .seta{width:38px;height:38px;margin-top:-19px;font-size:21px}
+  .seta.ant{left:-8px}
+  .seta.prox{right:-8px}
+  .servicos{grid-template-columns:1fr;gap:18px}
+  .servico{min-height:150px;padding:22px 18px 18px}
+  .servico h3{font-size:19px}
+  .faixa-rosa{font-size:14px}
+  .faixa-rosa-trilho span{padding-right:36px}
+  .faixa-rosa-trilho span::before{margin-right:36px}
+  .marcas{padding:28px 0 30px}
+  .marcas-titulo{font-size:19px;gap:10px;white-space:nowrap}
+  .marcas-titulo::before,.marcas-titulo::after{flex-basis:28px}
+  .marca-bola{width:74px;height:74px;font-size:13px}
+  .marcas-trilho{gap:12px;padding-right:12px}
+}
+</style>
+</head>
+<body>
+<!-- EDITAR: troque "Seu Nome" pelo nome da cliente em todo o arquivo.
+     Textos em inglês: ficam no atributo data-en de cada elemento. -->
+<header class="topo">
+  <div class="largura">
+    <a class="marca" href="#">Seu <i>Nome</i></a>
+    <nav class="menu" id="menu" aria-label="Menu">
+      <a href="#sobre" data-en="About">Sobre</a>
+      <div class="menu-trabalhos">
+        <a href="#destaques" data-en="Work">Trabalhos</a>
+        <div class="submenu">
+          <a href="#destaques" data-en="Highlights">Destaques</a>
+          <a href="#nichos" data-en="Niches">Nichos</a>
+          <a href="#fotos" data-en="Photos">Fotos</a>
+        </div>
+      </div>
+      <a href="#servicos" data-en="Services">Serviços</a>
+      <a href="#depoimentos" data-en="Testimonials">Depoimentos</a>
+      <a href="#contato" data-en="Contact">Contato</a>
+    </nav>
+    <div class="direita">
+      <div class="idiomas" role="group" aria-label="Idioma">
+        <button type="button" data-idioma="pt" class="ativo">PT</button>
+        <button type="button" data-idioma="en">EN</button>
+      </div>
+      <button class="abrir-menu" id="abrir-menu" aria-label="Abrir menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- capa -->
+  <section class="capa">
+    <div class="largura">
+      <div>
+        <p class="edicao"><span data-en="UGC Portfolio · 2026">Portfólio UGC · 2026</span></p>
+        <h1 data-en="Videos that <em>sell</em> without looking like ads.">Vídeos que <em>vendem</em> sem parecer anúncio.</h1>
+        <p class="apresenta" data-en="I'm Seu Nome, a UGC creator for beauty, home and wellness brands. Real content that feels like a friend's recommendation.">Sou Seu Nome, criadora de conteúdo UGC para marcas de beleza, casa e bem-estar. Conteúdo real, com cara de recomendação de amiga.</p>
+        <div class="botoes">
+          <a class="btn btn-azul" href="#contato" data-en="I want to create with Seu Nome →">Quero criar com Seu Nome →</a>
+          <a class="btn btn-linha" href="#destaques" data-en="See my work">Ver trabalhos</a>
+        </div>
+        <div class="numeros">
+          <div><b>+120</b><span data-en="videos delivered">vídeos entregues</span></div>
+          <div><b>+40</b><span data-en="brands served">marcas atendidas</span></div>
+          <div><b>2,4M</b><span data-en="total views">views somadas</span></div>
+        </div>
+      </div>
+      <div class="capa-foto">
+        <div class="polaroid"><div class="foto" data-texto="Foto da capa"></div></div>
+        <!-- bilhete escrito à mão com setinha (EDITAR o texto) -->
+        <p class="bilhete" data-en="let's create something sweet!">bora criar algo doce!</p>
+        <svg class="setinha" viewBox="0 0 90 50" aria-hidden="true"><path d="M86 8C62 2 40 10 34 24c-5 12 8 18 14 8 6-11-12-14-22-4C18 36 10 42 4 42"/><path d="M14 36 4 42l11 4"/></svg>
+        <!-- docinhos desenhados espalhados -->
+        <svg class="doce cereja" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4c-2 8-8 14-12 18M20 4c2 8 6 14 12 16"/><path d="M20 4c4-2 9-1 12 2-4 1-8 1-12-2z" class="folha"/><circle cx="9" cy="28" r="7"/><circle cx="31" cy="27" r="7"/></svg>
+        <svg class="doce ursinho" viewBox="0 0 40 44" aria-hidden="true"><path d="M13 6a5 5 0 1 0-2 9M27 6a5 5 0 1 1 2 9M11 15c-3 3-3 9 0 11-5 2-6 9-2 12 3 3 7 1 8-2h6c1 3 5 5 8 2 4-3 3-10-2-12 3-2 3-8 0-11-4-5-14-5-18 0z"/><circle cx="16" cy="17" r="1.2" class="olho-doce"/><circle cx="24" cy="17" r="1.2" class="olho-doce"/></svg>
+        <svg class="doce bala" viewBox="0 0 48 28" aria-hidden="true"><path d="M14 8 4 2v24l10-6M34 8l10-6v24l-10-6"/><rect x="13" y="5" width="22" height="18" rx="9"/><path d="M19 7c-2 5-2 9 0 14M25 7c-2 5-2 9 0 14"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- faixa rosa com os serviços, rolando para o lado (EDITAR: um <span> por texto) -->
+  <div class="faixa-rosa" aria-hidden="true">
+    <div class="faixa-rosa-trilho" id="faixa-rosa">
+      <span>UGC orgânico</span><span>Criativos para anúncio</span><span>Roteiros</span><span>Fotos de produto</span><span>Publi</span>
+    </div>
+  </div>
+
+  <!-- sobre -->
+  <section class="secao sobre" id="sobre">
+    <div class="largura">
+      <div class="polaroid surge"><div class="foto" data-texto="Foto do sobre mim"></div></div>
+      <div class="sobre-texto surge">
+        <p class="olho"><b data-en="About me">Sobre mim</b></p>
+        <h2 data-en="Hi, I'm <em>Seu Nome.</em>">Prazer, <em>Seu Nome.</em></h2>
+        <p data-en="I turn products into stories that make people stop scrolling.">Eu transformo produtos em histórias que fazem as pessoas pararem de rolar a tela.</p>
+        <p data-en="This is where the client's text goes: who she is, where she's from, how long she's been creating content and what she loves to film. Two or three sentences, in her own voice.">Aqui entra o texto da cliente: quem ela é, de onde vem, há quanto tempo cria conteúdo e o que mais gosta de gravar. Duas ou três frases, bem do jeito dela.</p>
+        <ul class="etiquetas">
+          <li data-en="Strength 1">Diferencial 1</li><li data-en="Strength 2">Diferencial 2</li><li data-en="Strength 3">Diferencial 3</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- marcas (depois do sobre mim) -->
+  <section class="marcas">
+    <p class="marcas-titulo" data-en="Brands that trust my work">Marcas que confiam no meu trabalho</p>
+    <!-- EDITAR: uma bolinha por marca; para usar a logo: <span class="marca-bola"><img src="..." alt="Nome da marca"></span> -->
+    <div class="marcas-janela">
+      <div class="marcas-trilho" id="faixa">
+        <span class="marca-bola">Marca 1</span><span class="marca-bola">Marca 2</span><span class="marca-bola">Marca 3</span><span class="marca-bola">Marca 4</span><span class="marca-bola">Marca 5</span><span class="marca-bola">Marca 6</span><span class="marca-bola">Marca 7</span><span class="marca-bola">Marca 8</span><span class="marca-bola">Marca 9</span><span class="marca-bola">Marca 10</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- destaques -->
+  <section class="secao com-quadro" id="destaques">
+    <div class="quadro"><div class="largura">
+      <div class="cabeca centro surge">
+        <p class="olho"><b data-en="Highlights">Destaques</b></p>
+        <h2 data-en="Best <em>results</em>">Melhores <em>resultados</em></h2>
+      </div>
+      <!-- EDITAR: os 3 vídeos de destaque (o do meio fica maior) -->
+      <div class="rolagem surge">
+      <button type="button" class="seta ant seta-cel" aria-label="Vídeo anterior">‹</button>
+      <div class="destaques-lista">
+        <a class="destaque" href="#"><span class="video" style="--c1:#ffc2dc;--c2:#e8508f"><span class="resultado" data-en="+300 sales">+300 vendas</span><span class="play"></span></span>
+          <span class="destaque-legenda"><b data-en="New home unboxing">Unboxing da casa nova</b><span data-en="Brand Two · TikTok. The video that sold the most.">Marca Dois · TikTok. O vídeo que mais vendeu.</span></span></a>
+        <a class="destaque" href="#"><span class="video" style="--c1:#f27bb0;--c2:#a3245f"><span class="resultado">2,4M views</span><span class="play"></span></span>
+          <span class="destaque-legenda"><b data-en="Skincare routine">Rotina de skincare</b><span data-en="Brand One · Reels. Went viral in one week.">Marca Um · Reels. Viralizou em uma semana.</span></span></a>
+        <a class="destaque" href="#"><span class="video" style="--c1:#ffd23f;--c2:#c9871a"><span class="resultado" data-en="890K views">890 mil views</span><span class="play"></span></span>
+          <span class="destaque-legenda"><b data-en="1-minute recipe">Receita em 1 minuto</b><span data-en="Brand Three · Reels. The most saved one.">Marca Três · Reels. O mais salvo.</span></span></a>
+      </div>
+      <button type="button" class="seta prox seta-cel" aria-label="Próximo vídeo">›</button>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- nichos com filtros -->
+  <section class="secao" id="nichos">
+    <div class="largura">
+      <div class="cabeca empilhada surge">
+        <div>
+          <p class="olho"><b data-en="Niches">Nichos</b></p>
+          <h2 data-en="Work by <em>niche</em>">Trabalhos por <em>nicho</em></h2>
+        </div>
+        <div class="filtros" id="filtros">
+          <button class="filtro ativo" data-nicho="beleza" data-en="Beauty">Beleza</button>
+          <button class="filtro" data-nicho="casa" data-en="Home">Casa</button>
+          <button class="filtro" data-nicho="comida" data-en="Food">Comida</button>
+        </div>
+      </div>
+      <!-- EDITAR: um <a class="video"> para cada vídeo; data-nicho igual ao do filtro -->
+      <div class="rolagem surge">
+      <button type="button" class="seta ant seta-cel" aria-label="Vídeo anterior">‹</button>
+      <div class="videos galeria" id="galeria">
+        <a class="video" href="#" data-nicho="beleza" style="--c1:#e8b4c8;--c2:#5a2a3c"><span class="play"></span><span class="video-legenda"><b data-en="5-minute makeup">Make de 5 minutos</b><span data-en="Beauty">Beleza</span></span></a>
+        <a class="video" href="#" data-nicho="beleza" style="--c1:#ffd6e8;--c2:#d9467f"><span class="play"></span><span class="video-legenda"><b data-en="Curly hair">Cabelo cacheado</b><span data-en="Beauty">Beleza</span></span></a>
+        <a class="video" href="#" data-nicho="beleza" style="--c1:#f0d7c8;--c2:#7a4a35"><span class="play"></span><span class="video-legenda"><b data-en="Sunscreen">Protetor solar</b><span data-en="Beauty">Beleza</span></span></a>
+        <a class="video" href="#" data-nicho="beleza" style="--c1:#d9b8e8;--c2:#3c2a5a"><span class="play"></span><span class="video-legenda"><b data-en="Night routine">Rotina da noite</b><span data-en="Beauty">Beleza</span></span></a>
+        <a class="video" href="#" data-nicho="casa" style="--c1:#b9c7a5;--c2:#2e3a24"><span class="play"></span><span class="video-legenda"><b data-en="Kitchen organizing">Organização da cozinha</b><span data-en="Home">Casa</span></span></a>
+        <a class="video" href="#" data-nicho="casa" style="--c1:#d9cbb4;--c2:#4a3b28"><span class="play"></span><span class="video-legenda"><b data-en="Before and after">Antes e depois</b><span data-en="Home">Casa</span></span></a>
+        <a class="video" href="#" data-nicho="comida" style="--c1:#f2c879;--c2:#6b3b12"><span class="play"></span><span class="video-legenda"><b data-en="Breakfast">Café da manhã</b><span data-en="Food">Comida</span></span></a>
+        <a class="video" href="#" data-nicho="comida" style="--c1:#e6a58c;--c2:#5b2414"><span class="play"></span><span class="video-legenda"><b data-en="Healthy snack">Lanche saudável</b><span data-en="Food">Comida</span></span></a>
+      </div>
+      <button type="button" class="seta prox seta-cel" aria-label="Próximo vídeo">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- fotos -->
+  <section class="secao" id="fotos">
+    <div class="largura">
+      <div class="cabeca surge">
+        <div>
+          <p class="olho"><b data-en="Photos">Fotos</b></p>
+          <h2 data-en="Product <em>photos</em>">Fotos de <em>produto</em></h2>
+        </div>
+        <p class="intro" data-en="Lifestyle photos with natural light, ready for websites and social media.">Fotos lifestyle com luz natural, prontas para site e redes.</p>
+      </div>
+    </div>
+    <!-- EDITAR: troque cada <div class="foto"> por <div class="foto"><img src="..." alt="..."></div>
+         as fotos ocupam a tela de ponta a ponta, paradas e presas com pin; as setas passam uma foto para o lado -->
+    <div class="esteira surge">
+      <button type="button" class="seta ant" aria-label="Foto anterior">‹</button>
+      <div class="fita">
+        <div class="foto" data-texto="Foto 1"></div>
+        <div class="foto" data-texto="Foto 2"></div>
+        <div class="foto" data-texto="Foto 3"></div>
+        <div class="foto" data-texto="Foto 4"></div>
+        <div class="foto" data-texto="Foto 5"></div>
+        <div class="foto" data-texto="Foto 6"></div>
+        <div class="foto" data-texto="Foto 7"></div>
+        <div class="foto" data-texto="Foto 8"></div>
+      </div>
+      <button type="button" class="seta prox" aria-label="Próxima foto">›</button>
+    </div>
+  </section>
+
+  <!-- serviços -->
+  <section class="secao com-quadro" id="servicos">
+    <div class="quadro"><div class="largura">
+      <div class="cabeca surge">
+        <div>
+          <p class="olho"><b data-en="Services">Serviços</b></p>
+          <h2 data-en="How I <em>help</em> your brand">Como eu <em>ajudo</em> a sua marca</h2>
+        </div>
+        <p class="intro" data-en="From organic videos to ads and product photos: content made to fit your brand and sell more.">De vídeos orgânicos a anúncios e fotos de produto: conteúdo feito sob medida para a sua marca vender mais.</p>
+      </div>
+      <!-- EDITAR: um cartão por serviço (cores: servico-rosa-forte, servico-amarelo, servico-rosa, servico-claro) -->
+      <div class="servicos surge">
+        <a class="servico servico-rosa-forte" href="#contato">
+          <h3><span data-en="UGC for ads">UGC para anúncios</span></h3>
+          <p data-en="Creatives for Meta, TikTok and YouTube, made to sell more.">Criativos para Meta, TikTok e YouTube, feitos para vender mais.</p>
+          <span class="quero"><i>↗</i><span data-en="I want this">Quero esse</span></span>
+        </a>
+        <a class="servico servico-amarelo" href="#contato">
+          <h3><span data-en="UGC for e&#8209;commerce">UGC para e&#8209;commerce</span></h3>
+          <p data-en="Product videos that feel like a real customer, for your store to sell every day.">Vídeo de produto com cara de cliente real, para a loja vender todo dia.</p>
+          <span class="quero"><i>↗</i><span data-en="I want this">Quero esse</span></span>
+        </a>
+        <a class="servico servico-rosa" href="#contato">
+          <h3><span data-en="Sponsored post">Publi post</span></h3>
+          <p data-en="Your brand on my profile, talking to people who already trust me.">Sua marca no meu perfil, falando com quem já confia em mim.</p>
+          <span class="quero"><i>↗</i><span data-en="I want this">Quero esse</span></span>
+        </a>
+        <a class="servico servico-claro" href="#contato">
+          <h3><span data-en="Product photos">Fotos de produto</span></h3>
+          <p data-en="Lifestyle photos with natural light, ready for websites and social media.">Fotos lifestyle com luz natural, prontas para site e redes.</p>
+          <span class="quero"><i>↗</i><span data-en="I want this">Quero esse</span></span>
+        </a>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- depoimentos -->
+  <section class="secao depoimentos com-quadro" id="depoimentos">
+    <div class="quadro"><div class="largura">
+      <div class="cabeca surge">
+        <div>
+          <p class="olho"><b data-en="Testimonials">Depoimentos</b></p>
+          <h2 data-en="What brands <em>say</em>">O que as marcas <em>dizem</em></h2>
+        </div>
+        <p class="intro" data-en="Feedback from brands that saw results with my content.">Feedback de marcas que viram resultado com o meu conteúdo.</p>
+      </div>
+      <!-- EDITAR: um cartão por depoimento (@ da marca, tipo de trabalho, texto e resultado) -->
+      <div class="carrossel surge">
+        <button type="button" class="seta ant" aria-label="Depoimento anterior">‹</button>
+        <div class="trilho frases">
+          <figure class="frase"><b class="arroba">@marcaum</b><small class="tipo" data-en="Ads creative">Criativo para anúncio</small>
+            <blockquote data-en="The video became our best ad of the month. Fast and very careful delivery.">O vídeo virou o nosso melhor anúncio do mês. Entrega rápida e muito cuidadosa.</blockquote>
+            <figcaption><b>2,4M</b><span data-en="views · campaign">views · campanha</span></figcaption></figure>
+          <figure class="frase"><b class="arroba">@marcadois</b><small class="tipo" data-en="Recurring content">Conteúdo recorrente</small>
+            <blockquote data-en="We've already booked 3 campaigns, and each one performed better than the last.">Já fechamos 3 campanhas, e cada uma performou melhor que a anterior.</blockquote>
+            <figcaption><b>3+</b><span data-en="active campaigns">campanhas ativas</span></figcaption></figure>
+          <figure class="frase"><b class="arroba">@marcatres</b><small class="tipo" data-en="E-commerce content">Conteúdo para e-commerce</small>
+            <blockquote data-en="She understood the product better than we did. It looked like a real customer recommending it.">Ela entendeu o produto melhor que a gente. Parecia uma cliente real indicando.</blockquote>
+            <figcaption><b>+300</b><span data-en="sales · e-commerce">vendas · e-commerce</span></figcaption></figure>
+          <figure class="frase"><b class="arroba">@marcaquatro</b><small class="tipo" data-en="Sponsored post">Publi post</small>
+            <blockquote data-en="Beautiful, careful content that sells. We'll definitely work together again.">Conteúdo lindo, cuidadoso e que vende. Com certeza vamos fechar de novo.</blockquote>
+            <figcaption><b>890 mil</b><span data-en="views · Reels">views · Reels</span></figcaption></figure>
+        </div>
+        <button type="button" class="seta prox" aria-label="Próximo depoimento">›</button>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- contato -->
+  <section class="secao contato" id="contato">
+    <div class="largura contato-area surge">
+      <!-- caixa azul com o formulário: ao enviar, abre o WhatsApp com a mensagem pronta -->
+      <form class="caixa-contato" id="form-contato">
+        <h2 data-en="Let's create <em>together?</em>">Vamos criar <em>juntas?</em></h2>
+        <p data-en="Tell me about your brand and what you need.">Me conta sobre a sua marca e o que você precisa.</p>
+        <input type="text" name="nome" placeholder="Nome" data-ph-en="Name" required>
+        <input type="tel" name="whatsapp" placeholder="WhatsApp">
+        <input type="email" name="email" placeholder="E-mail">
+        <input type="text" name="marca" placeholder="Marca" data-ph-en="Brand">
+        <textarea name="projeto" placeholder="Conta sobre o projeto" data-ph-en="Tell me about the project"></textarea>
+        <button type="submit"><span data-en="Send message">Enviar mensagem</span> →</button>
+      </form>
+      <!-- EDITAR: links e dados de contato da cliente -->
+      <aside class="encontre">
+        <h3 data-en="Find me here">Me encontre aqui</h3>
+        <a class="rede" href="https://wa.me/5500000000000" target="_blank" rel="noopener">
+          <span class="rede-icone"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 1c-1-.5-2-1.5-2.5-2.5l1-1-1-2z"/></svg></span>
+          <span class="rede-texto"><b>WhatsApp</b><small>(00) 00000-0000</small></span><i>↗</i></a>
+        <a class="rede" href="mailto:seuemail@email.com">
+          <span class="rede-icone"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+          <span class="rede-texto"><b>E-mail</b><small>seuemail@email.com</small></span><i>↗</i></a>
+        <a class="rede" href="#" target="_blank" rel="noopener">
+          <span class="rede-icone"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></span>
+          <span class="rede-texto"><b>Instagram</b><small>@seuusuario</small></span><i>↗</i></a>
+        <a class="rede" href="#" target="_blank" rel="noopener">
+          <span class="rede-icone"><svg viewBox="0 0 24 24"><path d="M14 3v11a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.5 2.5 4.5 5 4.5"/></svg></span>
+          <span class="rede-texto"><b>TikTok</b><small>@seuusuario</small></span><i>↗</i></a>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="largura">
+    <span>© 2026 Seu Nome · UGC creator</span>
+    <nav aria-label="Redes sociais">
+      <a href="#" target="_blank" rel="noopener">Instagram</a>
+      <a href="#" target="_blank" rel="noopener">TikTok</a>
+      <a href="#" target="_blank" rel="noopener">YouTube</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- barra de baixo igual de app (só no celular) -->
+<nav class="barra-app" aria-label="Atalhos">
+  <a href="#" data-alvo="inicio" class="ativo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 12 4l8 7v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/></svg><span data-en="Home">Início</span></a>
+  <a href="#sobre" data-alvo="sobre"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20a8 8 0 0 1 16 0"/></svg><span data-en="About">Sobre</span></a>
+  <a href="#contato" data-alvo="contato" class="conversar"><span class="bola"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18.5V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H8z"/><path d="M8 10h8M8 13h5"/></svg></span><span data-en="Let's talk">Conversar</span></a>
+  <a href="#destaques" data-alvo="trabalhos"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="m10 9 5 3-5 3z"/></svg><span data-en="Work">Trabalhos</span></a>
+  <a href="#servicos" data-alvo="servicos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.6 5.6 6 .7-4.5 4.1 1.2 6-5.3-3-5.3 3 1.2-6L3.4 9.3l6-.7z"/></svg><span data-en="Services">Serviços</span></a>
+</nav>
+
+<script>
+// menu do celular
+const menu = document.getElementById("menu"), abrir = document.getElementById("abrir-menu");
+abrir.addEventListener("click", () => abrir.setAttribute("aria-expanded", menu.classList.toggle("aberto")));
+menu.addEventListener("click", e => { if (e.target.closest("a")) { menu.classList.remove("aberto"); abrir.setAttribute("aria-expanded", "false"); } });
+
+// faixa de marcas: duplica para girar sem emenda
+const faixa = document.getElementById("faixa");
+faixa.innerHTML += faixa.innerHTML;
+// faixa rosa dos serviços: repete os textos até encher a tela e duplica para girar sem emenda
+const faixaRosa = document.getElementById("faixa-rosa");
+const textosRosa = faixaRosa.innerHTML;
+while (faixaRosa.scrollWidth < innerWidth * 1.2) faixaRosa.innerHTML += textosRosa;
+faixaRosa.innerHTML += faixaRosa.innerHTML;
+
+// números da capa: contam rapidinho do zero até o número escrito (ex.: +120, 2,4M)
+// (com ?print no endereço os números já aparecem parados: usado para tirar a imagem da galeria)
+if (!new URLSearchParams(location.search).has("print")) document.querySelectorAll(".numeros b").forEach(el => {
+  const m = el.textContent.trim().match(/^(\D*)([\d.,]+)(.*)$/);
+  if (!m) return;
+  const [, antes, num, depois] = m;
+  const casas = num.includes(",") ? num.split(",")[1].length : 0;
+  const alvo = parseFloat(num.replace(/\./g, "").replace(",", "."));
+  const escreve = v => el.textContent = antes + v.toLocaleString("pt-BR", { minimumFractionDigits: casas, maximumFractionDigits: casas }) + depois;
+  const inicio = performance.now(), duracao = 1400;
+  escreve(0);
+  (function passo(t) {
+    const p = Math.min((t - inicio) / duracao, 1);
+    escreve(alvo * (1 - Math.pow(1 - p, 3)));
+    if (p < 1) requestAnimationFrame(passo); else el.textContent = antes + num + depois;
+  })(inicio);
+});
+
+// filtros dos nichos (começa no primeiro)
+function filtrar(nicho) {
+  document.querySelectorAll(".filtro").forEach(b => b.classList.toggle("ativo", b.dataset.nicho === nicho));
+  document.querySelectorAll("#galeria .video").forEach(v => v.hidden = v.dataset.nicho !== nicho);
+  document.getElementById("galeria").scrollLeft = 0;
+}
+document.getElementById("filtros").addEventListener("click", e => {
+  const f = e.target.closest(".filtro");
+  if (f) filtrar(f.dataset.nicho);
+});
+filtrar(document.querySelector(".filtro").dataset.nicho);
+
+// PT | EN: troca os textos pelo atributo data-en
+const traduziveis = [...document.querySelectorAll("[data-en]")];
+traduziveis.forEach(el => el.dataset.pt = el.innerHTML);
+function idioma(lingua) {
+  traduziveis.forEach(el => el.innerHTML = lingua === "en" ? el.dataset.en : el.dataset.pt);
+  // textos de dentro dos campos do formulário (placeholder)
+  document.querySelectorAll("[data-ph-en]").forEach(el => {
+    el.dataset.phPt = el.dataset.phPt || el.placeholder;
+    el.placeholder = lingua === "en" ? el.dataset.phEn : el.dataset.phPt;
+  });
+  document.documentElement.lang = lingua === "en" ? "en" : "pt-BR";
+  document.querySelectorAll(".idiomas button").forEach(b => b.classList.toggle("ativo", b.dataset.idioma === lingua));
+  try { localStorage.setItem("modelo-idioma", lingua); } catch (e) {}
+}
+document.querySelector(".idiomas").addEventListener("click", e => {
+  const b = e.target.closest("button");
+  if (b) idioma(b.dataset.idioma);
+});
+try { if (localStorage.getItem("modelo-idioma") === "en") idioma("en"); } catch (e) {}
+
+// carrossel dos depoimentos: setas passam um item; no fim volta ao começo
+document.querySelectorAll(".carrossel").forEach(c => {
+  const trilho = c.querySelector(".trilho");
+  const passo = () => trilho.firstElementChild.getBoundingClientRect().width + parseFloat(getComputedStyle(trilho).columnGap);
+  const anda = dir => {
+    const noFim = trilho.scrollLeft + trilho.clientWidth >= trilho.scrollWidth - 4;
+    if (dir > 0 && noFim) trilho.scrollTo({ left: 0 });
+    else if (dir < 0 && trilho.scrollLeft <= 4) trilho.scrollTo({ left: trilho.scrollWidth });
+    else trilho.scrollBy({ left: dir * passo() });
+  };
+  c.querySelector(".ant").addEventListener("click", () => anda(-1));
+  c.querySelector(".prox").addEventListener("click", () => anda(1));
+});
+
+// fotos: ficam paradas; as setas passam uma foto para o lado (sem fim, nos dois sentidos)
+const esteira = document.querySelector(".esteira");
+if (esteira) {
+  const fita = esteira.querySelector(".fita");
+  fita.innerHTML += fita.innerHTML; // duplica para girar sem emenda
+  const VELOCIDADE = 0; // 0 = paradas (ex.: 0.03 faz passar devagar sozinhas)
+  let pos = 0, alvo = null, ultimo = performance.now();
+  const passo = () => fita.firstElementChild.getBoundingClientRect().width + parseFloat(getComputedStyle(fita).columnGap);
+  (function quadro(t) {
+    const dt = Math.min(t - ultimo, 50);
+    ultimo = t;
+    if (alvo === null) pos += dt * VELOCIDADE;
+    else { pos += (alvo - pos) * Math.min(dt / 110, 1); if (Math.abs(alvo - pos) < .5) { pos = alvo; alvo = null; } }
+    const metade = fita.offsetWidth / 2;
+    if (pos >= metade) { pos -= metade; if (alvo !== null) alvo -= metade; }
+    if (pos < 0) { pos += metade; if (alvo !== null) alvo += metade; }
+    fita.style.transform = `translateX(${-pos}px)`;
+    requestAnimationFrame(quadro);
+  })(ultimo);
+  esteira.querySelector(".ant").addEventListener("click", () => alvo = (alvo ?? pos) - passo());
+  esteira.querySelector(".prox").addEventListener("click", () => alvo = (alvo ?? pos) + passo());
+}
+
+// celular: setas dos destaques e dos nichos passam um vídeo para o lado
+document.querySelectorAll(".rolagem").forEach(r => {
+  const lista = r.querySelector(".destaques-lista, .galeria");
+  const passo = () => {
+    const item = [...lista.children].find(i => !i.hidden);
+    return item.getBoundingClientRect().width + parseFloat(getComputedStyle(lista).columnGap || 0);
+  };
+  r.querySelector(".ant").addEventListener("click", () => lista.scrollBy({ left: -passo(), behavior: "smooth" }));
+  r.querySelector(".prox").addEventListener("click", () => lista.scrollBy({ left: passo(), behavior: "smooth" }));
+});
+// celular: os destaques começam mostrando o vídeo do meio
+const listaDestaques = document.querySelector(".destaques-lista");
+if (matchMedia("(max-width:900px)").matches) {
+  const meio = listaDestaques.children[1];
+  listaDestaques.scrollLeft = meio.offsetLeft - (listaDestaques.clientWidth - meio.offsetWidth) / 2;
+}
+
+// barra de app: marca o atalho da parte que está na tela
+const PARTES = { sobre: "sobre", destaques: "trabalhos", nichos: "trabalhos", fotos: "trabalhos", servicos: "servicos", depoimentos: "servicos", contato: "contato" };
+const atalhos = document.querySelectorAll(".barra-app a");
+function marcaAtalho() {
+  let atual = "inicio";
+  Object.keys(PARTES).forEach(id => { if (document.getElementById(id).getBoundingClientRect().top < innerHeight * .45) atual = PARTES[id]; });
+  atalhos.forEach(a => a.classList.toggle("ativo", a.dataset.alvo === atual));
+}
+addEventListener("scroll", marcaAtalho, { passive: true });
+
+// formulário de contato: abre o WhatsApp da cliente com a mensagem já escrita
+// EDITAR: número com DDD (só números, com 55 na frente)
+const WHATSAPP = "5500000000000";
+document.getElementById("form-contato").addEventListener("submit", e => {
+  e.preventDefault();
+  const d = new FormData(e.target);
+  const linhas = [
+    "Oi! Vi seu portfólio e quero conversar.",
+    "Nome: " + d.get("nome"),
+    d.get("marca") && "Marca: " + d.get("marca"),
+    d.get("whatsapp") && "WhatsApp: " + d.get("whatsapp"),
+    d.get("email") && "E-mail: " + d.get("email"),
+    d.get("projeto") && "Projeto: " + d.get("projeto")
+  ].filter(Boolean);
+  window.open("https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(linhas.join("\n")), "_blank");
+});
+
+// blocos aparecem ao rolar
+const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visto"); obs.unobserve(e.target); } }), { threshold: .12 });
+document.querySelectorAll(".surge").forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
