@@ -695,6 +695,10 @@ document.getElementById("fontes").addEventListener("input", e => {
   lista.querySelectorAll(".fonte-bloco").forEach(b => b.hidden = !b.querySelector(".fonte:not([hidden])"));
   lista.querySelector(".sem-fonte").hidden = !!lista.querySelector(".fonte:not([hidden])");
 });
+// Enter na busca não envia o formulário
+document.getElementById("fontes").addEventListener("keydown", e => {
+  if (e.key === "Enter" && e.target.closest(".busca-fonte")) e.preventDefault();
+});
 
 // mostra a escolha no topo de cada caixa, fecha a lista e atualiza a prévia
 function atualizaFontes() {
