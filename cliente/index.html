@@ -703,6 +703,7 @@ function atualizaFontes() {
     const marcada = caixa.querySelector("input:checked");
     const alvo = caixa.querySelector(".papel-escolha");
     const fonte = marcada && LISTA_FONTES.find(f => f.nome === marcada.value);
+    if (fonte) fonteInteira(fonte.nome);
     alvo.classList.toggle("vazio", !fonte);
     alvo.textContent = fonte ? fonte.nome : "Escolher fonte";
     alvo.style.cssText = fonte ? estiloFonte(fonte) : "";
