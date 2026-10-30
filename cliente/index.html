@@ -143,15 +143,54 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--rosa);bo
 .cores i + i{margin-left:-8px}
 .opcao-texto{flex:1;min-width:0;font-size:14px;font-weight:600}
 .opcao-texto small{display:block;font-weight:500;color:var(--tinta-2);font-size:12.5px;margin-top:2px}
-.personalizada{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;padding:14px;border-radius:18px;background:#faf8f5}
-.personalizada label{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600}
-.personalizada input[type=color]{width:44px;height:36px;border:0;background:none;padding:0;cursor:pointer}
+.mini-titulo{margin:20px 0 10px;font-size:13px;font-weight:700;color:var(--tinta-2)}
+/* paletas prontas: faixa de 5 cores, como no Canva */
+.paletas{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.paleta{position:relative;display:block;cursor:pointer}
+.paleta input{position:absolute;opacity:0;pointer-events:none}
+.paleta-faixa{display:flex;height:46px;border-radius:12px;overflow:hidden;box-shadow:0 0 0 1px #e2dcd5;transition:box-shadow .2s,transform .2s}
+.paleta-faixa i{flex:1}
+.paleta:hover .paleta-faixa{transform:translateY(-2px)}
+.paleta input:checked + .paleta-faixa{box-shadow:0 0 0 3px var(--tinta),0 0 0 7px var(--rosa)}
+.paleta input:focus-visible + .paleta-faixa{outline:3px solid var(--ceu);outline-offset:3px}
+.paleta-nome{display:block;margin-top:6px;font-size:12.5px;font-weight:600}
+/* minhas cores: quadradinhos + botão "+" */
+.minhas-cores{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start}
+.minha-cor{position:relative;display:grid;justify-items:center;gap:4px}
+.minha-cor input[type=color]{width:52px;height:52px;padding:0;border:0;border-radius:12px;background:none;cursor:pointer;box-shadow:0 0 0 1px #e2dcd5}
+.minha-cor input[type=color]::-webkit-color-swatch-wrapper{padding:0}
+.minha-cor input[type=color]::-webkit-color-swatch{border:0;border-radius:12px}
+.minha-cor input[type=color]::-moz-color-swatch{border:0;border-radius:12px}
+.minha-cor small{font-size:11px;font-weight:600;color:var(--tinta-2);text-transform:uppercase}
+.minha-cor .tirar{position:absolute;top:-7px;right:-7px;width:22px;height:22px;border:0;border-radius:50%;background:var(--tinta);color:#fff;font-size:12px;line-height:22px;cursor:pointer}
+.cor-mais{width:52px;height:52px;border:2px dashed #cfc7bf;border-radius:12px;background:#fff;font-size:26px;line-height:1;color:var(--tinta-2);cursor:pointer}
+.cor-mais:hover{border-color:var(--tinta);color:var(--tinta)}
 
-/* ---------- fontes ---------- */
-.fonte-previa{flex:1;min-width:0}
-.fonte-previa .f-tit{display:block;font-size:22px;line-height:1.1;color:var(--tinta)}
-.fonte-previa .f-txt{display:block;font-size:13px;color:var(--tinta-2);margin-top:3px}
-.fonte-previa .f-nome{display:block;font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#a59d95;margin-top:6px;font-family:var(--sans)}
+/* ---------- fontes: títulos, textos e detalhes ---------- */
+.papeis-fonte{display:grid;gap:10px;margin-top:14px}
+.papel{border:2px solid var(--linha);border-radius:18px;background:#fff;overflow:hidden}
+.papel[open]{border-color:var(--tinta)}
+.papel summary{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;list-style:none}
+.papel summary::-webkit-details-marker{display:none}
+.papel-nome{flex:none;width:76px;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--tinta-2)}
+.papel-escolha{flex:1;min-width:0;font-size:21px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.papel-escolha.vazio{font-family:var(--sans);font-size:14px;color:#a59d95}
+.papel summary::after{content:"▾";flex:none;font-size:14px;color:var(--tinta-2);transition:transform .2s}
+.papel[open] summary::after{transform:rotate(180deg)}
+.lista-fontes{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px;max-height:330px;overflow:auto;padding:4px 14px 16px}
+.fonte{position:relative;display:block;cursor:pointer}
+.fonte input{position:absolute;opacity:0;pointer-events:none}
+.fonte span{display:block;padding:12px 14px;border:2px solid var(--linha);border-radius:14px;font-size:20px;line-height:1.15;transition:border-color .2s,background .2s}
+.fonte small{display:block;margin-top:4px;font-family:var(--sans);font-size:11px;font-weight:600;color:#a59d95}
+.fonte input:checked + span{border-color:var(--tinta);background:#fff6fb}
+.fonte input:focus-visible + span{outline:3px solid var(--ceu);outline-offset:2px}
+/* prévia */
+.previa{display:grid;gap:8px;margin-top:16px;padding:22px 20px;border-radius:20px;background:var(--pv-fundo,#faf8f5);color:var(--pv-texto,var(--tinta));box-shadow:0 0 0 1px #ece7e2}
+.previa-rotulo{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.5}
+.previa-detalhe{font-size:20px;color:var(--pv-cor,#d6338a)}
+.previa-titulo{font-size:34px;line-height:1.05}
+.previa-texto{font-size:15px;line-height:1.55;opacity:.85}
+.previa-botao{justify-self:start;margin-top:6px;padding:10px 18px;border-radius:999px;background:var(--pv-cor,var(--rosa));color:var(--pv-botao,var(--tinta));font-family:var(--sans);font-size:13px;font-weight:600}
 
 /* ---------- formulário em etapas visuais ---------- */
 .etapa{margin-top:34px;padding-top:28px;border-top:1px dashed #e2dcd5}
