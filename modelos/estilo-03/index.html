@@ -194,13 +194,6 @@ em{font-style:normal;background:linear-gradient(transparent 56%,var(--lima) 56%,
 .seta.ant{left:-22px}
 .seta.prox{right:-22px}
 
-/* fotos: cartões brancos de ponta a ponta; as setas passam para o lado */
-.esteira{position:relative;overflow:hidden;padding:14px 0 26px}
-.fita{display:flex;gap:18px;width:max-content;padding-right:18px;will-change:transform}
-.fita .foto{flex:none;width:250px;aspect-ratio:4/5;border:8px solid var(--branco);border-radius:22px;box-shadow:var(--sombra)}
-.fita .foto img{border-radius:14px}
-.esteira .seta.ant{left:16px}
-.esteira .seta.prox{right:16px}
 /* nichos: filtros embaixo do título */
 .cabeca.empilhada{display:block}
 .cabeca.empilhada .filtros{margin-top:18px}
@@ -209,21 +202,47 @@ em{font-style:normal;background:linear-gradient(transparent 56%,var(--lima) 56%,
 .quadro{margin:0 14px;padding:52px 0;border-radius:32px;background:var(--branco);box-shadow:var(--sombra)}
 #destaques .quadro{background:transparent;box-shadow:none}
 
-/* ---------- serviços ---------- */
-.servicos{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.servico{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:12px;min-height:176px;padding:26px 26px 22px;border-radius:24px;background:var(--fundo);transition:transform .2s,box-shadow .2s}
-.servico:hover{transform:translateY(-4px);box-shadow:var(--sombra-alta)}
-.servico h3{font-size:26px}
-.servico p{margin:0;max-width:420px;font-size:14px;color:var(--cinza)}
-.quero{margin-top:auto;padding-top:6px;display:inline-flex;align-items:center;gap:10px;font-size:13.5px;font-weight:800}
-.quero i{width:30px;height:30px;border-radius:50%;background:var(--tinta);color:#fff;display:grid;place-items:center;font-style:normal;font-size:14px;transition:transform .2s}
-.servico:hover .quero i{transform:rotate(45deg)}
 #servicos .intro{max-width:340px}
-.servico-rosa-forte{background:var(--tinta);color:#fff}
-.servico-rosa-forte p{color:rgba(255,255,255,.72)}
-.servico-rosa-forte .quero i{background:var(--lima);color:var(--tinta)}
-.servico-amarelo{background:var(--lima)}
-.servico-amarelo p{color:var(--tinta)}
+
+/* fotos: fileira de fotos com a do meio dentro de um celular; setas sempre visíveis (computador e celular) */
+.vitrine-fotos{position:relative}
+.vf-janela{overflow:hidden;padding:34px 0 30px}
+.vf-trilho{display:flex;align-items:center;gap:22px;width:max-content;transition:transform .55s cubic-bezier(.22,.8,.3,1)}
+.vf-item{flex:none;width:170px;cursor:pointer;transition:transform .45s,opacity .45s;opacity:.75}
+.vf-item .foto{aspect-ratio:10/17;border-radius:24px;box-shadow:var(--sombra)}
+.vf-item:nth-child(even) .foto{background:linear-gradient(160deg,#dfe3dc,#c7cdc3)}
+/* a do meio: maior, dentro do celular, com a "ilha" em cima */
+.vf-item.ativo{position:relative;z-index:2;opacity:1;transform:scale(1.2)}
+.vf-item.ativo .foto{border:7px solid var(--tinta);border-radius:30px;box-shadow:var(--sombra-alta)}
+.vf-item.ativo::before{content:"";position:absolute;z-index:3;top:13px;left:50%;width:44px;height:12px;margin-left:-22px;border-radius:8px;background:var(--tinta)}
+.vf-item.ativo .foto::after{bottom:14px}
+.vitrine-fotos .seta.ant{left:max(16px,calc(50% - 560px))}
+.vitrine-fotos .seta.prox{right:max(16px,calc(50% - 560px))}
+
+/* ---------- serviços: vitrine com um cartão em destaque (escuro, com detalhes e setas) ---------- */
+.vitrine-servicos{display:flex;align-items:center;gap:16px;padding:34px 0 10px}
+.sv{position:relative;flex:1;min-width:0;display:flex;flex-direction:column;gap:10px;padding:22px 20px;border-radius:24px;background:var(--fundo);cursor:pointer;transition:flex .45s,transform .45s,background .3s,box-shadow .3s}
+.sv:hover{box-shadow:var(--sombra)}
+.sv-num{font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--cinza)}
+.sv-icone{width:42px;height:42px;border-radius:14px;background:var(--branco);display:grid;place-items:center}
+.sv-icone svg{width:20px;height:20px;fill:none;stroke:var(--tinta);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.sv h3{font-size:22px}
+.sv p{margin:0;font-size:13px;line-height:1.5;color:var(--cinza)}
+.sv-linhas,.sv-rodape{display:none}
+/* o cartão em destaque */
+.sv.ativo{flex:1.5;cursor:default;transform:translateY(-22px);color:#fff;background:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px) 0 0/22px 22px,linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px) 0 0/22px 22px,radial-gradient(circle at 100% 0,rgba(200,240,79,.28),transparent 45%),var(--tinta);box-shadow:var(--sombra-alta)}
+.sv.ativo .sv-num{color:var(--lima)}
+.sv.ativo .sv-icone{background:var(--lima)}
+.sv.ativo h3{font-size:28px}
+.sv.ativo p{color:rgba(255,255,255,.72)}
+.sv.ativo .sv-linhas{display:grid;gap:8px;margin:6px 0 0;padding:0;list-style:none}
+.sv-linhas li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid rgba(255,255,255,.12);font-size:12.5px}
+.sv-linhas span{color:rgba(255,255,255,.55)}
+.sv-linhas b{text-align:right;color:var(--lima)}
+.sv.ativo .sv-rodape{display:flex;align-items:center;gap:10px;margin-top:8px}
+.sv-botao{flex:1;padding:12px;border-radius:999px;background:var(--branco);color:var(--tinta);text-align:center;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.sv-seta{flex:none;width:38px;height:38px;border:1px solid rgba(255,255,255,.25);border-radius:50%;background:none;color:#fff;font:inherit;font-size:20px;line-height:1;cursor:pointer;display:grid;place-items:center;padding-bottom:2px;transition:background .2s}
+.sv-seta:hover{background:var(--lima);color:var(--tinta);border-color:var(--lima)}
 
 /* ---------- depoimentos: cartões limpos, passando para o lado ---------- */
 .frases{grid-auto-columns:31%;padding:8px 2px 12px}
@@ -306,15 +325,19 @@ em{font-style:normal;background:linear-gradient(transparent 56%,var(--lima) 56%,
   .videos{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:68%;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 6px 14px}
   .video{scroll-snap-align:start}
   .galeria{grid-auto-columns:52%}
-  /* fotos: 3 por vez */
-  .fita{gap:10px;padding-right:10px}
-  .fita .foto{width:calc((100vw - 52px) / 3);border-width:5px;border-radius:16px}
-  .fita .foto::after{display:none}
   .quadro{margin:0 8px;padding:36px 0;border-radius:24px}
   .quadro .largura{width:calc(100% - 32px)}
   .contato-area{grid-template-columns:1fr}
   .caixa-contato{margin-right:0;padding:28px 18px 62px;border-radius:24px}
   .encontre{grid-column:1;margin:-46px 10px 0}
+  /* fotos: celular no meio menor; serviços: só o cartão em destaque, com as setas */
+  .vf-item{width:112px}
+  .vf-trilho{gap:14px}
+  .vf-item.ativo{transform:scale(1.28)}
+  .vf-janela{padding:44px 0 40px}
+  .vitrine-servicos{flex-direction:column;align-items:stretch;padding-top:4px}
+  .sv{display:none}
+  .sv.ativo{display:flex;transform:none}
   /* depoimentos: 1 por vez */
   .frases{grid-auto-columns:100%}
   .frase{min-height:250px;padding-left:38px;padding-right:38px}
@@ -323,9 +346,6 @@ em{font-style:normal;background:linear-gradient(transparent 56%,var(--lima) 56%,
   .seta.prox{right:-8px}
   .seta.seta-cel{display:grid}
   .rolagem .seta{top:42%}
-  .servicos{grid-template-columns:1fr;gap:16px}
-  .servico{min-height:150px;padding:22px 20px 18px}
-  .servico h3{font-size:23px}
   /* barra de baixo, igual de app */
   body{padding-bottom:92px}
   .barra-app{position:fixed;z-index:30;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,1fr);align-items:end;padding:8px 4px 7px;border-radius:24px;background:rgba(255,255,255,.97);box-shadow:var(--sombra-alta)}
@@ -493,19 +513,20 @@ em{font-style:normal;background:linear-gradient(transparent 56%,var(--lima) 56%,
         <p class="intro" data-en="Lifestyle photos with natural light, ready for websites and social media.">Fotos lifestyle com luz natural, prontas para site e redes.</p>
       </div>
     </div>
-    <!-- EDITAR: troque cada <div class="foto"> por <div class="foto"><img src="..." alt="..."></div>
-         as fotos ocupam a tela de ponta a ponta, paradas e presas com pin; as setas passam uma foto para o lado -->
-    <div class="esteira surge">
+    <!-- EDITAR: troque cada <div class="foto" ...></div> por <div class="foto"><img src="..." alt="..."></div>
+         a foto do meio aparece dentro de um celular; as setas passam para o lado -->
+    <div class="vitrine-fotos surge" id="vitrine-fotos">
       <button type="button" class="seta ant" aria-label="Foto anterior">‹</button>
-      <div class="fita">
-        <div class="foto" data-texto="Foto 1"></div>
-        <div class="foto" data-texto="Foto 2"></div>
-        <div class="foto" data-texto="Foto 3"></div>
-        <div class="foto" data-texto="Foto 4"></div>
-        <div class="foto" data-texto="Foto 5"></div>
-        <div class="foto" data-texto="Foto 6"></div>
-        <div class="foto" data-texto="Foto 7"></div>
-        <div class="foto" data-texto="Foto 8"></div>
+      <div class="vf-janela">
+        <div class="vf-trilho">
+          <div class="vf-item"><div class="foto" data-texto="Foto 1"></div></div>
+          <div class="vf-item"><div class="foto" data-texto="Foto 2"></div></div>
+          <div class="vf-item"><div class="foto" data-texto="Foto 3"></div></div>
+          <div class="vf-item"><div class="foto" data-texto="Foto 4"></div></div>
+          <div class="vf-item"><div class="foto" data-texto="Foto 5"></div></div>
+          <div class="vf-item"><div class="foto" data-texto="Foto 6"></div></div>
+          <div class="vf-item"><div class="foto" data-texto="Foto 7"></div></div>
+        </div>
       </div>
       <button type="button" class="seta prox" aria-label="Próxima foto">›</button>
     </div>
@@ -521,28 +542,40 @@ em{font-style:normal;background:linear-gradient(transparent 56%,var(--lima) 56%,
         </div>
         <p class="intro" data-en="From organic videos to ads and product photos: content made to fit your brand and sell more.">De vídeos orgânicos a anúncios e fotos de produto: conteúdo feito sob medida para a sua marca vender mais.</p>
       </div>
-      <!-- EDITAR: um cartão por serviço (cores: servico-rosa-forte, servico-amarelo, servico-rosa, servico-claro) -->
-      <div class="servicos surge">
-        <a class="servico servico-rosa-forte" href="#contato">
-          <h3><span data-en="UGC for ads">UGC para anúncios</span></h3>
+      <!-- EDITAR: um cartão por serviço; o que está em destaque (escuro) mostra os detalhes e o botão; as setas trocam o destaque -->
+      <div class="vitrine-servicos surge" id="vitrine-servicos">
+        <article class="sv">
+          <span class="sv-num">01</span>
+          <span class="sv-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg></span>
+          <h3 data-en="UGC for ads">UGC para anúncios</h3>
           <p data-en="Creatives for Meta, TikTok and YouTube, made to sell more.">Criativos para Meta, TikTok e YouTube, feitos para vender mais.</p>
-          <span class="quero"><i>↗</i><span data-en="I want this">Quero esse</span></span>
-        </a>
-        <a class="servico servico-amarelo" href="#contato">
-          <h3><span data-en="UGC for e&#8209;commerce">UGC para e&#8209;commerce</span></h3>
+          <ul class="sv-linhas"><li><span data-en="Platforms">Plataformas</span><b>Meta · TikTok · YouTube</b></li></ul>
+          <div class="sv-rodape"><button type="button" class="sv-seta ant" aria-label="Serviço anterior">‹</button><a class="sv-botao" href="#contato" data-en="I want this">Quero esse</a><button type="button" class="sv-seta prox" aria-label="Próximo serviço">›</button></div>
+        </article>
+        <article class="sv ativo">
+          <span class="sv-num">02</span>
+          <span class="sv-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span>
+          <h3 data-en="UGC for e&#8209;commerce">UGC para e&#8209;commerce</h3>
           <p data-en="Product videos that feel like a real customer, for your store to sell every day.">Vídeo de produto com cara de cliente real, para a loja vender todo dia.</p>
-          <span class="quero"><i>↗</i><span data-en="I want this">Quero esse</span></span>
-        </a>
-        <a class="servico servico-rosa" href="#contato">
-          <h3><span data-en="Sponsored post">Publi post</span></h3>
+          <ul class="sv-linhas"><li><span data-en="Includes">Inclui</span><b data-en="Review · Unboxing · Real use">Review · Unboxing · Uso real</b></li></ul>
+          <div class="sv-rodape"><button type="button" class="sv-seta ant" aria-label="Serviço anterior">‹</button><a class="sv-botao" href="#contato" data-en="I want this">Quero esse</a><button type="button" class="sv-seta prox" aria-label="Próximo serviço">›</button></div>
+        </article>
+        <article class="sv">
+          <span class="sv-num">03</span>
+          <span class="sv-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h3l7 4V6l-7 4H4Z"/><path d="M17 9a4 4 0 0 1 0 6"/></svg></span>
+          <h3 data-en="Sponsored post">Publi post</h3>
           <p data-en="Your brand on my profile, talking to people who already trust me.">Sua marca no meu perfil, falando com quem já confia em mim.</p>
-          <span class="quero"><i>↗</i><span data-en="I want this">Quero esse</span></span>
-        </a>
-        <a class="servico servico-claro" href="#contato">
-          <h3><span data-en="Product photos">Fotos de produto</span></h3>
+          <ul class="sv-linhas"><li><span data-en="Where">Onde</span><b>Reels · Stories · TikTok</b></li></ul>
+          <div class="sv-rodape"><button type="button" class="sv-seta ant" aria-label="Serviço anterior">‹</button><a class="sv-botao" href="#contato" data-en="I want this">Quero esse</a><button type="button" class="sv-seta prox" aria-label="Próximo serviço">›</button></div>
+        </article>
+        <article class="sv">
+          <span class="sv-num">04</span>
+          <span class="sv-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="13" rx="2"/><circle cx="12" cy="12.5" r="3"/><path d="M9 6l1.5-2h3L15 6"/></svg></span>
+          <h3 data-en="Product photos">Fotos de produto</h3>
           <p data-en="Lifestyle photos with natural light, ready for websites and social media.">Fotos lifestyle com luz natural, prontas para site e redes.</p>
-          <span class="quero"><i>↗</i><span data-en="I want this">Quero esse</span></span>
-        </a>
+          <ul class="sv-linhas"><li><span data-en="For">Para</span><b data-en="Lifestyle · Website · Social">Lifestyle · Site · Redes</b></li></ul>
+          <div class="sv-rodape"><button type="button" class="sv-seta ant" aria-label="Serviço anterior">‹</button><a class="sv-botao" href="#contato" data-en="I want this">Quero esse</a><button type="button" class="sv-seta prox" aria-label="Próximo serviço">›</button></div>
+        </article>
       </div>
     </div></div>
   </section>
@@ -707,27 +740,40 @@ document.querySelectorAll(".carrossel").forEach(c => {
   c.querySelector(".prox").addEventListener("click", () => anda(1));
 });
 
-// fotos: ficam paradas; as setas passam uma foto para o lado (sem fim, nos dois sentidos)
-const esteira = document.querySelector(".esteira");
-if (esteira) {
-  const fita = esteira.querySelector(".fita");
-  fita.innerHTML += fita.innerHTML; // duplica para girar sem emenda
-  const VELOCIDADE = 0; // 0 = paradas (ex.: 0.03 faz passar devagar sozinhas)
-  let pos = 0, alvo = null, ultimo = performance.now();
-  const passo = () => fita.firstElementChild.getBoundingClientRect().width + parseFloat(getComputedStyle(fita).columnGap);
-  (function quadro(t) {
-    const dt = Math.min(t - ultimo, 50);
-    ultimo = t;
-    if (alvo === null) pos += dt * VELOCIDADE;
-    else { pos += (alvo - pos) * Math.min(dt / 110, 1); if (Math.abs(alvo - pos) < .5) { pos = alvo; alvo = null; } }
-    const metade = fita.offsetWidth / 2;
-    if (pos >= metade) { pos -= metade; if (alvo !== null) alvo -= metade; }
-    if (pos < 0) { pos += metade; if (alvo !== null) alvo += metade; }
-    fita.style.transform = `translateX(${-pos}px)`;
-    requestAnimationFrame(quadro);
-  })(ultimo);
-  esteira.querySelector(".ant").addEventListener("click", () => alvo = (alvo ?? pos) - passo());
-  esteira.querySelector(".prox").addEventListener("click", () => alvo = (alvo ?? pos) + passo());
+// fotos: a do meio fica dentro de um celular; as setas (ou um toque na foto) passam para o lado
+const vitrineFotos = document.getElementById("vitrine-fotos");
+if (vitrineFotos) {
+  const janela = vitrineFotos.querySelector(".vf-janela");
+  const trilho = vitrineFotos.querySelector(".vf-trilho");
+  const itens = [...trilho.children];
+  let atual = Math.floor(itens.length / 2);
+  const mostra = () => {
+    itens.forEach((it, i) => it.classList.toggle("ativo", i === atual));
+    const it = itens[atual];
+    trilho.style.transform = `translateX(${janela.clientWidth / 2 - (it.offsetLeft + it.offsetWidth / 2)}px)`;
+  };
+  const vai = dir => { atual = (atual + dir + itens.length) % itens.length; mostra(); };
+  vitrineFotos.querySelector(".ant").addEventListener("click", () => vai(-1));
+  vitrineFotos.querySelector(".prox").addEventListener("click", () => vai(1));
+  itens.forEach((it, i) => it.addEventListener("click", () => { atual = i; mostra(); }));
+  addEventListener("resize", mostra);
+  mostra();
+}
+
+// serviços: um cartão fica em destaque com os detalhes; as setas trocam o destaque
+const vitrineServicos = document.getElementById("vitrine-servicos");
+if (vitrineServicos) {
+  const cartoes = [...vitrineServicos.children];
+  let ativo = Math.max(0, cartoes.findIndex(c => c.classList.contains("ativo")));
+  const destaca = i => {
+    ativo = (i + cartoes.length) % cartoes.length;
+    cartoes.forEach((c, k) => c.classList.toggle("ativo", k === ativo));
+  };
+  cartoes.forEach((c, k) => {
+    c.querySelector(".sv-seta.ant").addEventListener("click", e => { e.stopPropagation(); destaca(ativo - 1); });
+    c.querySelector(".sv-seta.prox").addEventListener("click", e => { e.stopPropagation(); destaca(ativo + 1); });
+    c.addEventListener("click", () => { if (k !== ativo) destaca(k); });
+  });
 }
 
 // celular: setas dos destaques e dos nichos passam um vídeo para o lado
