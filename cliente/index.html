@@ -513,10 +513,10 @@ carregarRascunho();
 
 // ===== ENVIO: confere o "o que contratou" (pelo menos um) =====
 form.addEventListener("submit", e => {
-  if (!form.querySelector('input[name="Contratou"]:checked')) {
+  if (!form.querySelector("#contratou input:checked")) {
     e.preventDefault();
     alert("Marque o que você contratou: bio link, portfólio ou site.");
-    form.querySelector('input[name="Contratou"]').focus();
+    form.querySelector("#contratou input").focus();
   }
 });
 </script>
