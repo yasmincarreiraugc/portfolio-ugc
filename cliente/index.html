@@ -483,6 +483,14 @@ function atualizaCampos() {
   document.getElementById("cores-personalizadas").hidden = !(pal && pal.hasAttribute("data-personalizada"));
   const end = form.querySelector('input[name="Endereço"]:checked');
   document.getElementById("campos-dominio").hidden = !(end && end.value === "Domínio próprio");
+  // modelos: só aparecem os do que a cliente marcou que contratou
+  let algum = false;
+  document.querySelectorAll(".tipo-modelos").forEach(t => {
+    const marcado = form.querySelector(`#contratou input[name="Contratou: ${t.dataset.tipo}"]`).checked;
+    t.hidden = !marcado;
+    algum = algum || marcado;
+  });
+  document.getElementById("aviso-marcar").hidden = algum;
 }
 form.addEventListener("change", atualizaCampos);
 
