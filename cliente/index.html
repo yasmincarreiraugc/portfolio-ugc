@@ -521,6 +521,7 @@ function carregarRascunho() {
 form.addEventListener("input", salvarRascunho);
 form.addEventListener("change", salvarRascunho);
 carregarRascunho();
+atualizaCampos();
 
 // ===== ENVIO: confere o "o que contratou" (pelo menos um) =====
 form.addEventListener("submit", e => {
