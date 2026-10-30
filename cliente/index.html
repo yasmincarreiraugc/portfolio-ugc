@@ -631,12 +631,9 @@ document.getElementById("fontes").addEventListener("change", e => {
   if (caixa) caixa.open = false;
 });
 
-// prévia com as cores da paleta escolhida (ou de "Minhas cores")
+// prévia com as cores escolhidas
 function atualizaPrevia() {
-  const pal = form.querySelector('input[name="Paleta"]:checked');
-  let cores = pal ? pal.dataset.cores.split(",") : [];
-  const minhas = campoCores.value ? campoCores.value.split(", ") : [];
-  if (minhas.length) cores = minhas;
+  const cores = campoCores.value ? campoCores.value.split(", ") : [];
   const previa = document.getElementById("previa");
   ["--pv-cor", "--pv-fundo", "--pv-texto"].forEach(v => previa.style.removeProperty(v));
   if (cores.length) {
