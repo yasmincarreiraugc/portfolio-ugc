@@ -175,10 +175,10 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--rosa);bo
 .cor-mais{position:relative;flex:none;width:52px;height:52px;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center;background:conic-gradient(from 180deg,#ff3b3b,#ffd23b,#52e06b,#3be0e0,#3b6bff,#c93bff,#ff3b9a,#ff3b3b)}
 .cor-mais span{width:26px;height:26px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:20px;line-height:1;color:var(--tinta)}
 .cor-mais input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
-.conta-gotas{background:#fff;box-shadow:inset 0 0 0 2px #e2dcd5}
-.conta-gotas svg{width:22px;height:22px;fill:none;stroke:var(--tinta);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-/* grade de cores */
-.grade-cores{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;max-width:470px;max-height:360px;overflow:auto;padding:4px}
+/* grade de cores: uma coluna por cor, do escuro (em cima) ao claro (embaixo), dentro de uma caixa */
+.caixa-cores{padding:16px;border:1px solid var(--linha);border-radius:20px;background:#faf8f5;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.grade-cores{display:grid;grid-template-columns:repeat(17,minmax(28px,1fr));gap:9px;min-width:620px}
+.arraste{font-weight:500;color:#a59d95}
 .bolinha{aspect-ratio:1;width:100%;border:0;border-radius:50%;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(0,0,0,.1);transition:transform .15s}
 .bolinha:hover{transform:scale(1.08)}
 .bolinha.escolhida{box-shadow:0 0 0 3px #fff,0 0 0 5px var(--tinta)}
