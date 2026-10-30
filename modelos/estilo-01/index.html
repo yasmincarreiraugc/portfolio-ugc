@@ -515,15 +515,34 @@ em{font-style:italic;color:var(--azul)}
 
   <!-- contato -->
   <section class="secao contato" id="contato">
-    <div class="largura surge">
-      <p class="olho"><b data-en="Contact">Contato</b></p>
-      <h2 data-en="Let's create <em>together?</em>">Vamos criar <em>juntas?</em></h2>
-      <p class="intro" data-en="Tell me about your brand and product. I reply within 24 hours.">Me conta da sua marca e do produto. Respondo em até 24 horas.</p>
-      <div class="botoes">
-        <!-- EDITAR: número com DDD e mensagem -->
-        <a class="btn btn-azul" href="https://wa.me/5500000000000?text=Oi!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar." target="_blank" rel="noopener" data-en="Message me on WhatsApp →">Chamar no WhatsApp →</a>
-        <a class="btn btn-linha" href="mailto:seuemail@email.com">seuemail@email.com</a>
-      </div>
+    <div class="largura contato-area surge">
+      <!-- caixa azul com o formulário: ao enviar, abre o WhatsApp com a mensagem pronta -->
+      <form class="caixa-contato" id="form-contato">
+        <h2 data-en="Let's create <em>together?</em>">Vamos criar <em>juntas?</em></h2>
+        <p data-en="Tell me about your brand and what you need.">Me conta sobre a sua marca e o que você precisa.</p>
+        <input type="text" name="nome" placeholder="Nome" data-ph-en="Name" required>
+        <input type="tel" name="whatsapp" placeholder="WhatsApp">
+        <input type="email" name="email" placeholder="E-mail">
+        <input type="text" name="marca" placeholder="Marca" data-ph-en="Brand">
+        <textarea name="projeto" placeholder="Conta sobre o projeto" data-ph-en="Tell me about the project"></textarea>
+        <button type="submit"><span data-en="Send message">Enviar mensagem</span> →</button>
+      </form>
+      <!-- EDITAR: links e dados de contato da cliente -->
+      <aside class="encontre">
+        <h3 data-en="Find me here">Me encontre aqui</h3>
+        <a class="rede" href="https://wa.me/5500000000000" target="_blank" rel="noopener">
+          <span class="rede-icone"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 1c-1-.5-2-1.5-2.5-2.5l1-1-1-2z"/></svg></span>
+          <span class="rede-texto"><b>WhatsApp</b><small>(00) 00000-0000</small></span><i>↗</i></a>
+        <a class="rede" href="mailto:seuemail@email.com">
+          <span class="rede-icone"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+          <span class="rede-texto"><b>E-mail</b><small>seuemail@email.com</small></span><i>↗</i></a>
+        <a class="rede" href="#" target="_blank" rel="noopener">
+          <span class="rede-icone"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></span>
+          <span class="rede-texto"><b>Instagram</b><small>@seuusuario</small></span><i>↗</i></a>
+        <a class="rede" href="#" target="_blank" rel="noopener">
+          <span class="rede-icone"><svg viewBox="0 0 24 24"><path d="M14 3v11a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.5 2.5 4.5 5 4.5"/></svg></span>
+          <span class="rede-texto"><b>TikTok</b><small>@seuusuario</small></span><i>↗</i></a>
+      </aside>
     </div>
   </section>
 </main>
