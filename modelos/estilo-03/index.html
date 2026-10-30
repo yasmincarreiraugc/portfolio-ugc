@@ -106,9 +106,6 @@ em{font-style:italic;color:var(--vermelho)}
 .capa .botoes{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
 .capa-foto{position:relative;max-width:300px;width:100%;justify-self:center;rotate:3deg}
 .capa-foto .foto{aspect-ratio:4/5;border-radius:3px}
-/* bilhete escrito à mão e setinha desenhada */
-.bilhete{position:absolute;z-index:3;right:-118px;top:44%;margin:0;max-width:120px;font-family:var(--mao);font-size:24px;font-weight:700;line-height:1;color:var(--vinho);rotate:-8deg}
-.setinha{position:absolute;z-index:3;right:-62px;top:24%;width:80px;fill:none;stroke:var(--vinho);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;rotate:10deg}
 /* docinhos espalhados, flutuando de leve */
 .doce{position:absolute;z-index:3;fill:var(--rosa);stroke:var(--vinho);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;animation:flutua 5s ease-in-out infinite}
 .doce .folha{fill:#8fbf6a}
@@ -118,22 +115,13 @@ em{font-style:italic;color:var(--vermelho)}
 .bala{width:46px;top:16%;left:-78px;fill:var(--lilas);animation-delay:-3.2s}
 @keyframes flutua{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(6deg)}}
 /* números em selos com formato de flor */
-.numeros{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
-.numeros div{width:96px;height:96px;display:grid;place-content:center;text-align:center;background:var(--pessego);-webkit-mask:var(--flor) center/100% 100% no-repeat;mask:var(--flor) center/100% 100% no-repeat}
-.numeros div:nth-child(2){background:var(--vinho);color:#fff}
-.numeros div:nth-child(3){background:var(--rosa)}
-.numeros b{display:block;font-family:var(--serifa);font-size:26px;font-weight:400;line-height:1;color:inherit}
-.numeros div:nth-child(2) b{color:#fff}
-.numeros span{display:block;max-width:70px;margin-top:3px;font-size:8.5px;font-weight:800;letter-spacing:.08em;line-height:1.2;text-transform:uppercase}
+/* caixa rosa com os números (logo abaixo das marcas) */
+.caixa-numeros{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:14px 48px;width:min(1080px,100% - 48px);margin:20px auto 0;padding:16px 24px;border-radius:16px;background:var(--rosa)}
+.caixa-numeros div{display:flex;align-items:baseline;gap:10px}
+.caixa-numeros b{font-family:var(--serifa);font-size:30px;font-weight:400;line-height:1;color:var(--vinho)}
+.caixa-numeros b::before{content:"+ de ";font-family:var(--sans);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.caixa-numeros span{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--vinho)}
 
-/* ---------- faixa vinho com borda xadrez e os serviços passando ---------- */
-.faixa-rosa{position:relative;overflow:hidden;padding:24px 0;background:var(--vinho);color:var(--rosa);font-family:var(--serifa);font-size:20px;font-style:italic;font-weight:300}
-.faixa-rosa::before,.faixa-rosa::after{content:"";position:absolute;left:0;right:0;height:9px;background:repeating-linear-gradient(90deg,var(--rosa) 0 18px,var(--vinho) 18px 36px)}
-.faixa-rosa::before{top:0}
-.faixa-rosa::after{bottom:0;background:repeating-linear-gradient(90deg,var(--vinho) 0 18px,var(--rosa) 18px 36px)}
-.faixa-rosa-trilho{display:flex;width:max-content;animation:correr 70s linear infinite}
-.faixa-rosa-trilho span{white-space:nowrap;padding-right:52px}
-.faixa-rosa-trilho span::before{content:"♥";margin-right:52px;font-style:normal;font-size:14px;color:var(--vermelho)}
 
 /* ---------- sobre: texto e foto sobre fundo listrado ---------- */
 .sobre .largura{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
@@ -148,23 +136,22 @@ em{font-style:italic;color:var(--vermelho)}
 .etiquetas li:nth-child(2){background:var(--lilas)}
 .etiquetas li:nth-child(3){background:var(--pessego)}
 
-/* ---------- marcas: faixa vermelha com cartão branco de bolinhas, casinhas com docinho ---------- */
-.marcas{padding:46px 0;background:var(--vermelho)}
-.marcas-cartao{position:relative;width:min(1080px,100% - 48px);margin:0 auto;padding:46px 0 34px;background:#fff}
-/* fileira de bolinhas vermelhas em cima do cartão */
-.marcas-cartao::before{content:"";position:absolute;left:0;right:0;top:12px;height:22px;background:radial-gradient(circle,var(--vermelho) 9px,transparent 9.5px) 6px 0/30px 22px repeat-x}
-.marcas-titulo{margin:16px auto 22px;text-align:center;font-family:var(--serifa);font-size:clamp(26px,3vw,34px);font-weight:300;color:var(--vinho)}
-.marcas-janela{overflow:hidden;padding:0 0 4px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
-.marcas-trilho{display:flex;width:max-content;animation:correr 40s linear infinite}
-.marcas-janela:hover .marcas-trilho{animation-play-state:paused}
-.marca-bola{flex:none;position:relative;width:128px;height:130px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:10px;padding:0 10px 18px;border:1.5px solid var(--vinho);margin-left:-1.5px;background:#fff;font-size:12px;font-weight:600;color:var(--vinho);text-align:center;line-height:1.2}
-.marca-bola::before{content:"";width:30px;height:30px;background:var(--rosa);-webkit-mask:var(--icone-cereja) center/contain no-repeat;mask:var(--icone-cereja) center/contain no-repeat;margin-bottom:auto;margin-top:26px}
+/* ---------- marcas: faixa vermelha com cartão branco de bolinhas, 5 casinhas em cima e 5 embaixo ---------- */
+.marcas{padding:34px 0 36px;background:var(--vermelho)}
+.marcas-cartao{position:relative;width:min(1080px,100% - 48px);margin:0 auto;padding:30px 0 26px;background:var(--creme)}
+/* bolinhas vermelhas "mordendo" a borda de cima do cartão */
+.marcas-cartao::before{content:"";position:absolute;left:0;right:0;top:-11px;height:22px;background:radial-gradient(circle,var(--vermelho) 10px,transparent 10.5px) 9px 0/32px 22px repeat-x}
+.marcas-titulo{margin:6px auto 16px;text-align:center;font-family:var(--serifa);font-size:clamp(22px,2.4vw,28px);font-weight:300;color:var(--vinho)}
+.marcas-grade{display:grid;grid-template-columns:repeat(5,1fr);width:min(720px,100% - 32px);margin:0 auto;border-top:1.5px solid var(--vinho);border-left:1.5px solid var(--vinho)}
+.marca-bola{position:relative;height:84px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:6px;border-right:1.5px solid var(--vinho);border-bottom:1.5px solid var(--vinho);font-size:11.5px;font-weight:600;color:var(--vinho);text-align:center;line-height:1.2}
+.marca-bola::before{content:"";width:24px;height:24px;background:var(--rosa);-webkit-mask:var(--icone-cereja) center/contain no-repeat;mask:var(--icone-cereja) center/contain no-repeat}
 .marca-bola:nth-child(4n+1)::before{background:var(--vermelho)}
 .marca-bola:nth-child(4n+2)::before{background:var(--pessego);-webkit-mask-image:var(--icone-ursinho);mask-image:var(--icone-ursinho)}
 .marca-bola:nth-child(4n+3)::before{background:var(--lilas-escuro);-webkit-mask-image:var(--icone-bala);mask-image:var(--icone-bala)}
 .marca-bola:nth-child(4n)::before{background:var(--rosa);-webkit-mask-image:var(--icone-coracao);mask-image:var(--icone-coracao)}
-.marca-bola:nth-child(5n+1){background:var(--vinho);color:#fff}
-.marca-bola img{width:72%;height:50%;object-fit:contain}
+.marca-bola:first-child{background:var(--vinho);color:#fff}
+.marca-bola img{width:72%;height:60%;object-fit:contain}
+.marca-bola:has(img)::before{display:none}
 @keyframes correr{to{transform:translateX(-50%)}}
 
 /* ---------- vídeos (destaques e nichos) ---------- */
@@ -305,7 +292,7 @@ em{font-style:italic;color:var(--vermelho)}
 /* animação ao rolar */
 .surge{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s}
 .surge.visto{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.surge{opacity:1;transform:none}.marcas-trilho,.faixa-rosa-trilho,.destaque,.doce{animation:none}}
+@media (prefers-reduced-motion:reduce){.surge{opacity:1;transform:none}.destaque,.doce{animation:none}}
 
 /* ---------- celular ---------- */
 @media (max-width:900px){
@@ -327,18 +314,18 @@ em{font-style:italic;color:var(--vermelho)}
   .capa p.apresenta{font-size:14px;margin-top:14px}
   .capa .btn{padding:10px 13px;font-size:10.5px}
   .capa .botoes{gap:8px;margin-top:18px}
-  .numeros{justify-content:space-between;gap:6px;margin-top:22px}
-  .numeros div{width:98px;height:98px}
-  .bilhete{right:auto;left:-28px;top:auto;bottom:-44px;font-size:20px;max-width:none;rotate:-4deg}
-  .setinha{display:none}
+  .caixa-numeros{width:calc(100% - 24px);gap:10px 26px;padding:14px 16px}
+  .caixa-numeros b{font-size:24px}
   .cereja{right:-6px}
   .ursinho{left:-40px}
   .bala{left:-44px;width:38px}
   .sobre .largura{grid-template-columns:1fr;gap:30px}
   .sobre .polaroid{width:100%;max-width:320px;margin:6px auto 0;order:2;padding:22px}
-  .marcas{padding:30px 0}
+  .marcas{padding:26px 0 28px}
   .marcas-cartao{width:calc(100% - 24px)}
-  .marca-bola{width:110px;height:118px}
+  .marcas-grade{width:calc(100% - 20px)}
+  .marca-bola{height:70px;font-size:10px;gap:4px;padding:4px}
+  .marca-bola::before{width:20px;height:20px}
   .destaques-lista{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:72%;overflow-x:auto;scroll-snap-type:x mandatory;padding:18px 14% 16px}
   .destaque{scroll-snap-align:center}
   .destaque:nth-child(1),.destaque:nth-child(3){margin-top:0}
@@ -369,9 +356,6 @@ em{font-style:italic;color:var(--vermelho)}
   .servicos{grid-template-columns:1fr;gap:16px}
   .servico{min-height:150px;padding:22px 20px 18px}
   .servico h3{font-size:25px}
-  .faixa-rosa{font-size:17px;padding:20px 0}
-  .faixa-rosa-trilho span{padding-right:34px}
-  .faixa-rosa-trilho span::before{margin-right:34px}
   /* barra de baixo, igual de app */
   body{padding-bottom:92px}
   .barra-app{position:fixed;z-index:30;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,1fr);align-items:end;padding:8px 4px 7px;border-radius:22px;background:#fff;box-shadow:0 10px 30px -8px rgba(74,15,34,.35)}
@@ -447,7 +431,7 @@ em{font-style:italic;color:var(--vermelho)}
     </div>
     <!-- caixa rosa com os números (EDITAR) -->
     <div class="numeros caixa-numeros">
-      <div><b>+40</b><span data-en="brands worked with">marcas trabalhadas</span></div>
+      <div><b>40</b><span data-en="brands worked with">marcas trabalhadas</span></div>
       <div><b>2,4M</b><span data-en="total views">views somadas</span></div>
     </div>
   </section>
