@@ -580,6 +580,30 @@ document.querySelector(".idiomas").addEventListener("click", e => {
 });
 try { if (localStorage.getItem("modelo-idioma") === "en") idioma("en"); } catch (e) {}
 
+// carrosséis: setas passam um item; no fim volta ao começo. Com data-auto passa sozinho a cada 3 s
+document.querySelectorAll(".carrossel").forEach(c => {
+  const trilho = c.querySelector(".trilho");
+  const passo = () => trilho.firstElementChild.getBoundingClientRect().width + parseFloat(getComputedStyle(trilho).columnGap);
+  const anda = dir => {
+    const noFim = trilho.scrollLeft + trilho.clientWidth >= trilho.scrollWidth - 4;
+    if (dir > 0 && noFim) trilho.scrollTo({ left: 0 });
+    else if (dir < 0 && trilho.scrollLeft <= 4) trilho.scrollTo({ left: trilho.scrollWidth });
+    else trilho.scrollBy({ left: dir * passo() });
+  };
+  c.querySelector(".ant").addEventListener("click", () => anda(-1));
+  c.querySelector(".prox").addEventListener("click", () => anda(1));
+  if (c.hasAttribute("data-auto")) {
+    // para enquanto a pessoa está mexendo
+    let parado = 0;
+    const pausa = () => parado = Date.now() + 6000;
+    c.addEventListener("pointerenter", () => parado = Infinity);
+    c.addEventListener("pointerleave", () => parado = 0);
+    trilho.addEventListener("touchstart", pausa, { passive: true });
+    c.querySelectorAll(".seta").forEach(s => s.addEventListener("click", pausa));
+    setInterval(() => { if (Date.now() > parado && !document.hidden) anda(1); }, 3000);
+  }
+});
+
 // blocos aparecem ao rolar
 const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visto"); obs.unobserve(e.target); } }), { threshold: .12 });
 document.querySelectorAll(".surge").forEach(el => obs.observe(el));
