@@ -605,17 +605,30 @@ document.querySelectorAll(".carrossel").forEach(c => {
   };
   c.querySelector(".ant").addEventListener("click", () => anda(-1));
   c.querySelector(".prox").addEventListener("click", () => anda(1));
-  if (c.hasAttribute("data-auto")) {
-    // para enquanto a pessoa está mexendo
-    let parado = 0;
-    const pausa = () => parado = Date.now() + 6000;
-    c.addEventListener("pointerenter", () => parado = Infinity);
-    c.addEventListener("pointerleave", () => parado = 0);
-    trilho.addEventListener("touchstart", pausa, { passive: true });
-    c.querySelectorAll(".seta").forEach(s => s.addEventListener("click", pausa));
-    setInterval(() => { if (Date.now() > parado && !document.hidden) anda(1); }, 3000);
-  }
 });
+
+// fotos: passam devagar para a esquerda sem parar; as setas adiantam ou voltam uma foto
+const esteira = document.querySelector(".esteira");
+if (esteira) {
+  const fita = esteira.querySelector(".fita");
+  fita.innerHTML += fita.innerHTML; // duplica para girar sem emenda
+  const VELOCIDADE = 0.03; // pixels por milissegundo (30 px por segundo)
+  let pos = 0, alvo = null, ultimo = performance.now();
+  const passo = () => fita.firstElementChild.getBoundingClientRect().width + parseFloat(getComputedStyle(fita).columnGap);
+  (function quadro(t) {
+    const dt = Math.min(t - ultimo, 50);
+    ultimo = t;
+    if (alvo === null) pos += dt * VELOCIDADE;
+    else { pos += (alvo - pos) * Math.min(dt / 110, 1); if (Math.abs(alvo - pos) < .5) { pos = alvo; alvo = null; } }
+    const metade = fita.offsetWidth / 2;
+    if (pos >= metade) { pos -= metade; if (alvo !== null) alvo -= metade; }
+    if (pos < 0) { pos += metade; if (alvo !== null) alvo += metade; }
+    fita.style.transform = `translateX(${-pos}px)`;
+    requestAnimationFrame(quadro);
+  })(ultimo);
+  esteira.querySelector(".ant").addEventListener("click", () => alvo = (alvo ?? pos) - passo());
+  esteira.querySelector(".prox").addEventListener("click", () => alvo = (alvo ?? pos) + passo());
+}
 
 // blocos aparecem ao rolar
 const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visto"); obs.unobserve(e.target); } }), { threshold: .12 });
