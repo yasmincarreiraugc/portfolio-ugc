@@ -668,11 +668,33 @@ document.getElementById("fontes").innerHTML = PAPEIS.map(p => `
   <details class="papel" data-papel="${p.id}">
     <summary><span class="papel-nome">${p.nome}</span><span class="papel-escolha vazio">Escolher fonte</span></summary>
     <div class="lista-fontes">
-      ${grupos.map(g => `<p class="fonte-grupo">${g}</p>` + LISTA_FONTES.filter(f => f.grupo === g).map(f => `
-        <label class="fonte"><input type="radio" name="${p.campo}" value="${f.nome}">
-          <span class="fonte-linha" style="${estiloFonte(f)}">${f.nome} <em>AaBbCc</em></span></label>`).join("")).join("")}
+      <div class="busca-fonte"><input type="search" placeholder="Buscar fonte (${LISTA_FONTES.length} fontes)" aria-label="Buscar fonte"></div>
+      ${grupos.map(g => `<div class="fonte-bloco"><p class="fonte-grupo">${g}</p>` + LISTA_FONTES.filter(f => f.grupo === g).map(f => `
+        <label class="fonte" data-nome="${f.nome.toLowerCase()}"><input type="radio" name="${p.campo}" value="${f.nome}">
+          <span class="fonte-linha" style="${estiloFonte(f)}">${f.nome} <em>AaBbCc</em></span></label>`).join("") + `</div>`).join("")}
+      <p class="sem-fonte" hidden>Nenhuma fonte com esse nome.</p>
     </div>
   </details>`).join("");
+const caixasFonte = document.querySelectorAll(".papel");
+caixasFonte.forEach(caixa => caixa.addEventListener("toggle", () => {
+  if (!caixa.open) return;
+  carregaLista();
+  // abre uma de cada vez
+  caixasFonte.forEach(outra => { if (outra !== caixa) outra.open = false; });
+}));
+// clicar fora da caixa fecha a lista
+document.addEventListener("click", e => {
+  caixasFonte.forEach(caixa => { if (caixa.open && !caixa.contains(e.target)) caixa.open = false; });
+});
+// busca pelo nome da fonte
+document.getElementById("fontes").addEventListener("input", e => {
+  if (!e.target.closest(".busca-fonte")) return;
+  const termo = e.target.value.trim().toLowerCase();
+  const lista = e.target.closest(".lista-fontes");
+  lista.querySelectorAll(".fonte").forEach(f => f.hidden = !f.dataset.nome.includes(termo));
+  lista.querySelectorAll(".fonte-bloco").forEach(b => b.hidden = !b.querySelector(".fonte:not([hidden])"));
+  lista.querySelector(".sem-fonte").hidden = !!lista.querySelector(".fonte:not([hidden])");
+});
 
 // mostra a escolha no topo de cada caixa, fecha a lista e atualiza a prévia
 function atualizaFontes() {
