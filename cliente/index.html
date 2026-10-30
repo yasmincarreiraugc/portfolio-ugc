@@ -291,22 +291,32 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--rosa);bo
           <div id="modelos"></div>
         </div>
 
-        <!-- 3. cores -->
+        <!-- 3. cores (no estilo do Canva: paletas prontas + minhas cores) -->
         <div class="etapa">
           <h3><em>3</em>Paleta de cores</h3>
-          <div class="opcoes duas" id="paletas"></div>
-          <div class="personalizada" id="cores-personalizadas" hidden>
-            <label>Cor 1 <input type="color" name="Cor 1" value="#ff99d9"></label>
-            <label>Cor 2 <input type="color" name="Cor 2" value="#fff2c2"></label>
-            <label>Cor 3 <input type="color" name="Cor 3" value="#78b4f4"></label>
-            <label>Fundo <input type="color" name="Cor de fundo" value="#ffffff"></label>
+          <p class="dica" style="margin-top:8px">Escolha uma paleta pronta ou monte a sua em "Minhas cores".</p>
+          <p class="mini-titulo">Paletas prontas</p>
+          <div class="paletas" id="paletas"></div>
+          <p class="mini-titulo">Minhas cores</p>
+          <div class="minhas-cores" id="minhas-cores">
+            <button type="button" class="cor-mais" id="cor-mais" aria-label="Adicionar cor">+</button>
           </div>
+          <input type="hidden" name="Minhas cores" id="cores-escolhidas">
         </div>
 
-        <!-- 4. fontes -->
+        <!-- 4. fontes (títulos, textos e detalhes) -->
         <div class="etapa">
           <h3><em>4</em>Fontes</h3>
-          <div class="opcoes duas" id="fontes"></div>
+          <p class="dica" style="margin-top:8px">Toque em cada uma para abrir as opções de fonte.</p>
+          <div class="papeis-fonte" id="fontes"></div>
+          <!-- prévia com as fontes e cores escolhidas -->
+          <div class="previa" id="previa">
+            <span class="previa-rotulo">Prévia</span>
+            <span class="previa-detalhe" id="pv-detalhe">detalhes e destaques</span>
+            <span class="previa-titulo" id="pv-titulo">Seu nome aqui</span>
+            <span class="previa-texto" id="pv-texto">Este é o texto de apresentação do seu portfólio, com a fonte que você escolheu.</span>
+            <span class="previa-botao" id="pv-botao">Fale comigo</span>
+          </div>
         </div>
 
         <!-- 5. textos -->
