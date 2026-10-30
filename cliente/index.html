@@ -327,17 +327,19 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--rosa);bo
           <div id="modelos"></div>
         </div>
 
-        <!-- 3. cores (no estilo do Canva: paletas prontas + minhas cores) -->
+        <!-- 3. cores (no estilo do Canva: bolinhas de cor) -->
         <div class="etapa">
           <h3><em>3</em>Paleta de cores</h3>
-          <p class="dica" style="margin-top:8px">Escolha uma paleta pronta ou monte a sua em "Minhas cores".</p>
-          <p class="mini-titulo">Paletas prontas</p>
-          <div class="paletas" id="paletas"></div>
-          <p class="mini-titulo">Minhas cores</p>
-          <div class="minhas-cores" id="minhas-cores">
-            <button type="button" class="cor-mais" id="cor-mais" aria-label="Adicionar cor">+</button>
+          <p class="dica" style="margin-top:8px">Toque nas cores para montar a sua paleta (até 6). Toque de novo para tirar.</p>
+          <p class="mini-titulo">Suas cores</p>
+          <div class="suas-cores" id="minhas-cores">
+            <label class="cor-mais" title="Escolher outra cor"><span>+</span><input type="color" id="cor-livre" value="#ff99d9" aria-label="Escolher outra cor"></label>
+            <button type="button" class="conta-gotas" id="conta-gotas" title="Pegar cor da tela" aria-label="Pegar cor da tela" hidden><svg viewBox="0 0 24 24"><path d="m14.5 5.5 4 4M16 4l4 4-2 2-4-4z"/><path d="M14 8 5.5 16.5 4 20l3.5-1.5L16 10"/></svg></button>
+            <span class="vazio-cores" id="vazio-cores">Nenhuma cor escolhida ainda.</span>
           </div>
-          <input type="hidden" name="Minhas cores" id="cores-escolhidas">
+          <input type="hidden" name="Cores escolhidas" id="cores-escolhidas">
+          <p class="mini-titulo">Cores</p>
+          <div class="grade-cores" id="grade-cores"></div>
         </div>
 
         <!-- 4. fontes (títulos, textos e detalhes) -->
