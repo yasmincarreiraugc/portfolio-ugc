@@ -508,12 +508,21 @@ document.getElementById("form-senha").addEventListener("submit", async e => {
 });
 if (ler(CHAVE_OK) === SENHA_HASH) liberar();
 
-// ===== MODELOS (sem informações, só a estrutura) =====
-// EDITAR: nomes e descrições dos estilos
-const ESTILOS = [
-  { id: "clean",    nome: "Clean",    desc: "leve, branco e delicado" },
-  { id: "colorido", nome: "Colorido", desc: "cores vivas e contornos" },
-  { id: "elegante", nome: "Elegante", desc: "escuro, sofisticado" }
+// ===== MODELOS (galeria com filtros) =====
+// EDITAR: aqui entram os modelos da Yasmin. Para cada um:
+//   tipo: "Bio link", "Portfólio" ou "Site" | nome | categoria (vira um filtro)
+//   link: endereço para "Ver o modelo" | imagem: caminho da imagem de capa (ex.: "../fotos/modelos/01.jpg")
+//   estilo: só para os modelos provisórios sem imagem ("clean", "colorido" ou "elegante")
+const MODELOS = [
+  { tipo: "Bio link",  nome: "Clean",    categoria: "Clean e elegante",     link: "", imagem: "", estilo: "clean" },
+  { tipo: "Bio link",  nome: "Colorido", categoria: "Colorido e divertido", link: "", imagem: "", estilo: "colorido" },
+  { tipo: "Bio link",  nome: "Elegante", categoria: "Escuro e sofisticado", link: "", imagem: "", estilo: "elegante" },
+  { tipo: "Portfólio", nome: "Clean",    categoria: "Clean e elegante",     link: "", imagem: "", estilo: "clean" },
+  { tipo: "Portfólio", nome: "Colorido", categoria: "Colorido e divertido", link: "", imagem: "", estilo: "colorido" },
+  { tipo: "Portfólio", nome: "Elegante", categoria: "Escuro e sofisticado", link: "", imagem: "", estilo: "elegante" },
+  { tipo: "Site",      nome: "Clean",    categoria: "Clean e elegante",     link: "", imagem: "", estilo: "clean" },
+  { tipo: "Site",      nome: "Colorido", categoria: "Colorido e divertido", link: "", imagem: "", estilo: "colorido" },
+  { tipo: "Site",      nome: "Elegante", categoria: "Escuro e sofisticado", link: "", imagem: "", estilo: "elegante" }
 ];
 const MINIATURAS = {
   "Bio link": () => `<div class="tela celular"><span class="avatar"></span><span class="barra curta"></span><span class="barra fina"></span><span class="botao"></span><span class="botao alt"></span><span class="botao"></span><span class="botao alt"></span></div>`,
