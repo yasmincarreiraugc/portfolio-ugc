@@ -442,6 +442,23 @@ menu.addEventListener("click", e => { if (e.target.closest("a")) { menu.classLis
 const faixa = document.getElementById("faixa");
 faixa.innerHTML += faixa.innerHTML;
 
+// números da capa: contam rapidinho do zero até o número escrito (ex.: +120, 2,4M)
+document.querySelectorAll(".numeros b").forEach(el => {
+  const m = el.textContent.trim().match(/^(\D*)([\d.,]+)(.*)$/);
+  if (!m) return;
+  const [, antes, num, depois] = m;
+  const casas = num.includes(",") ? num.split(",")[1].length : 0;
+  const alvo = parseFloat(num.replace(/\./g, "").replace(",", "."));
+  const escreve = v => el.textContent = antes + v.toLocaleString("pt-BR", { minimumFractionDigits: casas, maximumFractionDigits: casas }) + depois;
+  const inicio = performance.now(), duracao = 1400;
+  escreve(0);
+  (function passo(t) {
+    const p = Math.min((t - inicio) / duracao, 1);
+    escreve(alvo * (1 - Math.pow(1 - p, 3)));
+    if (p < 1) requestAnimationFrame(passo); else el.textContent = antes + num + depois;
+  })(inicio);
+});
+
 // filtros dos nichos (começa no primeiro)
 function filtrar(nicho) {
   document.querySelectorAll(".filtro").forEach(b => b.classList.toggle("ativo", b.dataset.nicho === nicho));
