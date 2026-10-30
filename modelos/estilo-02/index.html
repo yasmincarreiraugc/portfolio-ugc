@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Modelo 02 · Scrapbook verde e amarelo | Yasmin Carreira</title>
+<title>Modelo 02 · Scrapbook rosa e amarelo | Yasmin Carreira</title>
 <meta name="description" content="Modelo de portfólio UGC criado por Yasmin Carreira.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#fdf6e3">
@@ -11,20 +11,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito+Sans:wght@400;600;700;800;900&family=Gochi+Hand&display=swap" rel="stylesheet">
 <style>
-/* EDITAR: cores e fontes do modelo (scrapbook verde e amarelo) */
+/* EDITAR: cores e fontes do modelo (scrapbook rosa e amarelo) */
 :root{
   --creme:#fdf6e3;
   --papel:#fffbf1;
-  --verde:#1b8a46;
-  --verde-escuro:#0e4f2a;
-  --verde-claro:#dcf1e2;
+  --rosa:#e8508f;
+  --rosa-escuro:#a3245f;
+  --rosa-claro:#ffe1ef;
   --amarelo:#ffd23f;
   --amarelo-claro:#fff3b8;
   --azul:#2a4bd0;
   --vermelho:#e8483b;
-  --tinta:#1d2a22;
-  --cinza:#55625a;
-  --linha:#1d2a22;
+  --tinta:#2a1d24;
+  --cinza:#6a5a62;
+  --linha:#2a1d24;
   --sombra:4px 4px 0 var(--tinta);
   --titulo:"Fredoka","Arial Rounded MT Bold",system-ui,sans-serif;
   --sans:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -33,16 +33,16 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:70px;-webkit-text-size-adjust:100%;overflow-x:clip}
 /* fundo de papel quadriculado */
-body{margin:0;background-color:var(--creme);background-image:linear-gradient(rgba(29,42,34,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(29,42,34,.055) 1px,transparent 1px);background-size:28px 28px;color:var(--tinta);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{margin:0;background-color:var(--creme);background-image:linear-gradient(rgba(42,29,36,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(42,29,36,.055) 1px,transparent 1px);background-size:28px 28px;color:var(--tinta);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 [hidden]{display:none!important}
 h1,h2,h3{font-family:var(--titulo);font-weight:700;line-height:1.02;margin:0;letter-spacing:-.01em}
 /* palavra de destaque: marca-texto amarelo */
-em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 58%,var(--amarelo) 58%,var(--amarelo) 92%,transparent 92%);padding:0 .08em}
+em{font-style:normal;color:var(--rosa-escuro);background:linear-gradient(transparent 58%,var(--amarelo) 58%,var(--amarelo) 92%,transparent 92%);padding:0 .08em}
 .largura{width:min(1080px,100% - 48px);margin:0 auto}
-.secao{padding:56px 0;border-top:2px dashed rgba(29,42,34,.18)}
-/* etiqueta de cada parte: adesivo verde */
-.olho{display:inline-flex;align-items:center;margin:0 0 14px;padding:6px 14px;border:2px solid var(--tinta);border-radius:999px;background:var(--verde);color:var(--amarelo);font-family:var(--titulo);font-size:14px;font-weight:600;letter-spacing:.02em;box-shadow:3px 3px 0 var(--tinta);rotate:-2deg}
+.secao{padding:56px 0;border-top:2px dashed rgba(42,29,36,.18)}
+/* etiqueta de cada parte: adesivo pequeno e delicado */
+.olho{display:inline-flex;align-items:center;margin:0 0 14px;padding:6px 14px;border:2px solid var(--tinta);border-radius:999px;background:var(--rosa);color:var(--amarelo);font-family:var(--titulo);font-size:14px;font-weight:600;letter-spacing:.02em;box-shadow:3px 3px 0 var(--tinta);rotate:-2deg}
 .secao h2{font-size:clamp(34px,4.2vw,52px)}
 .intro{max-width:440px;margin:12px 0 0;font-size:14.5px;color:var(--cinza)}
 .cabeca{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:34px}
@@ -54,12 +54,12 @@ em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 5
 .btn-linha{background:#fff}
 
 /* foto provisória (a cliente troca pela foto dela) */
-.foto{position:relative;overflow:hidden;background:linear-gradient(160deg,#9bd3ae,#2f8f57 55%,#1d4fa8)}
+.foto{position:relative;overflow:hidden;background:linear-gradient(160deg,#ffc2dc,#f27bb0 55%,#ffd23f)}
 .foto::after{content:attr(data-texto);position:absolute;left:12px;bottom:10px;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.85)}
 .foto img{width:100%;height:100%;object-fit:cover}
 /* moldura de polaroid com fita adesiva */
 .polaroid{position:relative;background:#fff;padding:10px 10px 46px;border:2px solid var(--tinta);border-radius:6px;box-shadow:6px 6px 0 var(--tinta)}
-.polaroid::before{content:"";position:absolute;z-index:2;top:-14px;left:50%;width:110px;height:28px;margin-left:-55px;background:rgba(255,210,63,.75);border-left:2px dashed rgba(29,42,34,.15);border-right:2px dashed rgba(29,42,34,.15);rotate:-3deg}
+.polaroid::before{content:"";position:absolute;z-index:2;top:-14px;left:50%;width:110px;height:28px;margin-left:-55px;background:rgba(255,210,63,.75);border-left:2px dashed rgba(42,29,36,.15);border-right:2px dashed rgba(42,29,36,.15);rotate:-3deg}
 .polaroid .legenda{position:absolute;left:0;right:0;bottom:10px;text-align:center;font-family:var(--mao);font-size:20px;color:var(--tinta)}
 
 /* ---------- topo ---------- */
@@ -67,7 +67,7 @@ em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 5
 .topo .largura{display:flex;align-items:center;justify-content:space-between;gap:20px;height:62px}
 .marca{display:flex;align-items:center;gap:8px;font-family:var(--titulo);font-size:22px;font-weight:700;line-height:1}
 .marca::before{content:"UGC";padding:5px 7px;border:2px solid var(--tinta);border-radius:8px;background:var(--vermelho);color:#fff;font-size:11px;letter-spacing:.06em;box-shadow:2px 2px 0 var(--tinta);rotate:-6deg}
-.marca i{font-style:normal;color:var(--verde)}
+.marca i{font-style:normal;color:var(--rosa)}
 .menu{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:800}
 .menu > a,.menu-trabalhos > a{position:relative;padding:8px 0}
 .menu > a::after,.menu-trabalhos > a::after{content:"";position:absolute;left:0;right:100%;bottom:2px;height:3px;border-radius:2px;background:var(--amarelo);transition:right .25s}
@@ -83,7 +83,7 @@ em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 5
 /* PT | EN */
 .idiomas{display:flex;padding:3px;border:2px solid var(--tinta);border-radius:999px;background:#fff;box-shadow:2px 2px 0 var(--tinta)}
 .idiomas button{border:0;background:none;padding:5px 11px;border-radius:999px;font:inherit;font-size:12px;font-weight:900;letter-spacing:.06em;color:var(--tinta);cursor:pointer}
-.idiomas button.ativo{background:var(--verde);color:#fff}
+.idiomas button.ativo{background:var(--rosa);color:#fff}
 .abrir-menu{display:none;width:40px;height:40px;border:2px solid var(--tinta);border-radius:50%;background:var(--amarelo);cursor:pointer;place-items:center;box-shadow:2px 2px 0 var(--tinta)}
 .abrir-menu span,.abrir-menu span::before{display:block;width:16px;height:2px;background:var(--tinta);position:relative}
 .abrir-menu span::before{content:"";position:absolute;top:5px}
@@ -92,7 +92,7 @@ em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 5
 .capa{padding:24px 0 28px}
 .capa .largura{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center}
 .edicao{display:inline-block;margin:0 0 14px;padding:6px 16px;border:2px solid var(--tinta);border-radius:999px;background:var(--azul);color:#fff;font-family:var(--mao);font-size:19px;box-shadow:3px 3px 0 var(--tinta);rotate:-3deg}
-.capa h1{font-size:clamp(40px,4.6vw,60px);color:var(--verde-escuro)}
+.capa h1{font-size:clamp(40px,4.6vw,60px);color:var(--rosa-escuro)}
 .capa p.apresenta{max-width:440px;margin:14px 0 0;font-size:16px;color:var(--cinza)}
 .capa .botoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
 .capa-foto{position:relative;max-width:280px;width:100%;justify-self:end;rotate:2deg}
@@ -100,20 +100,20 @@ em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 5
 /* caixinhas flutuando ao lado da foto (resultado e depoimento): bilhetes */
 .caixinha{position:absolute;z-index:3;display:grid;gap:2px;max-width:220px;margin:0;padding:11px 14px;border:2px solid var(--tinta);border-radius:12px;background:var(--amarelo-claro);box-shadow:3px 3px 0 var(--tinta);font-size:12.5px;line-height:1.35;animation:flutua 4.5s ease-in-out infinite}
 .caixinha b{font-weight:900}
-.caixinha span{color:var(--verde-escuro);font-weight:700}
+.caixinha span{color:var(--rosa-escuro);font-weight:700}
 .caixinha.um{top:30%;right:-60px;rotate:3deg}
-.caixinha.dois{bottom:66px;left:-78px;rotate:-4deg;background:var(--verde-claro);animation-delay:-2.2s}
+.caixinha.dois{bottom:66px;left:-78px;rotate:-4deg;background:var(--rosa-claro);animation-delay:-2.2s}
 @keyframes flutua{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
 .numeros{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .numeros div{padding:8px 16px;border:2px solid var(--tinta);border-radius:14px;background:#fff;box-shadow:3px 3px 0 var(--tinta)}
 .numeros div:nth-child(2){background:var(--amarelo-claro)}
-.numeros div:nth-child(3){background:var(--verde-claro)}
-.numeros b{display:block;font-family:var(--titulo);font-size:28px;font-weight:700;line-height:1.1;color:var(--verde-escuro)}
+.numeros div:nth-child(3){background:var(--rosa-claro)}
+.numeros b{display:block;font-family:var(--titulo);font-size:28px;font-weight:700;line-height:1.1;color:var(--rosa-escuro)}
 .numeros span{font-size:12px;font-weight:700;color:var(--cinza)}
 
-/* ---------- marcas: faixa verde e marcas rolando em bolinhas ---------- */
+/* ---------- marcas: faixa rosa e marcas rolando em bolinhas ---------- */
 .marcas{padding:0 0 30px}
-.marcas::before{content:"✦ UGC orgânico ✦ Criativos para anúncio ✦ Roteiros ✦ Fotos de produto ✦ Publi ✦ UGC orgânico ✦ Criativos para anúncio ✦ Roteiros ✦ Fotos de produto ✦ Publi";display:block;margin:0 0 16px;padding:9px 0;border-top:2px solid var(--tinta);border-bottom:2px solid var(--tinta);background:var(--verde);color:var(--amarelo);font-family:var(--titulo);font-size:16px;font-weight:600;white-space:nowrap;overflow:hidden;text-align:center}
+.marcas::before{content:"✦ UGC orgânico ✦ Criativos para anúncio ✦ Roteiros ✦ Fotos de produto ✦ Publi ✦ UGC orgânico ✦ Criativos para anúncio ✦ Roteiros ✦ Fotos de produto ✦ Publi";display:block;margin:0 0 16px;padding:9px 0;border-top:2px solid var(--tinta);border-bottom:2px solid var(--tinta);background:var(--rosa);color:var(--amarelo);font-family:var(--titulo);font-size:16px;font-weight:600;white-space:nowrap;overflow:hidden;text-align:center}
 .marcas-titulo{display:flex;align-items:center;justify-content:center;gap:16px;margin:0 auto 10px;width:min(1080px,100% - 32px);font-family:var(--mao);font-size:22px;color:var(--tinta);text-align:center}
 .marcas-titulo::before,.marcas-titulo::after{content:"";flex:0 1 70px;height:2px;background:var(--tinta)}
 .marcas-janela{overflow:hidden;padding:4px 0 8px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
@@ -121,7 +121,7 @@ em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 5
 .marcas-janela:hover .marcas-trilho{animation-play-state:paused}
 .marca-bola{flex:none;width:82px;height:82px;border-radius:50%;display:grid;place-items:center;background:#fff;border:2px solid var(--tinta);box-shadow:3px 3px 0 var(--tinta);font-family:var(--titulo);font-size:15px;font-weight:600;text-align:center;line-height:1}
 .marca-bola:nth-child(3n+2){background:var(--amarelo-claro)}
-.marca-bola:nth-child(3n){background:var(--verde-claro)}
+.marca-bola:nth-child(3n){background:var(--rosa-claro)}
 .marca-bola img{width:70%;height:70%;object-fit:contain}
 @keyframes correr{to{transform:translateX(-50%)}}
 
@@ -130,18 +130,18 @@ em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 5
 .sobre .polaroid{max-width:340px;rotate:-2deg}
 .sobre .foto{aspect-ratio:3/4}
 .sobre-texto p{margin:16px 0 0;font-size:15px;color:var(--cinza)}
-.sobre-texto p:first-of-type{font-family:var(--mao);font-size:26px;line-height:1.25;color:var(--verde-escuro)}
+.sobre-texto p:first-of-type{font-family:var(--mao);font-size:26px;line-height:1.25;color:var(--rosa-escuro)}
 .etiquetas{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;padding:0;list-style:none}
 .etiquetas li{padding:7px 14px;border:2px solid var(--tinta);border-radius:999px;background:var(--amarelo);font-size:13px;font-weight:800;box-shadow:2px 2px 0 var(--tinta)}
-.etiquetas li:nth-child(2){background:var(--verde-claro);rotate:2deg}
+.etiquetas li:nth-child(2){background:var(--rosa-claro);rotate:2deg}
 .etiquetas li:nth-child(3){background:#fff;rotate:-2deg}
 
 /* ---------- vídeos (destaques e nichos) ---------- */
 .videos{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.video{position:relative;display:block;aspect-ratio:9/16;border:2px solid var(--tinta);border-radius:16px;overflow:hidden;color:#fff;background:linear-gradient(170deg,var(--c1,#2f8f57),var(--c2,#0e4f2a));box-shadow:var(--sombra)}
+.video{position:relative;display:block;aspect-ratio:9/16;border:2px solid var(--tinta);border-radius:16px;overflow:hidden;color:#fff;background:linear-gradient(170deg,var(--c1,#f27bb0),var(--c2,#a3245f));box-shadow:var(--sombra)}
 .video::before{content:"";position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(0,0,0,.5))}
 .play{position:absolute;top:50%;left:50%;width:52px;height:52px;margin:-26px 0 0 -26px;border:2px solid var(--tinta);border-radius:50%;background:#fff;display:grid;place-items:center;transition:transform .25s}
-.play::after{content:"";margin-left:4px;border-left:14px solid var(--verde);border-top:9px solid transparent;border-bottom:9px solid transparent}
+.play::after{content:"";margin-left:4px;border-left:14px solid var(--rosa);border-top:9px solid transparent;border-bottom:9px solid transparent}
 .video:hover .play{transform:scale(1.1)}
 .resultado{position:absolute;z-index:1;top:12px;left:12px;padding:5px 11px;border:2px solid var(--tinta);border-radius:999px;background:var(--amarelo);color:var(--tinta);font-size:11.5px;font-weight:900}
 .video-legenda{position:absolute;left:14px;right:14px;bottom:14px;z-index:1}
@@ -161,7 +161,7 @@ em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 5
 .destaque-legenda b{display:block;font-family:var(--titulo);font-size:17px;font-weight:600;color:var(--tinta)}
 .filtros{display:flex;flex-wrap:wrap;gap:8px}
 .filtro{padding:8px 15px;border:2px solid var(--tinta);border-radius:999px;background:#fff;font:inherit;font-size:13px;font-weight:800;color:var(--tinta);cursor:pointer;box-shadow:2px 2px 0 var(--tinta)}
-.filtro.ativo{background:var(--verde);color:#fff}
+.filtro.ativo{background:var(--rosa);color:#fff}
 .galeria{grid-template-columns:repeat(4,1fr);gap:16px}
 .galeria .video-legenda b{font-size:18px}
 
@@ -180,7 +180,7 @@ em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 5
 .fita{display:flex;gap:22px;width:max-content;padding-right:22px;will-change:transform}
 .fita .foto{flex:none;width:250px;aspect-ratio:4/5;border:8px solid #fff;border-bottom-width:34px;border-radius:4px;outline:2px solid var(--tinta);box-shadow:5px 5px 0 var(--tinta)}
 .fita .foto:nth-child(odd){rotate:-2deg}
-.fita .foto:nth-child(even){rotate:2deg;background:linear-gradient(160deg,#ffe58a,#f0a93b 55%,#2f8f57)}
+.fita .foto:nth-child(even){rotate:2deg;background:linear-gradient(160deg,#ffe58a,#f0a93b 55%,#f27bb0)}
 .esteira .seta.ant{left:16px}
 .esteira .seta.prox{right:16px}
 /* nichos: filtros embaixo do título */
@@ -188,7 +188,7 @@ em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 5
 .cabeca.empilhada .filtros{margin-top:18px}
 /* quadro branco perto das bordas (destaques e depoimentos) */
 .secao.com-quadro{padding:16px 0;border-top:0}
-.quadro{margin:0 14px;padding:48px 0;border:2px solid var(--tinta);border-radius:28px;background:#fff;box-shadow:6px 6px 0 var(--verde-escuro)}
+.quadro{margin:0 14px;padding:48px 0;border:2px solid var(--tinta);border-radius:28px;background:#fff;box-shadow:6px 6px 0 var(--rosa-escuro)}
 
 /* ---------- serviços em caixas ---------- */
 .servicos{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch}
@@ -197,11 +197,11 @@ em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 5
 .servico svg{width:44px;height:44px;padding:9px;border:2px solid var(--tinta);border-radius:12px;background:var(--amarelo);fill:none;stroke:var(--tinta);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;box-shadow:2px 2px 0 var(--tinta)}
 .servico h3{margin-top:18px;font-size:22px}
 .servico p{margin:10px 0 0;font-size:14px;color:var(--cinza)}
-.servico ul{margin:16px 0 22px;padding:0;list-style:none;display:grid;gap:6px;font-size:13.5px;font-weight:700;color:var(--verde)}
+.servico ul{margin:16px 0 22px;padding:0;list-style:none;display:grid;gap:6px;font-size:13.5px;font-weight:700;color:var(--rosa)}
 .servico li::before{content:"✓";margin-right:8px}
 .quero{margin-top:auto;padding:11px;border:2px solid var(--tinta);border-radius:999px;background:#fff;text-align:center;font-size:14px;font-weight:800;box-shadow:2px 2px 0 var(--tinta);transition:background .2s}
 .quero:hover{background:var(--amarelo)}
-.destaque-servico{background:var(--verde);color:#fff}
+.destaque-servico{background:var(--rosa);color:#fff}
 .destaque-servico p{color:rgba(255,255,255,.85)}
 .destaque-servico ul{color:var(--amarelo)}
 .destaque-servico .quero{background:var(--amarelo);color:var(--tinta)}
@@ -210,29 +210,29 @@ em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 5
 /* ---------- depoimentos: bilhetes coloridos em carrossel ---------- */
 .frases{grid-auto-columns:calc((100% - 36px) / 3);padding:40px 6px 10px}
 .frase{margin:0;padding:50px 24px 22px;border:2px solid var(--tinta);border-radius:6px;background:var(--amarelo-claro);text-align:center;position:relative;display:flex;flex-direction:column;align-items:center;box-shadow:4px 4px 0 var(--tinta)}
-.frase:nth-child(4n+2){background:var(--verde-claro)}
-.frase:nth-child(4n+3){background:#e3e8ff}
+.frase:nth-child(4n+2){background:var(--rosa-claro)}
+.frase:nth-child(4n+3){background:#fde7d3}
 .frase:nth-child(4n){background:#ffe1dc}
 .logo-marca{position:absolute;top:-34px;left:50%;width:72px;height:72px;margin-left:-36px;border:2px solid var(--tinta);border-radius:50%;background:#fff;box-shadow:3px 3px 0 var(--tinta);display:grid;place-items:center;overflow:hidden;font-family:var(--titulo);font-size:14px;font-weight:600;color:var(--cinza)}
 .logo-marca img{width:72%;height:72%;object-fit:contain}
 .arroba{font-family:var(--titulo);font-size:19px;font-weight:700}
 .nota{margin-top:2px;font-size:14px;letter-spacing:3px;color:var(--vermelho)}
-.tipo{margin-top:4px;font-size:10.5px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--verde)}
+.tipo{margin-top:4px;font-size:10.5px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--rosa)}
 .frase blockquote{margin:12px 0 18px;font-family:var(--mao);font-size:19px;line-height:1.35;color:var(--tinta)}
-.frase figcaption{margin-top:auto;padding-top:14px;width:100%;border-top:2px dashed rgba(29,42,34,.3);display:grid;gap:2px}
-.frase figcaption b{font-family:var(--titulo);font-size:26px;font-weight:700;line-height:1;color:var(--verde-escuro)}
+.frase figcaption{margin-top:auto;padding-top:14px;width:100%;border-top:2px dashed rgba(42,29,36,.3);display:grid;gap:2px}
+.frase figcaption b{font-family:var(--titulo);font-size:26px;font-weight:700;line-height:1;color:var(--rosa-escuro)}
 .frase figcaption span{font-size:10.5px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--cinza)}
 .depoimentos .seta{margin-top:-3px}
 
-/* ---------- contato: caixa verde com formulário + cartão das redes por cima ---------- */
+/* ---------- contato: caixa rosa com formulário + cartão das redes por cima ---------- */
 .contato-area{position:relative;display:grid;grid-template-columns:1fr 310px;align-items:center;max-width:900px}
-.caixa-contato{grid-column:1 / 2;display:grid;gap:9px;margin-right:-90px;padding:32px 126px 32px 32px;border:2px solid var(--tinta);border-radius:24px;background:var(--verde);color:#fff;box-shadow:6px 6px 0 var(--tinta)}
+.caixa-contato{grid-column:1 / 2;display:grid;gap:9px;margin-right:-90px;padding:32px 126px 32px 32px;border:2px solid var(--tinta);border-radius:24px;background:var(--rosa);color:#fff;box-shadow:6px 6px 0 var(--tinta)}
 .caixa-contato h2{font-size:clamp(30px,3.4vw,42px)}
 .caixa-contato h2 em{color:var(--tinta)}
 .caixa-contato p{margin:2px 0 8px;font-size:13.5px;color:rgba(255,255,255,.9)}
 .caixa-contato input,.caixa-contato textarea{width:100%;padding:10px 14px;border:2px solid var(--tinta);border-radius:12px;background:#fff;font:inherit;font-size:13.5px;color:var(--tinta);outline:none;transition:box-shadow .2s}
 .caixa-contato textarea{min-height:76px;resize:vertical}
-.caixa-contato ::placeholder{color:#8a948e}
+.caixa-contato ::placeholder{color:#9a8a92}
 .caixa-contato input:focus,.caixa-contato textarea:focus{box-shadow:3px 3px 0 var(--amarelo)}
 .caixa-contato button{margin-top:4px;padding:12px;border:2px solid var(--tinta);border-radius:999px;background:var(--amarelo);font:inherit;font-size:14px;font-weight:900;color:var(--tinta);cursor:pointer;box-shadow:3px 3px 0 var(--tinta);transition:transform .15s}
 .caixa-contato button:hover{transform:translate(-2px,-2px)}
@@ -245,8 +245,8 @@ em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 5
 .rede-texto{flex:1;min-width:0;display:grid}
 .rede-texto b{font-size:13.5px;font-weight:900}
 .rede-texto small{font-size:12px;color:var(--cinza);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.rede i{flex:none;width:26px;height:26px;border:2px solid var(--tinta);border-radius:50%;background:var(--verde-claro);display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:900}
-.rodape{margin-top:20px;padding:24px 0 34px;border-top:2px solid var(--tinta);background:var(--verde-escuro);font-size:12.5px;color:var(--creme)}
+.rede i{flex:none;width:26px;height:26px;border:2px solid var(--tinta);border-radius:50%;background:var(--rosa-claro);display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:900}
+.rodape{margin-top:20px;padding:24px 0 34px;border-top:2px solid var(--tinta);background:var(--rosa-escuro);font-size:12.5px;color:var(--creme)}
 .rodape .largura{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .rodape nav{display:flex;gap:20px;font-weight:800;color:var(--amarelo)}
 
@@ -261,10 +261,10 @@ em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 5
   .secao{padding:42px 0}
   .menu{position:absolute;top:62px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:6px 16px 16px;background:#fff;border-bottom:2px solid var(--tinta);display:none}
   .menu.aberto{display:flex}
-  .menu > a,.menu-trabalhos > a{display:block;padding:12px 0;font-size:16px;border-bottom:1px dashed rgba(29,42,34,.25)}
+  .menu > a,.menu-trabalhos > a{display:block;padding:12px 0;font-size:16px;border-bottom:1px dashed rgba(42,29,36,.25)}
   .menu > a::after,.menu-trabalhos > a::after,.menu-trabalhos > a::before{display:none}
   .submenu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;background:none;padding:0 0 0 14px;min-width:0}
-  .submenu a{padding:10px 0;border-radius:0;border-bottom:1px dashed rgba(29,42,34,.25);font-size:15px;color:var(--cinza)}
+  .submenu a{padding:10px 0;border-radius:0;border-bottom:1px dashed rgba(42,29,36,.25);font-size:15px;color:var(--cinza)}
   .abrir-menu{display:grid}
   .marca{font-size:19px}
   /* capa: a foto vai para depois das marcas, para as marcas aparecerem logo */
@@ -294,7 +294,7 @@ em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 5
   .video{scroll-snap-align:start}
   .galeria{grid-auto-columns:52%}
   .fita .foto{width:190px}
-  .quadro{margin:0 8px;padding:34px 0;border-radius:22px;box-shadow:4px 4px 0 var(--verde-escuro)}
+  .quadro{margin:0 8px;padding:34px 0;border-radius:22px;box-shadow:4px 4px 0 var(--rosa-escuro)}
   .quadro .largura{width:calc(100% - 32px)}
   .contato-area{grid-template-columns:1fr}
   .caixa-contato{margin-right:0;padding:26px 18px 62px;border-radius:22px}
@@ -414,9 +414,9 @@ em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 5
       </div>
       <!-- EDITAR: os 3 vídeos de destaque (o do meio fica maior) -->
       <div class="destaques-lista surge">
-        <a class="destaque" href="#"><span class="video" style="--c1:#9bd3ae;--c2:#1b8a46"><span class="resultado" data-en="+300 sales">+300 vendas</span><span class="play"></span></span>
+        <a class="destaque" href="#"><span class="video" style="--c1:#ffc2dc;--c2:#e8508f"><span class="resultado" data-en="+300 sales">+300 vendas</span><span class="play"></span></span>
           <span class="destaque-legenda"><b data-en="New home unboxing">Unboxing da casa nova</b><span data-en="Brand Two · TikTok. The video that sold the most.">Marca Dois · TikTok. O vídeo que mais vendeu.</span></span></a>
-        <a class="destaque" href="#"><span class="video" style="--c1:#2f8f57;--c2:#0e4f2a"><span class="resultado">2,4M views</span><span class="play"></span></span>
+        <a class="destaque" href="#"><span class="video" style="--c1:#f27bb0;--c2:#a3245f"><span class="resultado">2,4M views</span><span class="play"></span></span>
           <span class="destaque-legenda"><b data-en="Skincare routine">Rotina de skincare</b><span data-en="Brand One · Reels. Went viral in one week.">Marca Um · Reels. Viralizou em uma semana.</span></span></a>
         <a class="destaque" href="#"><span class="video" style="--c1:#ffd23f;--c2:#c9871a"><span class="resultado" data-en="890K views">890 mil views</span><span class="play"></span></span>
           <span class="destaque-legenda"><b data-en="1-minute recipe">Receita em 1 minuto</b><span data-en="Brand Three · Reels. The most saved one.">Marca Três · Reels. O mais salvo.</span></span></a>
@@ -441,7 +441,7 @@ em{font-style:normal;color:var(--verde);background:linear-gradient(transparent 5
       <!-- EDITAR: um <a class="video"> para cada vídeo; data-nicho igual ao do filtro -->
       <div class="videos galeria surge" id="galeria">
         <a class="video" href="#" data-nicho="beleza" style="--c1:#e8b4c8;--c2:#5a2a3c"><span class="play"></span><span class="video-legenda"><b data-en="5-minute makeup">Make de 5 minutos</b><span data-en="Beauty">Beleza</span></span></a>
-        <a class="video" href="#" data-nicho="beleza" style="--c1:#7fb0ff;--c2:#2a4bd0"><span class="play"></span><span class="video-legenda"><b data-en="Curly hair">Cabelo cacheado</b><span data-en="Beauty">Beleza</span></span></a>
+        <a class="video" href="#" data-nicho="beleza" style="--c1:#ffd6e8;--c2:#d9467f"><span class="play"></span><span class="video-legenda"><b data-en="Curly hair">Cabelo cacheado</b><span data-en="Beauty">Beleza</span></span></a>
         <a class="video" href="#" data-nicho="beleza" style="--c1:#f0d7c8;--c2:#7a4a35"><span class="play"></span><span class="video-legenda"><b data-en="Sunscreen">Protetor solar</b><span data-en="Beauty">Beleza</span></span></a>
         <a class="video" href="#" data-nicho="beleza" style="--c1:#d9b8e8;--c2:#3c2a5a"><span class="play"></span><span class="video-legenda"><b data-en="Night routine">Rotina da noite</b><span data-en="Beauty">Beleza</span></span></a>
         <a class="video" href="#" data-nicho="casa" style="--c1:#b9c7a5;--c2:#2e3a24"><span class="play"></span><span class="video-legenda"><b data-en="Kitchen organizing">Organização da cozinha</b><span data-en="Home">Casa</span></span></a>
