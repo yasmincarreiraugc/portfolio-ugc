@@ -208,31 +208,28 @@ em{font-style:normal;color:var(--rosa-escuro);background:linear-gradient(transpa
 .secao.com-quadro{padding:16px 0;border-top:0}
 .quadro{margin:0 14px;padding:48px 0;border:2px solid var(--tinta);border-radius:28px;background:#fff;box-shadow:6px 6px 0 var(--rosa-escuro)}
 
-/* ---------- serviços: cartões largos com título marcado, desenho de traço e seta ---------- */
+/* ---------- serviços: cartões largos com título marcado, texto e seta (cores do modelo) ---------- */
 .servicos{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-.servico{position:relative;display:grid;grid-template-columns:1fr auto;grid-template-rows:1fr auto;gap:14px 10px;min-height:178px;padding:26px 24px 22px;border:2px solid var(--tinta);border-radius:22px;background:#f4f1ee;box-shadow:var(--sombra);transition:transform .2s,box-shadow .2s}
+.servico{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:12px;min-height:178px;padding:26px 24px 22px;border:2px solid var(--tinta);border-radius:22px;background:#f4f1ee;box-shadow:var(--sombra);transition:transform .2s,box-shadow .2s}
 .servico:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--tinta)}
-.servico h3{grid-column:1;font-size:22px;line-height:1.5}
+.servico h3{font-size:22px;line-height:1.5}
+.servico p{margin:0;max-width:420px;font-size:14px;color:var(--cinza)}
 /* título marcado, linha por linha */
 .servico h3 span{padding:1px 7px;background:var(--amarelo);-webkit-box-decoration-break:clone;box-decoration-break:clone}
-.quero{grid-column:1;grid-row:2;align-self:end;display:inline-flex;align-items:center;gap:10px;font-size:13.5px;font-weight:700}
+.quero{margin-top:auto;padding-top:6px;display:inline-flex;align-items:center;gap:10px;font-size:13.5px;font-weight:700}
 .quero i{width:28px;height:28px;border-radius:50%;background:var(--tinta);color:#fff;display:grid;place-items:center;font-style:normal;font-size:14px;transition:transform .2s}
 .servico:hover .quero i{transform:rotate(45deg)}
 #servicos .intro{max-width:340px}
-.desenho{grid-column:2;grid-row:1 / 3;align-self:center;width:172px;height:auto;fill:none;stroke:var(--tinta);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.desenho .cheio{fill:var(--tinta)}
-.desenho .branco{fill:#fff}
-.servico-amarelo{background:var(--amarelo)}
+.servico-amarelo{background:var(--amarelo-claro)}
+.servico-amarelo p{color:var(--tinta)}
 .servico-amarelo h3 span{background:#fff}
-.servico-escuro{background:var(--tinta);color:#fff;box-shadow:4px 4px 0 var(--rosa)}
-.servico-escuro:hover{box-shadow:7px 7px 0 var(--rosa)}
-.servico-escuro h3 span{background:#fff;color:var(--tinta)}
-.servico-escuro .quero i{background:#fff;color:var(--tinta)}
-.servico-escuro .desenho{stroke:#fff}
-.servico-escuro .desenho .cheio{fill:var(--rosa);stroke:var(--rosa)}
-.servico-escuro .desenho .branco{fill:var(--tinta)}
 .servico-rosa{background:var(--rosa-claro)}
 .servico-rosa h3 span{background:#fff}
+.servico-claro{background:var(--papel)}
+.servico-rosa-forte{background:var(--rosa);color:#fff}
+.servico-rosa-forte h3 span{background:#fff;color:var(--tinta)}
+.servico-rosa-forte p{color:rgba(255,255,255,.9)}
+.servico-rosa-forte .quero i{background:#fff;color:var(--tinta)}
 
 /* ---------- depoimentos: bilhetes coloridos em carrossel ---------- */
 .frases{grid-auto-columns:calc((100% - 36px) / 3);padding:40px 6px 10px}
@@ -332,7 +329,6 @@ em{font-style:normal;color:var(--rosa-escuro);background:linear-gradient(transpa
   .servicos{grid-template-columns:1fr;gap:18px}
   .servico{min-height:150px;padding:22px 18px 18px}
   .servico h3{font-size:19px}
-  .desenho{width:112px}
   .faixa-rosa{font-size:14px}
   .faixa-rosa-trilho span{padding-right:36px}
   .faixa-rosa-trilho span::before{margin-right:36px}
