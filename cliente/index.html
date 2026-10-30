@@ -509,9 +509,14 @@ document.getElementById("form-senha").addEventListener("submit", async e => {
   e.preventDefault();
   const ok = (await hash(document.getElementById("senha").value.trim())) === SENHA_HASH;
   document.getElementById("erro-senha").hidden = ok;
-  if (ok) { guardar(CHAVE_OK, SENHA_HASH); liberar(); scrollTo(0, 0); }
+  if (ok) { liberar(); scrollTo(0, 0); }
 });
-if (ler(CHAVE_OK) === SENHA_HASH) liberar();
+// a senha não fica guardada: toda vez que a página abre, pede de novo
+guardar(CHAVE_OK, null);
+// depois de enviar o formulário, a tela de "Obrigada" aparece sem pedir senha
+if (new URLSearchParams(location.search).has("enviado")) liberar();
+// Sair: volta para a tela da senha
+document.getElementById("sair").addEventListener("click", () => { location.href = location.pathname; });
 
 // ===== MODELOS (galeria com filtros) =====
 // EDITAR: aqui entram os modelos da Yasmin. Para cada um:
