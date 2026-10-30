@@ -618,6 +618,11 @@ menu.addEventListener("click", e => { if (e.target.closest("a")) { menu.classLis
 // faixa de marcas: duplica para girar sem emenda
 const faixa = document.getElementById("faixa");
 faixa.innerHTML += faixa.innerHTML;
+// faixa rosa dos serviços: repete os textos até encher a tela e duplica para girar sem emenda
+const faixaRosa = document.getElementById("faixa-rosa");
+const textosRosa = faixaRosa.innerHTML;
+while (faixaRosa.scrollWidth < innerWidth * 1.2) faixaRosa.innerHTML += textosRosa;
+faixaRosa.innerHTML += faixaRosa.innerHTML;
 
 // números da capa: contam rapidinho do zero até o número escrito (ex.: +120, 2,4M)
 // (com ?print no endereço os números já aparecem parados: usado para tirar a imagem da galeria)
