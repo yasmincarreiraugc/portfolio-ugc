@@ -259,6 +259,12 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--rosa);bo
   .entrada{padding:40px 16px 48px}
   .obrigado{padding:48px 16px}
   .etapa h3{font-size:23px}
+  /* modelos: um ao lado do outro, com barra para rolar para o lado */
+  .modelos{grid-auto-flow:column;grid-auto-columns:78%;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 14px;scrollbar-width:thin;scrollbar-color:var(--rosa) #f1ede8}
+  .modelo{scroll-snap-align:start}
+  .modelos::-webkit-scrollbar{height:6px}
+  .modelos::-webkit-scrollbar-track{background:#f1ede8;border-radius:3px}
+  .modelos::-webkit-scrollbar-thumb{background:var(--rosa);border-radius:3px}
 }
 </style>
 </head>
