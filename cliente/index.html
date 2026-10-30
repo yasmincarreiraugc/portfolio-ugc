@@ -713,6 +713,7 @@ function atualizaFontes() {
   });
 }
 document.getElementById("fontes").addEventListener("change", e => {
+  if (e.target.type !== "radio") return;
   atualizaFontes();
   const caixa = e.target.closest(".papel");
   if (caixa) caixa.open = false;
