@@ -190,11 +190,14 @@ em{font-style:normal;color:var(--rosa-escuro);background:linear-gradient(transpa
 .seta.ant{left:-22px}
 .seta.prox{right:-22px}
 
-/* esteira: fotos em polaroid de ponta a ponta, passando devagar para a esquerda */
-.esteira{position:relative;overflow:hidden;padding:16px 0 22px}
+/* fotos em polaroid de ponta a ponta, paradas e presas com pin (rosa e amarelo); as setas passam para o lado */
+.esteira{position:relative;overflow:hidden;padding:26px 0 22px}
 .fita{display:flex;gap:22px;width:max-content;padding-right:22px;will-change:transform}
-.fita .foto{flex:none;width:250px;aspect-ratio:4/5;border:8px solid #fff;border-bottom-width:34px;border-radius:4px;outline:2px solid var(--tinta);box-shadow:5px 5px 0 var(--tinta)}
+.fita .foto{flex:none;width:250px;overflow:visible;aspect-ratio:4/5;border:8px solid #fff;border-bottom-width:34px;border-radius:4px;outline:2px solid var(--tinta);box-shadow:5px 5px 0 var(--tinta)}
 .fita .foto:nth-child(odd){rotate:-2deg}
+.fita .foto img{border-radius:2px}
+.fita .foto::before{content:"";position:absolute;z-index:2;top:-19px;left:50%;width:20px;height:20px;margin-left:-10px;border:2px solid var(--tinta);border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffb3d4 0 22%,var(--rosa) 55%,var(--rosa-escuro));box-shadow:2px 3px 0 var(--tinta)}
+.fita .foto:nth-child(3n)::before{background:radial-gradient(circle at 35% 35%,#fff6c9 0 22%,var(--amarelo) 55%,#c9971a)}
 .fita .foto:nth-child(even){rotate:2deg;background:linear-gradient(160deg,#ffe58a,#f0a93b 55%,#f27bb0)}
 .esteira .seta.ant{left:16px}
 .esteira .seta.prox{right:16px}
@@ -478,7 +481,7 @@ em{font-style:normal;color:var(--rosa-escuro);background:linear-gradient(transpa
       </div>
     </div>
     <!-- EDITAR: troque cada <div class="foto"> por <div class="foto"><img src="..." alt="..."></div>
-         as fotos ocupam a tela de ponta a ponta e passam devagar para a esquerda, sem parar; as setas adiantam ou voltam -->
+         as fotos ocupam a tela de ponta a ponta, paradas e presas com pin; as setas passam uma foto para o lado -->
     <div class="esteira surge">
       <button type="button" class="seta ant" aria-label="Foto anterior">‹</button>
       <div class="fita">
@@ -692,12 +695,12 @@ document.querySelectorAll(".carrossel").forEach(c => {
   c.querySelector(".prox").addEventListener("click", () => anda(1));
 });
 
-// fotos: passam devagar para a esquerda sem parar; as setas adiantam ou voltam uma foto
+// fotos: ficam paradas; as setas passam uma foto para o lado (sem fim, nos dois sentidos)
 const esteira = document.querySelector(".esteira");
 if (esteira) {
   const fita = esteira.querySelector(".fita");
   fita.innerHTML += fita.innerHTML; // duplica para girar sem emenda
-  const VELOCIDADE = 0.03; // pixels por milissegundo (30 px por segundo)
+  const VELOCIDADE = 0; // 0 = paradas (ex.: 0.03 faz passar devagar sozinhas)
   let pos = 0, alvo = null, ultimo = performance.now();
   const passo = () => fita.firstElementChild.getBoundingClientRect().width + parseFloat(getComputedStyle(fita).columnGap);
   (function quadro(t) {
