@@ -719,14 +719,15 @@ function atualizaCampos() {
   atualizaFontes();
   const end = form.querySelector('input[name="Endereço"]:checked');
   document.getElementById("campos-dominio").hidden = !(end && end.value === "Domínio próprio");
-  // modelos: só aparecem os do que a cliente marcou que contratou
-  let algum = false;
+  // modelos: só aparecem os do que a cliente contratou (uma opção só)
+  const contratou = form.querySelector('input[name="Contratou"]:checked');
   document.querySelectorAll(".tipo-modelos").forEach(t => {
-    const marcado = form.querySelector(`#contratou input[name="Contratou: ${t.dataset.tipo}"]`).checked;
-    t.hidden = !marcado;
-    algum = algum || marcado;
+    const ativo = !!contratou && contratou.value === t.dataset.tipo;
+    t.hidden = !ativo;
+    // os modelos escondidos não vão no envio
+    t.querySelectorAll("input").forEach(i => i.disabled = !ativo);
   });
-  document.getElementById("aviso-marcar").hidden = algum;
+  document.getElementById("aviso-marcar").hidden = !!contratou;
 }
 form.addEventListener("change", atualizaCampos);
 
