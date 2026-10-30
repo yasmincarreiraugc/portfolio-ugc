@@ -158,9 +158,20 @@ em{font-style:italic;color:var(--azul)}
 .seta.prox{right:-22px}
 
 /* ---------- fotos ---------- */
-.fotos{grid-auto-columns:calc((100% - 42px) / 4)}
-.fotos .foto{aspect-ratio:4/5;border-radius:16px}
-.fotos .foto:nth-child(2n){background:linear-gradient(160deg,#e9e2d4,#c9d1f6)}
+/* esteira: de ponta a ponta da tela, passando devagar para a esquerda */
+.esteira{position:relative;overflow:hidden}
+.fita{display:flex;gap:14px;width:max-content;padding-right:14px;will-change:transform}
+.fita .foto{flex:none;width:270px;aspect-ratio:4/5;border-radius:16px}
+.fita .foto:nth-child(2n){background:linear-gradient(160deg,#e9e2d4,#c9d1f6)}
+.esteira .seta.ant{left:16px}
+.esteira .seta.prox{right:16px}
+/* nichos: filtros embaixo do título */
+.cabeca.empilhada{display:block}
+.cabeca.empilhada .filtros{margin-top:18px}
+/* quadro branco perto das bordas (destaques e depoimentos) */
+.secao.com-quadro{padding:14px 0;border-top:0}
+.quadro{margin:0 14px;padding:48px 0;border-radius:28px;background:#fff}
+.com-quadro .frase{background:var(--papel)}
 
 /* ---------- serviços em caixas ---------- */
 .servicos{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:stretch}
