@@ -529,20 +529,39 @@ const MINIATURAS = {
   "Portfólio": () => `<div class="tela"><div class="nav"><i></i><b><i></i><i></i><i></i></b></div><div class="hero"><div class="txt"><span class="barra"></span><span class="barra curta"></span><span class="barra fina"></span><span class="botao" style="width:50%"></span></div><span class="img"></span></div><div class="grade3"><span></span><span></span><span></span></div></div>`,
   "Site": () => `<div class="tela"><div class="nav"><i></i><b><i></i><i></i><i></i></b></div><div class="banner"><span class="barra"></span></div><div class="grade3"><span></span><span></span><span></span></div><span class="barra fina"></span><span class="barra fina curta"></span><span class="rodape"></span></div>`
 };
-document.getElementById("modelos").innerHTML = Object.keys(MINIATURAS).map(tipo => `
+const doisDig = n => String(n).padStart(2, "0");
+document.getElementById("modelos").innerHTML = Object.keys(MINIATURAS).map(tipo => {
+  const lista = MODELOS.filter(m => m.tipo === tipo);
+  const cats = [...new Set(lista.map(m => m.categoria))];
+  return `
   <div class="tipo-modelos" data-tipo="${tipo}" hidden>
     <h3>${tipo}</h3>
-    <div class="modelos">
-      ${ESTILOS.map(e => `
-        <label class="modelo">
-          <input type="radio" name="Estilo ${tipo}" value="${e.nome}">
-          <span class="modelo-cartao">
-            <span class="mini est-${e.id}">${MINIATURAS[tipo]()}</span>
-            <span class="modelo-nome"><span>${e.nome}<small>${e.desc}</small></span><span class="marcado">✓</span></span>
-          </span>
-        </label>`).join("")}
+    <div class="filtros">
+      <button type="button" class="filtro ativo" data-cat="">Todos (${lista.length})</button>
+      ${cats.map(c => `<button type="button" class="filtro" data-cat="${c}">${c} (${lista.filter(m => m.categoria === c).length})</button>`).join("")}
     </div>
-  </div>`).join("");
+    <div class="modelos">
+      ${lista.map((m, i) => `
+        <div class="modelo" data-cat="${m.categoria}">
+          <span class="modelo-num">${doisDig(i + 1)}</span>
+          <span class="modelo-img">${m.imagem ? `<img src="${m.imagem}" alt="Modelo ${m.nome}" loading="lazy">` : `<span class="mini est-${m.estilo}">${MINIATURAS[tipo]()}</span>`}</span>
+          <span class="modelo-nome">${m.nome}<small>${m.categoria}</small></span>
+          <div class="modelo-acoes">
+            <a href="${m.link || "#"}" target="_blank" rel="noopener"${m.link ? "" : ' class="sem-link" aria-disabled="true"'}>Ver o modelo</a>
+            <label class="escolher"><input type="radio" name="Modelo ${tipo}" value="${doisDig(i + 1)} - ${m.nome}"><span>Escolher</span></label>
+          </div>
+        </div>`).join("")}
+    </div>
+  </div>`;
+}).join("");
+// filtros: mostram só os modelos da categoria tocada
+document.getElementById("modelos").addEventListener("click", e => {
+  const f = e.target.closest(".filtro");
+  if (!f) return;
+  const bloco = f.closest(".tipo-modelos");
+  bloco.querySelectorAll(".filtro").forEach(b => b.classList.toggle("ativo", b === f));
+  bloco.querySelectorAll(".modelo").forEach(m => m.hidden = !!f.dataset.cat && m.dataset.cat !== f.dataset.cat);
+});
 
 // ===== CORES (no estilo do Canva) =====
 // Grade de bolinhas: cada fileira é uma cor, da mais escura à mais clara (7 tons)
