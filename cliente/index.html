@@ -361,12 +361,11 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--rosa);bo
           <p class="mini-titulo">Suas cores</p>
           <div class="suas-cores" id="minhas-cores">
             <label class="cor-mais" title="Escolher outra cor"><span>+</span><input type="color" id="cor-livre" value="#ff99d9" aria-label="Escolher outra cor"></label>
-            <button type="button" class="conta-gotas" id="conta-gotas" title="Pegar cor da tela" aria-label="Pegar cor da tela" hidden><svg viewBox="0 0 24 24"><path d="m14.5 5.5 4 4M16 4l4 4-2 2-4-4z"/><path d="M14 8 5.5 16.5 4 20l3.5-1.5L16 10"/></svg></button>
             <span class="vazio-cores" id="vazio-cores">Nenhuma cor escolhida ainda.</span>
           </div>
           <input type="hidden" name="Cores escolhidas" id="cores-escolhidas">
-          <p class="mini-titulo">Cores</p>
-          <div class="grade-cores" id="grade-cores"></div>
+          <p class="mini-titulo">Cores <span class="arraste">· arraste para o lado para ver mais</span></p>
+          <div class="caixa-cores"><div class="grade-cores" id="grade-cores"></div></div>
         </div>
 
         <!-- 4. fontes (títulos, textos e detalhes) -->
