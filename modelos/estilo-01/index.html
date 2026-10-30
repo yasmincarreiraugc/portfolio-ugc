@@ -444,7 +444,8 @@ const faixa = document.getElementById("faixa");
 faixa.innerHTML += faixa.innerHTML;
 
 // números da capa: contam rapidinho do zero até o número escrito (ex.: +120, 2,4M)
-document.querySelectorAll(".numeros b").forEach(el => {
+// (com ?print no endereço os números já aparecem parados: usado para tirar a imagem da galeria)
+if (!new URLSearchParams(location.search).has("print")) document.querySelectorAll(".numeros b").forEach(el => {
   const m = el.textContent.trim().match(/^(\D*)([\d.,]+)(.*)$/);
   if (!m) return;
   const [, antes, num, depois] = m;
