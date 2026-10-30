@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Área da cliente | Yasmin Carreira</title>
+<meta name="description" content="Área exclusiva para quem contratou a criação de portfólio, bio link ou site com a Yasmin Carreira.">
+<!-- área da cliente: não aparece no Google -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#f5f2ed">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-3 -3 46 46'%3E%3Cpath d='M20 0C21.6 11.5 28.5 18.4 40 20 28.5 21.6 21.6 28.5 20 40 18.4 28.5 11.5 21.6 0 20 11.5 18.4 18.4 11.5 20 0Z' fill='%23ff99d9' stroke='%231e1915' stroke-width='2.4' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- fontes do site + fontes que a cliente pode escolher (para a prévia) -->
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600&family=Lato:wght@400&family=Poppins:wght@400;600&family=DM+Serif+Display&family=DM+Sans:wght@400&family=Bebas+Neue&family=Inter:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --creme:#f5f2ed;
+  --tinta:#1e1915;
+  --tinta-2:#57514c;
+  --rosa:#ff99d9;
+  --ceu:#78b4f4;
+  --manteiga:#fff2c2;
+  --linha:#ece7e2;
+  --titulo:"Barlow Condensed","Arial Narrow",sans-serif;
+  --sans:"Montserrat",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;overflow-x:clip;scroll-behavior:smooth;scroll-padding-top:20px}
+body{margin:0;min-height:100vh;background:var(--creme);color:var(--tinta);font-family:var(--sans);-webkit-font-smoothing:antialiased;padding:24px 24px 40px}
+a{color:inherit}
+h1,h2,h3{font-family:var(--titulo);font-weight:600;text-transform:uppercase;line-height:1;letter-spacing:-.005em;margin:0}
+[hidden]{display:none!important}
+
+.painel{max-width:1100px;margin:0 auto;background:#fff;border-radius:36px;overflow:clip}
+.topo{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 44px 10px 40px}
+.voltar{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:#f1ede8;font-size:13px;font-weight:600;text-decoration:none}
+.logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+.logo svg{width:32px;height:32px;fill:var(--rosa);stroke:var(--tinta);stroke-width:2.2;stroke-linejoin:round;overflow:visible}
+.logo strong,.logo span{display:block;font-size:18px;font-weight:600;letter-spacing:.07em;line-height:1.1;text-transform:uppercase}
+
+.rotulo{display:flex;align-items:center;gap:10px;margin:0;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.rotulo::before{content:"";width:30px;height:2px;background:var(--rosa)}
+.bloco{padding:40px 48px;border-top:1px solid var(--linha)}
+.bloco:first-of-type{border-top:0}
+.bloco h1{font-size:clamp(42px,5vw,62px);margin-top:8px}
+.bloco h2{font-size:clamp(34px,3.8vw,46px);margin-top:8px}
+.sub{margin:12px 0 0;font-size:15px;line-height:1.65;color:var(--tinta-2);max-width:640px}
+
+/* ---------- entrada com senha ---------- */
+.entrada{padding:56px 48px 64px;text-align:center}
+.entrada .rotulo{justify-content:center}
+.entrada .sub{margin-left:auto;margin-right:auto}
+.cadeado{width:64px;height:64px;margin:0 auto 18px;border-radius:50%;display:grid;place-items:center;background:var(--manteiga)}
+.cadeado svg{width:28px;height:28px;fill:none;stroke:var(--tinta);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.form-senha{display:flex;gap:8px;max-width:420px;margin:26px auto 0}
+.form-senha input{flex:1;min-width:0}
+.erro{margin:12px 0 0;font-size:13.5px;font-weight:600;color:#c2410c}
+
+/* ---------- campos ---------- */
+input[type=text],input[type=email],input[type=tel],input[type=url],input[type=password],textarea,select{
+  width:100%;border:1.5px solid #e2dcd5;border-radius:14px;background:#fff;padding:13px 14px;
+  font:inherit;font-size:14.5px;color:var(--tinta);transition:border-color .2s,box-shadow .2s;
+}
+textarea{min-height:110px;resize:vertical;line-height:1.55}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--rosa);box-shadow:0 0 0 4px rgba(255,153,217,.25)}
+.campo{display:grid;gap:7px}
+.campo > span{font-size:14px;font-weight:600}
+.campo small,.dica{font-size:12.5px;line-height:1.5;color:var(--tinta-2)}
+.grade-campos{display:grid;gap:16px;margin-top:22px}
+.obrigatorio{color:#d6338a}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;border:0;border-radius:999px;padding:8px 8px 8px 22px;font:inherit;font-size:14.5px;font-weight:600;cursor:pointer;text-decoration:none;color:var(--tinta);transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn .seta{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--tinta);color:#fff}
+.btn-rosa{background:var(--rosa)}
+.btn-simples{padding:13px 22px;background:var(--tinta);color:#fff}
+
+/* ---------- passo a passo ---------- */
+.passos{display:grid;gap:12px;list-style:none;margin:26px 0 0;padding:0;counter-reset:passo}
+.passo{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--linha);border-radius:20px}
+.passo::before{counter-increment:passo;content:counter(passo);flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--rosa);font-family:var(--titulo);font-size:20px;font-weight:700}
+.passo strong{display:block;font-size:15px;line-height:1.3}
+.passo span{display:block;margin-top:4px;font-size:13.5px;line-height:1.55;color:var(--tinta-2)}
+.aviso-drive{margin-top:18px;padding:18px 20px;border-radius:20px;background:var(--manteiga);font-size:14px;line-height:1.6}
+.aviso-drive strong{display:block;margin-bottom:4px}
+.aviso-drive ol{margin:6px 0 0;padding-left:20px}
+
+/* ---------- modelos (sem informações, só a estrutura) ---------- */
+.tipo-modelos{margin-top:30px}
+.tipo-modelos h3{font-family:var(--sans);font-size:17px;font-weight:700;text-transform:none;letter-spacing:0}
+.modelos{display:grid;gap:14px;margin-top:14px}
+.modelo{position:relative;display:block;cursor:pointer}
+.modelo input{position:absolute;opacity:0;pointer-events:none}
+.modelo-cartao{display:block;padding:12px;border:2px solid var(--linha);border-radius:22px;background:#faf8f5;transition:border-color .2s,box-shadow .2s,transform .2s}
+.modelo:hover .modelo-cartao{transform:translateY(-2px)}
+.modelo input:checked + .modelo-cartao{border-color:var(--tinta);box-shadow:0 0 0 4px var(--rosa)}
+.modelo input:focus-visible + .modelo-cartao{outline:3px solid var(--ceu);outline-offset:2px}
+.modelo-nome{display:flex;align-items:center;justify-content:space-between;margin-top:12px;font-size:14px;font-weight:700}
+.modelo-nome small{display:block;font-size:12px;font-weight:500;color:var(--tinta-2)}
+.marcado{width:24px;height:24px;border-radius:50%;border:2px solid #d8d2cb;display:grid;place-items:center;font-size:13px;color:transparent;flex:none}
+.modelo input:checked + .modelo-cartao .marcado{background:var(--tinta);border-color:var(--tinta);color:#fff}
+
+/* a miniatura de cada modelo */
+.mini{height:210px;border-radius:14px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--f);padding:14px}
+.tela{width:100%;height:100%;border-radius:10px;overflow:hidden;background:var(--fundo);display:flex;flex-direction:column;gap:7px;padding:10px}
+.tela.celular{width:44%;border-radius:16px;border:5px solid #1e1915;align-items:center}
+.b{display:block;border-radius:var(--r);background:var(--c);flex:none}
+.barra{height:7px;width:70%;background:var(--texto);opacity:.75;border-radius:4px}
+.barra.curta{width:45%}
+.barra.fina{height:5px;opacity:.35}
+.avatar{width:38px;height:38px;border-radius:50%;background:var(--c2)}
+.botao{height:16px;width:100%;border-radius:var(--r);background:var(--c);box-shadow:var(--sombra)}
+.botao.alt{background:var(--c2)}
+.nav{display:flex;justify-content:space-between;align-items:center;width:100%}
+.nav i{display:block;width:24%;height:6px;border-radius:3px;background:var(--texto);opacity:.6}
+.nav b{display:flex;gap:4px;width:40%}
+.nav b i{width:33%;opacity:.35}
+.hero{display:flex;gap:8px;width:100%;flex:1}
+.hero .txt{flex:1;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.hero .img{width:42%;border-radius:var(--r);background:var(--c2)}
+.grade3{display:flex;gap:6px;width:100%;height:34px}
+.grade3 span{flex:1;border-radius:var(--r);background:var(--c);opacity:.85;box-shadow:var(--sombra)}
+.banner{width:100%;height:60px;border-radius:var(--r);background:var(--c2);display:flex;align-items:center;justify-content:center}
+.banner .barra{width:50%;background:var(--fundo);opacity:.9}
+.rodape{width:100%;height:12px;border-radius:4px;background:var(--texto);opacity:.15;margin-top:auto}
+.est-clean{--f:#f3efe9;--fundo:#ffffff;--c:#f6dbe7;--c2:#e8e1d8;--texto:#6b625b;--r:10px;--sombra:none}
+.est-colorido{--f:#fff2c2;--fundo:#fffdf8;--c:#ff99d9;--c2:#78b4f4;--texto:#1e1915;--r:6px;--sombra:2px 2px 0 #1e1915}
+.est-elegante{--f:#2b2520;--fundo:#1e1915;--c:#c9a45c;--c2:#3a322b;--texto:#f5f2ed;--r:2px;--sombra:none}
+
+/* ---------- paletas ---------- */
+.opcoes{display:grid;gap:10px;margin-top:14px}
+.opcao{position:relative;display:block;cursor:pointer}
+.opcao input{position:absolute;opacity:0;pointer-events:none}
+.opcao-cartao{display:flex;align-items:center;gap:14px;padding:12px 14px;border:2px solid var(--linha);border-radius:18px;background:#fff;transition:border-color .2s,box-shadow .2s}
+.opcao input:checked + .opcao-cartao{border-color:var(--tinta);box-shadow:0 0 0 4px var(--rosa)}
+.opcao input:focus-visible + .opcao-cartao{outline:3px solid var(--ceu);outline-offset:2px}
+.cores{display:flex;flex:none}
+.cores i{width:30px;height:30px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #e2dcd5}
+.cores i + i{margin-left:-8px}
+.opcao-texto{flex:1;min-width:0;font-size:14px;font-weight:600}
+.opcao-texto small{display:block;font-weight:500;color:var(--tinta-2);font-size:12.5px;margin-top:2px}
+.personalizada{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;padding:14px;border-radius:18px;background:#faf8f5}
+.personalizada label{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600}
+.personalizada input[type=color]{width:44px;height:36px;border:0;background:none;padding:0;cursor:pointer}
+
+/* ---------- fontes ---------- */
+.fonte-previa{flex:1;min-width:0}
+.fonte-previa .f-tit{display:block;font-size:22px;line-height:1.1;color:var(--tinta)}
+.fonte-previa .f-txt{display:block;font-size:13px;color:var(--tinta-2);margin-top:3px}
+.fonte-previa .f-nome{display:block;font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#a59d95;margin-top:6px;font-family:var(--sans)}
+
+/* ---------- formulário em etapas visuais ---------- */
+.etapa{margin-top:34px;padding-top:28px;border-top:1px dashed #e2dcd5}
+.etapa:first-child{margin-top:22px;padding-top:0;border-top:0}
+.etapa h3{display:flex;align-items:center;gap:12px;font-size:26px}
+.etapa h3 em{font-style:normal;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--ceu);font-size:18px;flex:none}
+.marcar{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.marcar label{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:2px solid var(--linha);border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;background:#fff}
+.marcar input{accent-color:#d6338a;width:16px;height:16px}
+.marcar label:has(input:checked){border-color:var(--tinta);background:#fff6fb}
+.enviar{margin-top:34px;padding:26px;border-radius:24px;background:var(--manteiga);display:grid;gap:14px}
+.enviar p{margin:0;font-size:14px;line-height:1.6}
+.salvo{font-size:12.5px;color:var(--tinta-2)}
+
+.obrigado{padding:64px 48px;text-align:center}
+.obrigado .sub{margin-left:auto;margin-right:auto}
+.obrigado .rotulo{justify-content:center}
+
+.assinatura{max-width:1100px;margin:18px auto 0;text-align:center;font-size:13px;font-weight:500;color:var(--tinta-2)}
+
+@media (min-width:900px){
+  .modelos{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .passos{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .grade-campos.duas{grid-template-columns:1fr 1fr}
+  .opcoes.duas{grid-template-columns:1fr 1fr}
+  .enviar{grid-template-columns:1fr auto;align-items:center}
+}
+@media (max-width:899px){
+  body{padding:10px 10px 28px}
+  .painel{border-radius:24px}
+  .topo{padding:14px 16px}
+  .logo svg{width:28px;height:28px}
+  .logo strong,.logo span{font-size:15px}
+  .bloco{padding:30px 16px}
+  .entrada{padding:40px 16px 48px}
+  .obrigado{padding:48px 16px}
+  .etapa h3{font-size:23px}
+}
+</style>
+</head>
+<body>
+<div class="painel">
+  <header class="topo">
+    <a class="voltar" href="../criacao/">← voltar</a>
+    <a class="logo" href="../" aria-label="Yasmin Carreira, início">
+      <svg viewBox="-3 -3 46 46" aria-hidden="true"><path d="M20 0C21.6 11.5 28.5 18.4 40 20 28.5 21.6 21.6 28.5 20 40 18.4 28.5 11.5 21.6 0 20 11.5 18.4 18.4 11.5 20 0Z"/></svg>
+      <div><strong>Yasmin</strong><span>Carreira</span></div>
+    </a>
+  </header>
+
+  <!-- ================= ENTRADA COM SENHA ================= -->
+  <section class="entrada" id="entrada">
+    <div class="cadeado"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg></div>
+    <p class="rotulo">Área da cliente</p>
+    <h1 style="font-size:clamp(40px,5vw,58px);margin-top:8px">Bem-vinda!</h1>
+    <p class="sub">Essa área é só para quem contratou a criação do portfólio, bio link ou site. Digite a senha que eu te enviei.</p>
+    <form class="form-senha" id="form-senha">
+      <input type="password" id="senha" placeholder="Senha" autocomplete="current-password" aria-label="Senha" required>
+      <button class="btn btn-simples" type="submit">Entrar</button>
+    </form>
+    <p class="erro" id="erro-senha" hidden>Senha incorreta. Confere a senha que eu te enviei 💛</p>
+  </section>
+
+  <!-- ================= ÁREA (aparece depois da senha) ================= -->
+  <div id="area" hidden>
+
+    <!-- mensagem de enviado (aparece depois de enviar o formulário) -->
+    <section class="obrigado" id="obrigado" hidden>
+      <div class="cadeado" style="background:var(--rosa)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></div>
+      <p class="rotulo">Recebi tudo!</p>
+      <h1 style="font-size:clamp(40px,5vw,58px);margin-top:8px">Obrigada!</h1>
+      <p class="sub">As suas informações chegaram para mim. Agora é comigo: vou começar a criação e te chamo no WhatsApp se precisar de mais alguma coisa.</p>
+      <p style="margin-top:24px"><a class="btn btn-rosa" href="../">Voltar ao início <span class="seta">→</span></a></p>
+    </section>
+
+    <div id="conteudo">
+      <!-- ---------- BOAS-VINDAS + PASSO A PASSO ---------- -->
+      <section class="bloco">
+        <p class="rotulo">Área da cliente</p>
+        <h1>Vamos criar o seu!</h1>
+        <p class="sub">Aqui está tudo o que eu preciso para começar. Preenche com calma: o que você escrever fica salvo neste aparelho, então dá para parar e continuar depois.</p>
+        <!-- EDITAR: passo a passo -->
+        <ol class="passos">
+          <li class="passo"><div><strong>Escolha o estilo</strong><span>Veja os modelos abaixo e escolha o que mais combina com você.</span></div></li>
+          <li class="passo"><div><strong>Cores e fontes</strong><span>Escolha uma paleta pronta ou monte a sua, e o par de fontes.</span></div></li>
+          <li class="passo"><div><strong>Seus textos</strong><span>Nome, apresentação, sobre você, serviços, marcas e redes.</span></div></li>
+          <li class="passo"><div><strong>Fotos e vídeos</strong><span>Mande pelo link do Google Drive ou do YouTube, para não perder qualidade.</span></div></li>
+          <li class="passo"><div><strong>Endereço do site</strong><span>Escolha entre domínio próprio ou o endereço gratuito.</span></div></li>
+          <li class="passo"><div><strong>Envie para mim</strong><span>Tudo chega direto para mim e eu começo a criação.</span></div></li>
+        </ol>
+        <div class="aviso-drive">
+          <strong>Como mandar fotos e vídeos sem perder qualidade</strong>
+          Não envie pelo WhatsApp, porque ele diminui a qualidade. Use o Google Drive:
+          <ol>
+            <li>Crie uma pasta no Google Drive e coloque as fotos e vídeos dentro.</li>
+            <li>Toque em <b>Compartilhar</b> e mude o acesso para <b>"Qualquer pessoa com o link"</b>.</li>
+            <li>Copie o link e cole no formulário. Vídeos que já estão no YouTube podem ir pelo link do YouTube.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ---------- FORMULÁRIO (chega no e-mail da Yasmin pelo FormSubmit) ---------- -->
+      <form class="bloco" id="briefing" action="https://formsubmit.co/yasmin-carreira@hotmail.com" method="POST">
+        <!-- configurações do envio -->
+        <input type="hidden" name="_subject" value="Nova cliente: briefing de criação">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://yasmincarreira.com/cliente/?enviado=1">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+        <p class="rotulo">Briefing</p>
+        <h2>Suas informações</h2>
+        <p class="sub">Os campos com <span class="obrigatorio">*</span> são obrigatórios. O resto é opcional, mas quanto mais você contar, mais a sua cara vai ficar.</p>
+
+        <!-- 1. dados -->
+        <div class="etapa">
+          <h3><em>1</em>Seus dados</h3>
+          <div class="grade-campos duas">
+            <label class="campo"><span>Nome completo <b class="obrigatorio">*</b></span><input type="text" name="Nome completo" required autocomplete="name"></label>
+            <label class="campo"><span>WhatsApp <b class="obrigatorio">*</b></span><input type="tel" name="WhatsApp" required autocomplete="tel" placeholder="(00) 00000-0000"></label>
+            <label class="campo"><span>E-mail <b class="obrigatorio">*</b></span><input type="email" name="email" required autocomplete="email"></label>
+            <label class="campo"><span>@ do Instagram</span><input type="text" name="Instagram" placeholder="@seuperfil"></label>
+          </div>
+          <p class="campo" style="margin-top:18px"><span>O que você contratou? <b class="obrigatorio">*</b></span></p>
+          <div class="marcar">
+            <label><input type="checkbox" name="Contratou" value="Bio link"> Bio link</label>
+            <label><input type="checkbox" name="Contratou" value="Portfólio"> Portfólio</label>
+            <label><input type="checkbox" name="Contratou" value="Site"> Site</label>
+          </div>
+        </div>
+
+        <!-- 2. estilo -->
+        <div class="etapa" id="estilos">
+          <h3><em>2</em>Escolha o estilo</h3>
+          <p class="dica" style="margin-top:8px">São só modelos de estrutura, sem textos. As cores e fontes você escolhe depois. Escolha um estilo para cada coisa que contratou.</p>
+          <div id="modelos"></div>
+        </div>
+
+        <!-- 3. cores -->
+        <div class="etapa">
+          <h3><em>3</em>Paleta de cores</h3>
+          <div class="opcoes duas" id="paletas"></div>
+          <div class="personalizada" id="cores-personalizadas" hidden>
+            <label>Cor 1 <input type="color" name="Cor 1" value="#ff99d9"></label>
+            <label>Cor 2 <input type="color" name="Cor 2" value="#fff2c2"></label>
+            <label>Cor 3 <input type="color" name="Cor 3" value="#78b4f4"></label>
+            <label>Fundo <input type="color" name="Cor de fundo" value="#ffffff"></label>
+          </div>
+        </div>
+
+        <!-- 4. fontes -->
+        <div class="etapa">
+          <h3><em>4</em>Fontes</h3>
+          <div class="opcoes duas" id="fontes"></div>
+        </div>
+
+        <!-- 5. textos -->
+        <div class="etapa">
+          <h3><em>5</em>Seus textos</h3>
+          <div class="grade-campos">
+            <label class="campo"><span>Nome que vai aparecer <b class="obrigatorio">*</b></span><input type="text" name="Nome no site" required placeholder="Ex.: Ana Souza"><small>Pode ser seu nome ou o nome da sua marca.</small></label>
+            <label class="campo"><span>O que você faz, em uma frase</span><input type="text" name="Frase de apresentação" placeholder="Ex.: UGC creator de beleza e maternidade"></label>
+            <label class="campo"><span>Sobre você</span><textarea name="Sobre você" placeholder="Conte um pouco da sua história, idade, cidade, o que gosta de criar..."></textarea></label>
+            <label class="campo"><span>Seus serviços</span><textarea name="Serviços" placeholder="Ex.: UGC orgânico, UGC para anúncios, publi post, pacotes..."></textarea></label>
+            <label class="campo"><span>Nichos que você trabalha</span><input type="text" name="Nichos" placeholder="Ex.: beleza, casa, maternidade, fitness"></label>
+            <label class="campo"><span>Marcas que já trabalhou</span><textarea name="Marcas" placeholder="Uma por linha. Se tiver as logos, coloque na pasta do Drive."></textarea></label>
+            <label class="campo"><span>Depoimentos de clientes</span><textarea name="Depoimentos" placeholder="Copie aqui mensagens bonitas que marcas te mandaram (com o nome da marca)."></textarea></label>
+          </div>
+          <p class="campo" style="margin-top:18px"><span>Suas redes e contatos</span></p>
+          <div class="grade-campos duas" style="margin-top:8px">
+            <label class="campo"><span>Link do TikTok</span><input type="url" name="TikTok" placeholder="https://www.tiktok.com/@..."></label>
+            <label class="campo"><span>Link do YouTube</span><input type="url" name="YouTube" placeholder="https://www.youtube.com/@..."></label>
+            <label class="campo"><span>E-mail para marcas</span><input type="email" name="E-mail para marcas"></label>
+            <label class="campo"><span>Outros links</span><input type="text" name="Outros links" placeholder="Mídia kit, loja, Pinterest..."></label>
+          </div>
+          <label class="campo" style="margin-top:16px"><span>Mensagem que a marca manda ao clicar no seu WhatsApp</span><input type="text" name="Mensagem do WhatsApp" placeholder="Ex.: Oi! Vi seu portfólio e quero conversar sobre uma parceria."></label>
+        </div>
+
+        <!-- 6. fotos e vídeos -->
+        <div class="etapa">
+          <h3><em>6</em>Fotos e vídeos</h3>
+          <p class="dica" style="margin-top:8px">Pelo Google Drive (com acesso "Qualquer pessoa com o link") ou pelo YouTube, para manter a qualidade original.</p>
+          <div class="grade-campos">
+            <label class="campo"><span>Link da pasta do Drive com suas fotos <b class="obrigatorio">*</b></span><input type="url" name="Drive: fotos" required placeholder="https://drive.google.com/..."><small>Inclua a foto principal (a que vai na capa) e as fotos para o "sobre você".</small></label>
+            <label class="campo"><span>Link da pasta do Drive com seus vídeos</span><input type="url" name="Drive: vídeos" placeholder="https://drive.google.com/..."></label>
+            <label class="campo"><span>Links de vídeos no YouTube</span><textarea name="Vídeos no YouTube" placeholder="Um link por linha. Se quiser, coloque ao lado a marca e o tipo de vídeo."></textarea></label>
+            <label class="campo"><span>Qual foto vai na capa?</span><input type="text" name="Foto da capa" placeholder="Ex.: a foto 'capa.jpg' da pasta, ou descreva"></label>
+          </div>
+        </div>
+
+        <!-- 7. endereço -->
+        <div class="etapa">
+          <h3><em>7</em>Endereço do site</h3>
+          <div class="opcoes duas">
+            <label class="opcao"><input type="radio" name="Endereço" value="Domínio próprio" required>
+              <span class="opcao-cartao"><span class="opcao-texto">Domínio próprio<small>Ex.: seunome.com. Fica mais profissional. Tem um custo anual do registro do domínio.</small></span><span class="marcado">✓</span></span></label>
+            <label class="opcao"><input type="radio" name="Endereço" value="Endereço gratuito">
+              <span class="opcao-cartao"><span class="opcao-texto">Endereço gratuito<small>Um link padrão, sem custo, que funciona do mesmo jeito.</small></span><span class="marcado">✓</span></span></label>
+          </div>
+          <div class="grade-campos duas" id="campos-dominio" hidden>
+            <label class="campo"><span>Domínio que você quer</span><input type="text" name="Domínio desejado" placeholder="Ex.: seunome.com.br"></label>
+            <label class="campo"><span>Você já tem esse domínio?</span>
+              <select name="Já tem domínio?"><option value="">Escolha</option><option>Ainda não tenho</option><option>Já tenho registrado</option></select></label>
+          </div>
+        </div>
+
+        <!-- 8. observações -->
+        <div class="etapa">
+          <h3><em>8</em>Algo mais?</h3>
+          <div class="grade-campos">
+            <label class="campo"><span>Referências que você gosta</span><textarea name="Referências" placeholder="Links de perfis, sites ou portfólios que você acha bonitos."></textarea></label>
+            <label class="campo"><span>Observações</span><textarea name="Observações" placeholder="Qualquer coisa que você queira que eu saiba."></textarea></label>
+          </div>
+        </div>
+
+        <div class="enviar">
+          <div>
+            <p><b>Tudo pronto?</b> Ao enviar, as suas informações chegam direto para mim e eu começo a criação.</p>
+            <p class="salvo" id="salvo">O que você preencher fica salvo neste aparelho até enviar.</p>
+          </div>
+          <button class="btn btn-rosa" type="submit">Enviar para a Yasmin <span class="seta">→</span></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<p class="assinatura">feito pela Yas ♡ @yasmincarreira_</p>
+
+<script>
+// ===== SENHA =====
+// EDITAR: para trocar a senha, gere a "impressão digital" (SHA-256) da senha nova e cole aqui.
+// Senha atual: YasCria2026
+const SENHA_HASH = "fbc8163a406020f08ec53ed903ef32430a3a046c4f45ec5881f47dff7cd6c465";
+const CHAVE_OK = "cliente-ok", CHAVE_RASCUNHO = "cliente-rascunho";
+const guardar = (k, v) => { try { v === null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch (e) {} };
+const ler = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
+
+async function hash(texto) {
+  const dados = new TextEncoder().encode(texto);
+  const resumo = await crypto.subtle.digest("SHA-256", dados);
+  return [...new Uint8Array(resumo)].map(b => b.toString(16).padStart(2, "0")).join("");
+}
+function liberar() {
+  document.getElementById("entrada").hidden = true;
+  document.getElementById("area").hidden = false;
+  if (new URLSearchParams(location.search).has("enviado")) {
+    document.getElementById("conteudo").hidden = true;
+    document.getElementById("obrigado").hidden = false;
+    guardar(CHAVE_RASCUNHO, null);
+  }
+}
+document.getElementById("form-senha").addEventListener("submit", async e => {
+  e.preventDefault();
+  const ok = (await hash(document.getElementById("senha").value.trim())) === SENHA_HASH;
+  document.getElementById("erro-senha").hidden = ok;
+  if (ok) { guardar(CHAVE_OK, SENHA_HASH); liberar(); scrollTo(0, 0); }
+});
+if (ler(CHAVE_OK) === SENHA_HASH) liberar();
+
+// ===== MODELOS (sem informações, só a estrutura) =====
+// EDITAR: nomes e descrições dos estilos
+const ESTILOS = [
+  { id: "clean",    nome: "Clean",    desc: "leve, branco e delicado" },
+  { id: "colorido", nome: "Colorido", desc: "cores vivas e contornos" },
+  { id: "elegante", nome: "Elegante", desc: "escuro, sofisticado" }
+];
+const MINIATURAS = {
+  "Bio link": () => `<div class="tela celular"><span class="avatar"></span><span class="barra curta"></span><span class="barra fina"></span><span class="botao"></span><span class="botao alt"></span><span class="botao"></span><span class="botao alt"></span></div>`,
+  "Portfólio": () => `<div class="tela"><div class="nav"><i></i><b><i></i><i></i><i></i></b></div><div class="hero"><div class="txt"><span class="barra"></span><span class="barra curta"></span><span class="barra fina"></span><span class="botao" style="width:50%"></span></div><span class="img"></span></div><div class="grade3"><span></span><span></span><span></span></div></div>`,
+  "Site": () => `<div class="tela"><div class="nav"><i></i><b><i></i><i></i><i></i></b></div><div class="banner"><span class="barra"></span></div><div class="grade3"><span></span><span></span><span></span></div><span class="barra fina"></span><span class="barra fina curta"></span><span class="rodape"></span></div>`
+};
+document.getElementById("modelos").innerHTML = Object.keys(MINIATURAS).map(tipo => `
+  <div class="tipo-modelos">
+    <h3>${tipo}</h3>
+    <div class="modelos">
+      ${ESTILOS.map(e => `
+        <label class="modelo">
+          <input type="radio" name="Estilo ${tipo}" value="${e.nome}">
+          <span class="modelo-cartao">
+            <span class="mini est-${e.id}">${MINIATURAS[tipo]()}</span>
+            <span class="modelo-nome"><span>${e.nome}<small>${e.desc}</small></span><span class="marcado">✓</span></span>
+          </span>
+        </label>`).join("")}
+    </div>
+  </div>`).join("");
+
+// ===== PALETAS =====
+// EDITAR: paletas prontas (as cores aparecem nas bolinhas)
+const PALETAS = [
+  { nome: "Rosa e creme",       desc: "doce e feminina",      cores: ["#ff99d9", "#fff2c2", "#f5f2ed", "#1e1915"] },
+  { nome: "Azul e areia",       desc: "leve e fresca",        cores: ["#78b4f4", "#f1e6d6", "#ffffff", "#1e1915"] },
+  { nome: "Terracota",          desc: "quente e acolhedora",  cores: ["#c8643b", "#f3d9c4", "#fbf6f0", "#2b1d16"] },
+  { nome: "Verde sálvia",       desc: "natural e calma",      cores: ["#9fb59a", "#e9efe4", "#ffffff", "#22301f"] },
+  { nome: "Lilás",              desc: "criativa e suave",     cores: ["#b79cf2", "#efe7ff", "#ffffff", "#241a33"] },
+  { nome: "Preto e dourado",    desc: "elegante e marcante",  cores: ["#c9a45c", "#1e1915", "#2b2520", "#f5f2ed"] },
+  { nome: "Quero escolher",     desc: "monte a sua paleta",   cores: null }
+];
+document.getElementById("paletas").innerHTML = PALETAS.map(p => `
+  <label class="opcao"><input type="radio" name="Paleta" value="${p.nome}"${p.cores ? "" : ' data-personalizada'}>
+    <span class="opcao-cartao">
+      <span class="cores">${(p.cores || ["#ffffff", "#ffffff", "#ffffff"]).map(c => `<i style="background:${c}"></i>`).join("")}</span>
+      <span class="opcao-texto">${p.nome}<small>${p.desc}</small></span><span class="marcado">✓</span>
+    </span></label>`).join("");
+
+// ===== FONTES =====
+// EDITAR: pares de fontes (título + texto)
+const FONTES = [
+  { nome: "Moderna e forte",    titulo: "'Barlow Condensed'",   texto: "Montserrat", par: "Barlow Condensed + Montserrat", maiusc: true },
+  { nome: "Elegante",           titulo: "'Playfair Display'",   texto: "Lato",       par: "Playfair Display + Lato" },
+  { nome: "Simples e redonda",  titulo: "Poppins",              texto: "Poppins",    par: "Poppins" },
+  { nome: "Sofisticada",        titulo: "'DM Serif Display'",   texto: "'DM Sans'",  par: "DM Serif Display + DM Sans" },
+  { nome: "Impactante",         titulo: "'Bebas Neue'",         texto: "Inter",      par: "Bebas Neue + Inter", maiusc: true },
+  { nome: "Você escolhe",       titulo: "Montserrat",           texto: "Montserrat", par: "Fontes que a cliente vai indicar nas observações" }
+];
+document.getElementById("fontes").innerHTML = FONTES.map(f => `
+  <label class="opcao"><input type="radio" name="Fontes" value="${f.nome} (${f.par})">
+    <span class="opcao-cartao">
+      <span class="fonte-previa">
+        <span class="f-tit" style="font-family:${f.titulo};${f.maiusc ? "text-transform:uppercase;" : ""}font-weight:600">Seu nome aqui</span>
+        <span class="f-txt" style="font-family:${f.texto}">Texto de apresentação do seu portfólio</span>
+        <span class="f-nome">${f.nome}</span>
+      </span><span class="marcado">✓</span>
+    </span></label>`).join("");
+
+// ===== MOSTRAR / ESCONDER CAMPOS =====
+const form = document.getElementById("briefing");
+function atualizaCampos() {
+  const pal = form.querySelector('input[name="Paleta"]:checked');
+  document.getElementById("cores-personalizadas").hidden = !(pal && pal.hasAttribute("data-personalizada"));
+  const end = form.querySelector('input[name="Endereço"]:checked');
+  document.getElementById("campos-dominio").hidden = !(end && end.value === "Domínio próprio");
+}
+form.addEventListener("change", atualizaCampos);
+
+// ===== RASCUNHO: salva o que a cliente preencheu neste aparelho =====
+function salvarRascunho() {
+  const dados = {};
+  form.querySelectorAll("input, textarea, select").forEach(c => {
+    if (!c.name || c.type === "hidden" || c.name === "_honey") return;
+    if (c.type === "checkbox") dados[c.name + "|" + c.value] = c.checked;
+    else if (c.type === "radio") { if (c.checked) dados[c.name] = c.value; }
+    else dados[c.name] = c.value;
+  });
+  guardar(CHAVE_RASCUNHO, JSON.stringify(dados));
+  document.getElementById("salvo").textContent = "Rascunho salvo neste aparelho ✓";
+}
+function carregarRascunho() {
+  let dados; try { dados = JSON.parse(ler(CHAVE_RASCUNHO) || "null"); } catch (e) { dados = null; }
+  if (!dados) return;
+  form.querySelectorAll("input, textarea, select").forEach(c => {
+    if (!c.name || c.type === "hidden") return;
+    if (c.type === "checkbox") c.checked = !!dados[c.name + "|" + c.value];
+    else if (c.type === "radio") c.checked = dados[c.name] === c.value;
+    else if (dados[c.name] !== undefined) c.value = dados[c.name];
+  });
+  atualizaCampos();
+}
+form.addEventListener("input", salvarRascunho);
+form.addEventListener("change", salvarRascunho);
+carregarRascunho();
+
+// ===== ENVIO: confere o "o que contratou" (pelo menos um) =====
+form.addEventListener("submit", e => {
+  if (!form.querySelector('input[name="Contratou"]:checked')) {
+    e.preventDefault();
+    alert("Marque o que você contratou: bio link, portfólio ou site.");
+    form.querySelector('input[name="Contratou"]').focus();
+  }
+});
+</script>
+</body>
+</html>
