@@ -377,12 +377,21 @@ em{font-style:italic;color:var(--azul)}
         </div>
         <p class="intro" data-en="Lifestyle photos with natural light, ready for websites and social media.">Fotos lifestyle com luz natural, prontas para site e redes.</p>
       </div>
-      <!-- EDITAR: troque cada <div class="foto"> por <div class="foto"><img src="..." alt="..."></div> -->
-      <div class="fotos surge">
-        <div class="foto" data-texto="Foto 1"></div>
-        <div class="foto" data-texto="Foto 2"></div>
-        <div class="foto" data-texto="Foto 3"></div>
-        <div class="foto" data-texto="Foto 4"></div>
+      <!-- EDITAR: troque cada <div class="foto"> por <div class="foto"><img src="..." alt="..."></div>
+           as fotos passam sozinhas (data-auto) e também pelas setas -->
+      <div class="carrossel surge" data-auto>
+        <button type="button" class="seta ant" aria-label="Foto anterior">‹</button>
+        <div class="trilho fotos">
+          <div class="foto" data-texto="Foto 1"></div>
+          <div class="foto" data-texto="Foto 2"></div>
+          <div class="foto" data-texto="Foto 3"></div>
+          <div class="foto" data-texto="Foto 4"></div>
+          <div class="foto" data-texto="Foto 5"></div>
+          <div class="foto" data-texto="Foto 6"></div>
+          <div class="foto" data-texto="Foto 7"></div>
+          <div class="foto" data-texto="Foto 8"></div>
+        </div>
+        <button type="button" class="seta prox" aria-label="Próxima foto">›</button>
       </div>
     </div>
   </section>
