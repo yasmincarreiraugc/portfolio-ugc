@@ -499,6 +499,7 @@ async function hash(texto) {
 function liberar() {
   document.getElementById("entrada").hidden = true;
   document.getElementById("area").hidden = false;
+  document.getElementById("sair").hidden = false;
   if (new URLSearchParams(location.search).has("enviado")) {
     document.getElementById("conteudo").hidden = true;
     document.getElementById("obrigado").hidden = false;
