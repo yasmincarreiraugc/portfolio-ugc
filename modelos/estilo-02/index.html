@@ -63,6 +63,9 @@ em{font-style:normal;color:var(--rosa-escuro);background:linear-gradient(transpa
 /* borboleta voando delicada em cima da foto da capa */
 .borboleta{position:absolute;z-index:4;top:34%;left:-82px;width:58px;overflow:visible;animation:voar 7s ease-in-out infinite}
 .asa{transform-box:view-box;transform-origin:30px 26px;animation:bater .45s ease-in-out infinite alternate}
+/* segunda borboleta: menor, mais embaixo e no seu próprio ritmo */
+.borboleta.dois{top:68%;left:-52px;width:40px;animation:voar 9s ease-in-out -3s infinite reverse}
+.borboleta.dois .asa{animation-duration:.38s}
 .asa path{fill:var(--rosa-claro);stroke:var(--rosa);stroke-width:1.3;stroke-linejoin:round}
 .asa path + path{fill:var(--amarelo-claro)}
 .borboleta .corpo{fill:none;stroke:var(--rosa-escuro);stroke-width:2;stroke-linecap:round}
@@ -376,6 +379,7 @@ em{font-style:normal;color:var(--rosa-escuro);background:linear-gradient(transpa
       <div class="capa-foto">
         <div class="polaroid"><div class="foto" data-texto="Foto da capa"></div></div>
         <svg class="borboleta" viewBox="0 0 60 50" aria-hidden="true"><g class="asa"><path d="M29 24C22 10 9 3 4 9s6 17 25 15z"/><path d="M29 27C19 28 10 36 13 42s13-2 16-15z"/><path d="M31 24C38 10 51 3 56 9s-6 17-25 15z"/><path d="M31 27C41 28 50 36 47 42s-13-2-16-15z"/></g><path class="corpo" d="M30 19v18"/><path class="antena" d="M30 19c-1-5-4-8-7-9M30 19c1-5 4-8 7-9"/></svg>
+        <svg class="borboleta dois" viewBox="0 0 60 50" aria-hidden="true"><g class="asa"><path d="M29 24C22 10 9 3 4 9s6 17 25 15z"/><path d="M29 27C19 28 10 36 13 42s13-2 16-15z"/><path d="M31 24C38 10 51 3 56 9s-6 17-25 15z"/><path d="M31 27C41 28 50 36 47 42s-13-2-16-15z"/></g><path class="corpo" d="M30 19v18"/><path class="antena" d="M30 19c-1-5-4-8-7-9M30 19c1-5 4-8 7-9"/></svg>
       </div>
     </div>
   </section>
