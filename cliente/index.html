@@ -100,7 +100,8 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:var(--rosa);bo
 .modelo-nome{display:flex;align-items:center;justify-content:space-between;margin-top:12px;font-size:14px;font-weight:700}
 .modelo-nome small{display:block;font-size:12px;font-weight:500;color:var(--tinta-2)}
 .marcado{width:24px;height:24px;border-radius:50%;border:2px solid #d8d2cb;display:grid;place-items:center;font-size:13px;color:transparent;flex:none}
-.modelo input:checked + .modelo-cartao .marcado{background:var(--tinta);border-color:var(--tinta);color:#fff}
+.modelo input:checked + .modelo-cartao .marcado,
+.opcao input:checked + .opcao-cartao .marcado{background:var(--tinta);border-color:var(--tinta);color:#fff}
 
 /* a miniatura de cada modelo */
 .mini{height:210px;border-radius:14px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--f);padding:14px}
