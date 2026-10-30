@@ -622,6 +622,11 @@ const traduziveis = [...document.querySelectorAll("[data-en]")];
 traduziveis.forEach(el => el.dataset.pt = el.innerHTML);
 function idioma(lingua) {
   traduziveis.forEach(el => el.innerHTML = lingua === "en" ? el.dataset.en : el.dataset.pt);
+  // textos de dentro dos campos do formulário (placeholder)
+  document.querySelectorAll("[data-ph-en]").forEach(el => {
+    el.dataset.phPt = el.dataset.phPt || el.placeholder;
+    el.placeholder = lingua === "en" ? el.dataset.phEn : el.dataset.phPt;
+  });
   document.documentElement.lang = lingua === "en" ? "en" : "pt-BR";
   document.querySelectorAll(".idiomas button").forEach(b => b.classList.toggle("ativo", b.dataset.idioma === lingua));
   try { localStorage.setItem("modelo-idioma", lingua); } catch (e) {}
