@@ -286,15 +286,16 @@ h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:
 .depo figcaption b{font-size:13.5px;color:var(--tinta)}
 
 /* capa: a foto ocupa a capa toda e o texto fica por cima */
-.capa{position:relative;isolation:isolate;align-content:start;min-height:min(calc(100svh - 150px),700px);padding:28px calc(var(--gutter) + 20px) 60px}
+.capa{position:relative;isolation:isolate;align-content:start;min-height:min(calc(100svh - 150px),700px);padding:28px calc(var(--gutter) + 20px) 180px}
 .capa-esquerda{position:relative;z-index:2}
 .capa .capa-foto{position:absolute;z-index:-1;inset:0 var(--gutter);aspect-ratio:auto;height:auto;margin:0}
 /* véu claro para o texto ler bem em cima de qualquer foto */
 .capa .capa-foto::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(255,253,248,.92),rgba(255,253,248,.55) 52%,rgba(255,253,248,0) 78%)}
 .capa h1 span{color:#9d948c}
-.capa .citacao{color:#3b352f}
+.capa .citacao{position:absolute;z-index:2;right:calc(var(--gutter) + 22px);bottom:30px;width:min(320px,calc(100% - 2 * var(--gutter) - 76px));margin:0;padding:16px 18px 16px 46px;border-radius:20px;background:rgba(255,253,248,.85);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#3b352f}
+.capa .citacao::before{left:12px;top:2px}
 .capa .citacao::before{color:#cfc5bb}
-.capa .foto-modelo{align-items:end;padding-bottom:40px}
+.capa .foto-modelo{align-items:center;padding-bottom:0}
 .cartao-pilula{white-space:nowrap}
 .cartao-rodape{flex-wrap:wrap}
 
@@ -572,9 +573,9 @@ h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:
         <input type="search" id="pesquisa-texto" placeholder="Portfólio, parcerias, redes, mídia kit…" aria-label="Pesquisar nos links">
         <button type="submit" aria-label="Pesquisar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></button>
       </form>
-      <!-- EDITAR: frase com aspas -->
-      <p class="intro citacao">Transformo minha rotina em conteúdo que conecta com pessoas e marcas. Vem ver o que eu crio.</p>
     </div>
+    <!-- EDITAR: frase com aspas (fica no canto de baixo, à direita da capa) -->
+    <p class="intro citacao">Transformo minha rotina em conteúdo que conecta com pessoas e marcas. Vem ver o que eu crio.</p>
 
     <!-- FOTO DA CAPA: troque o bloco "foto-modelo" por <img src="fotos/capa.jpg" alt="..."> (foto horizontal ou vertical, com fundo) -->
     <div class="capa-foto">
