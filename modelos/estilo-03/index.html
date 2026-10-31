@@ -351,9 +351,13 @@ em{font-style:normal;background:linear-gradient(transparent 56%,var(--lima) 56%,
   .vf-trilho{gap:14px}
   .vf-item.ativo{transform:scale(1.28)}
   .vf-janela{padding:50px 0 80px;margin-bottom:-30px}
-  .vitrine-servicos{flex-direction:column;align-items:stretch;padding-top:4px}
-  .sv{display:none}
-  .sv.ativo{display:flex;transform:none}
+  /* todos os cartões ocupam o mesmo lugar: a caixa fica sempre do tamanho do maior */
+  .vitrine-servicos{display:grid;align-items:stretch;padding-top:4px}
+  .sv{grid-area:1 / 1;visibility:hidden}
+  .sv h3{font-size:28px}
+  .sv .sv-linhas{display:grid;gap:8px;margin:6px 0 0;padding:0;list-style:none}
+  .sv .sv-rodape{display:flex;align-items:center;gap:10px;margin-top:auto;padding-top:8px}
+  .sv.ativo{visibility:visible;transform:none}
   /* depoimentos: 1 por vez */
   .frases{grid-auto-columns:100%}
   .frase{min-height:250px;padding-left:38px;padding-right:38px}
