@@ -106,14 +106,10 @@ h1,h2,h3{font-family:var(--titulo);font-weight:700;text-transform:uppercase;marg
 
 /* ---------- capa: título de ponta a ponta, abas + pesquisa à esquerda, foto grande à direita ---------- */
 .capa{display:grid;gap:20px;padding-top:10px;padding-bottom:26px}
-.capa h1{position:relative;z-index:2;font-family:var(--sans);font-weight:600;text-transform:none;letter-spacing:-.035em;line-height:1.02;font-size:clamp(40px,11vw,92px);margin:0}
+.capa h1{position:relative;z-index:2;font-family:var(--sans);font-weight:600;text-transform:none;letter-spacing:-.035em;line-height:1.02;font-size:clamp(34px,9vw,60px);margin:0}
 .capa h1 span{color:#b9b1aa}
-/* abas */
-.abas{display:flex;gap:6px}
-.aba{padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600;color:var(--tinta);transition:background .2s}
-.aba.ativa,.aba:hover{background:#fff;box-shadow:0 4px 14px -6px rgba(30,25,21,.25)}
 /* barra de pesquisa com o botão redondo */
-.pesquisa{display:flex;align-items:center;gap:8px;margin-top:10px;padding:6px 6px 6px 18px;border-radius:999px;background:#fff;box-shadow:0 10px 30px -18px rgba(30,25,21,.45)}
+.pesquisa{display:flex;align-items:center;gap:8px;margin-top:18px;padding:6px 6px 6px 18px;border-radius:999px;background:#fff;box-shadow:0 10px 30px -18px rgba(30,25,21,.45)}
 .pesquisa input{flex:1;min-width:0;border:0;outline:none;background:none;font:inherit;font-size:14px;color:var(--tinta)}
 .pesquisa input::placeholder{color:#a9a29b}
 .pesquisa button{flex:none;width:42px;height:42px;border:0;border-radius:50%;background:var(--rosa);cursor:pointer;display:grid;place-items:center;transition:transform .2s}
@@ -278,15 +274,19 @@ h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:
 .vitrines i{width:30px;height:30px;border-radius:50%;background:var(--tinta);color:#fff;display:grid;place-items:center;font-style:normal;font-size:13px}
 /* depoimentos */
 #depoimentos{margin-top:40px}
-.depoimentos{display:grid;gap:12px}
-.depo{margin:0;padding:22px 20px 18px;border-radius:22px;background:#fff;box-shadow:0 18px 34px -24px rgba(30,25,21,.35)}
+.depo-faixa{margin:0 calc(50% - 50vw);overflow:hidden}
+.depo-trilho{display:flex;width:max-content;animation:rolar 60s linear infinite}
+.depo-faixa:hover .depo-trilho{animation-play-state:paused}
+.depoimentos{display:flex;gap:14px;padding:4px 7px 30px}
+.depo{flex:none;width:280px}
+.depo{display:flex;flex-direction:column;margin:0;padding:22px 20px 18px;border-radius:22px;background:#fff;box-shadow:0 18px 34px -24px rgba(30,25,21,.35)}
 .depo blockquote{margin:0;font-size:14.5px;line-height:1.6;color:#2b2622}
 .depo blockquote::before{content:"“";display:block;height:24px;font-family:Georgia,serif;font-size:46px;line-height:1;color:var(--rosa)}
-.depo figcaption{display:grid;margin-top:14px;font-size:12px;color:#8b847e}
+.depo figcaption{display:grid;margin-top:auto;padding-top:14px;font-size:12px;color:#8b847e}
 .depo figcaption b{font-size:13.5px;color:var(--tinta)}
 
 /* capa: a foto ocupa a capa toda e o texto fica por cima */
-.capa{position:relative;isolation:isolate;align-content:start;min-height:min(calc(100svh - 150px),700px);padding:28px calc(var(--gutter) + 20px) 196px}
+.capa{position:relative;isolation:isolate;align-content:start;min-height:min(calc(100svh - 150px),700px);padding:28px calc(var(--gutter) + 20px) 60px}
 .capa-esquerda{position:relative;z-index:2}
 .capa .capa-foto{position:absolute;z-index:-1;inset:0 var(--gutter);aspect-ratio:auto;height:auto;margin:0}
 /* véu claro para o texto ler bem em cima de qualquer foto */
@@ -294,8 +294,7 @@ h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:
 .capa h1 span{color:#9d948c}
 .capa .citacao{color:#3b352f}
 .capa .citacao::before{color:#cfc5bb}
-.aba{background:rgba(255,255,255,.55)}
-.capa .foto-modelo{align-items:end;padding-bottom:210px}
+.capa .foto-modelo{align-items:end;padding-bottom:40px}
 .cartao-pilula{white-space:nowrap}
 .cartao-rodape{flex-wrap:wrap}
 
@@ -446,10 +445,9 @@ h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:
   /* capa compacta: cabe na tela sem rolar */
   /* foto mais estreita, texto e caixinhas mais largos */
   .capa{display:block;min-height:min(calc(100svh - 120px),640px);padding:44px calc(var(--gutter) + 44px) 48px}
-  .capa h1{font-size:clamp(50px,5.4vw,74px);max-width:880px}
+  .capa h1{font-size:clamp(40px,4.3vw,58px);max-width:760px}
   .capa-esquerda{max-width:400px;padding-top:30px}
   .capa .capa-foto::after{background:linear-gradient(90deg,rgba(255,253,248,.94),rgba(255,253,248,.7) 38%,rgba(255,253,248,0) 62%)}
-  .capa-cartao{width:300px}
   .sobre-mim{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:48px;padding:44px 48px;margin-top:56px;align-items:start}
   .sobre-mim h2{font-size:56px}
   .sobre-texto .sobre-abre{font-size:21px}
@@ -487,7 +485,6 @@ h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:
   .grade-duas{grid-template-columns:1fr 1fr;align-items:stretch;margin-top:48px}
   .cupons-cartao .cupons{grid-template-columns:repeat(3,1fr)}
   .vitrines{grid-template-columns:1fr 1fr}
-  .depoimentos{grid-template-columns:repeat(3,1fr)}
   .cartao-claro{padding:30px 28px 28px}
   .cartao-claro h2{font-size:48px}
 
@@ -570,12 +567,7 @@ h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:
     <h1>Conteúdo real <span>que conecta</span><br><span>marcas</span> e pessoas</h1>
 
     <div class="capa-esquerda">
-      <!-- abas + barra de pesquisa: as abas levam direto ao link; a pesquisa procura nos links da página -->
-      <div class="abas" role="group" aria-label="Atalhos">
-        <a class="aba ativa" href="#portfolio">Portfólio</a>
-        <a class="aba js-whats" href="#conversar" target="_blank" rel="noopener">Parcerias</a>
-        <a class="aba js-abre-redes" href="#caixa-redes">Redes</a>
-      </div>
+      <!-- barra de pesquisa: procura nos links da página -->
       <form class="pesquisa" id="pesquisa" role="search">
         <input type="search" id="pesquisa-texto" placeholder="Portfólio, parcerias, redes, mídia kit…" aria-label="Pesquisar nos links">
         <button type="submit" aria-label="Pesquisar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></button>
@@ -587,15 +579,6 @@ h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:
     <!-- FOTO DA CAPA: troque o bloco "foto-modelo" por <img src="fotos/capa.jpg" alt="..."> (foto horizontal ou vertical, com fundo) -->
     <div class="capa-foto">
       <div class="foto-modelo">Sua foto</div>
-      <!-- EDITAR: cartão no canto da foto -->
-      <div class="capa-cartao">
-        <b>Olá, sou a Seu Nome!</b>
-        <small>UGC creator e criadora de conteúdo, do jeitinho da sua marca.</small>
-        <div class="cartao-rodape">
-          <span class="cartao-pilula">+40 marcas</span>
-          <a class="js-whats" href="#conversar" target="_blank" rel="noopener" aria-label="Fale comigo no WhatsApp"><span data-pt="Fale comigo">Fale comigo</span><i aria-hidden="true">→</i></a>
-        </div>
-      </div>
     </div>
   </section>
   </div>
@@ -675,8 +658,6 @@ h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:
         <ul class="fatos">
           <li>Fato 1</li><li>Fato 2</li><li>Fato 3</li>
         </ul>
-        <!-- EDITAR: assinatura no fim da história -->
-        <p class="assina-historia">com carinho, Seu Nome</p>
       </div>
     </div>
   </section>
@@ -701,11 +682,16 @@ h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:
   <section class="miolo revela" id="depoimentos" aria-label="Depoimentos">
     <p class="marcas-titulo">O que as marcas dizem</p>
     <!-- EDITAR: um cartão por depoimento -->
+    <!-- a lista roda sozinha de ponta a ponta; o script duplica para o giro não ter emenda -->
+    <div class="depo-faixa"><div class="depo-trilho" id="trilhoDepo">
     <div class="depoimentos">
       <figure class="depo"><blockquote>O vídeo virou o nosso melhor anúncio do mês. Entrega rápida e muito cuidadosa.</blockquote><figcaption><b>@marcaum</b><span>Criativo para anúncio</span></figcaption></figure>
       <figure class="depo"><blockquote>Ela entendeu o produto melhor que a gente. Parecia uma cliente real indicando.</blockquote><figcaption><b>@marcadois</b><span>UGC para e-commerce</span></figcaption></figure>
       <figure class="depo"><blockquote>Já fechamos o terceiro pacote. Conteúdo lindo e que vende.</blockquote><figcaption><b>@marcatres</b><span>Publi no perfil</span></figcaption></figure>
+      <figure class="depo"><blockquote>Super profissional, cumpriu todos os prazos e ainda trouxe ideias novas.</blockquote><figcaption><b>@marcaquatro</b><span>Pacote de vídeos</span></figcaption></figure>
+      <figure class="depo"><blockquote>As fotos ficaram lindas e já estão no nosso site.</blockquote><figcaption><b>@marcacinco</b><span>Fotos de produto</span></figcaption></figure>
     </div>
+    </div></div>
   </section>
 
   <!-- ================= CUPONS E VITRINES (no fim da página) ================= -->
@@ -793,6 +779,12 @@ const iconeMarca = m => m.logo
 const voltas = Math.max(1, Math.ceil(16 / MARCAS.length));
 const listaMarcas = Array.from({ length: voltas }, () => MARCAS.map(iconeMarca).join("")).join("");
 document.getElementById("faixaMarcas").innerHTML = `<ul aria-label="Marcas atendidas">${listaMarcas}</ul><ul aria-hidden="true">${listaMarcas}</ul>`;
+
+// Depoimentos: copia a lista uma vez para a faixa rodar sem emenda
+const trilhoDepo = document.getElementById("trilhoDepo");
+const copiaDepo = trilhoDepo.firstElementChild.cloneNode(true);
+copiaDepo.setAttribute("aria-hidden", "true");
+trilhoDepo.appendChild(copiaDepo);
 
 // Aviso rápido no rodapé da tela
 const aviso = document.getElementById("aviso");
@@ -951,11 +943,6 @@ formPesquisa.addEventListener("submit", e => {
   filtraLinks();
   document.getElementById("links").scrollIntoView({ behavior: "smooth", block: "start" });
 });
-// Abas da capa: a que foi tocada fica marcada
-document.querySelectorAll(".abas .aba").forEach(a => a.addEventListener("click", () => {
-  document.querySelectorAll(".abas .aba").forEach(b => b.classList.toggle("ativa", b === a));
-}));
-
 // Entrada suave dos blocos
 const obs = "IntersectionObserver" in window && new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add("visivel"); obs.unobserve(e.target); }
