@@ -103,14 +103,29 @@ h1,h2,h3{font-family:var(--titulo);font-weight:700;text-transform:uppercase;marg
   .idioma button svg{display:none}
 }
 
-/* ---------- capa: foto com botões por cima + texto com lista ---------- */
-.capa{display:grid;gap:24px;padding-top:2px}
-/* no celular a foto vem primeiro, e o texto logo abaixo */
-/* foto recortada, com o fundo transparente; a base some num sombreado branco, igual ao portfólio */
-.capa-foto{position:relative;overflow:hidden;aspect-ratio:1/1.05}
-.capa-foto > img{position:absolute;z-index:1;left:0;right:0;bottom:0;margin:0 auto;width:auto;height:96%;max-width:none;object-fit:contain;object-position:50% 100%;-webkit-mask-image:linear-gradient(to bottom,#000 68%,transparent 100%);mask-image:linear-gradient(to bottom,#000 68%,transparent 100%)}
-/* foto provisória (no site da cliente vira a foto dela, com o fundo removido, num <img>) */
-.foto-modelo{position:absolute;z-index:1;left:50%;bottom:0;width:58%;height:92%;transform:translateX(-50%);border-radius:200px 200px 0 0;background:linear-gradient(180deg,#f9d6ea,#f5f2ed);display:grid;place-items:center;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(30,25,21,.4);-webkit-mask-image:linear-gradient(to bottom,#000 68%,transparent 100%);mask-image:linear-gradient(to bottom,#000 68%,transparent 100%)}
+/* ---------- capa: título grande à esquerda, foto grande à direita com um cartão por cima ---------- */
+.capa{display:grid;gap:22px;padding-top:6px;padding-bottom:26px}
+h1 span{display:inline;color:#b5ada6}
+.citacao{position:relative;padding-left:30px;font-size:15px}
+.citacao::before{content:"“";position:absolute;left:0;top:-14px;font-family:Georgia,serif;font-size:56px;line-height:1;color:#ded7cf}
+.capa-botoes{display:flex;gap:8px;margin-top:20px}
+.capa-btn{display:inline-flex;align-items:center;padding:11px 20px;border-radius:999px;background:#f1ede8;font-size:14px;font-weight:600;color:var(--tinta);transition:transform .2s}
+.capa-btn:hover{transform:translateY(-2px)}
+.capa-btn.escuro{background:var(--tinta);color:#fff}
+.capa-foto{position:relative;aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:#f3eee9}
+.capa-foto > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.foto-modelo{position:absolute;inset:0;background:linear-gradient(160deg,#f9d6ea,#f1ede8 60%,#e8dfd6);display:grid;place-items:center;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(30,25,21,.4)}
+/* cartão branco no canto de baixo da foto, com recorte, como num site de vitrine */
+.capa-cartao{position:absolute;z-index:2;right:0;bottom:0;width:min(270px,78%);padding:16px 16px 14px;border-radius:24px 0 0 0;background:#fff;display:grid;gap:3px}
+.capa-cartao b{font-size:15px}
+.capa-cartao small{font-size:12px;color:#8b847e}
+.capa-cartao a{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px;padding:6px 6px 6px 14px;border-radius:999px;background:#f1ede8;font-size:12.5px;font-weight:600}
+.capa-cartao a i{width:28px;height:28px;border-radius:50%;background:var(--rosa);display:grid;place-items:center;font-style:normal;transition:transform .2s}
+.capa-cartao a:hover i{transform:rotate(-45deg)}
+/* links (caixinhas) logo depois da capa, em caixas brancas */
+.links{margin-top:26px}
+.links .caixas{margin:0}
+.links .caixas a,.links .caixas > li > button,.links .caixa-redes{background:#fff}
 .capa-ola{z-index:2}
 .vidro{background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 10px 30px -12px rgba(0,0,0,.35)}
 /* caixinha "Olá, sou a ..." que flutua devagar em cima da foto */
@@ -133,7 +148,6 @@ h1,h2,h3{font-family:var(--titulo);font-weight:700;text-transform:uppercase;marg
 }
 .rotulo::before{content:"";width:30px;height:1.5px;background:currentColor}
 h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:-.005em;color:#1e1915;margin-top:8px}
-h1 span{display:block}
 .intro{margin:14px 0 0;color:#57514c;font-size:16px;line-height:1.6;max-width:400px}
 
 /* caixinhas clicáveis iguais às do "Me encontre aqui" do portfólio */
@@ -358,11 +372,12 @@ h1 span{display:block}
 
   /* capa compacta: cabe na tela sem rolar */
   /* foto mais estreita, texto e caixinhas mais largos */
-  .capa{grid-template-columns:minmax(0,.62fr) minmax(0,1fr);gap:48px;align-items:stretch;padding-top:12px;padding-bottom:20px}
-  .capa-foto{aspect-ratio:auto;height:auto;min-height:340px}
+  .capa{grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:44px;align-items:center;padding-top:14px;padding-bottom:30px}
+  .capa-foto{aspect-ratio:auto;height:480px}
+  .links .caixas{grid-template-columns:1fr 1fr;align-items:start}
   .capa-ola{font-size:14px}
-  h1{font-size:clamp(38px,3.6vw,48px)}
-  .intro{font-size:16px;margin-top:12px;max-width:none;white-space:nowrap}
+  h1{font-size:clamp(48px,5.2vw,72px)}
+  .intro{font-size:15px;margin-top:22px;max-width:380px}
 
   .marcas{margin-top:40px}
   .marcas::after{margin-top:22px}
@@ -465,20 +480,33 @@ h1 span{display:block}
   <div class="painel">
   <!-- ================= ABERTURA: foto + apresentação + links ================= -->
   <section class="miolo capa" aria-label="Apresentação">
-    <!-- FOTO DA CAPA: troque o bloco abaixo por <img src="fotos/capa.webp" alt="..." width="781" height="1448" fetchpriority="high">
-         (de preferência a foto da cliente com o fundo removido) -->
-    <div class="capa-foto">
-      <div class="foto-modelo">Sua foto</div>
-      <!-- EDITAR: caixinhas que flutuam devagar em cima da foto -->
-      <span class="capa-ola vidro">Olá, sou a Seu Nome!</span>
-      <a class="capa-ola capa-ola-2 vidro js-whats" href="#conversar" target="_blank" rel="noopener">Em que posso ajudar?</a>
-    </div>
-
     <div class="capa-texto">
       <div class="rotulo">Diário de uma creator</div>
-      <h1>UGC creator e mil e uma coisas…</h1>
-      <p class="intro">Transformo minha rotina em conteúdo que conecta com pessoas e marcas.</p>
+      <!-- EDITAR: título (as palavras dentro de <span> ficam em cinza) -->
+      <h1>UGC creator <span>e mil e uma</span> coisas…</h1>
+      <p class="intro citacao">Transformo minha rotina em conteúdo que conecta com pessoas e marcas.</p>
+      <div class="capa-botoes">
+        <a class="capa-btn escuro js-whats" href="#conversar" target="_blank" rel="noopener">Fale comigo</a>
+        <a class="capa-btn" href="#links">Meus links</a>
+      </div>
+    </div>
+    <!-- FOTO DA CAPA: troque o bloco "foto-modelo" por <img src="fotos/capa.jpg" alt="..."> (foto vertical, com fundo) -->
+    <div class="capa-foto">
+      <div class="foto-modelo">Sua foto</div>
+      <!-- EDITAR: cartão em cima da foto -->
+      <div class="capa-cartao">
+        <b>Olá, sou a Seu Nome!</b>
+        <small>UGC creator · Sua cidade</small>
+        <a class="js-whats" href="#conversar" target="_blank" rel="noopener"><span>Em que posso ajudar?</span><i aria-hidden="true">→</i></a>
+      </div>
+    </div>
+  </section>
+  </div>
 
+  <!-- o resto da página fica no fundo bege -->
+  <div class="resto">
+  <!-- ================= LINKS (as caixinhas clicáveis) ================= -->
+  <section class="miolo links revela" id="links" aria-label="Links">
       <!-- EDITAR: caixinhas de links (cor, ícone, título, texto e link) -->
       <ul class="caixas">
         <li class="caixa-rosa" id="portfolio"><a href="#">
@@ -512,12 +540,7 @@ h1 span{display:block}
           <span class="caixa-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
         </a></li>
       </ul>
-    </div>
   </section>
-  </div>
-
-  <!-- o resto da página fica no fundo bege -->
-  <div class="resto">
   <!-- ================= DESTAQUE DO MOMENTO ================= -->
   <section class="miolo revela">
     <div class="destaque">
@@ -587,7 +610,7 @@ h1 span{display:block}
   <a href="#portfolio"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="3"/><path d="M10 9.2v5.6l4.6-2.8z"/></svg>Portfólio</a>
   <a class="centro" href="#conversar" data-alvo="conversar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4c4.7 0 8.5 3.2 8.5 7.2s-3.8 7.2-8.5 7.2c-1 0-2-.1-2.9-.4L5 20l1-3.6c-1.5-1.3-2.5-3.1-2.5-5.2C3.5 7.2 7.3 4 12 4z"/><path d="M8.5 11.3h.01M12 11.3h.01M15.5 11.3h.01" stroke-width="2.6"/></svg>Conversar</a>
   <a href="#historia" data-alvo="historia"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3Z"/><path d="M5 17a3 3 0 0 1 3-3h11"/></svg>História</a>
-  <a href="#servicos" data-alvo="servicos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5c.8 4.6 3.4 7.2 8 8-4.6.8-7.2 3.4-8 8-.8-4.6-3.4-7.2-8-8 4.6-.8 7.2-3.4 8-8Z"/></svg>Serviços</a>
+  <a href="#servicos" data-alvo="servicos"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="7.5" width="17" height="12" rx="2.5"/><path d="M9 7.5V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1.5M3.5 12.5h17"/></svg>Serviços</a>
 </nav>
 
 <div class="aviso" id="aviso" role="status" aria-live="polite"></div>
