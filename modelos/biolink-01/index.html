@@ -113,7 +113,7 @@ h1,h2,h3{font-family:var(--titulo);font-weight:700;text-transform:uppercase;marg
 .foto-modelo{position:absolute;z-index:1;left:50%;bottom:0;width:58%;height:92%;transform:translateX(-50%);border-radius:200px 200px 0 0;background:linear-gradient(180deg,#f9d6ea,#f5f2ed);display:grid;place-items:center;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(30,25,21,.4);-webkit-mask-image:linear-gradient(to bottom,#000 68%,transparent 100%);mask-image:linear-gradient(to bottom,#000 68%,transparent 100%)}
 .capa-ola{z-index:2}
 .vidro{background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 10px 30px -12px rgba(0,0,0,.35)}
-/* caixinha "Olá, sou a Yasmin!" que flutua devagar em cima da foto */
+/* caixinha "Olá, sou a ..." que flutua devagar em cima da foto */
 .capa-ola{
   position:absolute;left:6%;top:56%;display:inline-flex;align-items:center;gap:8px;
   border-radius:999px;padding:9px 16px;font-size:13px;font-weight:600;color:var(--tinta);
@@ -428,23 +428,24 @@ h1 span{display:block}
 
 <!-- começo da página: "Início" e o logo voltam para cá (o topo é fixo, então não serve de destino) -->
 <span id="comeco" aria-hidden="true"></span>
-<!-- ================= TOPO (igual ao do portfólio) ================= -->
+<!-- EDITAR: troque "Seu Nome", "@seuusuario", o e-mail e os links pelos dados da cliente -->
+<!-- ================= TOPO ================= -->
 <header class="topo" id="inicio">
-  <a href="#comeco" class="logo" aria-label="Yasmin Carreira, início">
+  <a href="#comeco" class="logo" aria-label="Seu Nome, início">
     <svg class="logo-estrela" viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela"/></svg>
-    <div><strong>Yasmin</strong><span>Carreira</span></div>
+    <div><strong>Seu</strong><span>Nome</span></div>
   </a>
   <!-- EDITAR: nomes e links do menu -->
   <nav class="menu" id="menu" aria-label="Navegação principal">
     <ul>
       <li><a href="#historia">Minha história</a></li>
-      <li><a href="portfolio/">Portfólio</a></li>
+      <li><a href="#portfolio">Portfólio</a></li>
       <li class="com-submenu">
         <a href="#caixa-redes"><span>Redes</span> <svg class="seta-baixo" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 4l3 3 3-3"/></svg></a>
         <ul class="submenu">
-          <li><a href="https://www.instagram.com/yasmincarreira_/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.tiktok.com/@yasmincarreira_1" target="_blank" rel="noopener">TikTok</a></li>
-          <li><a href="mailto:yasmin-carreira@hotmail.com">E-mail</a></li>
+          <li><a href="https://www.instagram.com/seuusuario/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@seuusuario" target="_blank" rel="noopener">TikTok</a></li>
+          <li><a href="mailto:seuemail@email.com">E-mail</a></li>
         </ul>
       </li>
       <li><a href="#conversar">Contato</a></li>
@@ -460,36 +461,37 @@ h1 span{display:block}
 </header>
 
 <main>
-  <!-- cartão branco: topo + capa (fecha embaixo com cantos arredondados, igual ao portfólio) -->
+  <!-- cartão branco: topo + capa (fecha embaixo com cantos arredondados) -->
   <div class="painel">
   <!-- ================= ABERTURA: foto + apresentação + links ================= -->
   <section class="miolo capa" aria-label="Apresentação">
-    <!-- FOTO DA CAPA: para trocar, mude o arquivo abaixo -->
+    <!-- FOTO DA CAPA: troque o bloco abaixo por <img src="fotos/capa.webp" alt="..." width="781" height="1448" fetchpriority="high">
+         (de preferência a foto da cliente com o fundo removido) -->
     <div class="capa-foto">
-      <img src="fotos/capa-perfil.webp" alt="Yasmin Carreira sorrindo, de blusa rosa" width="781" height="1448" fetchpriority="high">
+      <div class="foto-modelo">Sua foto</div>
       <!-- EDITAR: caixinhas que flutuam devagar em cima da foto -->
-      <span class="capa-ola vidro">Olá, sou a Yasmin!</span>
-      <a class="capa-ola capa-ola-2 vidro js-whats" href="https://wa.me/5513997973883" target="_blank" rel="noopener">Em que posso ajudar?</a>
+      <span class="capa-ola vidro">Olá, sou a Seu Nome!</span>
+      <a class="capa-ola capa-ola-2 vidro js-whats" href="#conversar" target="_blank" rel="noopener">Em que posso ajudar?</a>
     </div>
 
     <div class="capa-texto">
       <div class="rotulo">Diário de uma creator</div>
-      <h1>UGC, influenciadora, mãe, mil e uma coisas…</h1>
+      <h1>UGC creator e mil e uma coisas…</h1>
       <p class="intro">Transformo minha rotina em conteúdo que conecta com pessoas e marcas.</p>
 
-      <!-- EDITAR: caixinhas iguais às do "Me encontre aqui" do portfólio (cor, ícone, título, texto e link) -->
+      <!-- EDITAR: caixinhas de links (cor, ícone, título, texto e link) -->
       <ul class="caixas">
-        <li class="caixa-rosa"><a href="portfolio/">
+        <li class="caixa-rosa" id="portfolio"><a href="#">
           <span class="caixa-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m10 9 5 3-5 3V9Z"/></svg></span>
           <span class="caixa-texto"><strong>Meu portfólio UGC</strong><small>vídeos que fiz para as marcas</small></span>
           <span class="caixa-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
         </a></li>
-        <li class="caixa-azul"><a class="js-whats-msg" data-msg="Oi, Yasmin! Vim pelo seu Instagram e quero falar sobre parcerias UGC e publi." href="https://wa.me/5513997973883" target="_blank" rel="noopener">
+        <li class="caixa-azul"><a class="js-whats-msg" data-msg="Oi! Vim pelo seu Instagram e quero falar sobre parcerias UGC e publi." href="#conversar" target="_blank" rel="noopener">
           <span class="caixa-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5l1.3-4.3A8.5 8.5 0 1 1 8 19.3z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .9c-1-.4-2.4-1.8-2.8-2.8l.9-1-1-2z"/></svg></span>
           <span class="caixa-texto"><strong>Parcerias UGC e publi</strong><small>fala comigo no WhatsApp</small></span>
           <span class="caixa-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
         </a></li>
-        <!-- "Minhas redes": a chavinha abre a caixa ali mesmo, igual aos Serviços do portfólio -->
+        <!-- "Minhas redes": a chavinha abre a caixa ali mesmo -->
         <li class="caixa-amarelo caixa-redes" id="caixa-redes"><button type="button" id="abrir-redes" aria-expanded="false" aria-controls="redes-detalhe">
           <span class="caixa-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg></span>
           <span class="caixa-texto"><strong>Minhas redes</strong><small>Instagram, TikTok e e-mail</small></span>
@@ -497,16 +499,16 @@ h1 span{display:block}
         </button>
         <div class="redes-detalhe" id="redes-detalhe">
           <p>Escolhe por onde quer me encontrar</p>
-          <!-- EDITAR: suas redes -->
+          <!-- EDITAR: redes da cliente -->
           <div class="redes-botoes">
-            <a href="https://www.instagram.com/yasmincarreira_/" target="_blank" rel="noopener">Instagram →</a>
-            <a href="https://www.tiktok.com/@yasmincarreira_1" target="_blank" rel="noopener">TikTok →</a>
-            <a href="mailto:yasmin-carreira@hotmail.com">E-mail →</a>
+            <a href="https://www.instagram.com/seuusuario/" target="_blank" rel="noopener">Instagram →</a>
+            <a href="https://www.tiktok.com/@seuusuario" target="_blank" rel="noopener">TikTok →</a>
+            <a href="mailto:seuemail@email.com">E-mail →</a>
           </div>
         </div></li>
-        <li class="caixa-rosa"><a href="criacao/">
-          <span class="caixa-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="15" rx="2"/><path d="M3 8.5h18M6.5 6.2h.01M9 6.2h.01"/></svg></span>
-          <span class="caixa-texto"><strong>Criação de portfólios e sites</strong><small>veja como funciona</small></span>
+        <li class="caixa-rosa"><a href="#">
+          <span class="caixa-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M8 11h8M8 15h5"/></svg></span>
+          <span class="caixa-texto"><strong>Meu mídia kit</strong><small>números, público e valores</small></span>
           <span class="caixa-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
         </a></li>
       </ul>
@@ -522,11 +524,11 @@ h1 span{display:block}
       <span class="selo-pilula">novidade</span>
       <div>
         <small>Destaque do momento</small>
-        <!-- EDITAR: título e link do destaque -->
-        <h2>Black Friday</h2>
+        <!-- EDITAR: título, texto e link do destaque (campanha, data especial, lançamento...) -->
+        <h2>Campanha especial</h2>
         <p class="destaque-texto">Vídeos de topo, meio e fundo de funil, para sua marca ser vista, desejada e escolhida.</p>
       </div>
-      <a class="pilula js-whats-bf" href="https://wa.me/5513997973883" target="_blank" rel="noopener">
+      <a class="pilula js-whats-destaque" href="#conversar" target="_blank" rel="noopener">
         <span>Garanta seus vídeos a tempo<b>reservar minha agenda</b></span>
         <span class="seta">→</span>
       </a>
@@ -539,22 +541,22 @@ h1 span{display:block}
     <div class="marcas-faixa"><div class="marcas-trilho" id="faixaMarcas"></div></div>
   </section>
 
-  <!-- ================= DUAS CAIXAS BRANCAS: MINHA HISTÓRIA + CRIAÇÃO DE PORTFÓLIOS ================= -->
+  <!-- ================= DUAS CAIXAS BRANCAS: MINHA HISTÓRIA + SERVIÇOS ================= -->
   <section class="miolo grade grade-duas revela">
     <div class="cartao-claro" id="historia">
-      <span class="rotulo">Prazer, sou a Yas</span>
+      <span class="rotulo">Prazer, sou a Seu Nome</span>
       <h2>Minha história</h2>
-      <p>32 anos, mãe do Bernardo e moradora do litoral de SP. Crio conteúdo para mulheres sobre autocuidado, de um jeito natural, mostrando que mesmo na rotina corrida a gente não pode se esquecer de nós mesmas.</p>
-      <!-- EDITAR: link da sua história -->
-      <a class="btn-claro" href="historia/">ver minha história completa <span class="seta">→</span></a>
+      <p>Aqui entra um resumo da cliente: idade, cidade, o que gosta de criar e para quem. Duas ou três frases, bem do jeito dela.</p>
+      <!-- EDITAR: link da história completa (ou tire o botão) -->
+      <a class="btn-claro" href="#">ver minha história completa <span class="seta">→</span></a>
     </div>
 
-    <div class="cartao-claro" id="criacao">
-      <span class="rotulo">Pode deixar que eu crio para você</span>
-      <h2>Portfólios, bio links e sites</h2>
-      <p>Gostou deste bio link? Eu crio portfólios e sites para creators e marcas, do jeitinho do seu estilo, prontos para fechar parcerias.</p>
-      <!-- abre a página de criação de portfólios, bio links e sites -->
-      <a class="btn-claro" href="criacao/">quero saber mais <span class="seta">→</span></a>
+    <div class="cartao-claro" id="servicos">
+      <span class="rotulo">Como eu posso ajudar</span>
+      <h2>Meus serviços</h2>
+      <p>UGC orgânico, vídeos para anúncios, publi no meu perfil e fotos de produto, sempre do jeito da sua marca.</p>
+      <!-- EDITAR: link dos serviços (portfólio ou WhatsApp) -->
+      <a class="btn-claro" href="#conversar">quero saber mais <span class="seta">→</span></a>
     </div>
   </section>
   </div>
@@ -569,76 +571,49 @@ h1 span{display:block}
       <p>Parceria, UGC, publi ou só um oi. Respondo rapidinho.</p>
     </div>
     <div class="ctas">
-      <a class="cta rosa js-whats" href="https://wa.me/5513997973883" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><use href="#i-whats"/></svg>Chamar no WhatsApp</a>
-      <a class="cta contorno" href="https://ig.me/m/yasmincarreira_" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><use href="#i-insta"/></svg>Mandar DM no Instagram</a>
-      <a class="cta contorno" href="mailto:yasmin-carreira@hotmail.com"><svg viewBox="0 0 24 24"><use href="#i-mail"/></svg>Mandar e-mail</a>
-      <button class="copiar-email" type="button" data-copiar="yasmin-carreira@hotmail.com">copiar e-mail</button>
+      <a class="cta rosa js-whats" href="#conversar" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><use href="#i-whats"/></svg>Chamar no WhatsApp</a>
+      <a class="cta contorno" href="https://ig.me/m/seuusuario" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><use href="#i-insta"/></svg>Mandar DM no Instagram</a>
+      <a class="cta contorno" href="mailto:seuemail@email.com"><svg viewBox="0 0 24 24"><use href="#i-mail"/></svg>Mandar e-mail</a>
+      <button class="copiar-email" type="button" data-copiar="seuemail@email.com">copiar e-mail</button>
     </div>
   </div>
 </footer>
 <!-- assinatura fora do quadro -->
-<p class="assinatura">feito pela Yas ♡ @yasmincarreira_</p>
+<p class="assinatura">@seuusuario</p>
 
 <!-- ================= BARRA DE BAIXO (só no celular) ================= -->
 <nav class="nav" id="nav" aria-label="Navegação">
   <a class="ativo" href="#comeco" data-alvo="comeco"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5L12 4l8 6.5V20h-5v-6H9v6H4z"/></svg>Início</a>
-  <a href="portfolio/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="3"/><path d="M10 9.2v5.6l4.6-2.8z"/></svg>Portfólio</a>
+  <a href="#portfolio"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="3"/><path d="M10 9.2v5.6l4.6-2.8z"/></svg>Portfólio</a>
   <a class="centro" href="#conversar" data-alvo="conversar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4c4.7 0 8.5 3.2 8.5 7.2s-3.8 7.2-8.5 7.2c-1 0-2-.1-2.9-.4L5 20l1-3.6c-1.5-1.3-2.5-3.1-2.5-5.2C3.5 7.2 7.3 4 12 4z"/><path d="M8.5 11.3h.01M12 11.3h.01M15.5 11.3h.01" stroke-width="2.6"/></svg>Conversar</a>
   <a href="#historia" data-alvo="historia"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3Z"/><path d="M5 17a3 3 0 0 1 3-3h11"/></svg>História</a>
-  <a href="portfolio/#servicos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5c.8 4.6 3.4 7.2 8 8-4.6.8-7.2 3.4-8 8-.8-4.6-3.4-7.2-8-8 4.6-.8 7.2-3.4 8-8Z"/></svg>Serviços</a>
+  <a href="#servicos" data-alvo="servicos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5c.8 4.6 3.4 7.2 8 8-4.6.8-7.2 3.4-8 8-.8-4.6-3.4-7.2-8-8 4.6-.8 7.2-3.4 8-8Z"/></svg>Serviços</a>
 </nav>
 
 <div class="aviso" id="aviso" role="status" aria-live="polite"></div>
 
 <script>
-// WhatsApp com mensagem pronta (mesmo número do portfólio)
-const WHATSAPP = "5513997973883";
-const WHATSAPP_MSG = "Oi, Yasmin! Vim pelo seu Instagram e quero conversar sobre um projeto.";
+// EDITAR: WhatsApp da cliente (55 + DDD + número, só números) e as mensagens prontas
+const WHATSAPP = "5500000000000";
+const WHATSAPP_MSG = "Oi! Vim pelo seu Instagram e quero conversar sobre um projeto.";
+const WHATSAPP_MSG_EN = "Hi! I found you on Instagram and I'd like to talk about a project.";
+const WHATSAPP_MSG_DESTAQUE = "Oi! Quero conversar sobre a campanha especial.";
 const whats = msg => "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg);
-
-// TikTok dentro do Instagram/Facebook: o navegador interno deles fica preso na tela "abra o app".
-// Então, só nesses navegadores, o botão chama direto o app do TikTok no perfil da Yasmin
-// (no iPhone pelo link interno do app, no Android pelo "intent"). Se a pessoa não tiver o app,
-// abre o perfil no navegador.
-const TIKTOK_ID = "6819469517346604038"; // número da conta @yasmincarreira_1 no TikTok
-(function () {
-  const ua = navigator.userAgent || "";
-  if (!/Instagram|FBAN|FBAV|FB_IAB/i.test(ua)) return;
-  const ehAndroid = /Android/i.test(ua);
-  document.querySelectorAll('a[href*="tiktok.com"]').forEach(a => {
-    const url = new URL(a.href);
-    a.removeAttribute("target");
-    if (ehAndroid) {
-      a.href = "intent://" + url.host + url.pathname + "#Intent;scheme=https;package=com.zhiliaoapp.musically;S.browser_fallback_url=" + encodeURIComponent(url.href) + ";end";
-      return;
-    }
-    a.addEventListener("click", e => {
-      e.preventDefault();
-      let saiu = false;
-      const marcaSaida = () => { saiu = true; };
-      document.addEventListener("visibilitychange", marcaSaida, { once: true });
-      addEventListener("pagehide", marcaSaida, { once: true });
-      location.href = "snssdk1233://user/profile/" + TIKTOK_ID;   // abre o app do TikTok no perfil
-      setTimeout(() => { if (!saiu && document.visibilityState === "visible") location.href = url.href; }, 1600);
-    });
-  });
-})();
 document.querySelectorAll(".js-whats").forEach(a => a.href = whats(WHATSAPP_MSG));
 document.querySelectorAll(".js-whats-msg").forEach(a => a.href = whats(a.dataset.msg));
-document.querySelectorAll(".js-whats-bf").forEach(a => a.href = whats("Oi, Yasmin! Quero conversar sobre minha campanha de Black Friday."));
+document.querySelectorAll(".js-whats-destaque").forEach(a => a.href = whats(WHATSAPP_MSG_DESTAQUE));
 
-// EDITAR: marcas da faixa, iguais às do portfólio (logo na pasta "logos"; sem logo, aparece o nome)
+// EDITAR: marcas da faixa (logo na pasta "logos"; sem logo, aparece o nome)
 // cheio: true = a logo ocupa o círculo todo
 const MARCAS = [
-  { nome: "OMO",           logo: "logos/omo.png" },
-  { nome: "Eudora",        logo: "logos/eudora.png", cheio: true },
-  { nome: "Dove",          logo: "logos/dove.png" },
-  { nome: "Garnier",       logo: "logos/garnier.png" },
-  { nome: "Mercado Livre", logo: "logos/mercado-livre.png", cheio: true },
-  { nome: "Elseve",        logo: "logos/elseve.png" },
-  { nome: "Pantene",       logo: "" },
-  { nome: "La Ganexa",     logo: "logos/la-ganexa.png", cheio: true },
-  { nome: "Ciça Braga",    logo: "logos/cica-braga.png" }
+  { nome: "Marca 1", logo: "" },
+  { nome: "Marca 2", logo: "" },
+  { nome: "Marca 3", logo: "" },
+  { nome: "Marca 4", logo: "" },
+  { nome: "Marca 5", logo: "" },
+  { nome: "Marca 6", logo: "" },
+  { nome: "Marca 7", logo: "" },
+  { nome: "Marca 8", logo: "" }
 ];
 const iconeMarca = m => m.logo
   ? `<li class="icone-marca${m.cheio ? " logo-cheio" : ""}"><img src="${m.logo}" alt="${m.nome}" loading="lazy" decoding="async"></li>`
@@ -690,7 +665,7 @@ const botoesNav = [...document.querySelectorAll("#nav a[data-alvo]")];
 function marcaNav() {
   const meio = innerHeight * 0.45;
   let atual = "comeco";
-  ["historia", "conversar"].forEach(id => {
+  ["historia", "servicos", "conversar"].forEach(id => {
     const el = document.getElementById(id);
     if (el && el.getBoundingClientRect().top < meio) atual = id;
   });
@@ -714,7 +689,12 @@ const EN = {
   "O que você precisa hoje?": "What do you need today?",
   "UGC creator, influenciadora, mãe, mil e uma coisas…": "UGC creator, influencer, mom, a thousand and one things…",
   "Transformo minha rotina em conteúdo que conecta com pessoas e marcas.": "I turn my routine into content that connects people and brands.",
-  "Olá, sou a Yasmin!": "Hi, I'm Yasmin!", "Em que posso ajudar?": "How can I help?",
+  "Olá, sou a Seu Nome!": "Hi, I'm Seu Nome!", "Em que posso ajudar?": "How can I help?",
+  "UGC creator e mil e uma coisas…": "UGC creator and a thousand and one things…",
+  "Meu mídia kit": "My media kit", "números, público e valores": "numbers, audience and rates", "Campanha especial": "Special campaign",
+  "Prazer, sou a Seu Nome": "Nice to meet you, I'm Seu Nome", "Como eu posso ajudar": "How I can help", "Meus serviços": "My services",
+  "Aqui entra um resumo da cliente: idade, cidade, o que gosta de criar e para quem. Duas ou três frases, bem do jeito dela.": "Here goes a short summary: age, city, what she loves to create and for whom. Two or three sentences, in her own voice.",
+  "UGC orgânico, vídeos para anúncios, publi no meu perfil e fotos de produto, sempre do jeito da sua marca.": "Organic UGC, ad videos, sponsored posts on my profile and product photos, always in your brand's style.",
   "Diário de uma creator": "A creator's diary", "UGC, influenciadora, mãe, mil e uma coisas…": "UGC, influencer, mom, a thousand and one things…",
   "vídeos que fiz para as marcas": "videos I made for brands", "Parcerias UGC e publi": "UGC & sponsored partnerships",
   "Minhas redes": "My socials", "Instagram, TikTok e e-mail": "Instagram, TikTok and email",
@@ -747,7 +727,7 @@ const EN = {
   "Só te mando e-mail quando abrir. Nada de spam.": "I'll only email you when it opens. No spam.",
   "Bora conversar?": "Let's talk?", "Parceria, UGC, publi ou só um oi. Respondo rapidinho.": "Partnerships, UGC, sponsored posts or just a hi. I reply fast.",
   "Chamar no WhatsApp": "Message on WhatsApp", "Mandar DM no Instagram": "DM on Instagram", "Mandar e-mail": "Send an email", "copiar e-mail": "copy email",
-  "feito pela Yas ♡ @yasmincarreira_": "made by Yas ♡ @yasmincarreira_",
+
   "Início": "Home", "Portfólio": "Portfolio", "Conversar": "Talk", "Cupons": "Coupons", "História": "Story"
 };
 const textos = [];
@@ -761,7 +741,7 @@ const textos = [];
 function aplicaIdioma(lang) {
   document.documentElement.lang = lang === "en" ? "en" : "pt-BR";
   textos.forEach(t => t.n.nodeValue = lang === "en" ? t.orig.replace(t.pt, EN[t.pt]) : t.orig);
-  document.querySelectorAll(".idioma button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));  const msg = lang === "en" ? "Hi Yasmin! I found you on Instagram and I'd like to talk about a project." : WHATSAPP_MSG;
+  document.querySelectorAll(".idioma button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));  const msg = lang === "en" ? WHATSAPP_MSG_EN : WHATSAPP_MSG;
   document.querySelectorAll(".js-whats").forEach(a => a.href = whats(msg));
   try { localStorage.setItem("idioma", lang); } catch (e) {}
 }
@@ -774,6 +754,5 @@ const obs = "IntersectionObserver" in window && new IntersectionObserver(es => e
 }), { rootMargin: "0px 0px -8% 0px" });
 document.querySelectorAll(".revela").forEach(el => obs ? obs.observe(el) : el.classList.add("visivel"));
 </script>
-<script src="/contador.js" defer></script>
 </body>
 </html>
