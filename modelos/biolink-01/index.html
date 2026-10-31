@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bio link 01 · Diário de creator | Yasmin Carreira</title>
+<!-- EDITAR: no site da cliente, troque o title e a description pelo nome dela e tire a linha robots -->
+<meta name="description" content="Modelo de bio link criado por Yasmin Carreira.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f5f2ed">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-3 -3 46 46'%3E%3Cpath d='M20 0C21.6 11.5 28.5 18.4 40 20 28.5 21.6 21.6 28.5 20 40 18.4 28.5 11.5 21.6 0 20 11.5 18.4 18.4 11.5 20 0Z' fill='%23ff99d9' stroke='%231e1915' stroke-width='2.4' stroke-linejoin='round'/%3E%3C/svg%3E">
+<script>
+  // Links antigos com âncora do portfólio (ex.: yasmincarreira.com/#contato) continuam abrindo o portfólio
+  if (/^#(inicio|destaques|trabalhos|servicos|fotos|contato)$/.test(location.hash)) location.replace("portfolio/" + location.hash);
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Caveat:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --creme:#f5f2ed;
+  --papel:#fffdf8;
+  --tinta:#111111;
+  --tinta-2:#47423d;
+  --rosa:#ff99d9;
+  --magenta:#e62fc9;
+  --amarelo:#f2db33;
+  --ceu:#78b4f4;
+  --manteiga:#fff2c2;
+  --borda:2px solid var(--tinta);
+  --sombra-dura:4px 4px 0 var(--tinta);
+  --titulo:"Barlow Condensed","Arial Narrow",sans-serif;
+  --sans:"Montserrat",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --nota:"Caveat","Segoe Print",cursive;
+  --nav:96px;
+  --max:1180px;
+  --gutter:16px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:100px;overflow-x:clip}
+body{
+  margin:0;min-height:100vh;
+  background:var(--creme);
+  color:var(--tinta);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  padding:24px 24px calc(24px + var(--nav) + env(safe-area-inset-bottom));
+  overflow-x:clip;
+}
+/* cartão branco de cantos arredondados por cima do fundo bege (igual ao portfólio) */
+.painel{max-width:1220px;margin:0 auto;background:#fff;border-radius:0 0 36px 36px;overflow:clip}
+.resto{max-width:1220px;margin:0 auto}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
+button,input{font:inherit;color:inherit}
+.miolo{width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+h1,h2,h3{font-family:var(--titulo);font-weight:700;text-transform:uppercase;margin:0;letter-spacing:.005em;line-height:.92}
+.nota{font-family:var(--nota);text-transform:none;font-weight:700;color:var(--magenta);letter-spacing:0}
+
+/* ---------- topo (mesmo do portfólio) ---------- */
+/* topo fixo: acompanha a rolagem até o fim da página */
+.topo{position:sticky;top:10px;z-index:15;max-width:1220px;margin:0 auto;background:#fff;border-radius:36px 36px 0 0;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 44px 10px 40px;transition:border-radius .3s,box-shadow .3s,padding .3s}
+.topo.rolou{border-radius:28px;padding-top:12px;padding-bottom:12px;box-shadow:0 14px 34px -22px rgba(30,25,21,.45)}
+.logo{display:flex;align-items:center;gap:16px;color:#1e1915}
+.logo-estrela{width:38px;height:38px;fill:var(--rosa);stroke:#1e1915;stroke-width:2.2;stroke-linejoin:round;overflow:visible;animation:brilhar 3s ease-in-out infinite}
+.logo strong,.logo span{display:block;font-size:21px;font-weight:600;letter-spacing:.07em;line-height:1.1;text-transform:uppercase}
+@keyframes brilhar{
+  0%,100%{transform:scale(.55) rotate(0deg);opacity:.55}
+  50%{transform:scale(1.1) rotate(90deg);opacity:1}
+}
+.menu > ul{list-style:none;display:flex;gap:32px;margin:0;padding:0}
+.menu li{position:relative}
+.menu a{display:inline-flex;align-items:center;gap:5px;font-size:16px;color:#2a2522}
+.menu a:hover{color:var(--magenta)}
+.seta-baixo{width:10px;height:10px;stroke:currentColor;stroke-width:2;fill:none;transition:transform .25s}
+.submenu{list-style:none;position:absolute;top:100%;left:-18px;margin:0;padding:10px 0;min-width:170px;background:#fcfbfa;border-radius:16px;box-shadow:0 18px 40px -18px rgba(60,40,25,.35);opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .2s,transform .2s,visibility .2s;z-index:10}
+.com-submenu{padding-bottom:12px;margin-bottom:-12px}
+.com-submenu:hover .submenu,.com-submenu:focus-within .submenu{opacity:1;visibility:visible;transform:none}
+.com-submenu:hover .seta-baixo,.com-submenu:focus-within .seta-baixo{transform:rotate(180deg)}
+.submenu a{display:flex;padding:9px 18px;font-size:16px}
+.topo-lado{display:flex;align-items:center;gap:16px}
+.idioma{display:flex;gap:2px;background:#ebe7e1;border-radius:999px;padding:3px;flex:none}
+.idioma button{display:flex;align-items:center;gap:5px;font:600 11.5px/1 var(--sans);letter-spacing:.02em;color:#1e1915;background:transparent;border:0;border-radius:999px;padding:6px 9px;cursor:pointer;transition:background .2s,color .2s}
+.idioma button svg{display:block;width:16px;height:11px;flex:none;border-radius:2px;box-shadow:0 0 0 1px rgba(17,17,17,.12)}
+.idioma button[aria-pressed="true"]{background:var(--ceu);color:#1e1915}
+.hamburguer{display:none;background:none;border:0;padding:0;cursor:pointer}
+.hamburguer svg{width:24px;height:24px;stroke:#1e1915;stroke-width:1.7;fill:none;stroke-linecap:round}
+@media (max-width:1060px){
+  .topo{padding:14px 16px}
+  .menu{display:none;position:absolute;top:100%;left:16px;right:16px;z-index:20;background:#fcfbfa;border-radius:20px;padding:10px 22px;box-shadow:0 18px 40px -18px rgba(60,40,25,.35)}
+  .menu.aberto{display:block}
+  .menu > ul{flex-direction:column;gap:0}
+  .menu > ul > li{border-bottom:1px solid #e7e2de}
+  .menu > ul > li:last-child{border-bottom:0}
+  .menu a{padding:14px 0;font-size:17px}
+  .menu .seta-baixo{display:none}
+  .com-submenu{padding-bottom:0;margin-bottom:0}
+  .submenu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;background:none;padding:0 0 10px 14px;min-width:0}
+  .submenu a{padding:8px 0;font-size:15.5px;color:var(--tinta-2)}
+  .hamburguer{display:block}
+  .logo{gap:12px}
+  .logo-estrela{width:32px;height:32px}
+  .logo strong,.logo span{font-size:18px}
+  .topo-lado{gap:14px}
+}
+@media (max-width:420px){
+  .idioma button{padding:6px 8px;gap:4px}
+  .idioma button svg{display:none}
+}
+
+/* ---------- capa: foto com botões por cima + texto com lista ---------- */
+.capa{display:grid;gap:24px;padding-top:2px}
+/* no celular a foto vem primeiro, e o texto logo abaixo */
+/* foto recortada, com o fundo transparente; a base some num sombreado branco, igual ao portfólio */
+.capa-foto{position:relative;overflow:hidden;aspect-ratio:1/1.05}
+.capa-foto > img{position:absolute;z-index:1;left:0;right:0;bottom:0;margin:0 auto;width:auto;height:96%;max-width:none;object-fit:contain;object-position:50% 100%;-webkit-mask-image:linear-gradient(to bottom,#000 68%,transparent 100%);mask-image:linear-gradient(to bottom,#000 68%,transparent 100%)}
+.capa-ola{z-index:2}
+.vidro{background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 10px 30px -12px rgba(0,0,0,.35)}
+/* caixinha "Olá, sou a Yasmin!" que flutua devagar em cima da foto */
+.capa-ola{
+  position:absolute;left:6%;top:56%;display:inline-flex;align-items:center;gap:8px;
+  border-radius:999px;padding:9px 16px;font-size:13px;font-weight:600;color:var(--tinta);
+  animation:flutuar 5s ease-in-out infinite;
+}
+/* segunda caixinha: mais embaixo, à direita, flutuando no tempo contrário (abre o WhatsApp) */
+.capa-ola-2{left:auto;right:6%;top:74%;animation-delay:-2.5s}
+.capa-ola-2:hover{box-shadow:0 0 0 2px var(--rosa),0 10px 30px -12px rgba(0,0,0,.35)}@keyframes flutuar{
+  0%,100%{transform:translate(0,0)}
+  50%{transform:translate(6px,-12px)}
+}
+
+/* letras e tamanhos iguais aos da capa do portfólio */
+.rotulo{
+  display:flex;align-items:center;gap:10px;margin:0;
+  color:var(--rosa);font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+}
+.rotulo::before{content:"";width:30px;height:1.5px;background:currentColor}
+h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:-.005em;color:#1e1915;margin-top:8px}
+h1 span{display:block}
+.intro{margin:14px 0 0;color:#57514c;font-size:16px;line-height:1.6;max-width:400px}
+
+/* caixinhas clicáveis iguais às do "Me encontre aqui" do portfólio */
+.caixas{display:grid;gap:8px;list-style:none;margin:18px 0 0;padding:0}
+.caixas a,.caixas button{display:flex;align-items:center;gap:12px;width:100%;padding:8px;border:0;border-radius:18px;background:#f7f4f0;color:#1e1915;font:inherit;text-align:left;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.caixas a:hover,.caixas button:hover{transform:translateY(-2px);box-shadow:0 12px 22px -16px rgba(30,25,21,.5)}
+
+/* "Minhas redes": abre na própria caixa com a chavinha, igual aos Serviços do portfólio */
+.caixa-redes{border-radius:18px;background:#f7f4f0;transition:background .35s,box-shadow .35s,transform .2s}
+.caixa-redes:hover{transform:translateY(-2px);box-shadow:0 12px 22px -16px rgba(30,25,21,.5)}
+.caixas .caixa-redes > button{background:transparent}
+.caixas .caixa-redes > button:hover{transform:none;box-shadow:none}
+.chave{flex:none;position:relative;width:46px;height:26px;margin-right:3px;border-radius:999px;background:#e7e2dc;transition:background .3s}
+.chave::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 2px 5px rgba(30,25,21,.25);transition:transform .3s}
+.redes-detalhe{display:none;padding:2px 14px 16px 58px}
+.redes-detalhe p{margin:0 0 12px;font-size:13.5px;line-height:1.5}
+.redes-botoes{display:flex;flex-wrap:wrap;gap:8px}
+.caixas .redes-botoes a{display:inline-flex;width:auto;gap:0;padding:9px 16px;border-radius:999px;background:#fff;color:#1e1915;font-size:13px;font-weight:600;box-shadow:none;transition:transform .2s}
+.caixas .redes-botoes a:hover{transform:translateX(3px);box-shadow:none}
+/* aberta: a caixa cresce, fica amarela e mostra as redes */
+.caixa-redes.aberto{background:#ffe38a;box-shadow:0 24px 40px -24px rgba(200,160,40,.5)}
+.caixa-redes.aberto .caixa-icone{background:#fff}
+.caixa-redes.aberto .chave{background:#1e1915}
+.caixa-redes.aberto .chave::after{transform:translateX(20px)}
+.caixa-redes.aberto .redes-detalhe{display:block;animation:aparecer .35s ease}
+@keyframes aparecer{from{opacity:0;transform:translateY(-4px)}}
+@media (max-width:420px){ .redes-detalhe{padding-left:14px} }
+.caixa-icone{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--rosa)}
+.caixa-azul .caixa-icone{background:var(--ceu)}
+.caixa-amarelo .caixa-icone{background:var(--manteiga)}
+.caixa-icone svg{width:18px;height:18px;fill:none;stroke:#1e1915;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.caixa-texto{flex:1;min-width:0;display:flex;flex-direction:column}
+.caixa-texto strong{font-size:14px;font-weight:700;line-height:1.25}
+.caixa-texto small{font-size:12px;color:rgba(30,25,21,.65);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.caixa-seta{flex:none;width:32px;height:32px;border-radius:50%;background:#fff;display:grid;place-items:center;transition:background .2s,transform .2s}
+.caixa-seta svg{width:14px;height:14px;fill:none;stroke:#1e1915;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.caixas a:hover .caixa-seta{background:var(--rosa);transform:rotate(45deg)}
+
+/* ---------- faixa de marcas ---------- */
+/* ---------- marcas: linha, título e logos redondas passando (igual ao portfólio) ---------- */
+.marcas{margin-top:32px}
+.marcas::before,.marcas::after{content:"";display:block;height:1px;background:#d9d3cc}
+.marcas::after{margin-top:20px}
+.marcas-titulo{display:flex;align-items:center;justify-content:center;gap:8px;margin:22px 6px 14px;font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8c95a8;white-space:nowrap}
+.marcas-titulo::before,.marcas-titulo::after{content:"";width:16px;height:1px;background:currentColor;opacity:.6;flex:none}
+.marcas-faixa{margin:0 calc(50% - 50vw);overflow:hidden}
+.marcas-trilho{display:flex;width:max-content;animation:rolar 50s linear infinite}
+.marcas-faixa:hover .marcas-trilho{animation-play-state:paused}
+.marcas-trilho ul{display:flex;gap:18px;list-style:none;margin:0;padding:4px 9px}
+/* círculo branco: as logos que vêm em quadrado branco se misturam com o fundo e não aparece o quadrado */
+.icone-marca{flex:none;width:62px;height:62px;border-radius:50%;overflow:hidden;background:#fff;box-shadow:inset 0 0 0 1px #e7e2de;display:grid;place-items:center}
+.icone-marca img{width:100%;height:100%;object-fit:contain;padding:18%}
+.icone-marca.logo-cheio{box-shadow:none}
+.icone-marca.logo-cheio img{object-fit:cover;padding:0}
+.icone-marca span{font-family:Georgia,"Times New Roman",serif;font-size:8.5px;letter-spacing:.02em;text-transform:uppercase;color:#1d1d1b}
+@keyframes rolar{to{transform:translateX(-50%)}}
+
+/* ---------- destaque do momento ---------- */
+.destaque{
+  position:relative;background:var(--rosa);color:var(--tinta);border-radius:24px;
+  padding:20px 18px 16px;margin-top:40px;box-shadow:5px 5px 0 var(--tinta);
+}
+.selo-pilula{
+  position:absolute;top:-12px;right:16px;background:var(--manteiga);color:var(--tinta);
+  border:var(--borda);border-radius:999px;padding:4px 11px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;transform:rotate(4deg);
+}
+.destaque small{display:block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#1e1915}
+.destaque h2{margin:4px 0 4px;font-size:34px;color:var(--manteiga);-webkit-text-stroke:1px var(--tinta);paint-order:stroke fill;text-shadow:2px 2px 0 var(--tinta)}
+.destaque-texto{margin:0 0 14px;font-size:14px;line-height:1.5;font-weight:500}
+.pilula{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  background:var(--tinta);color:#fff;border-radius:999px;padding:9px 9px 9px 20px;
+  font-size:13px;line-height:1.3;transition:transform .15s;
+}
+.pilula:hover{transform:translateX(3px)}
+.pilula b{display:block;font-size:15px}
+.pilula .seta{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#fff;color:var(--tinta);font-weight:700}
+
+/* ---------- grade de blocos ---------- */
+.grade{display:grid;gap:22px;margin-top:44px}
+.bloco-titulo{font-size:40px}
+.bloco-sub{margin:8px 0 18px;font-size:13.5px;color:var(--tinta-2);line-height:1.5}
+.cartao-branco{position:relative;background:var(--papel);border:var(--borda);border-radius:24px;padding:22px 18px 20px;box-shadow:var(--sombra-dura)}
+.cartao-escuro{position:relative;background:var(--tinta);color:#fff;border-radius:24px;padding:24px 20px 20px;overflow:hidden;display:flex;flex-direction:column}
+/* caixas brancas (história e criação de portfólios): visual clean */
+.cartao-claro{display:flex;flex-direction:column;background:#fff;color:#1e1915;border-radius:24px;padding:24px 20px 20px;box-shadow:0 18px 34px -26px rgba(30,25,21,.45)}
+.cartao-claro h2{font-size:40px;margin:12px 0 10px}
+.cartao-claro p{margin:0 0 20px;font-size:14px;line-height:1.6;color:#57514c}
+.cartao-claro .btn-claro{margin-top:auto}
+#criacao .btn-claro{background:var(--ceu)}
+#historia .btn-claro{background:var(--rosa)}
+/* frase pequena em preto; só o tracinho na cor do botão da caixa */
+.cartao-claro .rotulo{color:#1e1915}
+.cartao-claro .rotulo::before{height:2px}
+#historia .rotulo::before{background:var(--rosa)}
+#criacao .rotulo::before{background:var(--ceu)}
+.cartao-amarelo{position:relative;background:var(--manteiga);border:var(--borda);border-radius:24px;padding:22px 18px 20px;box-shadow:var(--sombra-dura)}
+.mini-rotulo{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--amarelo)}
+.mini-pilula{display:inline-block;background:var(--tinta);color:#fff;border-radius:999px;padding:4px 11px;font-size:11px;font-weight:600}
+
+/* cupons */
+.cupons{display:grid;gap:16px}
+.cupom{
+  position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  background:var(--papel);border:2px dashed var(--tinta);border-radius:18px;padding:18px 14px 14px 16px;
+}
+.cupom .marca-tag{position:absolute;top:-11px;left:12px;background:var(--rosa);border:var(--borda);border-radius:999px;padding:2px 10px;font-size:10.5px;font-weight:700;transform:rotate(-3deg)}
+.cupom b{display:block;font-family:var(--titulo);font-size:22px;text-transform:uppercase;line-height:1}
+.cupom code{display:block;margin-top:4px;font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--magenta)}
+.cupom-acoes{display:grid;gap:6px;flex:none}
+.cupom-acoes button,.cupom-acoes a{
+  border-radius:999px;padding:8px 14px;font-size:12px;font-weight:700;text-align:center;cursor:pointer;
+}
+.cupom-acoes button{background:var(--tinta);color:#fff;border:2px solid var(--tinta)}
+.cupom-acoes a{border:var(--borda);background:var(--papel)}
+
+/* vitrine */
+.cartao-escuro h2{font-size:44px;margin:10px 0 10px}
+.cartao-escuro h2 .nota{color:var(--rosa)}
+.cartao-escuro p{margin:0 0 20px;font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.8)}
+.cartao-escuro .deco{position:absolute;right:-20px;top:-20px;width:140px;height:140px;opacity:.18;transform:rotate(18deg)}
+.btn-claro{
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--amarelo);color:var(--tinta);border-radius:999px;padding:9px 9px 9px 20px;font-weight:700;font-size:14px;
+}
+.btn-claro .seta,.btn-tinta .seta{width:34px;height:34px;border-radius:50%;display:grid;place-items:center}
+.btn-claro .seta{background:var(--tinta);color:#fff}
+
+/* história */
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0}
+.chips span{border:var(--borda);border-radius:12px;padding:6px 11px;font-size:12px;font-weight:700;transform:rotate(-1deg)}
+.chips span:nth-child(even){transform:rotate(1.5deg)}
+.chips span:nth-child(4n+1){background:var(--tinta);color:#fff}
+.chips span:nth-child(4n+2){background:var(--ceu)}
+.chips span:nth-child(4n+3){background:var(--amarelo)}
+.chips span:nth-child(4n){background:var(--rosa)}
+.cartao-branco p{margin:0 0 18px;font-size:13.5px;line-height:1.55;color:var(--tinta-2)}
+.cartao-branco .mini{position:absolute;top:-24px;right:14px;width:74px;height:74px;border-radius:50%;overflow:hidden;border:var(--borda);background:var(--rosa);transform:rotate(6deg)}
+.cartao-branco .mini img{width:100%;height:100%;object-fit:cover;object-position:50% 12%}
+.cartao-branco h2{padding-right:74px}
+.btn-tinta{
+  display:inline-flex;align-items:center;gap:14px;
+  background:var(--tinta);color:#fff;border-radius:999px;padding:8px 8px 8px 20px;font-weight:700;font-size:14px;
+}
+.btn-tinta .seta{background:var(--rosa);color:var(--tinta)}
+
+/* mentoria */
+.cartao-amarelo h2{font-size:40px;margin:12px 0 8px}
+.cartao-amarelo p{margin:0 0 16px;font-size:13.5px;line-height:1.5;color:var(--tinta-2)}
+.cartao-amarelo label{display:block;font-size:13px;font-weight:700;margin-bottom:8px}
+.lista{display:grid;gap:10px}
+.lista input{width:100%;border:var(--borda);border-radius:999px;padding:13px 18px;background:var(--papel);font-size:14px}
+.lista input:focus{outline:3px solid var(--rosa);outline-offset:1px}
+.lista button{border:0;border-radius:999px;padding:14px;background:var(--tinta);color:#fff;font-weight:700;font-size:14px;cursor:pointer}
+.cartao-amarelo small{display:block;margin-top:10px;font-size:11.5px;color:var(--tinta-2);text-align:center}
+.cartao-amarelo .estrela-canto{position:absolute;right:-10px;bottom:-14px;width:54px;height:54px;transform:rotate(14deg)}
+
+/* ---------- rodapé ---------- */
+/* quadro no amarelo da paleta */
+.conversar{max-width:1220px;margin:56px auto 0;background:var(--manteiga);color:#1e1915;border-radius:30px;position:relative;box-shadow:0 18px 34px -26px rgba(30,25,21,.45)}
+.conversar .miolo{padding-top:38px;padding-bottom:30px;display:grid;gap:22px}
+.conversar .estrela-canto{position:absolute;top:-22px;right:28px;width:48px;height:48px;transform:rotate(14deg)}
+.conversar h2{font-size:52px}
+.conversar p{margin:10px 0 0;font-size:14px;line-height:1.5;color:#57514c}
+.ctas{display:grid;gap:10px}
+.cta{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  border-radius:999px;padding:15px 18px;font-weight:700;font-size:15px;transition:transform .15s;
+}
+.cta:active{transform:scale(.98)}
+.cta svg{width:19px;height:19px}
+.cta.rosa{background:var(--rosa);color:var(--tinta);box-shadow:3px 3px 0 var(--amarelo)}
+.cta.contorno{border:2px solid #1e1915;color:#1e1915}
+.copiar-email{justify-self:center;background:none;border:0;color:#57514c;font-size:12px;text-decoration:underline;cursor:pointer}
+.assinatura{max-width:1220px;margin:18px auto 0;text-align:center;font-family:var(--sans);font-size:13px;font-weight:500;color:#57514c}
+
+
+/* aviso de copiado */
+.aviso{
+  position:fixed;left:50%;bottom:calc(var(--nav) + 24px + env(safe-area-inset-bottom));z-index:50;
+  background:var(--tinta);color:#fff;border:2px solid var(--rosa);border-radius:999px;padding:10px 18px;font-size:13px;font-weight:600;
+  transform:translate(-50%,20px);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;
+}
+.aviso.mostra{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- barra de navegação (celular) ---------- */
+/* pílula branca flutuando, igual ao menu de app do portfólio; o destaque é rosa */
+.nav{
+  position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:20;
+  max-width:460px;height:76px;margin:0 auto;padding:8px;display:flex;align-items:center;
+  background:#fff;border-radius:30px;box-shadow:0 14px 34px -14px rgba(30,25,21,.35),0 0 0 1px rgba(30,25,21,.06);
+}
+.nav a{
+  flex:1;min-width:0;height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+  padding:6px 2px;border-radius:22px;font-size:11.5px;font-weight:600;color:#6b645d;transition:background .25s,color .25s;
+}
+.nav a svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nav a.ativo{background:var(--rosa);color:#1e1915}
+/* botão do meio: círculo maior, saindo para cima */
+.nav a.centro{
+  flex:none;width:86px;height:86px;margin-top:-46px;border-radius:50%;
+  background:var(--rosa);border:5px solid var(--creme);box-shadow:0 10px 24px -8px rgba(20,17,13,.5);
+  color:#1e1915;font-size:12.5px;
+}
+.nav a.centro svg{width:26px;height:26px}
+
+/* ---------- celular: coluna estreita ---------- */
+@media (max-width:959px){
+  body{padding:10px 10px calc(10px + var(--nav) + env(safe-area-inset-bottom))}
+  .painel{border-radius:0 0 24px 24px}
+  .topo{border-radius:24px 24px 0 0}
+  .topo.rolou{border-radius:20px}
+  .conversar{border-radius:24px}
+  .capa{padding-bottom:22px}
+  .miolo{max-width:460px}
+}
+
+/* ---------- computador ---------- */
+@media (min-width:960px){
+  :root{--nav:0px;--gutter:48px}
+  .nav{display:none}
+
+  /* capa compacta: cabe na tela sem rolar */
+  /* foto mais estreita, texto e caixinhas mais largos */
+  .capa{grid-template-columns:minmax(0,.62fr) minmax(0,1fr);gap:48px;align-items:stretch;padding-top:12px;padding-bottom:20px}
+  .capa-foto{aspect-ratio:auto;height:auto;min-height:340px}
+  .capa-ola{font-size:14px}
+  h1{font-size:clamp(38px,3.6vw,48px)}
+  .intro{font-size:16px;margin-top:12px;max-width:none;white-space:nowrap}
+
+  .marcas{margin-top:40px}
+  .marcas::after{margin-top:22px}
+  .marcas-titulo{gap:18px;margin:16px 0 12px;font-size:11.5px;letter-spacing:.3em}
+  .marcas-titulo::before,.marcas-titulo::after{width:44px}
+  .marcas-trilho ul{gap:30px;padding:4px 15px}
+  .icone-marca{width:76px;height:76px}
+  .icone-marca span{font-size:10px}
+
+  /* destaque mais baixo; a frase fica numa linha só */
+  .destaque{margin-top:30px;padding:20px 36px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:28px}
+  .destaque h2{font-size:38px;margin-bottom:2px}
+  .destaque-texto{margin-bottom:0;font-size:14.5px;white-space:nowrap}
+  .pilula{min-width:0;padding:6px 6px 6px 18px;font-size:12px;gap:14px}
+  .pilula b{font-size:13.5px}
+  .pilula .seta{width:32px;height:32px}
+
+  .grade{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px;margin-top:64px;align-items:start}
+  .bloco-titulo{font-size:52px}
+  .cartao-escuro,.cartao-branco,.cartao-amarelo{padding:30px 28px 28px}
+  .cartao-escuro h2{font-size:52px}
+  .cartao-amarelo h2{font-size:46px}
+  .grade-duas{grid-template-columns:1fr 1fr;align-items:stretch;margin-top:48px}
+  .cartao-claro{padding:30px 28px 28px}
+  .cartao-claro h2{font-size:48px}
+
+  .conversar{margin-top:80px;border-radius:30px}
+  .conversar .miolo{grid-template-columns:1fr minmax(0,440px);align-items:center;column-gap:60px;padding-top:64px;padding-bottom:40px}
+  .conversar h2{font-size:72px}
+  .conversar .estrela-canto{right:12%}
+  .assinatura{margin-top:22px}
+  .aviso{bottom:32px}
+}
+
+/* entrada suave */
+.revela{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.revela.visivel{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+  .revela{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <path id="estrela" d="M20 0C21.6 11.5 28.5 18.4 40 20 28.5 21.6 21.6 28.5 20 40 18.4 28.5 11.5 21.6 0 20 11.5 18.4 18.4 11.5 20 0Z"/>
+    <g id="i-whats"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3Z"/></g>
+    <g id="i-insta" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></g>
+    <g id="i-tiktok"><path fill="currentColor" d="M16.6 2h-3.3v13.2a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V9a6.3 6.3 0 1 0 5.3 6.2V8.6a7.7 7.7 0 0 0 4.4 1.4V6.7a4.4 4.4 0 0 1-4.4-4.4Z"/></g>
+    <g id="i-mail" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></g>
+    <g id="i-play" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m10 9 5 3-5 3V9Z" fill="currentColor"/></g>
+    <g id="i-grade" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></g>
+    <g id="i-chat" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/><path d="M8.5 11h7M8.5 14h4.5"/></g>
+    <g id="i-casa" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4.5v-6h-5v6H5a1 1 0 0 1-1-1Z"/></g>
+    <g id="i-livro" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3Z"/><path d="M5 17a3 3 0 0 1 3-3h11"/></g>
+    <g id="i-cupom" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4Z"/><path d="M10 9v6" stroke-dasharray="2 2"/></g>
+    <g id="i-brilho" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3c.8 4.7 3.3 7.2 8 8-4.7.8-7.2 3.3-8 8-.8-4.7-3.3-7.2-8-8 4.7-.8 7.2-3.3 8-8Z"/></g>
+    <g id="i-camera" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13.5" r="3.5"/></g>
+  </defs>
+</svg>
+
+<!-- começo da página: "Início" e o logo voltam para cá (o topo é fixo, então não serve de destino) -->
+<span id="comeco" aria-hidden="true"></span>
+<!-- ================= TOPO (igual ao do portfólio) ================= -->
+<header class="topo" id="inicio">
+  <a href="#comeco" class="logo" aria-label="Yasmin Carreira, início">
+    <svg class="logo-estrela" viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela"/></svg>
+    <div><strong>Yasmin</strong><span>Carreira</span></div>
+  </a>
+  <!-- EDITAR: nomes e links do menu -->
+  <nav class="menu" id="menu" aria-label="Navegação principal">
+    <ul>
+      <li><a href="#historia">Minha história</a></li>
+      <li><a href="portfolio/">Portfólio</a></li>
+      <li class="com-submenu">
+        <a href="#caixa-redes"><span>Redes</span> <svg class="seta-baixo" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 4l3 3 3-3"/></svg></a>
+        <ul class="submenu">
+          <li><a href="https://www.instagram.com/yasmincarreira_/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@yasmincarreira_1" target="_blank" rel="noopener">TikTok</a></li>
+          <li><a href="mailto:yasmin-carreira@hotmail.com">E-mail</a></li>
+        </ul>
+      </li>
+      <li><a href="#conversar">Contato</a></li>
+    </ul>
+  </nav>
+  <div class="topo-lado">
+    <div class="idioma" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="pt" aria-pressed="true"><svg viewBox="0 0 28 20" aria-hidden="true"><rect width="28" height="20" rx="3" fill="#009b3a"/><path d="M14 3l10 7-10 7-10-7z" fill="#fedf00"/><circle cx="14" cy="10" r="4.2" fill="#002776"/></svg>PT</button>
+      <button type="button" data-lang="en" aria-pressed="false"><svg viewBox="0 0 28 20" aria-hidden="true"><rect width="28" height="20" rx="3" fill="#fff"/><path d="M0 1.5h28M0 4.6h28M0 7.7h28M0 10.8h28M0 13.9h28M0 17h28" stroke="#b22234" stroke-width="1.6"/><rect width="12.5" height="10.8" rx="2" fill="#3c3b6e"/></svg>EN</button>
+    </div>
+    <button type="button" class="hamburguer" id="hamburguer" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+
+<main>
+  <!-- cartão branco: topo + capa (fecha embaixo com cantos arredondados, igual ao portfólio) -->
+  <div class="painel">
+  <!-- ================= ABERTURA: foto + apresentação + links ================= -->
+  <section class="miolo capa" aria-label="Apresentação">
+    <!-- FOTO DA CAPA: para trocar, mude o arquivo abaixo -->
+    <div class="capa-foto">
+      <img src="fotos/capa-perfil.webp" alt="Yasmin Carreira sorrindo, de blusa rosa" width="781" height="1448" fetchpriority="high">
+      <!-- EDITAR: caixinhas que flutuam devagar em cima da foto -->
+      <span class="capa-ola vidro">Olá, sou a Yasmin!</span>
+      <a class="capa-ola capa-ola-2 vidro js-whats" href="https://wa.me/5513997973883" target="_blank" rel="noopener">Em que posso ajudar?</a>
+    </div>
+
+    <div class="capa-texto">
+      <div class="rotulo">Diário de uma creator</div>
+      <h1>UGC, influenciadora, mãe, mil e uma coisas…</h1>
+      <p class="intro">Transformo minha rotina em conteúdo que conecta com pessoas e marcas.</p>
+
+      <!-- EDITAR: caixinhas iguais às do "Me encontre aqui" do portfólio (cor, ícone, título, texto e link) -->
+      <ul class="caixas">
+        <li class="caixa-rosa"><a href="portfolio/">
+          <span class="caixa-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m10 9 5 3-5 3V9Z"/></svg></span>
+          <span class="caixa-texto"><strong>Meu portfólio UGC</strong><small>vídeos que fiz para as marcas</small></span>
+          <span class="caixa-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        </a></li>
+        <li class="caixa-azul"><a class="js-whats-msg" data-msg="Oi, Yasmin! Vim pelo seu Instagram e quero falar sobre parcerias UGC e publi." href="https://wa.me/5513997973883" target="_blank" rel="noopener">
+          <span class="caixa-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5l1.3-4.3A8.5 8.5 0 1 1 8 19.3z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .9c-1-.4-2.4-1.8-2.8-2.8l.9-1-1-2z"/></svg></span>
+          <span class="caixa-texto"><strong>Parcerias UGC e publi</strong><small>fala comigo no WhatsApp</small></span>
+          <span class="caixa-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        </a></li>
+        <!-- "Minhas redes": a chavinha abre a caixa ali mesmo, igual aos Serviços do portfólio -->
+        <li class="caixa-amarelo caixa-redes" id="caixa-redes"><button type="button" id="abrir-redes" aria-expanded="false" aria-controls="redes-detalhe">
+          <span class="caixa-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg></span>
+          <span class="caixa-texto"><strong>Minhas redes</strong><small>Instagram, TikTok e e-mail</small></span>
+          <span class="chave" aria-hidden="true"></span>
+        </button>
+        <div class="redes-detalhe" id="redes-detalhe">
+          <p>Escolhe por onde quer me encontrar</p>
+          <!-- EDITAR: suas redes -->
+          <div class="redes-botoes">
+            <a href="https://www.instagram.com/yasmincarreira_/" target="_blank" rel="noopener">Instagram →</a>
+            <a href="https://www.tiktok.com/@yasmincarreira_1" target="_blank" rel="noopener">TikTok →</a>
+            <a href="mailto:yasmin-carreira@hotmail.com">E-mail →</a>
+          </div>
+        </div></li>
+        <li class="caixa-rosa"><a href="criacao/">
+          <span class="caixa-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="15" rx="2"/><path d="M3 8.5h18M6.5 6.2h.01M9 6.2h.01"/></svg></span>
+          <span class="caixa-texto"><strong>Criação de portfólios e sites</strong><small>veja como funciona</small></span>
+          <span class="caixa-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        </a></li>
+      </ul>
+    </div>
+  </section>
+  </div>
+
+  <!-- o resto da página fica no fundo bege -->
+  <div class="resto">
+  <!-- ================= DESTAQUE DO MOMENTO ================= -->
+  <section class="miolo revela">
+    <div class="destaque">
+      <span class="selo-pilula">novidade</span>
+      <div>
+        <small>Destaque do momento</small>
+        <!-- EDITAR: título e link do destaque -->
+        <h2>Black Friday</h2>
+        <p class="destaque-texto">Vídeos de topo, meio e fundo de funil, para sua marca ser vista, desejada e escolhida.</p>
+      </div>
+      <a class="pilula js-whats-bf" href="https://wa.me/5513997973883" target="_blank" rel="noopener">
+        <span>Garanta seus vídeos a tempo<b>reservar minha agenda</b></span>
+        <span class="seta">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ================= FAIXA DE MARCAS (lista no script lá embaixo) ================= -->
+  <section class="miolo marcas revela" id="marcas" aria-label="Marcas com quem já trabalhei">
+    <p class="marcas-titulo">Marcas que confiam no meu trabalho</p>
+    <div class="marcas-faixa"><div class="marcas-trilho" id="faixaMarcas"></div></div>
+  </section>
+
+  <!-- ================= DUAS CAIXAS BRANCAS: MINHA HISTÓRIA + CRIAÇÃO DE PORTFÓLIOS ================= -->
+  <section class="miolo grade grade-duas revela">
+    <div class="cartao-claro" id="historia">
+      <span class="rotulo">Prazer, sou a Yas</span>
+      <h2>Minha história</h2>
+      <p>32 anos, mãe do Bernardo e moradora do litoral de SP. Crio conteúdo para mulheres sobre autocuidado, de um jeito natural, mostrando que mesmo na rotina corrida a gente não pode se esquecer de nós mesmas.</p>
+      <!-- EDITAR: link da sua história -->
+      <a class="btn-claro" href="historia/">ver minha história completa <span class="seta">→</span></a>
+    </div>
+
+    <div class="cartao-claro" id="criacao">
+      <span class="rotulo">Pode deixar que eu crio para você</span>
+      <h2>Portfólios, bio links e sites</h2>
+      <p>Gostou deste bio link? Eu crio portfólios e sites para creators e marcas, do jeitinho do seu estilo, prontos para fechar parcerias.</p>
+      <!-- abre a página de criação de portfólios, bio links e sites -->
+      <a class="btn-claro" href="criacao/">quero saber mais <span class="seta">→</span></a>
+    </div>
+  </section>
+  </div>
+</main>
+
+<!-- ================= BORA CONVERSAR ================= -->
+<footer class="conversar" id="conversar">
+  <svg class="estrela-canto" viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela" fill="#ff99d9" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/></svg>
+  <div class="miolo">
+    <div>
+      <h2>Bora conversar?</h2>
+      <p>Parceria, UGC, publi ou só um oi. Respondo rapidinho.</p>
+    </div>
+    <div class="ctas">
+      <a class="cta rosa js-whats" href="https://wa.me/5513997973883" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><use href="#i-whats"/></svg>Chamar no WhatsApp</a>
+      <a class="cta contorno" href="https://ig.me/m/yasmincarreira_" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><use href="#i-insta"/></svg>Mandar DM no Instagram</a>
+      <a class="cta contorno" href="mailto:yasmin-carreira@hotmail.com"><svg viewBox="0 0 24 24"><use href="#i-mail"/></svg>Mandar e-mail</a>
+      <button class="copiar-email" type="button" data-copiar="yasmin-carreira@hotmail.com">copiar e-mail</button>
+    </div>
+  </div>
+</footer>
+<!-- assinatura fora do quadro -->
+<p class="assinatura">feito pela Yas ♡ @yasmincarreira_</p>
+
+<!-- ================= BARRA DE BAIXO (só no celular) ================= -->
+<nav class="nav" id="nav" aria-label="Navegação">
+  <a class="ativo" href="#comeco" data-alvo="comeco"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5L12 4l8 6.5V20h-5v-6H9v6H4z"/></svg>Início</a>
+  <a href="portfolio/"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="3"/><path d="M10 9.2v5.6l4.6-2.8z"/></svg>Portfólio</a>
+  <a class="centro" href="#conversar" data-alvo="conversar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4c4.7 0 8.5 3.2 8.5 7.2s-3.8 7.2-8.5 7.2c-1 0-2-.1-2.9-.4L5 20l1-3.6c-1.5-1.3-2.5-3.1-2.5-5.2C3.5 7.2 7.3 4 12 4z"/><path d="M8.5 11.3h.01M12 11.3h.01M15.5 11.3h.01" stroke-width="2.6"/></svg>Conversar</a>
+  <a href="#historia" data-alvo="historia"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3Z"/><path d="M5 17a3 3 0 0 1 3-3h11"/></svg>História</a>
+  <a href="portfolio/#servicos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5c.8 4.6 3.4 7.2 8 8-4.6.8-7.2 3.4-8 8-.8-4.6-3.4-7.2-8-8 4.6-.8 7.2-3.4 8-8Z"/></svg>Serviços</a>
+</nav>
+
+<div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+
+<script>
+// WhatsApp com mensagem pronta (mesmo número do portfólio)
+const WHATSAPP = "5513997973883";
+const WHATSAPP_MSG = "Oi, Yasmin! Vim pelo seu Instagram e quero conversar sobre um projeto.";
+const whats = msg => "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg);
+
+// TikTok dentro do Instagram/Facebook: o navegador interno deles fica preso na tela "abra o app".
+// Então, só nesses navegadores, o botão chama direto o app do TikTok no perfil da Yasmin
+// (no iPhone pelo link interno do app, no Android pelo "intent"). Se a pessoa não tiver o app,
+// abre o perfil no navegador.
+const TIKTOK_ID = "6819469517346604038"; // número da conta @yasmincarreira_1 no TikTok
+(function () {
+  const ua = navigator.userAgent || "";
+  if (!/Instagram|FBAN|FBAV|FB_IAB/i.test(ua)) return;
+  const ehAndroid = /Android/i.test(ua);
+  document.querySelectorAll('a[href*="tiktok.com"]').forEach(a => {
+    const url = new URL(a.href);
+    a.removeAttribute("target");
+    if (ehAndroid) {
+      a.href = "intent://" + url.host + url.pathname + "#Intent;scheme=https;package=com.zhiliaoapp.musically;S.browser_fallback_url=" + encodeURIComponent(url.href) + ";end";
+      return;
+    }
+    a.addEventListener("click", e => {
+      e.preventDefault();
+      let saiu = false;
+      const marcaSaida = () => { saiu = true; };
+      document.addEventListener("visibilitychange", marcaSaida, { once: true });
+      addEventListener("pagehide", marcaSaida, { once: true });
+      location.href = "snssdk1233://user/profile/" + TIKTOK_ID;   // abre o app do TikTok no perfil
+      setTimeout(() => { if (!saiu && document.visibilityState === "visible") location.href = url.href; }, 1600);
+    });
+  });
+})();
+document.querySelectorAll(".js-whats").forEach(a => a.href = whats(WHATSAPP_MSG));
+document.querySelectorAll(".js-whats-msg").forEach(a => a.href = whats(a.dataset.msg));
+document.querySelectorAll(".js-whats-bf").forEach(a => a.href = whats("Oi, Yasmin! Quero conversar sobre minha campanha de Black Friday."));
+
+// EDITAR: marcas da faixa, iguais às do portfólio (logo na pasta "logos"; sem logo, aparece o nome)
+// cheio: true = a logo ocupa o círculo todo
+const MARCAS = [
+  { nome: "OMO",           logo: "logos/omo.png" },
+  { nome: "Eudora",        logo: "logos/eudora.png", cheio: true },
+  { nome: "Dove",          logo: "logos/dove.png" },
+  { nome: "Garnier",       logo: "logos/garnier.png" },
+  { nome: "Mercado Livre", logo: "logos/mercado-livre.png", cheio: true },
+  { nome: "Elseve",        logo: "logos/elseve.png" },
+  { nome: "Pantene",       logo: "" },
+  { nome: "La Ganexa",     logo: "logos/la-ganexa.png", cheio: true },
+  { nome: "Ciça Braga",    logo: "logos/cica-braga.png" }
+];
+const iconeMarca = m => m.logo
+  ? `<li class="icone-marca${m.cheio ? " logo-cheio" : ""}"><img src="${m.logo}" alt="${m.nome}" loading="lazy" decoding="async"></li>`
+  : `<li class="icone-marca"><span>${m.nome}</span></li>`;
+// a lista se repete até encher a tela, e a segunda cópia faz o giro ficar contínuo
+const voltas = Math.max(1, Math.ceil(16 / MARCAS.length));
+const listaMarcas = Array.from({ length: voltas }, () => MARCAS.map(iconeMarca).join("")).join("");
+document.getElementById("faixaMarcas").innerHTML = `<ul aria-label="Marcas atendidas">${listaMarcas}</ul><ul aria-hidden="true">${listaMarcas}</ul>`;
+
+// Aviso rápido no rodapé da tela
+const aviso = document.getElementById("aviso");
+let avisoTempo;
+function mostrarAviso(txt) {
+  aviso.textContent = txt;
+  aviso.classList.add("mostra");
+  clearTimeout(avisoTempo);
+  avisoTempo = setTimeout(() => aviso.classList.remove("mostra"), 1800);
+}
+
+// Botões "copiar" (cupons e e-mail)
+document.querySelectorAll("[data-copiar]").forEach(b => b.addEventListener("click", async () => {
+  const txt = b.dataset.copiar;
+  try { await navigator.clipboard.writeText(txt); }
+  catch (e) {
+    const t = document.createElement("textarea");
+    t.value = txt; document.body.appendChild(t); t.select(); document.execCommand("copy"); t.remove();
+  }
+  mostrarAviso("Copiado: " + txt);
+}));
+
+
+
+// Topo fixo: ganha sombra e fica mais baixinho quando a página rola
+const topo = document.getElementById("inicio");
+const marcaRolagem = () => topo.classList.toggle("rolou", scrollY > 10);
+addEventListener("scroll", marcaRolagem, { passive: true });
+marcaRolagem();
+
+// "Minhas redes": a chavinha abre e fecha a caixa ali mesmo
+const caixaRedes = document.getElementById("caixa-redes"), abrirRedes = document.getElementById("abrir-redes");
+abrirRedes.addEventListener("click", () => abrirRedes.setAttribute("aria-expanded", caixaRedes.classList.toggle("aberto")));
+// "Redes" da barra de baixo e do menu: rola até a caixa e já deixa ela aberta
+document.querySelectorAll('.js-abre-redes, .menu a[href="#caixa-redes"]').forEach(a => a.addEventListener("click", () => {
+  caixaRedes.classList.add("aberto"); abrirRedes.setAttribute("aria-expanded", "true");
+}));
+
+// Barra de baixo: o botão da parte que está na tela fica em rosa
+const botoesNav = [...document.querySelectorAll("#nav a[data-alvo]")];
+function marcaNav() {
+  const meio = innerHeight * 0.45;
+  let atual = "comeco";
+  ["historia", "conversar"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top < meio) atual = id;
+  });
+  if (innerHeight + scrollY >= document.documentElement.scrollHeight - 4) atual = "conversar";
+  botoesNav.forEach(b => b.classList.toggle("ativo", b.dataset.alvo === atual && !b.classList.contains("centro")));
+}
+addEventListener("scroll", marcaNav, { passive: true });
+marcaNav();
+
+// Menu do celular (botão de três linhas)
+const hamb = document.getElementById("hamburguer"), menu = document.getElementById("menu");
+hamb.addEventListener("click", () => {
+  const aberto = menu.classList.toggle("aberto");
+  hamb.setAttribute("aria-expanded", aberto);
+});
+menu.addEventListener("click", e => { if (e.target.closest("a")) { menu.classList.remove("aberto"); hamb.setAttribute("aria-expanded", false); } });
+
+// PT / EN: troca os textos da página. EDITAR: acrescente aqui as traduções dos textos novos
+const EN = {
+  "Sobre": "About", "Serviços": "Services", "Redes": "Socials", "Instagram": "Instagram", "TikTok": "TikTok", "Contato": "Contact",
+  "O que você precisa hoje?": "What do you need today?",
+  "UGC creator, influenciadora, mãe, mil e uma coisas…": "UGC creator, influencer, mom, a thousand and one things…",
+  "Transformo minha rotina em conteúdo que conecta com pessoas e marcas.": "I turn my routine into content that connects people and brands.",
+  "Olá, sou a Yasmin!": "Hi, I'm Yasmin!", "Em que posso ajudar?": "How can I help?",
+  "Diário de uma creator": "A creator's diary", "UGC, influenciadora, mãe, mil e uma coisas…": "UGC, influencer, mom, a thousand and one things…",
+  "vídeos que fiz para as marcas": "videos I made for brands", "Parcerias UGC e publi": "UGC & sponsored partnerships",
+  "Minhas redes": "My socials", "Instagram, TikTok e e-mail": "Instagram, TikTok and email",
+  "Escolhe por onde quer me encontrar": "Pick where you'd like to find me", "E-mail": "Email", "E-mail →": "Email →",
+  "Criação de portfólios e sites": "Portfolio & website design", "me chama no WhatsApp": "message me on WhatsApp",
+  "veja como funciona": "see how it works", "quero saber mais": "learn more",
+  "Marcas que confiam": "Brands that trust me", "Dove, Elseve, Eudora +": "Dove, Elseve, Eudora +", "Reservar agenda": "Book a date",
+  "Meus trabalhos": "My work", "Para todas as marcas": "For every brand",
+  "Meu portfólio UGC": "My UGC portfolio", "vídeos que fiz pra marcas": "videos I made for brands", "vídeos": "videos",
+  "Parcerias UGC e publis": "UGC & sponsored partnerships", "fala comigo no WhatsApp": "talk to me on WhatsApp", "agenda aberta": "booking open",
+  "Como eu te ajudo": "How I can help", "UGC orgânico, anúncios e pacotes": "organic UGC, ads and packages", "serviços": "services",
+  "Ver todos": "See all",
+  "Marcas que confiam no meu trabalho": "Brands that trust my work", "novidade": "new", "Destaque do momento": "Right now",
+  "Vídeos de topo, meio e fundo de funil, para sua marca ser vista, desejada e escolhida.": "Top, middle and bottom of funnel videos, so your brand gets seen, wanted and chosen.", "Garanta seus vídeos a tempo": "Get your videos in time", "reservar minha agenda": "book my schedule",
+  "Meus": "My", "cupons": "coupons", "Copia o código e usa na finalização da compra, no site da marca.": "Copy the code and use it at checkout on the brand's website.",
+  "Sou embaixadora": "Ambassador", "Nome da marca": "Brand name", "copiar": "copy", "ir pro site ↗": "visit site ↗",
+  "Prazer, sou a Yas": "Nice to meet you, I'm Yas", "Minha história": "My story",
+  "Pode deixar que eu crio para você": "Leave it to me, I'll create it for you", "Portfólios, bio links e sites": "Portfolios, bio links and websites",
+  "32 anos, mãe do Bernardo e moradora do litoral de SP. Crio conteúdo para mulheres sobre autocuidado, de um jeito natural, mostrando que mesmo na rotina corrida a gente não pode se esquecer de nós mesmas.": "32, Bernardo's mom, living on the São Paulo coast. I create self-care content for women in a natural way, showing that even in a busy routine we can't forget about ourselves.",
+  "ver minha história completa": "read my full story", "Seu portfólio": "Your portfolio", "com a sua cara": "that looks like you",
+  "Gostou deste bio link? Eu crio portfólios e sites para creators e marcas, do jeitinho do seu estilo, prontos para fechar parcerias.": "Like this bio link? I design portfolios and websites for creators and brands, in your own style, ready to land partnerships.",
+  "Sites": "Sites",
+  "Produtos de autocuidado, casa e tudo que eu uso de verdade, num lugar só.": "Self-care, home and everything I truly use, all in one place.",
+  "ver a vitrine": "see my picks", "Conheça minha": "Get to know my", "história e +": "story & more",
+  "32 anos": "32 years old", "Mãe do Bernardo": "Bernardo's mom", "Litoral de SP": "São Paulo coast", "Autocuidado": "Self-care",
+  "Crio conteúdo para mulheres sobre autocuidado, de um jeito natural, mostrando que mesmo na rotina corrida de cuidar de tudo e de todos a gente não pode se esquecer de nós mesmas.": "I create self-care content for women in a natural way, showing that even in a busy routine of caring for everything and everyone, we can't forget about ourselves.",
+  "Ver minha história completa": "Read my full story", "minha mentoria · em breve": "my mentorship · coming soon", "Mentoria": "Mentorship", "nome aqui": "name here",
+  "Para quem quer começar no UGC e tirar as coisas do papel.": "For anyone who wants to start in UGC and make it happen.",
+  "Receba notificação quando as vagas abrirem": "Get notified when spots open", "Entrar na lista": "Join the list",
+  "Só te mando e-mail quando abrir. Nada de spam.": "I'll only email you when it opens. No spam.",
+  "Bora conversar?": "Let's talk?", "Parceria, UGC, publi ou só um oi. Respondo rapidinho.": "Partnerships, UGC, sponsored posts or just a hi. I reply fast.",
+  "Chamar no WhatsApp": "Message on WhatsApp", "Mandar DM no Instagram": "DM on Instagram", "Mandar e-mail": "Send an email", "copiar e-mail": "copy email",
+  "feito pela Yas ♡ @yasmincarreira_": "made by Yas ♡ @yasmincarreira_",
+  "Início": "Home", "Portfólio": "Portfolio", "Conversar": "Talk", "Cupons": "Coupons", "História": "Story"
+};
+const textos = [];
+[document.querySelector(".topo"), document.querySelector("main"), document.querySelector(".conversar"), document.querySelector(".assinatura"), document.querySelector(".nav")].forEach(raiz => {
+  const w = document.createTreeWalker(raiz, NodeFilter.SHOW_TEXT);
+  for (let n; (n = w.nextNode());) {
+    const pt = n.nodeValue.trim();
+    if (EN[pt]) textos.push({ n, pt, orig: n.nodeValue });
+  }
+});
+function aplicaIdioma(lang) {
+  document.documentElement.lang = lang === "en" ? "en" : "pt-BR";
+  textos.forEach(t => t.n.nodeValue = lang === "en" ? t.orig.replace(t.pt, EN[t.pt]) : t.orig);
+  document.querySelectorAll(".idioma button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));  const msg = lang === "en" ? "Hi Yasmin! I found you on Instagram and I'd like to talk about a project." : WHATSAPP_MSG;
+  document.querySelectorAll(".js-whats").forEach(a => a.href = whats(msg));
+  try { localStorage.setItem("idioma", lang); } catch (e) {}
+}
+document.querySelectorAll(".idioma button").forEach(b => b.addEventListener("click", () => aplicaIdioma(b.dataset.lang)));
+try { if (localStorage.getItem("idioma") === "en") aplicaIdioma("en"); } catch (e) {}
+
+// Entrada suave dos blocos
+const obs = "IntersectionObserver" in window && new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add("visivel"); obs.unobserve(e.target); }
+}), { rootMargin: "0px 0px -8% 0px" });
+document.querySelectorAll(".revela").forEach(el => obs ? obs.observe(el) : el.classList.add("visivel"));
+</script>
+<script src="/contador.js" defer></script>
+</body>
+</html>
