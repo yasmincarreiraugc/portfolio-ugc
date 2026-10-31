@@ -383,7 +383,6 @@ h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:
 /* quadro no amarelo da paleta */
 .conversar{max-width:1220px;margin:56px auto 0;background:var(--manteiga);color:#111111;border-radius:30px;position:relative;box-shadow:0 18px 34px -26px rgba(17,17,17,.45)}
 .conversar .miolo{padding-top:38px;padding-bottom:30px;display:grid;gap:22px}
-.conversar .estrela-canto{position:absolute;top:-22px;right:28px;width:48px;height:48px;transform:rotate(14deg)}
 .conversar h2{font-size:52px}
 .conversar p{margin:10px 0 0;font-size:14px;line-height:1.5;color:#555555}
 .ctas{display:grid;gap:10px}
@@ -430,6 +429,14 @@ h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:
 
 /* ---------- celular: coluna estreita ---------- */
 @media (max-width:959px){
+  /* capa no celular: pesquisa menor e colada no título, frase pequena embaixo para sobrar foto */
+  .capa{gap:0}
+  .capa .pesquisa{max-width:270px;margin-top:14px;padding:4px 4px 4px 14px}
+  .capa .pesquisa input{font-size:12.5px}
+  .capa .pesquisa button{width:32px;height:32px}
+  .capa .pesquisa svg{width:14px;height:14px}
+  .capa .citacao{width:200px;bottom:18px;padding:10px 12px 10px 32px;border-radius:14px;font-size:11.5px;line-height:1.45}
+  .capa .citacao::before{left:8px;top:2px;font-size:40px}
   body{padding:10px 10px calc(10px + var(--nav) + env(safe-area-inset-bottom))}
   .painel{border-radius:0 0 24px 24px}
   .topo{border-radius:24px 24px 0 0}
@@ -492,7 +499,6 @@ h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:
   .conversar{margin-top:80px;border-radius:30px}
   .conversar .miolo{grid-template-columns:1fr minmax(0,440px);align-items:center;column-gap:60px;padding-top:64px;padding-bottom:40px}
   .conversar h2{font-size:72px}
-  .conversar .estrela-canto{right:12%}
   .assinatura{margin-top:22px}
   .aviso{bottom:32px}
 }
@@ -722,7 +728,6 @@ h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:
 
 <!-- ================= BORA CONVERSAR ================= -->
 <footer class="conversar" id="conversar">
-  <svg class="estrela-canto" viewBox="-3 -3 46 46" aria-hidden="true"><use href="#estrela" fill="#ffd60a" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/></svg>
   <div class="miolo">
     <div>
       <h2>Bora conversar?</h2>
