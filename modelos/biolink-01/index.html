@@ -43,6 +43,7 @@ body{
   overflow-x:clip;
 }
 /* cartão branco de cantos arredondados por cima do fundo bege (igual ao portfólio) */
+[hidden]{display:none!important}
 .painel{max-width:1220px;margin:0 auto;background:#fff;border-radius:0 0 36px 36px;overflow:clip}
 .resto{max-width:1220px;margin:0 auto}
 a{color:inherit;text-decoration:none}
@@ -103,25 +104,36 @@ h1,h2,h3{font-family:var(--titulo);font-weight:700;text-transform:uppercase;marg
   .idioma button svg{display:none}
 }
 
-/* ---------- capa: título grande à esquerda, foto grande à direita com um cartão por cima ---------- */
-.capa{display:grid;gap:22px;padding-top:6px;padding-bottom:26px}
-h1 span{display:inline;color:#b5ada6}
-.citacao{position:relative;padding-left:30px;font-size:15px}
-.citacao::before{content:"“";position:absolute;left:0;top:-14px;font-family:Georgia,serif;font-size:56px;line-height:1;color:#ded7cf}
-.capa-botoes{display:flex;gap:8px;margin-top:20px}
-.capa-btn{display:inline-flex;align-items:center;padding:11px 20px;border-radius:999px;background:#f1ede8;font-size:14px;font-weight:600;color:var(--tinta);transition:transform .2s}
-.capa-btn:hover{transform:translateY(-2px)}
-.capa-btn.escuro{background:var(--tinta);color:#fff}
+/* ---------- capa: título de ponta a ponta, abas + pesquisa à esquerda, foto grande à direita ---------- */
+.capa{display:grid;gap:20px;padding-top:10px;padding-bottom:26px}
+.capa h1{position:relative;z-index:2;font-family:var(--sans);font-weight:600;text-transform:none;letter-spacing:-.035em;line-height:1.02;font-size:clamp(40px,11vw,92px);margin:0}
+.capa h1 span{color:#b9b1aa}
+/* abas */
+.abas{display:flex;gap:6px}
+.aba{padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600;color:var(--tinta);transition:background .2s}
+.aba.ativa,.aba:hover{background:#fff;box-shadow:0 4px 14px -6px rgba(30,25,21,.25)}
+/* barra de pesquisa com o botão redondo */
+.pesquisa{display:flex;align-items:center;gap:8px;margin-top:10px;padding:6px 6px 6px 18px;border-radius:999px;background:#fff;box-shadow:0 10px 30px -18px rgba(30,25,21,.45)}
+.pesquisa input{flex:1;min-width:0;border:0;outline:none;background:none;font:inherit;font-size:14px;color:var(--tinta)}
+.pesquisa input::placeholder{color:#a9a29b}
+.pesquisa button{flex:none;width:42px;height:42px;border:0;border-radius:50%;background:var(--rosa);cursor:pointer;display:grid;place-items:center;transition:transform .2s}
+.pesquisa button:hover{transform:scale(1.06)}
+.pesquisa svg{width:18px;height:18px;fill:none;stroke:var(--tinta);stroke-width:2.2;stroke-linecap:round}
+/* frase com aspas grandes */
+.citacao{position:relative;margin-top:26px;padding-left:34px;font-size:14px;max-width:340px}
+.citacao::before{content:"“";position:absolute;left:0;top:-18px;font-family:Georgia,serif;font-size:70px;line-height:1;color:#ddd5cc}
+/* foto grande com cartão branco no canto */
 .capa-foto{position:relative;aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:#f3eee9}
 .capa-foto > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .foto-modelo{position:absolute;inset:0;background:linear-gradient(160deg,#f9d6ea,#f1ede8 60%,#e8dfd6);display:grid;place-items:center;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(30,25,21,.4)}
-/* cartão branco no canto de baixo da foto, com recorte, como num site de vitrine */
-.capa-cartao{position:absolute;z-index:2;right:0;bottom:0;width:min(270px,78%);padding:16px 16px 14px;border-radius:24px 0 0 0;background:#fff;display:grid;gap:3px}
+.capa-cartao{position:absolute;z-index:2;right:0;bottom:0;width:min(300px,84%);padding:18px 18px 16px;border-radius:26px 0 0 0;background:#fff;display:grid;gap:4px}
 .capa-cartao b{font-size:15px}
-.capa-cartao small{font-size:12px;color:#8b847e}
-.capa-cartao a{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px;padding:6px 6px 6px 14px;border-radius:999px;background:#f1ede8;font-size:12.5px;font-weight:600}
-.capa-cartao a i{width:28px;height:28px;border-radius:50%;background:var(--rosa);display:grid;place-items:center;font-style:normal;transition:transform .2s}
-.capa-cartao a:hover i{transform:rotate(-45deg)}
+.capa-cartao small{font-size:11.5px;line-height:1.45;color:#8b847e}
+.cartao-rodape{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px}
+.cartao-pilula{padding:7px 12px;border-radius:999px;background:#f1ede8;font-size:12px;font-weight:700}
+.cartao-rodape a{display:flex;align-items:center;gap:8px;padding:4px 4px 4px 12px;border:1.5px solid #e6dfd8;border-radius:999px;font-size:12px;font-weight:600}
+.cartao-rodape a i{width:28px;height:28px;border-radius:50%;background:var(--rosa);display:grid;place-items:center;font-style:normal;transition:transform .2s}
+.cartao-rodape a:hover i{transform:rotate(-45deg)}
 /* links (caixinhas) logo depois da capa, em caixas brancas */
 .links{margin-top:26px}
 .links .caixas{margin:0}
@@ -372,11 +384,13 @@ h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:
 
   /* capa compacta: cabe na tela sem rolar */
   /* foto mais estreita, texto e caixinhas mais largos */
-  .capa{grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:44px;align-items:center;padding-top:14px;padding-bottom:30px}
-  .capa-foto{aspect-ratio:auto;height:480px}
+  .capa{grid-template-columns:minmax(0,.42fr) minmax(0,.58fr);grid-template-rows:auto 1fr;column-gap:40px;row-gap:0;padding-top:22px;padding-bottom:34px}
+  .capa h1{grid-column:1 / -1;grid-row:1;font-size:clamp(50px,5.4vw,74px)}
+  .capa-esquerda{grid-column:1;grid-row:2;padding-top:34px}
+  /* a foto começa na altura da segunda linha do título, que passa por cima dela */
+  .capa-foto{grid-column:2;grid-row:1 / 3;margin-top:calc(clamp(50px,5.4vw,74px) * 1.04);aspect-ratio:auto;height:440px}
   .links .caixas{grid-template-columns:1fr 1fr;align-items:start}
   .capa-ola{font-size:14px}
-  h1{font-size:clamp(48px,5.2vw,72px)}
   .intro{font-size:15px;margin-top:22px;max-width:380px}
 
   .marcas{margin-top:40px}
@@ -479,24 +493,35 @@ h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:
   <div class="painel">
   <!-- ================= ABERTURA: foto + apresentação + links ================= -->
   <section class="miolo capa" aria-label="Apresentação">
-    <div class="capa-texto">
-      <div class="rotulo">Diário de uma creator</div>
-      <!-- EDITAR: título (as palavras dentro de <span> ficam em cinza) -->
-      <h1>UGC creator <span>e mil e uma</span> coisas…</h1>
-      <p class="intro citacao">Transformo minha rotina em conteúdo que conecta com pessoas e marcas.</p>
-      <div class="capa-botoes">
-        <a class="capa-btn escuro js-whats" href="#conversar" target="_blank" rel="noopener">Fale comigo</a>
-        <a class="capa-btn" href="#links">Meus links</a>
+    <!-- EDITAR: título de ponta a ponta (as palavras dentro de <span> ficam em cinza) -->
+    <h1>Conteúdo real <span>que conecta</span><br><span>marcas</span> e pessoas</h1>
+
+    <div class="capa-esquerda">
+      <!-- abas + barra de pesquisa: as abas levam direto ao link; a pesquisa procura nos links da página -->
+      <div class="abas" role="group" aria-label="Atalhos">
+        <a class="aba ativa" href="#portfolio">Portfólio</a>
+        <a class="aba js-whats" href="#conversar" target="_blank" rel="noopener">Parcerias</a>
+        <a class="aba js-abre-redes" href="#caixa-redes">Redes</a>
       </div>
+      <form class="pesquisa" id="pesquisa" role="search">
+        <input type="search" id="pesquisa-texto" placeholder="Portfólio, parcerias, redes, mídia kit…" aria-label="Pesquisar nos links">
+        <button type="submit" aria-label="Pesquisar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></button>
+      </form>
+      <!-- EDITAR: frase com aspas -->
+      <p class="intro citacao">Transformo minha rotina em conteúdo que conecta com pessoas e marcas. Vem ver o que eu crio.</p>
     </div>
-    <!-- FOTO DA CAPA: troque o bloco "foto-modelo" por <img src="fotos/capa.jpg" alt="..."> (foto vertical, com fundo) -->
+
+    <!-- FOTO DA CAPA: troque o bloco "foto-modelo" por <img src="fotos/capa.jpg" alt="..."> (foto horizontal ou vertical, com fundo) -->
     <div class="capa-foto">
       <div class="foto-modelo">Sua foto</div>
-      <!-- EDITAR: cartão em cima da foto -->
+      <!-- EDITAR: cartão no canto da foto -->
       <div class="capa-cartao">
         <b>Olá, sou a Seu Nome!</b>
-        <small>UGC creator · Sua cidade</small>
-        <a class="js-whats" href="#conversar" target="_blank" rel="noopener"><span>Em que posso ajudar?</span><i aria-hidden="true">→</i></a>
+        <small>UGC creator e criadora de conteúdo, do jeitinho da sua marca.</small>
+        <div class="cartao-rodape">
+          <span class="cartao-pilula">+40 marcas</span>
+          <a class="js-whats" href="#conversar" target="_blank" rel="noopener" aria-label="Fale comigo no WhatsApp"><span data-pt="Fale comigo">Fale comigo</span><i aria-hidden="true">→</i></a>
+        </div>
       </div>
     </div>
   </section>
@@ -540,23 +565,6 @@ h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:
         </a></li>
       </ul>
   </section>
-  <!-- ================= DESTAQUE DO MOMENTO ================= -->
-  <section class="miolo revela">
-    <div class="destaque">
-      <span class="selo-pilula">novidade</span>
-      <div>
-        <small>Destaque do momento</small>
-        <!-- EDITAR: título, texto e link do destaque (campanha, data especial, lançamento...) -->
-        <h2>Campanha especial</h2>
-        <p class="destaque-texto">Vídeos de topo, meio e fundo de funil, para sua marca ser vista, desejada e escolhida.</p>
-      </div>
-      <a class="pilula js-whats-destaque" href="#conversar" target="_blank" rel="noopener">
-        <span>Garanta seus vídeos a tempo<b>reservar minha agenda</b></span>
-        <span class="seta">→</span>
-      </a>
-    </div>
-  </section>
-
   <!-- ================= FAIXA DE MARCAS (lista no script lá embaixo) ================= -->
   <section class="miolo marcas revela" id="marcas" aria-label="Marcas com quem já trabalhei">
     <p class="marcas-titulo">Marcas que confiam no meu trabalho</p>
@@ -619,11 +627,9 @@ h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:
 const WHATSAPP = "5500000000000";
 const WHATSAPP_MSG = "Oi! Vim pelo seu Instagram e quero conversar sobre um projeto.";
 const WHATSAPP_MSG_EN = "Hi! I found you on Instagram and I'd like to talk about a project.";
-const WHATSAPP_MSG_DESTAQUE = "Oi! Quero conversar sobre a campanha especial.";
 const whats = msg => "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg);
 document.querySelectorAll(".js-whats").forEach(a => a.href = whats(WHATSAPP_MSG));
 document.querySelectorAll(".js-whats-msg").forEach(a => a.href = whats(a.dataset.msg));
-document.querySelectorAll(".js-whats-destaque").forEach(a => a.href = whats(WHATSAPP_MSG_DESTAQUE));
 
 // EDITAR: marcas da faixa (logo na pasta "logos"; sem logo, aparece o nome)
 // cheio: true = a logo ocupa o círculo todo
@@ -769,6 +775,25 @@ function aplicaIdioma(lang) {
 }
 document.querySelectorAll(".idioma button").forEach(b => b.addEventListener("click", () => aplicaIdioma(b.dataset.lang)));
 try { if (localStorage.getItem("idioma") === "en") aplicaIdioma("en"); } catch (e) {}
+
+// Barra de pesquisa da capa: procura nas caixinhas de links e mostra só as que combinam
+const formPesquisa = document.getElementById("pesquisa"), campoPesquisa = document.getElementById("pesquisa-texto");
+const caixasLinks = [...document.querySelectorAll("#links .caixas > li")];
+const semAcento = t => t.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+function filtraLinks() {
+  const termo = semAcento(campoPesquisa.value.trim());
+  caixasLinks.forEach(li => li.hidden = !!termo && !semAcento(li.textContent).includes(termo));
+}
+campoPesquisa.addEventListener("input", filtraLinks);
+formPesquisa.addEventListener("submit", e => {
+  e.preventDefault();
+  filtraLinks();
+  document.getElementById("links").scrollIntoView({ behavior: "smooth", block: "start" });
+});
+// Abas da capa: a que foi tocada fica marcada
+document.querySelectorAll(".abas .aba").forEach(a => a.addEventListener("click", () => {
+  document.querySelectorAll(".abas .aba").forEach(b => b.classList.toggle("ativa", b === a));
+}));
 
 // Entrada suave dos blocos
 const obs = "IntersectionObserver" in window && new IntersectionObserver(es => es.forEach(e => {
