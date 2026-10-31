@@ -260,6 +260,31 @@ h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:
 .mini-rotulo{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--amarelo)}
 .mini-pilula{display:inline-block;background:var(--tinta);color:#fff;border-radius:999px;padding:4px 11px;font-size:11px;font-weight:600}
 
+/* história: fatos em pílulas; serviços: lista com nome e frase */
+.fatos{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.assina-historia{margin:auto 0 0;padding-top:22px;font-family:var(--nota);font-size:28px;line-height:1;color:var(--magenta)}
+.fatos li{padding:7px 14px;border-radius:999px;background:var(--creme);font-size:12.5px;font-weight:600}
+.lista-servicos{display:grid;gap:10px;margin:0 0 20px;padding:0;list-style:none}
+.lista-servicos li{display:grid;gap:2px;padding:12px 14px;border-radius:16px;background:var(--creme)}
+.lista-servicos b{font-size:14px}
+.lista-servicos span{font-size:12.5px;line-height:1.5;color:#57514c}
+#servicos .btn-claro{background:var(--ceu)}
+/* cupons e vitrines */
+.cupons-cartao{margin-top:28px}
+.cupons-cartao .cupons{margin-top:6px}
+.vitrines{display:grid;gap:8px;margin-top:16px}
+.vitrines a{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 12px 12px 16px;border-radius:16px;background:var(--manteiga);font-size:14px;font-weight:700;transition:transform .2s}
+.vitrines a:hover{transform:translateY(-2px)}
+.vitrines i{width:30px;height:30px;border-radius:50%;background:var(--tinta);color:#fff;display:grid;place-items:center;font-style:normal;font-size:13px}
+/* depoimentos */
+#depoimentos{margin-top:40px}
+.depoimentos{display:grid;gap:12px}
+.depo{margin:0;padding:22px 20px 18px;border-radius:22px;background:#fff;box-shadow:0 18px 34px -24px rgba(30,25,21,.35)}
+.depo blockquote{margin:0;font-size:14.5px;line-height:1.6;color:#2b2622}
+.depo blockquote::before{content:"“";display:block;height:24px;font-family:Georgia,serif;font-size:46px;line-height:1;color:var(--rosa)}
+.depo figcaption{display:grid;margin-top:14px;font-size:12px;color:#8b847e}
+.depo figcaption b{font-size:13.5px;color:var(--tinta)}
+
 /* cupons */
 .cupons{display:grid;gap:16px}
 .cupom{
@@ -415,6 +440,9 @@ h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:
   .cartao-escuro h2{font-size:52px}
   .cartao-amarelo h2{font-size:46px}
   .grade-duas{grid-template-columns:1fr 1fr;align-items:stretch;margin-top:48px}
+  .cupons-cartao .cupons{grid-template-columns:repeat(3,1fr)}
+  .vitrines{grid-template-columns:1fr 1fr}
+  .depoimentos{grid-template-columns:repeat(3,1fr)}
   .cartao-claro{padding:30px 28px 28px}
   .cartao-claro h2{font-size:48px}
 
@@ -563,30 +591,96 @@ h1{font-weight:600;font-size:clamp(38px,11vw,70px);line-height:1;letter-spacing:
           <span class="caixa-texto"><strong>Meu mídia kit</strong><small>números, público e valores</small></span>
           <span class="caixa-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
         </a></li>
+        <li class="caixa-azul"><a href="#cupons">
+          <span class="caixa-icone"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4z"/><path d="M10 9v6"/></svg></span>
+          <span class="caixa-texto"><strong>Cupons e vitrines</strong><small>descontos das marcas que eu uso</small></span>
+          <span class="caixa-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        </a></li>
       </ul>
   </section>
+  <!-- ================= DESTAQUE DO MOMENTO ================= -->
+  <section class="miolo revela">
+    <div class="destaque">
+      <span class="selo-pilula">novidade</span>
+      <div>
+        <small>Destaque do momento</small>
+        <!-- EDITAR: o serviço do momento (título, texto e mensagem do WhatsApp lá no script) -->
+        <h2>Seu destaque aqui</h2>
+        <p class="destaque-texto">Coloque aqui o serviço do momento, o seu destaque.</p>
+      </div>
+      <a class="pilula js-whats-destaque" href="#conversar" target="_blank" rel="noopener">
+        <span>Quero saber mais<b>fala comigo no WhatsApp</b></span>
+        <span class="seta">→</span>
+      </a>
+    </div>
+  </section>
+
   <!-- ================= FAIXA DE MARCAS (lista no script lá embaixo) ================= -->
   <section class="miolo marcas revela" id="marcas" aria-label="Marcas com quem já trabalhei">
     <p class="marcas-titulo">Marcas que confiam no meu trabalho</p>
     <div class="marcas-faixa"><div class="marcas-trilho" id="faixaMarcas"></div></div>
   </section>
 
-  <!-- ================= DUAS CAIXAS BRANCAS: MINHA HISTÓRIA + SERVIÇOS ================= -->
+  <!-- ================= DUAS CAIXAS BRANCAS: MINHA HISTÓRIA + MEUS SERVIÇOS (tudo contado aqui mesmo) ================= -->
   <section class="miolo grade grade-duas revela">
     <div class="cartao-claro" id="historia">
       <span class="rotulo">Prazer, sou a Seu Nome</span>
       <h2>Minha história</h2>
-      <p>Aqui entra um resumo da cliente: idade, cidade, o que gosta de criar e para quem. Duas ou três frases, bem do jeito dela.</p>
-      <!-- EDITAR: link da história completa (ou tire o botão) -->
-      <a class="btn-claro" href="#">ver minha história completa <span class="seta">→</span></a>
+      <!-- EDITAR: a história da cliente, contada toda aqui -->
+      <p>Aqui entra a história da cliente: quem ela é, idade, cidade e como começou a criar conteúdo.</p>
+      <p>Depois, o que ela mais gosta de gravar, para quem cria e o que move o trabalho dela. Tudo do jeitinho dela, em poucas frases.</p>
+      <ul class="fatos">
+        <li>Fato 1</li><li>Fato 2</li><li>Fato 3</li>
+      </ul>
+      <!-- EDITAR: assinatura no fim da história -->
+      <p class="assina-historia">com carinho, Seu Nome</p>
     </div>
 
     <div class="cartao-claro" id="servicos">
       <span class="rotulo">Como eu posso ajudar</span>
       <h2>Meus serviços</h2>
-      <p>UGC orgânico, vídeos para anúncios, publi no meu perfil e fotos de produto, sempre do jeito da sua marca.</p>
-      <!-- EDITAR: link dos serviços (portfólio ou WhatsApp) -->
-      <a class="btn-claro" href="#conversar">quero saber mais <span class="seta">→</span></a>
+      <!-- EDITAR: um item por serviço que a cliente oferece (nome + uma frase) -->
+      <ul class="lista-servicos">
+        <li><b>UGC orgânico</b><span>Vídeos naturais para o perfil da marca, com roteiro, gravação e edição.</span></li>
+        <li><b>UGC para anúncios</b><span>Criativos feitos para tráfego pago, com ganchos que prendem.</span></li>
+        <li><b>Publi no meu perfil</b><span>Sua marca nos meus Reels, Stories e TikTok.</span></li>
+        <li><b>Fotos de produto</b><span>Fotos lifestyle com luz natural, prontas para site e redes.</span></li>
+      </ul>
+      <a class="btn-claro js-whats-msg" data-msg="Oi! Vim pelo seu Instagram e quero saber mais sobre os seus serviços." href="#conversar" target="_blank" rel="noopener">pedir um orçamento <span class="seta">→</span></a>
+    </div>
+  </section>
+
+  <!-- ================= CUPONS E VITRINES ================= -->
+  <section class="miolo revela" id="cupons" aria-label="Cupons e vitrines">
+    <div class="cartao-claro cupons-cartao">
+      <span class="rotulo">Para você economizar</span>
+      <h2>Cupons e vitrines</h2>
+      <p>Copia o código e usa na finalização da compra, no site da marca.</p>
+      <!-- EDITAR: um cupom por marca (nome, desconto, código e link do site) -->
+      <div class="cupons">
+        <div class="cupom"><span class="marca-tag">Marca 1</span><div><b>10% off</b><code>SEUCUPOM10</code></div>
+          <div class="cupom-acoes"><button type="button" data-copiar="SEUCUPOM10">copiar</button><a href="#" target="_blank" rel="noopener">ir pro site ↗</a></div></div>
+        <div class="cupom"><span class="marca-tag">Marca 2</span><div><b>15% off</b><code>SEUCUPOM15</code></div>
+          <div class="cupom-acoes"><button type="button" data-copiar="SEUCUPOM15">copiar</button><a href="#" target="_blank" rel="noopener">ir pro site ↗</a></div></div>
+        <div class="cupom"><span class="marca-tag">Marca 3</span><div><b>Frete grátis</b><code>SEUCUPOMFRETE</code></div>
+          <div class="cupom-acoes"><button type="button" data-copiar="SEUCUPOMFRETE">copiar</button><a href="#" target="_blank" rel="noopener">ir pro site ↗</a></div></div>
+      </div>
+      <!-- EDITAR: links das vitrines (Amazon, Shopee, Mercado Livre...) -->
+      <div class="vitrines">
+        <a href="#" target="_blank" rel="noopener"><span>Minha vitrine na Amazon</span><i>↗</i></a>
+        <a href="#" target="_blank" rel="noopener"><span>Meus achadinhos na Shopee</span><i>↗</i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DEPOIMENTOS ================= -->
+  <section class="miolo revela" id="depoimentos" aria-label="Depoimentos">
+    <p class="marcas-titulo">O que as marcas dizem</p>
+    <!-- EDITAR: um cartão por depoimento -->
+    <div class="depoimentos">
+      <figure class="depo"><blockquote>O vídeo virou o nosso melhor anúncio do mês. Entrega rápida e muito cuidadosa.</blockquote><figcaption><b>@marcaum</b><span>Criativo para anúncio</span></figcaption></figure>
+      <figure class="depo"><blockquote>Ela entendeu o produto melhor que a gente. Parecia uma cliente real indicando.</blockquote><figcaption><b>@marcadois</b><span>UGC para e-commerce</span></figcaption></figure>
+      <figure class="depo"><blockquote>Já fechamos o terceiro pacote. Conteúdo lindo e que vende.</blockquote><figcaption><b>@marcatres</b><span>Publi no perfil</span></figcaption></figure>
     </div>
   </section>
   </div>
@@ -630,6 +724,8 @@ const WHATSAPP_MSG_EN = "Hi! I found you on Instagram and I'd like to talk about
 const whats = msg => "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg);
 document.querySelectorAll(".js-whats").forEach(a => a.href = whats(WHATSAPP_MSG));
 document.querySelectorAll(".js-whats-msg").forEach(a => a.href = whats(a.dataset.msg));
+const WHATSAPP_MSG_DESTAQUE = "Oi! Quero saber mais sobre o seu destaque do momento.";
+document.querySelectorAll(".js-whats-destaque").forEach(a => a.href = whats(WHATSAPP_MSG_DESTAQUE));
 
 // EDITAR: marcas da faixa (logo na pasta "logos"; sem logo, aparece o nome)
 // cheio: true = a logo ocupa o círculo todo
@@ -719,6 +815,10 @@ const EN = {
   "Transformo minha rotina em conteúdo que conecta com pessoas e marcas.": "I turn my routine into content that connects people and brands.",
   "Olá, sou a Seu Nome!": "Hi, I'm Seu Nome!", "Em que posso ajudar?": "How can I help?",
   "UGC creator e mil e uma coisas…": "UGC creator and a thousand and one things…",
+  "Seu destaque aqui": "Your highlight here", "Coloque aqui o serviço do momento, o seu destaque.": "Put your current featured service here.", "Quero saber mais": "I want to know more",
+  "Conteúdo real": "Real content", "que conecta": "that connects", "marcas": "brands", "e pessoas": "and people", "Parcerias": "Partnerships", "Fale comigo": "Talk to me", "+40 marcas": "+40 brands",
+  "Transformo minha rotina em conteúdo que conecta com pessoas e marcas. Vem ver o que eu crio.": "I turn my routine into content that connects people and brands. Come see what I create.",
+  "UGC creator e criadora de conteúdo, do jeitinho da sua marca.": "UGC and content creator, in your brand's style.",
   "Meu mídia kit": "My media kit", "números, público e valores": "numbers, audience and rates", "Campanha especial": "Special campaign",
   "Prazer, sou a Seu Nome": "Nice to meet you, I'm Seu Nome", "Como eu posso ajudar": "How I can help", "Meus serviços": "My services",
   "Aqui entra um resumo da cliente: idade, cidade, o que gosta de criar e para quem. Duas ou três frases, bem do jeito dela.": "Here goes a short summary: age, city, what she loves to create and for whom. Two or three sentences, in her own voice.",
@@ -739,6 +839,20 @@ const EN = {
   "Vídeos de topo, meio e fundo de funil, para sua marca ser vista, desejada e escolhida.": "Top, middle and bottom of funnel videos, so your brand gets seen, wanted and chosen.", "Garanta seus vídeos a tempo": "Get your videos in time", "reservar minha agenda": "book my schedule",
   "Meus": "My", "cupons": "coupons", "Copia o código e usa na finalização da compra, no site da marca.": "Copy the code and use it at checkout on the brand's website.",
   "Sou embaixadora": "Ambassador", "Nome da marca": "Brand name", "copiar": "copy", "ir pro site ↗": "visit site ↗",
+  "Aqui entra a história da cliente: quem ela é, idade, cidade e como começou a criar conteúdo.": "Here goes the client's story: who she is, age, city and how she started creating content.",
+  "Depois, o que ela mais gosta de gravar, para quem cria e o que move o trabalho dela. Tudo do jeitinho dela, em poucas frases.": "Then, what she loves to film, who she creates for and what drives her work. All in her own way, in a few sentences.",
+  "com carinho, Seu Nome": "with love, Your Name", "Fato 1": "Fact 1", "Fato 2": "Fact 2", "Fato 3": "Fact 3", "Como eu posso ajudar": "How I can help", "Meus serviços": "My services",
+  "UGC orgânico": "Organic UGC", "Vídeos naturais para o perfil da marca, com roteiro, gravação e edição.": "Natural videos for the brand's profile, with script, filming and editing.",
+  "UGC para anúncios": "UGC for ads", "Criativos feitos para tráfego pago, com ganchos que prendem.": "Creatives made for paid traffic, with hooks that hold attention.",
+  "Publi no meu perfil": "Sponsored post on my profile", "Sua marca nos meus Reels, Stories e TikTok.": "Your brand on my Reels, Stories and TikTok.",
+  "Fotos de produto": "Product photos", "Fotos lifestyle com luz natural, prontas para site e redes.": "Lifestyle photos in natural light, ready for websites and socials.",
+  "pedir um orçamento": "ask for a quote", "Para você economizar": "Save money", "Cupons e vitrines": "Coupons & shops",
+  "descontos das marcas que eu uso": "discounts from brands I use", "Frete grátis": "Free shipping",
+  "Minha vitrine na Amazon": "My Amazon shop", "Meus achadinhos na Shopee": "My Shopee finds", "O que as marcas dizem": "What brands say",
+  "O vídeo virou o nosso melhor anúncio do mês. Entrega rápida e muito cuidadosa.": "The video became our best ad of the month. Fast and careful delivery.",
+  "Ela entendeu o produto melhor que a gente. Parecia uma cliente real indicando.": "She understood the product better than we did. It felt like a real customer recommending it.",
+  "Já fechamos o terceiro pacote. Conteúdo lindo e que vende.": "We've booked our third package. Beautiful content that sells.",
+  "Criativo para anúncio": "Ad creative", "UGC para e-commerce": "E-commerce UGC", "Publi no perfil": "Sponsored post",
   "Prazer, sou a Yas": "Nice to meet you, I'm Yas", "Minha história": "My story",
   "Pode deixar que eu crio para você": "Leave it to me, I'll create it for you", "Portfólios, bio links e sites": "Portfolios, bio links and websites",
   "32 anos, mãe do Bernardo e moradora do litoral de SP. Crio conteúdo para mulheres sobre autocuidado, de um jeito natural, mostrando que mesmo na rotina corrida a gente não pode se esquecer de nós mesmas.": "32, Bernardo's mom, living on the São Paulo coast. I create self-care content for women in a natural way, showing that even in a busy routine we can't forget about ourselves.",
