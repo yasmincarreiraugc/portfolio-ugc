@@ -269,8 +269,9 @@ a:hover .play{transform:scale(1.1)}
   .abrir-menu{display:block}
   /* no celular o texto fica embaixo, com o véu clarinho só nessa parte */
   .capa{padding:130px 0 18px}
-  .capa-video{object-position:62% center;height:78%}
-  .capa::before{background:linear-gradient(0deg,var(--fundo) 0%,var(--fundo) 30%,rgba(244,238,251,.9) 58%,rgba(244,238,251,.1) 82%,rgba(244,238,251,0) 100%)}
+  .capa-video{object-position:62% center}
+  .capa-video,.capa::before{-webkit-mask:linear-gradient(180deg,#000 40%,transparent 74%);mask:linear-gradient(180deg,#000 40%,transparent 74%)}
+  .capa::before{background:linear-gradient(0deg,rgba(244,238,251,.95) 30%,rgba(244,238,251,.85) 58%,rgba(244,238,251,.1) 85%,rgba(244,238,251,0) 100%)}
   .marcas{margin-top:26px}
   .logo-quadro{width:76px;height:76px;margin-right:12px;border-radius:14px}
   .capa h1{font-size:40px}
