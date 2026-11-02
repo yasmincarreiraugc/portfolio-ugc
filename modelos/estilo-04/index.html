@@ -166,7 +166,10 @@ a:hover .play{transform:scale(1.1)}
 .filtro.ativo{background:var(--roxo);border-color:var(--roxo);color:#fff}
 /* carrossel com setas (vídeos por nicho e fotos) */
 .carrossel{position:relative}
-.carrossel .seta{position:absolute;top:42%;z-index:4;width:44px;height:44px;margin-top:-22px;border:1px solid var(--linha);border-radius:50%;background:var(--papel);color:var(--roxo);font:600 28px/1 var(--serif);display:grid;place-items:center;padding-bottom:4px;cursor:pointer;box-shadow:var(--sombra);transition:background .2s,color .2s}
+.carrossel .seta{position:absolute;top:42%;z-index:4;width:44px;height:44px;margin-top:-22px;border:1px solid var(--linha);border-radius:50%;background:var(--papel);color:var(--roxo);font-size:0;display:grid;place-items:center;cursor:pointer;box-shadow:var(--sombra);transition:background .2s,color .2s}
+/* a seta desenhada (o ‹ › do texto fica escondido) */
+.carrossel .seta::before{content:"";width:10px;height:10px;border-left:2.4px solid currentColor;border-bottom:2.4px solid currentColor;transform:translateX(2px) rotate(45deg)}
+.carrossel .prox::before{transform:translateX(-2px) rotate(-135deg)}
 .carrossel .seta:hover{background:var(--roxo);color:#fff}
 .carrossel .ant{left:-20px}
 .carrossel .prox{right:-20px}
