@@ -275,8 +275,11 @@ a:hover .play{transform:scale(1.1)}
   .polaroid{width:min(320px,88%);justify-self:center}
   .folha{padding:30px 22px 26px 50px;background-image:linear-gradient(90deg,transparent 34px,rgba(180,156,224,.55) 34px,rgba(180,156,224,.55) 36px,transparent 36px),repeating-linear-gradient(transparent 0 31px,var(--linha) 31px 32px)}
   /* destaques e nichos viram carrossel de lado */
-  .destaques,.galeria{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:18px 18px 30px;margin:0 -18px;scrollbar-width:none}
-  .destaques::-webkit-scrollbar,.galeria::-webkit-scrollbar{display:none}
+  .destaques,.galeria,.fotos{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:18px 18px 30px;margin:0 -18px;scrollbar-width:none}
+  .destaques::-webkit-scrollbar,.galeria::-webkit-scrollbar,.fotos::-webkit-scrollbar{display:none}
+  .foto-quadro{flex:none;width:66%;scroll-snap-align:center}
+  .foto-quadro:nth-child(n){transform:rotate(-1deg)}
+  .foto-quadro:nth-child(even){transform:rotate(1deg)}
   .destaque{flex:none;width:72%;scroll-snap-align:center}
   .destaque:nth-child(2){transform:rotate(1.5deg)}
   .video{flex:none;width:58%;scroll-snap-align:center}
