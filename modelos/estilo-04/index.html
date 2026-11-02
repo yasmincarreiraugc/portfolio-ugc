@@ -81,6 +81,14 @@ em{font-style:italic;color:var(--acento)}
 .menu{display:flex;gap:24px;font-size:14px;font-weight:600}
 .menu a{color:var(--tinta-2);transition:color .2s}
 .menu a:hover{color:var(--roxo)}
+/* trabalhos abre um submenu (destaques, vídeos e fotos) */
+.menu-grupo{position:relative}
+.menu-pai::after{content:"";display:inline-block;width:6px;height:6px;margin:0 0 3px 7px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg)}
+.submenu{position:absolute;top:100%;left:-16px;padding-top:14px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .2s,transform .2s,visibility .2s}
+.submenu-caixa{display:grid;min-width:170px;padding:8px;background:var(--papel);border:1px solid var(--linha);border-radius:10px;box-shadow:var(--sombra)}
+.submenu a{padding:9px 12px;border-radius:6px}
+.submenu a:hover{background:var(--papel-2)}
+.menu-grupo:hover .submenu,.menu-grupo:focus-within .submenu{opacity:1;visibility:visible;transform:none}
 .direita{display:flex;align-items:center;gap:12px}
 .idiomas{display:flex;padding:3px;border-radius:999px;border:1px solid var(--linha);background:#fff}
 .idiomas button{border:0;background:none;color:var(--tinta-2);font:700 12px var(--sans);padding:6px 10px;border-radius:999px;cursor:pointer}
