@@ -141,23 +141,30 @@ em{font-style:italic;color:var(--acento)}
 .folha li::before{content:"✓";margin-right:10px;color:var(--verde);font-weight:800}
 .folha .assinatura{margin:18px 0 0;line-height:1.2;font-family:var(--mao);font-size:30px;color:var(--roxo)}
 
-/* ---------- destaques: três polaroids de vídeo ---------- */
-.destaques{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px;max-width:900px;margin:0 auto}
-.destaque{position:relative;display:block;padding:14px 14px 20px;background:var(--papel);color:var(--tinta);box-shadow:var(--sombra);transition:transform .3s}
-.destaque:nth-child(1){transform:rotate(-2deg)}
-.destaque:nth-child(2){transform:rotate(1.5deg) translateY(18px)}
-.destaque:nth-child(3){transform:rotate(-1deg)}
-.destaque:hover{transform:rotate(0) translateY(-6px)}
-.destaque .fita{top:-12px;left:50%;margin-left:-46px}
-.destaque .foto{aspect-ratio:9/13}
-.etiqueta{position:absolute;z-index:2;top:12px;left:12px;padding:4px 10px;background:var(--papel);font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta)}
+/* ---------- destaques: cartões em leque (o do meio na frente); as setas passam para o lado ---------- */
+.leque{position:relative;height:440px;margin:0 auto;max-width:1000px}
+.destaque{position:absolute;left:50%;top:0;width:250px;height:400px;margin-left:-125px;border-radius:24px;overflow:hidden;color:#fff;background:#2e2342;box-shadow:0 22px 40px -18px rgba(46,35,66,.6);
+  transition:transform .55s cubic-bezier(.3,.7,.2,1),opacity .4s,filter .4s;transform:translateX(calc(var(--pos,0) * 190px)) scale(calc(1 - var(--dist,0) * .12));z-index:calc(10 - var(--dist,0));filter:brightness(calc(1 - var(--dist,0) * .12))}
+.destaque[data-dist="3"]{opacity:0;pointer-events:none}
+.destaque .foto{position:absolute;inset:0;border-radius:0}
+.destaque .foto::after{top:14px;bottom:auto;left:auto;right:14px;color:rgba(255,255,255,.75)}
+.destaque .play{top:36%}
+/* parte de baixo esfumada com o texto */
+.destaque-texto{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:46px 16px 14px;background:linear-gradient(180deg,rgba(46,35,66,0),rgba(46,35,66,.78) 32%,rgba(46,35,66,.92));-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+.destaque-topo{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.destaque strong{font-family:var(--serif);font-size:23px;font-weight:600;line-height:1.05}
+.destaque .selo{flex:none;padding:4px 10px;border-radius:999px;background:#fff;color:var(--roxo);font-size:11px;font-weight:800;white-space:nowrap}
+.destaque p{margin:8px 0 0;font-size:12.5px;line-height:1.45;color:rgba(255,255,255,.82)}
+.destaque-tags{display:flex;gap:6px;margin-top:10px}
+.destaque-tags span{padding:3px 10px;border:1px solid rgba(255,255,255,.35);border-radius:999px;font-size:11px;font-weight:700}
+.destaque .ver{display:block;margin-top:12px;padding:10px;border-radius:999px;background:#fff;color:var(--tinta);text-align:center;font-size:13.5px;font-weight:800;transition:background .2s}
+.destaque:hover .ver{background:var(--papel-2)}
+.leque .seta{top:200px}
+.leque .ant{left:0}
+.leque .prox{right:0}.etiqueta{position:absolute;z-index:2;top:12px;left:12px;padding:4px 10px;background:var(--papel);font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta)}
 .play{position:absolute;z-index:2;left:50%;top:50%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;background:var(--roxo);box-shadow:0 8px 18px rgba(74,48,120,.35);transition:transform .2s}
 .play::before{content:"";position:absolute;left:21px;top:17px;border-left:16px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent}
 a:hover .play{transform:scale(1.1)}
-.destaque b{display:block;margin-top:14px;font-family:var(--serif);font-size:36px;line-height:1;color:var(--roxo)}
-.destaque small{display:block;margin-top:4px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-2)}
-.destaque strong{display:block;margin-top:10px;font-size:15.5px}
-.destaque span.nota{display:block;margin-top:2px;font-family:var(--mao);font-size:21px;line-height:1.15;color:var(--tinta-2)}
 
 /* ---------- nichos ---------- */
 .filtros{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
@@ -166,11 +173,11 @@ a:hover .play{transform:scale(1.1)}
 .filtro.ativo{background:var(--roxo);border-color:var(--roxo);color:#fff}
 /* carrossel com setas (vídeos por nicho e fotos) */
 .carrossel{position:relative}
-.carrossel .seta{position:absolute;top:42%;z-index:4;width:44px;height:44px;margin-top:-22px;border:1px solid var(--linha);border-radius:50%;background:var(--papel);color:var(--roxo);font-size:0;display:grid;place-items:center;cursor:pointer;box-shadow:var(--sombra);transition:background .2s,color .2s}
+.carrossel .seta,.leque .seta{position:absolute;top:42%;z-index:4;width:44px;height:44px;margin-top:-22px;border:1px solid var(--linha);border-radius:50%;background:var(--papel);color:var(--roxo);font-size:0;display:grid;place-items:center;cursor:pointer;box-shadow:var(--sombra);transition:background .2s,color .2s}
 /* a seta desenhada (o ‹ › do texto fica escondido) */
-.carrossel .seta::before{content:"";width:10px;height:10px;border-left:2.4px solid currentColor;border-bottom:2.4px solid currentColor;transform:translateX(2px) rotate(45deg)}
-.carrossel .prox::before{transform:translateX(-2px) rotate(-135deg)}
-.carrossel .seta:hover{background:var(--roxo);color:#fff}
+.carrossel .seta::before,.leque .seta::before{content:"";width:10px;height:10px;border-left:2.4px solid currentColor;border-bottom:2.4px solid currentColor;transform:translateX(2px) rotate(45deg)}
+.carrossel .prox::before,.leque .prox::before{transform:translateX(-2px) rotate(-135deg)}
+.carrossel .seta:hover,.leque .seta:hover{background:var(--roxo);color:#fff}
 .carrossel .ant{left:-20px}
 .carrossel .prox{right:-20px}
 .galeria,.fotos{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:18px 6px 30px;margin:0 -6px}
@@ -295,16 +302,18 @@ a:hover .play{transform:scale(1.1)}
   .secao{padding:46px 0}
   .polaroid{width:min(270px,80%)}
   .folha{padding:30px 22px 26px 50px;background-image:linear-gradient(90deg,transparent 34px,rgba(180,156,224,.55) 34px,rgba(180,156,224,.55) 36px,transparent 36px),repeating-linear-gradient(transparent 0 31px,var(--linha) 31px 32px)}
-  /* destaques e nichos viram carrossel de lado */
-  .destaques{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:18px 18px 30px;margin:0 -18px;scrollbar-width:none}
+  /* destaques: leque mais estreito, só 3 cartões aparecem */
+  .leque{height:400px;margin:0 -18px}
+  .destaque{width:210px;height:360px;margin-left:-105px;transform:translateX(calc(var(--pos,0) * 118px)) scale(calc(1 - var(--dist,0) * .14))}
+  .destaque[data-dist="2"]{opacity:0;pointer-events:none}
+  .leque .seta{top:180px}
+  .leque .ant{left:10px}
+  .leque .prox{right:10px}
   .galeria,.fotos{padding:18px 18px 30px;margin:0 -18px;scroll-padding:0 18px}
-  .carrossel .seta{width:38px;height:38px;margin-top:-19px}
+  .carrossel .seta,.leque .seta{width:38px;height:38px;margin-top:-19px}
   .carrossel .ant{left:-8px}
   .carrossel .prox{right:-8px}
-  .destaques::-webkit-scrollbar{display:none}
   .foto-quadro{width:46%}
-  .destaque{flex:none;width:72%;scroll-snap-align:center}
-  .destaque:nth-child(2){transform:rotate(1.5deg)}
   .video{width:56%}
   .fichas,.resultados,.recados{grid-template-columns:1fr}
   .placar{grid-template-columns:1fr 1fr;gap:12px}
@@ -422,31 +431,18 @@ a:hover .play{transform:scale(1.1)}
       <div class="cabeca surge">
         <p class="capitulo" data-en="chapter II">capítulo II</p>
         <h2 data-en="Featured <em>videos</em>">Vídeos em <em>destaque</em></h2>
-        <p class="intro" data-en="The three videos I show every brand first.">Os três vídeos que eu mostro primeiro para qualquer marca.</p>
+        <p class="intro" data-en="The videos I show every brand first.">Os vídeos que eu mostro primeiro para qualquer marca.</p>
       </div>
-      <!-- EDITAR: os 3 vídeos de destaque (link do vídeo no href, foto de capa no lugar do placeholder) -->
-      <div class="destaques surge">
-        <a class="destaque" href="#" target="_blank" rel="noopener">
-          <span class="fita" aria-hidden="true"></span>
-          <div class="foto" data-texto="Capa do vídeo · 9:16"><span class="etiqueta" data-en="beauty">beleza</span><span class="play"></span></div>
-          <b>2,4M</b><small data-en="views on Reels">views no Reels</small>
-          <strong data-en="Brand One campaign">Campanha Marca Um</strong>
-          <span class="nota" data-en="became the main ad">virou o anúncio principal</span>
-        </a>
-        <a class="destaque" href="#" target="_blank" rel="noopener">
-          <span class="fita" aria-hidden="true"></span>
-          <div class="foto" data-texto="Capa do vídeo · 9:16"><span class="etiqueta" data-en="food">comida</span><span class="play"></span></div>
-          <b>890k</b><small data-en="views on TikTok">views no TikTok</small>
-          <strong data-en="Recipe with Brand Two">Receita com Marca Dois</strong>
-          <span class="nota" data-en="the most saved one">o mais salvo do ano</span>
-        </a>
-        <a class="destaque" href="#" target="_blank" rel="noopener">
-          <span class="fita" aria-hidden="true"></span>
-          <div class="foto" data-texto="Capa do vídeo · 9:16"><span class="etiqueta" data-en="home">casa</span><span class="play"></span></div>
-          <b>+300</b><small data-en="sales">vendas</small>
-          <strong data-en="Brand Three before and after">Antes e depois Marca Três</strong>
-          <span class="nota" data-en="sold out in two days">esgotou em dois dias</span>
-        </a>
+      <!-- EDITAR: um cartão por vídeo de destaque (link do vídeo no href; a capa: <div class="foto"><img src="fotos/destaque-1.jpg" alt=""></div>).
+           O do meio fica na frente; as setas e um toque no cartão de lado passam o leque -->
+      <div class="leque surge" id="leque">
+        <button type="button" class="seta ant" aria-label="Vídeo anterior">‹</button>
+        <a class="destaque" href="#" target="_blank" rel="noopener"><div class="foto" data-texto="9:16"><span class="etiqueta" data-en="beauty">beleza</span><span class="play"></span></div><div class="destaque-texto"><div class="destaque-topo"><strong data-en="Brand One campaign">Campanha Marca Um</strong><span class="selo" data-en="2.4M views">2,4M views</span></div><p data-en="The 30s video that became the brand's main ad.">O vídeo de 30s que virou o anúncio principal da marca.</p><div class="destaque-tags"><span>Reels</span><span>30s</span></div><span class="ver" data-en="Watch video">ver vídeo</span></div></a>
+        <a class="destaque" href="#" target="_blank" rel="noopener"><div class="foto" data-texto="9:16"><span class="etiqueta" data-en="food">comida</span><span class="play"></span></div><div class="destaque-texto"><div class="destaque-topo"><strong data-en="Brand Two recipe">Receita Marca Dois</strong><span class="selo" data-en="890k views">890k views</span></div><p data-en="A short recipe filmed at home, the most saved of the year.">Receita curta gravada em casa, a mais salva do ano.</p><div class="destaque-tags"><span>TikTok</span><span>45s</span></div><span class="ver" data-en="Watch video">ver vídeo</span></div></a>
+        <a class="destaque" href="#" target="_blank" rel="noopener"><div class="foto" data-texto="9:16"><span class="etiqueta" data-en="home">casa</span><span class="play"></span></div><div class="destaque-texto"><div class="destaque-topo"><strong data-en="Before and after">Antes e depois</strong><span class="selo" data-en="+300 sales">+300 vendas</span></div><p data-en="Organizing with Brand Three's product, sold out in two days.">Organização com o produto da Marca Três, esgotou em dois dias.</p><div class="destaque-tags"><span>Reels</span><span>25s</span></div><span class="ver" data-en="Watch video">ver vídeo</span></div></a>
+        <a class="destaque" href="#" target="_blank" rel="noopener"><div class="foto" data-texto="9:16"><span class="etiqueta" data-en="fashion">moda</span><span class="play"></span></div><div class="destaque-texto"><div class="destaque-topo"><strong data-en="Brand Four try-on">Provador Marca Quatro</strong><span class="selo" data-en="1.1M views">1,1M views</span></div><p data-en="Three looks with one piece, with a link in bio.">Três looks com uma peça só, com link na bio.</p><div class="destaque-tags"><span>TikTok</span><span>35s</span></div><span class="ver" data-en="Watch video">ver vídeo</span></div></a>
+        <a class="destaque" href="#" target="_blank" rel="noopener"><div class="foto" data-texto="9:16"><span class="etiqueta" data-en="beauty">beleza</span><span class="play"></span></div><div class="destaque-texto"><div class="destaque-topo"><strong data-en="Brand Five unboxing">Unboxing Marca Cinco</strong><span class="selo" data-en="+18% sales">+18% vendas</span></div><p data-en="First look at the kit, close-up with clean sound.">Primeiro contato com o kit, em plano fechado e som limpo.</p><div class="destaque-tags"><span>Stories</span><span>20s</span></div><span class="ver" data-en="Watch video">ver vídeo</span></div></a>
+        <button type="button" class="seta prox" aria-label="Próximo vídeo">›</button>
       </div>
     </div>
   </section>
@@ -692,6 +688,40 @@ document.querySelectorAll(".carrossel").forEach(c => {
   c.querySelector(".ant").addEventListener("click", () => anda(trilho, -1));
   c.querySelector(".prox").addEventListener("click", () => anda(trilho, 1));
 });
+
+// destaques em leque: o cartão do meio fica na frente; setas e toque no cartão de lado giram o leque
+const leque = document.getElementById("leque");
+const cartoes = [...leque.querySelectorAll(".destaque")];
+let frente = Math.floor(cartoes.length / 2);
+function arruma() {
+  const n = cartoes.length;
+  cartoes.forEach((c, i) => {
+    let pos = i - frente;
+    if (pos > n / 2) pos -= n;
+    if (pos < -n / 2) pos += n;
+    const dist = Math.min(Math.abs(pos), 3);
+    c.style.setProperty("--pos", pos);
+    c.style.setProperty("--dist", dist);
+    c.dataset.dist = dist;
+    c.tabIndex = pos === 0 ? 0 : -1;
+  });
+}
+const gira = dir => { frente = (frente + dir + cartoes.length) % cartoes.length; arruma(); };
+leque.querySelector(".ant").addEventListener("click", () => gira(-1));
+leque.querySelector(".prox").addEventListener("click", () => gira(1));
+cartoes.forEach((c, i) => c.addEventListener("click", e => {
+  if (i !== frente) { e.preventDefault(); frente = i; arruma(); }
+}));
+// no celular, arrastar o dedo para o lado também gira
+let toqueX = null;
+leque.addEventListener("touchstart", e => toqueX = e.touches[0].clientX, { passive: true });
+leque.addEventListener("touchend", e => {
+  if (toqueX === null) return;
+  const dx = e.changedTouches[0].clientX - toqueX;
+  if (Math.abs(dx) > 40) gira(dx < 0 ? 1 : -1);
+  toqueX = null;
+});
+arruma();
 
 // fotos: passam sozinhas a cada 3 segundos (param quando a pessoa encosta nelas)
 const carrosselFotos = document.getElementById("carrossel-fotos");
