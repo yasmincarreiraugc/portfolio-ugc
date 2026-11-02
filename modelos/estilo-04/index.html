@@ -250,13 +250,19 @@ a:hover .play{transform:scale(1.1)}
   .largura{width:calc(100% - 36px)}
   .menu{position:fixed;top:70px;left:0;right:0;flex-direction:column;gap:0;padding:8px 18px 18px;background:var(--papel);border-bottom:1px solid var(--linha);transform:translateY(-130%);transition:transform .3s;z-index:-1}
   .menu.aberto{transform:none}
-  .menu a{padding:14px 4px;border-bottom:1px dashed var(--linha);font-size:16px}
+  .menu a{display:block;padding:14px 4px;border-bottom:1px dashed var(--linha);font-size:16px}
+  /* no celular o submenu de trabalhos aparece aberto, com recuo */
+  .menu-pai::after{display:none}
+  .submenu{position:static;padding:0;opacity:1;visibility:visible;transform:none}
+  .submenu-caixa{min-width:0;padding:0 0 0 18px;background:none;border:0;border-radius:0;box-shadow:none}
+  .submenu a{padding:12px 4px;border-radius:0;font-size:15px}
   .abrir-menu{display:block}
-  .topo .btn{display:none}
   /* no celular o texto fica embaixo, com o véu clarinho só nessa parte */
-  .capa{align-items:flex-end;min-height:0;padding:150px 0 30px}
-  .capa-video{object-position:62% center}
-  .capa::before{background:linear-gradient(0deg,rgba(244,238,251,.97) 0%,rgba(244,238,251,.88) 62%,rgba(244,238,251,.1) 92%,rgba(244,238,251,0) 100%)}
+  .capa{padding:130px 0 18px}
+  .capa-video{object-position:62% center;height:78%}
+  .capa::before{background:linear-gradient(0deg,var(--fundo) 0%,var(--fundo) 30%,rgba(244,238,251,.9) 58%,rgba(244,238,251,.1) 82%,rgba(244,238,251,0) 100%)}
+  .marcas{margin-top:26px}
+  .logo-quadro{width:76px;height:76px;margin-right:12px;border-radius:14px}
   .capa h1{font-size:40px}
   .apresenta{font-size:15px;margin-top:12px}
   .botoes{margin-top:18px;gap:10px}
