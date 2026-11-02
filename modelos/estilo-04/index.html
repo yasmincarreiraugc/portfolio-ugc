@@ -323,10 +323,15 @@ a:hover .play{transform:scale(1.1)}
     <a class="marca" href="#">Seu <i>Nome</i></a>
     <nav class="menu" id="menu" aria-label="Menu">
       <a href="#sobre" data-en="About">sobre</a>
-      <a href="#destaques" data-en="Highlights">destaques</a>
-      <a href="#nichos" data-en="Work">trabalhos</a>
+      <div class="menu-grupo">
+        <a class="menu-pai" href="#destaques" data-en="Work">trabalhos</a>
+        <div class="submenu"><div class="submenu-caixa">
+          <a href="#destaques" data-en="Highlights">destaques</a>
+          <a href="#nichos" data-en="Videos">vídeos</a>
+          <a href="#fotos" data-en="Photos">fotos</a>
+        </div></div>
+      </div>
       <a href="#servicos" data-en="Services">serviços</a>
-      <a href="#depoimentos" data-en="Reviews">depoimentos</a>
       <a href="#contato" data-en="Contact">contato</a>
     </nav>
     <div class="direita">
@@ -334,7 +339,6 @@ a:hover .play{transform:scale(1.1)}
         <button type="button" data-idioma="pt" class="ativo">PT</button>
         <button type="button" data-idioma="en">EN</button>
       </div>
-      <a class="btn btn-vinho" href="#contato" data-en="write to me">me escreve</a>
       <button class="abrir-menu" id="abrir-menu" aria-label="Abrir menu" aria-expanded="false"><span></span></button>
     </div>
   </div>
