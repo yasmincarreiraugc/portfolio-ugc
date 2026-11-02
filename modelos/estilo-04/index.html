@@ -103,10 +103,9 @@ em{font-style:italic;color:var(--acento)}
 /* o vídeo cobre a capa toda; um véu lilás claro deixa o texto legível
    e no fim da capa o vídeo esfuma no fundo, onde ficam as marcas */
 .capa{position:relative;overflow:hidden;padding:34px 0 26px}
+.capa-video,.capa::before{-webkit-mask:linear-gradient(180deg,#000 52%,transparent 82%);mask:linear-gradient(180deg,#000 52%,transparent 82%)}
 .capa-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%}
-.capa::before{content:"";position:absolute;inset:0;z-index:1;background:
-  linear-gradient(0deg,var(--fundo) 0%,var(--fundo) 18%,rgba(244,238,251,0) 46%),
-  linear-gradient(90deg,rgba(244,238,251,.95) 0%,rgba(244,238,251,.78) 40%,rgba(244,238,251,.1) 72%,rgba(244,238,251,0) 100%)}
+.capa::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(244,238,251,.95) 0%,rgba(244,238,251,.78) 40%,rgba(244,238,251,.1) 72%,rgba(244,238,251,0) 100%)}
 .capa .largura{position:relative;z-index:2}
 .capa-texto{max-width:620px}
 .local{margin:0 0 6px;font-family:var(--mao);font-size:24px;color:var(--acento)}
