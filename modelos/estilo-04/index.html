@@ -175,6 +175,17 @@ a:hover .play{transform:scale(1.1)}
 .video span.nota{display:block;font-family:var(--mao);font-size:19px;line-height:1.1;color:var(--tinta-2)}
 .video[hidden]{display:none}
 
+/* ---------- fotos: polaroids espalhadas ---------- */
+.fotos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px 26px}
+.foto-quadro{position:relative;margin:0;padding:12px 12px 44px;background:var(--papel);box-shadow:var(--sombra);transition:transform .3s}
+.foto-quadro:nth-child(3n+1){transform:rotate(-1.8deg)}
+.foto-quadro:nth-child(3n+2){transform:rotate(1.2deg) translateY(14px)}
+.foto-quadro:nth-child(3n){transform:rotate(-.6deg)}
+.foto-quadro:hover{transform:rotate(0) translateY(-6px)}
+.foto-quadro .foto{aspect-ratio:4/5}
+.foto-quadro .fita{top:-12px;left:50%;margin-left:-46px}
+.foto-quadro figcaption{position:absolute;left:0;right:0;bottom:9px;text-align:center;font-family:var(--mao);font-size:21px;color:var(--tinta-2)}
+
 /* ---------- serviços: fichas de índice ---------- */
 .fichas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .ficha{position:relative;padding:28px 26px 26px;background:var(--papel);color:var(--tinta);border-radius:3px;box-shadow:var(--sombra);
