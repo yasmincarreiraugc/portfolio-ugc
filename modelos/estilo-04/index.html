@@ -60,10 +60,10 @@ em{font-style:italic;color:var(--acento)}
 /* rótulo de capítulo, escrito à mão */
 .capitulo{display:inline-flex;align-items:center;gap:10px;margin:0 0 6px;font-family:var(--mao);font-size:24px;color:var(--acento)}
 .capitulo::before{content:"";width:34px;height:1.5px;background:currentColor;opacity:.6}
-.secao{padding:84px 0}
+.secao{padding:58px 0}
 .secao h2{font-size:clamp(38px,5vw,60px)}
 .intro{margin:12px 0 0;max-width:520px;color:var(--tinta-2);font-size:15.5px}
-.cabeca{margin-bottom:34px}
+.cabeca{margin-bottom:26px}
 
 /* botões */
 .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:4px;font-weight:700;font-size:14.5px;letter-spacing:.02em;transition:transform .2s,background .2s,color .2s}
@@ -108,7 +108,7 @@ em{font-style:italic;color:var(--acento)}
 .capa::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(244,238,251,.95) 0%,rgba(244,238,251,.78) 40%,rgba(244,238,251,.1) 72%,rgba(244,238,251,0) 100%)}
 .capa .largura{position:relative;z-index:2}
 .capa-texto{max-width:620px}
-.local{margin:0 0 6px;font-family:var(--mao);font-size:24px;color:var(--acento)}
+.local{margin:0 0 6px;font-family:var(--mao);font-size:19px;color:var(--acento)}
 .capa h1{font-size:clamp(40px,4.8vw,62px);font-weight:600}
 .capa h1 em{font-weight:500}
 .apresenta{margin:14px 0 0;max-width:470px;font-size:15.5px;color:var(--tinta-2)}
@@ -127,8 +127,8 @@ em{font-style:italic;color:var(--acento)}
 @keyframes rolar{to{transform:translateX(-50%)}}
 
 /* ---------- sobre mim ---------- */
-.sobre .largura{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center}
-.polaroid{position:relative;padding:16px 16px 54px;background:var(--papel);box-shadow:var(--sombra);transform:rotate(-2.5deg)}
+.sobre .largura{display:grid;grid-template-columns:.7fr 1.3fr;gap:48px;align-items:center}
+.polaroid{position:relative;width:100%;max-width:320px;justify-self:center;padding:14px 14px 50px;background:var(--papel);box-shadow:var(--sombra);transform:rotate(-2.5deg)}
 .polaroid .foto{aspect-ratio:3/4}
 .polaroid .fita{top:-12px;left:22px}
 .polaroid figcaption{position:absolute;left:0;right:0;bottom:12px;text-align:center;font-family:var(--mao);font-size:26px;color:var(--tinta-2)}
@@ -164,8 +164,16 @@ a:hover .play{transform:scale(1.1)}
 .filtro{padding:9px 18px;border:1.5px solid var(--lilas);border-radius:3px;background:rgba(255,255,255,.6);color:var(--tinta);font:700 13.5px var(--sans);cursor:pointer;transition:background .2s,color .2s}
 .filtro:hover{background:#fff}
 .filtro.ativo{background:var(--roxo);border-color:var(--roxo);color:#fff}
-.galeria{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
-.video{position:relative;display:block;padding:10px 10px 14px;background:var(--papel);color:var(--tinta);box-shadow:var(--sombra);transition:transform .25s}
+/* carrossel com setas (vídeos por nicho e fotos) */
+.carrossel{position:relative}
+.carrossel .seta{position:absolute;top:42%;z-index:4;width:44px;height:44px;margin-top:-22px;border:1px solid var(--linha);border-radius:50%;background:var(--papel);color:var(--roxo);font:600 28px/1 var(--serif);display:grid;place-items:center;padding-bottom:4px;cursor:pointer;box-shadow:var(--sombra);transition:background .2s,color .2s}
+.carrossel .seta:hover{background:var(--roxo);color:#fff}
+.carrossel .ant{left:-20px}
+.carrossel .prox{right:-20px}
+.galeria,.fotos{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:18px 6px 30px;margin:0 -6px}
+.galeria::-webkit-scrollbar,.fotos::-webkit-scrollbar{display:none}
+.galeria{gap:20px}
+.video{position:relative;display:block;flex:none;width:calc((100% - 60px) / 4);scroll-snap-align:start;padding:10px 10px 14px;background:var(--papel);color:var(--tinta);box-shadow:var(--sombra);transition:transform .25s}
 .video:hover{transform:translateY(-5px) rotate(-.6deg)}
 .video .foto{aspect-ratio:9/14}
 .video .play{width:44px;height:44px;margin:-22px 0 0 -22px}
@@ -175,15 +183,14 @@ a:hover .play{transform:scale(1.1)}
 .video[hidden]{display:none}
 
 /* ---------- fotos: polaroids espalhadas ---------- */
-.fotos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px 26px}
-.foto-quadro{position:relative;margin:0;padding:12px 12px 44px;background:var(--papel);box-shadow:var(--sombra);transition:transform .3s}
-.foto-quadro:nth-child(3n+1){transform:rotate(-1.8deg)}
-.foto-quadro:nth-child(3n+2){transform:rotate(1.2deg) translateY(14px)}
-.foto-quadro:nth-child(3n){transform:rotate(-.6deg)}
+.fotos{gap:18px}
+.foto-quadro{position:relative;flex:none;width:calc((100% - 72px) / 5);scroll-snap-align:start;margin:0;padding:10px 10px 38px;background:var(--papel);box-shadow:var(--sombra);transition:transform .3s}
+.foto-quadro:nth-child(odd){transform:rotate(-1.2deg)}
+.foto-quadro:nth-child(even){transform:rotate(1deg)}
 .foto-quadro:hover{transform:rotate(0) translateY(-6px)}
 .foto-quadro .foto{aspect-ratio:4/5}
-.foto-quadro .fita{top:-12px;left:50%;margin-left:-46px}
-.foto-quadro figcaption{position:absolute;left:0;right:0;bottom:9px;text-align:center;font-family:var(--mao);font-size:21px;color:var(--tinta-2)}
+.foto-quadro .fita{top:-11px;left:50%;width:70px;margin-left:-35px}
+.foto-quadro figcaption{position:absolute;left:0;right:0;bottom:7px;text-align:center;font-family:var(--mao);font-size:18px;color:var(--tinta-2)}
 
 /* ---------- serviços: fichas de índice ---------- */
 .fichas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
@@ -282,18 +289,20 @@ a:hover .play{transform:scale(1.1)}
   .capa .numeros b{font-size:26px}
   .capa .numeros span{font-size:9.5px;letter-spacing:.1em}
   .sobre .largura,.contato-area{grid-template-columns:1fr;gap:44px}
-  .secao{padding:64px 0}
-  .polaroid{width:min(320px,88%);justify-self:center}
+  .secao{padding:46px 0}
+  .polaroid{width:min(270px,80%)}
   .folha{padding:30px 22px 26px 50px;background-image:linear-gradient(90deg,transparent 34px,rgba(180,156,224,.55) 34px,rgba(180,156,224,.55) 36px,transparent 36px),repeating-linear-gradient(transparent 0 31px,var(--linha) 31px 32px)}
   /* destaques e nichos viram carrossel de lado */
-  .destaques,.galeria,.fotos{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:18px 18px 30px;margin:0 -18px;scrollbar-width:none}
-  .destaques::-webkit-scrollbar,.galeria::-webkit-scrollbar,.fotos::-webkit-scrollbar{display:none}
-  .foto-quadro{flex:none;width:66%;scroll-snap-align:center}
-  .foto-quadro:nth-child(n){transform:rotate(-1deg)}
-  .foto-quadro:nth-child(even){transform:rotate(1deg)}
+  .destaques{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:18px 18px 30px;margin:0 -18px;scrollbar-width:none}
+  .galeria,.fotos{padding:18px 18px 30px;margin:0 -18px;scroll-padding:0 18px}
+  .carrossel .seta{width:38px;height:38px;margin-top:-19px;font-size:24px}
+  .carrossel .ant{left:-8px}
+  .carrossel .prox{right:-8px}
+  .destaques::-webkit-scrollbar{display:none}
+  .foto-quadro{width:46%}
   .destaque{flex:none;width:72%;scroll-snap-align:center}
   .destaque:nth-child(2){transform:rotate(1.5deg)}
-  .video{flex:none;width:58%;scroll-snap-align:center}
+  .video{width:56%}
   .fichas,.resultados,.recados{grid-template-columns:1fr}
   .placar{grid-template-columns:1fr 1fr;gap:12px}
   .placar b{font-size:36px}
@@ -354,7 +363,7 @@ a:hover .play{transform:scale(1.1)}
       <div class="capa-texto surge">
         <!-- EDITAR: profissão e cidade -->
         <p class="local" data-en="UGC creator · Your City">criadora UGC · Sua Cidade</p>
-        <h1 data-en="Every product <em>tells</em> a story">Todo produto <em>conta</em> uma história</h1>
+        <h1 data-en="Every product <em>tells</em><br>a story">Todo produto <em>conta</em><br>uma história</h1>
         <p class="apresenta" data-en="I'm Seu Nome and I write that story in video: I test it, I film it and I deliver content that feels like a real recommendation, ready to post.">Eu sou Seu Nome e escrevo essa história em vídeo: testo, gravo e entrego conteúdo com cara de indicação de verdade, pronto para postar.</p>
         <div class="botoes">
           <a class="btn btn-vinho" href="#contato" data-en="Let's talk →">vamos conversar →</a>
@@ -398,12 +407,6 @@ a:hover .play{transform:scale(1.1)}
           <!-- EDITAR: a história da cliente (2 parágrafos curtos) -->
           <p data-en="This is where the client's story goes: who she is, where she lives, how she started creating and what she loves to film.">Aqui entra a história da cliente: quem ela é, onde mora, como começou a criar e o que mais gosta de gravar.</p>
           <p data-en="Then, how she works: she uses the product before filming and delivers everything organized, with captions and versions to test.">Depois, como ela trabalha: usa o produto antes de gravar e entrega tudo organizado, com legenda e versões para testar.</p>
-          <!-- EDITAR: 3 diferenciais -->
-          <ul>
-            <li data-en="script approved before filming">roteiro aprovado antes de gravar</li>
-            <li data-en="one round of edits included">uma rodada de ajustes inclusa</li>
-            <li data-en="delivery within 3 business days">entrega em até 3 dias úteis</li>
-          </ul>
           <p class="assinatura" data-en="with love, Seu Nome">com carinho, Seu Nome</p>
         </div>
       </div>
@@ -415,7 +418,7 @@ a:hover .play{transform:scale(1.1)}
     <div class="largura">
       <div class="cabeca surge">
         <p class="capitulo" data-en="chapter II">capítulo II</p>
-        <h2 data-en="Favorite <em>pages</em>">Páginas <em>favoritas</em></h2>
+        <h2 data-en="Featured <em>videos</em>">Vídeos em <em>destaque</em></h2>
         <p class="intro" data-en="The three videos I show every brand first.">Os três vídeos que eu mostro primeiro para qualquer marca.</p>
       </div>
       <!-- EDITAR: os 3 vídeos de destaque (link do vídeo no href, foto de capa no lugar do placeholder) -->
@@ -453,23 +456,38 @@ a:hover .play{transform:scale(1.1)}
         <h2 data-en="Videos by <em>niche</em>">Vídeos por <em>nicho</em></h2>
         <!-- EDITAR: um botão por nicho (data-nicho igual ao dos vídeos) -->
         <div class="filtros" id="filtros">
-          <button class="filtro ativo" data-nicho="todos" data-en="all">tudo</button>
-          <button class="filtro" data-nicho="beleza" data-en="beauty">beleza</button>
+          <button class="filtro ativo" data-nicho="beleza" data-en="beauty">beleza</button>
           <button class="filtro" data-nicho="casa" data-en="home">casa</button>
           <button class="filtro" data-nicho="comida" data-en="food">comida</button>
           <button class="filtro" data-nicho="moda" data-en="fashion">moda</button>
         </div>
       </div>
-      <!-- EDITAR: um <a class="video"> para cada vídeo -->
-      <div class="galeria surge" id="galeria">
+      <!-- EDITAR: um <a class="video"> para cada vídeo; as setas passam para o lado -->
+      <div class="carrossel surge">
+      <button type="button" class="seta ant" aria-label="Vídeo anterior">‹</button>
+      <div class="galeria" id="galeria">
         <a class="video" href="#" target="_blank" rel="noopener" data-nicho="beleza"><div class="foto" data-texto="9:16"><span class="play"></span></div><b data-en="Skincare routine">Rotina de skincare</b><span class="nota" data-en="beauty">beleza</span></a>
         <a class="video" href="#" target="_blank" rel="noopener" data-nicho="beleza"><div class="foto" data-texto="9:16"><span class="play"></span></div><b data-en="Kit unboxing">Unboxing do kit</b><span class="nota" data-en="beauty">beleza</span></a>
+        <a class="video" href="#" target="_blank" rel="noopener" data-nicho="beleza"><div class="foto" data-texto="9:16"><span class="play"></span></div><b data-en="5-minute makeup">Make de 5 minutos</b><span class="nota" data-en="beauty">beleza</span></a>
+        <a class="video" href="#" target="_blank" rel="noopener" data-nicho="beleza"><div class="foto" data-texto="9:16"><span class="play"></span></div><b data-en="Curly hair">Cabelo cacheado</b><span class="nota" data-en="beauty">beleza</span></a>
+        <a class="video" href="#" target="_blank" rel="noopener" data-nicho="beleza"><div class="foto" data-texto="9:16"><span class="play"></span></div><b data-en="Sunscreen">Protetor solar</b><span class="nota" data-en="beauty">beleza</span></a>
         <a class="video" href="#" target="_blank" rel="noopener" data-nicho="casa"><div class="foto" data-texto="9:16"><span class="play"></span></div><b data-en="Organizing the pantry">Organizando a despensa</b><span class="nota" data-en="home">casa</span></a>
-        <a class="video" href="#" target="_blank" rel="noopener" data-nicho="comida"><div class="foto" data-texto="9:16"><span class="play"></span></div><b data-en="Quick breakfast">Café da manhã rápido</b><span class="nota" data-en="food">comida</span></a>
-        <a class="video" href="#" target="_blank" rel="noopener" data-nicho="moda"><div class="foto" data-texto="9:16"><span class="play"></span></div><b data-en="3 looks, 1 piece">3 looks, 1 peça</b><span class="nota" data-en="fashion">moda</span></a>
         <a class="video" href="#" target="_blank" rel="noopener" data-nicho="casa"><div class="foto" data-texto="9:16"><span class="play"></span></div><b data-en="Honest review">Review sincero</b><span class="nota" data-en="home">casa</span></a>
+        <a class="video" href="#" target="_blank" rel="noopener" data-nicho="casa"><div class="foto" data-texto="9:16"><span class="play"></span></div><b data-en="Before and after">Antes e depois</b><span class="nota" data-en="home">casa</span></a>
+        <a class="video" href="#" target="_blank" rel="noopener" data-nicho="casa"><div class="foto" data-texto="9:16"><span class="play"></span></div><b data-en="Coffee corner">Cantinho do café</b><span class="nota" data-en="home">casa</span></a>
+        <a class="video" href="#" target="_blank" rel="noopener" data-nicho="casa"><div class="foto" data-texto="9:16"><span class="play"></span></div><b data-en="Quick cleaning">Limpeza rápida</b><span class="nota" data-en="home">casa</span></a>
+        <a class="video" href="#" target="_blank" rel="noopener" data-nicho="comida"><div class="foto" data-texto="9:16"><span class="play"></span></div><b data-en="Quick breakfast">Café da manhã rápido</b><span class="nota" data-en="food">comida</span></a>
         <a class="video" href="#" target="_blank" rel="noopener" data-nicho="comida"><div class="foto" data-texto="9:16"><span class="play"></span></div><b data-en="Recipe in 1 minute">Receita em 1 minuto</b><span class="nota" data-en="food">comida</span></a>
+        <a class="video" href="#" target="_blank" rel="noopener" data-nicho="comida"><div class="foto" data-texto="9:16"><span class="play"></span></div><b data-en="Healthy snack">Lanche saudável</b><span class="nota" data-en="food">comida</span></a>
+        <a class="video" href="#" target="_blank" rel="noopener" data-nicho="comida"><div class="foto" data-texto="9:16"><span class="play"></span></div><b data-en="Mug cake">Bolo de caneca</b><span class="nota" data-en="food">comida</span></a>
+        <a class="video" href="#" target="_blank" rel="noopener" data-nicho="comida"><div class="foto" data-texto="9:16"><span class="play"></span></div><b data-en="Detox juice">Suco detox</b><span class="nota" data-en="food">comida</span></a>
+        <a class="video" href="#" target="_blank" rel="noopener" data-nicho="moda"><div class="foto" data-texto="9:16"><span class="play"></span></div><b data-en="3 looks, 1 piece">3 looks, 1 peça</b><span class="nota" data-en="fashion">moda</span></a>
         <a class="video" href="#" target="_blank" rel="noopener" data-nicho="moda"><div class="foto" data-texto="9:16"><span class="play"></span></div><b data-en="Outfit of the day">Look do dia</b><span class="nota" data-en="fashion">moda</span></a>
+        <a class="video" href="#" target="_blank" rel="noopener" data-nicho="moda"><div class="foto" data-texto="9:16"><span class="play"></span></div><b data-en="Try-on haul">Provador em casa</b><span class="nota" data-en="fashion">moda</span></a>
+        <a class="video" href="#" target="_blank" rel="noopener" data-nicho="moda"><div class="foto" data-texto="9:16"><span class="play"></span></div><b data-en="Accessories">Acessórios</b><span class="nota" data-en="fashion">moda</span></a>
+        <a class="video" href="#" target="_blank" rel="noopener" data-nicho="moda"><div class="foto" data-texto="9:16"><span class="play"></span></div><b data-en="Travel bag">Mala de viagem</b><span class="nota" data-en="fashion">moda</span></a>
+      </div>
+      <button type="button" class="seta prox" aria-label="Próximo vídeo">›</button>
       </div>
     </div>
   </section>
@@ -482,14 +500,21 @@ a:hover .play{transform:scale(1.1)}
         <h2 data-en="Product <em>photos</em>">Fotos de <em>produto</em></h2>
         <p class="intro" data-en="Natural light photos, ready for websites, ads and social media.">Fotos com luz natural, prontas para site, anúncio e redes.</p>
       </div>
-      <!-- EDITAR: uma polaroid por foto: <div class="foto"><img src="fotos/foto-1.jpg" alt="..."></div> e a legenda escrita à mão -->
-      <div class="fotos surge">
+      <!-- EDITAR: uma polaroid por foto: <div class="foto"><img src="fotos/foto-1.jpg" alt="..."></div> e a legenda escrita à mão.
+           As fotos passam sozinhas (5 por vez no computador) e as setas também passam para o lado -->
+      <div class="carrossel surge" id="carrossel-fotos">
+      <button type="button" class="seta ant" aria-label="Foto anterior">‹</button>
+      <div class="fotos">
         <figure class="foto-quadro"><span class="fita" aria-hidden="true"></span><div class="foto" data-texto="Foto 1 · 4:5"></div><figcaption data-en="skincare">skincare</figcaption></figure>
         <figure class="foto-quadro"><span class="fita" aria-hidden="true"></span><div class="foto" data-texto="Foto 2 · 4:5"></div><figcaption data-en="morning coffee">café da manhã</figcaption></figure>
         <figure class="foto-quadro"><span class="fita" aria-hidden="true"></span><div class="foto" data-texto="Foto 3 · 4:5"></div><figcaption data-en="home decor">decoração</figcaption></figure>
         <figure class="foto-quadro"><span class="fita" aria-hidden="true"></span><div class="foto" data-texto="Foto 4 · 4:5"></div><figcaption data-en="new perfume">perfume novo</figcaption></figure>
         <figure class="foto-quadro"><span class="fita" aria-hidden="true"></span><div class="foto" data-texto="Foto 5 · 4:5"></div><figcaption data-en="look of the day">look do dia</figcaption></figure>
         <figure class="foto-quadro"><span class="fita" aria-hidden="true"></span><div class="foto" data-texto="Foto 6 · 4:5"></div><figcaption data-en="kitchen">cozinha</figcaption></figure>
+        <figure class="foto-quadro"><span class="fita" aria-hidden="true"></span><div class="foto" data-texto="Foto 7 · 4:5"></div><figcaption data-en="new sneakers">tênis novo</figcaption></figure>
+        <figure class="foto-quadro"><span class="fita" aria-hidden="true"></span><div class="foto" data-texto="Foto 8 · 4:5"></div><figcaption data-en="self care">autocuidado</figcaption></figure>
+      </div>
+      <button type="button" class="seta prox" aria-label="Próxima foto">›</button>
       </div>
     </div>
   </section>
@@ -638,14 +663,45 @@ function conta(el) {
   })(inicio);
 }
 
-// filtros dos nichos
+// filtros dos nichos (começa no primeiro)
+function filtrar(f) {
+  document.querySelectorAll(".filtro").forEach(b => b.classList.toggle("ativo", b === f));
+  document.querySelectorAll("#galeria .video").forEach(v => v.hidden = v.dataset.nicho !== f.dataset.nicho);
+  document.getElementById("galeria").scrollLeft = 0;
+}
 document.getElementById("filtros").addEventListener("click", e => {
   const f = e.target.closest(".filtro");
-  if (!f) return;
-  document.querySelectorAll(".filtro").forEach(b => b.classList.toggle("ativo", b === f));
-  document.querySelectorAll("#galeria .video").forEach(v => v.hidden = f.dataset.nicho !== "todos" && v.dataset.nicho !== f.dataset.nicho);
-  document.getElementById("galeria").scrollLeft = 0;
+  if (f) filtrar(f);
 });
+filtrar(document.querySelector(".filtro"));
+
+// carrosséis: as setas passam um item para o lado; no fim volta ao começo
+function anda(trilho, dir) {
+  const item = [...trilho.children].find(i => !i.hidden);
+  const passo = item.getBoundingClientRect().width + parseFloat(getComputedStyle(trilho).columnGap || 0);
+  const noFim = trilho.scrollLeft + trilho.clientWidth >= trilho.scrollWidth - 4;
+  if (dir > 0 && noFim) trilho.scrollTo({ left: 0 });
+  else if (dir < 0 && trilho.scrollLeft <= 4) trilho.scrollTo({ left: trilho.scrollWidth });
+  else trilho.scrollBy({ left: dir * passo });
+}
+document.querySelectorAll(".carrossel").forEach(c => {
+  const trilho = c.querySelector(".galeria, .fotos");
+  c.querySelector(".ant").addEventListener("click", () => anda(trilho, -1));
+  c.querySelector(".prox").addEventListener("click", () => anda(trilho, 1));
+});
+
+// fotos: passam sozinhas a cada 3 segundos (param quando a pessoa encosta nelas)
+const carrosselFotos = document.getElementById("carrossel-fotos");
+if (!PRINT && !matchMedia("(prefers-reduced-motion:reduce)").matches) {
+  const trilhoFotos = carrosselFotos.querySelector(".fotos");
+  let parado = false;
+  ["mouseenter", "touchstart", "focusin"].forEach(ev => carrosselFotos.addEventListener(ev, () => parado = true, { passive: true }));
+  ["mouseleave", "touchend", "focusout"].forEach(ev => carrosselFotos.addEventListener(ev, () => parado = false, { passive: true }));
+  setInterval(() => {
+    const r = carrosselFotos.getBoundingClientRect();
+    if (!parado && !document.hidden && r.bottom > 0 && r.top < innerHeight) anda(trilhoFotos, 1);
+  }, 3000);
+}
 
 // PT | EN: troca os textos pelo atributo data-en
 const traduziveis = [...document.querySelectorAll("[data-en]")];
