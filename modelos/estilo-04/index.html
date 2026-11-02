@@ -250,13 +250,16 @@ a:hover .play{transform:scale(1.1)}
   .menu a{padding:14px 4px;border-bottom:1px dashed rgba(208,166,78,.25);font-size:16px}
   .abrir-menu{display:block}
   .topo .btn{display:none}
-  .capa{padding:40px 0 70px}
-  .capa .largura,.sobre .largura,.contato-area{grid-template-columns:1fr;gap:44px}
+  /* no celular o véu escurece mais embaixo, onde fica o texto */
+  .capa{align-items:flex-end;padding:120px 0 74px}
+  .capa::before{background:linear-gradient(0deg,rgba(43,25,13,.92) 0%,rgba(43,25,13,.7) 45%,rgba(43,25,13,.2) 100%)}
+  .sobre .largura,.contato-area{grid-template-columns:1fr;gap:44px}
   .capa .numeros{gap:24px}
   .capa .numeros b{font-size:32px}
-  .capa-diario{width:min(330px,88%)}
-  .selo{left:-18px;width:66px;height:66px;font-size:21px}
-  .bilhete{right:-12px;font-size:19px}
+  .marcadores i{height:54px}
+  .marcadores i:nth-child(2){height:42px}
+  .marcadores i:nth-child(3){height:48px}
+  .bilhete{top:24px;bottom:auto;left:18px;right:auto;font-size:19px}
   .secao{padding:64px 0}
   .polaroid{width:min(320px,88%);justify-self:center}
   .folha{padding:30px 22px 26px 50px;background-image:linear-gradient(90deg,transparent 34px,rgba(116,36,58,.35) 34px,rgba(116,36,58,.35) 36px,transparent 36px),repeating-linear-gradient(transparent 0 31px,var(--linha) 31px 32px)}
