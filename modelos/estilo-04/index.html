@@ -314,8 +314,12 @@ a:hover .play{transform:scale(1.1)}
 <main>
   <!-- ================= CAPA ================= -->
   <section class="capa">
+    <!-- EDITAR: vídeo da capa (roda sozinho, sem som, em loop). Troque o arquivo capa.mp4 pelo vídeo da cliente -->
+    <video class="capa-video" src="capa.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+    <div class="marcadores" aria-hidden="true"><i></i><i></i><i></i></div>
+    <span class="bilhete" data-en="agenda open ✦">agenda aberta ✦</span>
     <div class="largura">
-      <div class="surge">
+      <div class="capa-texto surge">
         <!-- EDITAR: profissão e cidade -->
         <p class="local" data-en="UGC creator · Your City">criadora UGC · Sua Cidade</p>
         <h1 data-en="Every product <em>tells</em> a story">Todo produto <em>conta</em> uma história</h1>
