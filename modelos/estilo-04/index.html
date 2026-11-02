@@ -450,7 +450,7 @@ a:hover .play{transform:scale(1.1)}
     <div class="largura">
       <div class="cabeca surge">
         <p class="capitulo" data-en="chapter III">capítulo III</p>
-        <h2 data-en="Work by <em>niche</em>">Trabalhos por <em>nicho</em></h2>
+        <h2 data-en="Videos by <em>niche</em>">Vídeos por <em>nicho</em></h2>
         <!-- EDITAR: um botão por nicho (data-nicho igual ao dos vídeos) -->
         <div class="filtros" id="filtros">
           <button class="filtro ativo" data-nicho="todos" data-en="all">tudo</button>
@@ -474,11 +474,31 @@ a:hover .play{transform:scale(1.1)}
     </div>
   </section>
 
-  <!-- ================= CAPÍTULO IV · SERVIÇOS ================= -->
-  <section class="secao" id="servicos">
+  <!-- ================= CAPÍTULO IV · FOTOS ================= -->
+  <section class="secao" id="fotos">
     <div class="largura">
       <div class="cabeca surge">
         <p class="capitulo" data-en="chapter IV">capítulo IV</p>
+        <h2 data-en="Product <em>photos</em>">Fotos de <em>produto</em></h2>
+        <p class="intro" data-en="Natural light photos, ready for websites, ads and social media.">Fotos com luz natural, prontas para site, anúncio e redes.</p>
+      </div>
+      <!-- EDITAR: uma polaroid por foto: <div class="foto"><img src="fotos/foto-1.jpg" alt="..."></div> e a legenda escrita à mão -->
+      <div class="fotos surge">
+        <figure class="foto-quadro"><span class="fita" aria-hidden="true"></span><div class="foto" data-texto="Foto 1 · 4:5"></div><figcaption data-en="skincare">skincare</figcaption></figure>
+        <figure class="foto-quadro"><span class="fita" aria-hidden="true"></span><div class="foto" data-texto="Foto 2 · 4:5"></div><figcaption data-en="morning coffee">café da manhã</figcaption></figure>
+        <figure class="foto-quadro"><span class="fita" aria-hidden="true"></span><div class="foto" data-texto="Foto 3 · 4:5"></div><figcaption data-en="home decor">decoração</figcaption></figure>
+        <figure class="foto-quadro"><span class="fita" aria-hidden="true"></span><div class="foto" data-texto="Foto 4 · 4:5"></div><figcaption data-en="new perfume">perfume novo</figcaption></figure>
+        <figure class="foto-quadro"><span class="fita" aria-hidden="true"></span><div class="foto" data-texto="Foto 5 · 4:5"></div><figcaption data-en="look of the day">look do dia</figcaption></figure>
+        <figure class="foto-quadro"><span class="fita" aria-hidden="true"></span><div class="foto" data-texto="Foto 6 · 4:5"></div><figcaption data-en="kitchen">cozinha</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CAPÍTULO V · SERVIÇOS ================= -->
+  <section class="secao" id="servicos">
+    <div class="largura">
+      <div class="cabeca surge">
+        <p class="capitulo" data-en="chapter V">capítulo V</p>
         <h2 data-en="How I can <em>help</em>">Como eu posso <em>ajudar</em></h2>
       </div>
       <!-- EDITAR: uma ficha por serviço -->
@@ -494,11 +514,11 @@ a:hover .play{transform:scale(1.1)}
     </div>
   </section>
 
-  <!-- ================= CAPÍTULO V · NÚMEROS E DEPOIMENTOS ================= -->
+  <!-- ================= CAPÍTULO VI · NÚMEROS E DEPOIMENTOS ================= -->
   <section class="secao" id="depoimentos">
     <div class="largura">
       <div class="cabeca surge">
-        <p class="capitulo" data-en="chapter V">capítulo V</p>
+        <p class="capitulo" data-en="chapter VI">capítulo VI</p>
         <h2 data-en="What brands <em>wrote</em>">O que as marcas <em>escreveram</em></h2>
       </div>
       <!-- EDITAR: 4 números (contam sozinhos) -->
@@ -524,11 +544,11 @@ a:hover .play{transform:scale(1.1)}
     </div>
   </section>
 
-  <!-- ================= CAPÍTULO VI · CONTATO ================= -->
+  <!-- ================= CAPÍTULO VII · CONTATO ================= -->
   <section class="secao" id="contato">
     <div class="largura">
       <div class="cabeca surge">
-        <p class="capitulo" data-en="chapter VI">capítulo VI</p>
+        <p class="capitulo" data-en="chapter VII">capítulo VII</p>
         <h2 data-en="Let's write the <em>next page?</em>">Vamos escrever a <em>próxima página?</em></h2>
         <p class="intro" data-en="Tell me the brand, the product and the date. I'll get back to you with timing and price.">Me conta a marca, o produto e a data. Eu volto com prazo e valor.</p>
       </div>
@@ -647,7 +667,7 @@ document.querySelector(".idiomas").addEventListener("click", e => {
 try { if (localStorage.getItem("modelo-idioma") === "en") idioma("en"); } catch (e) {}
 
 // barra de app: marca o atalho da parte que está na tela
-const PARTES = { sobre: "sobre", destaques: "trabalhos", nichos: "trabalhos", servicos: "servicos", depoimentos: "servicos", contato: "contato" };
+const PARTES = { sobre: "sobre", destaques: "trabalhos", nichos: "trabalhos", fotos: "trabalhos", servicos: "servicos", depoimentos: "servicos", contato: "contato" };
 const atalhos = document.querySelectorAll(".barra-app a");
 addEventListener("scroll", () => {
   let atual = "inicio";
