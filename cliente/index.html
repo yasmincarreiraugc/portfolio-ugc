@@ -569,7 +569,7 @@ document.getElementById("modelos").innerHTML = Object.keys(MINIATURAS).map(tipo 
       ${lista.map((m, i) => `
         <div class="modelo" data-cat="${m.categoria}">
           <span class="modelo-num">${doisDig(i + 1)}</span>
-          <span class="modelo-img">${m.imagem ? `<img src="${m.imagem}" alt="Modelo ${m.nome}" loading="lazy">` : `<span class="mini est-${m.estilo}">${MINIATURAS[tipo]()}</span>`}</span>
+          <span class="modelo-img">${m.imagem ? `<img src="${m.imagem}" alt="${tipo} ${m.nome}" loading="lazy">` : `<span class="mini est-${m.estilo}">${MINIATURAS[tipo]()}</span>`}</span>
           <span class="modelo-nome">${m.nome}<small>${m.categoria}</small></span>
           <div class="modelo-acoes">
             <a href="${m.link || "#"}" target="_blank" rel="noopener"${m.link ? "" : ' class="sem-link" aria-disabled="true"'}>Ver o modelo</a>
