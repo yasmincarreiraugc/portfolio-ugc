@@ -213,22 +213,13 @@ a:hover .play{transform:scale(1.1)}
 .servicos-fim{display:flex;justify-content:center;margin-top:36px}
 
 /* ---------- números e depoimentos ---------- */
-.placar{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
-.placar div{padding:22px 16px;text-align:center;border:1.5px dashed var(--lilas);border-radius:6px;background:rgba(255,255,255,.5)}
-.placar b{display:block;font-family:var(--serif);font-size:44px;line-height:1;color:var(--roxo)}
-.placar span{display:block;margin-top:8px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-2)}
-.resultados{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:22px}
-.resultado{padding:24px;background:var(--papel);border-left:4px solid var(--lilas);border-radius:0 6px 6px 0;box-shadow:var(--sombra)}
-.resultado b{display:block;font-family:var(--serif);font-size:42px;line-height:1;color:var(--tinta)}
-.resultado strong{display:block;margin-top:8px;font-size:14px;color:var(--acento)}
-.resultado p{margin:6px 0 0;font-size:14px;color:var(--tinta-2)}
-.recados{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:40px}
-.recado{position:relative;margin:0;padding:26px 26px 22px;background:var(--papel);color:var(--tinta);box-shadow:var(--sombra)}
+.recados{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:30px}
+.recado{position:relative;margin:0;padding:22px 18px 16px;background:var(--papel);color:var(--tinta);box-shadow:var(--sombra)}
 .recado:nth-child(odd){transform:rotate(-1deg)}
 .recado:nth-child(even){transform:rotate(1deg);background:var(--papel-2)}
-.recado .fita{top:-12px;right:26px;width:70px}
-.recado blockquote{margin:0;font-family:var(--serif);font-size:22px;font-style:italic;line-height:1.35}
-.recado figcaption{margin-top:12px;font-family:var(--mao);font-size:22px;color:var(--roxo)}
+.recado .fita{top:-11px;right:20px;width:58px;height:22px}
+.recado blockquote{margin:0;font-family:var(--serif);font-size:17.5px;font-style:italic;line-height:1.35}
+.recado figcaption{margin-top:10px;font-family:var(--mao);font-size:19px;color:var(--roxo)}
 
 /* ---------- contato ---------- */
 .contato-area{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:start}
@@ -316,9 +307,10 @@ a:hover .play{transform:scale(1.1)}
   .carrossel .prox{right:-8px}
   .foto-quadro{width:46%}
   .video{width:56%}
-  .fichas,.resultados,.recados{grid-template-columns:1fr}
-  .placar{grid-template-columns:1fr 1fr;gap:12px}
-  .placar b{font-size:36px}
+  .fichas{grid-template-columns:1fr}
+  .recados{grid-template-columns:1fr 1fr;gap:16px 12px}
+  .recado{padding:20px 14px 14px}
+  .recado blockquote{font-size:15.5px}
   .carta{padding:26px 22px}
   .rodape{padding-bottom:110px}
   /* barra de baixo igual de app */
@@ -537,27 +529,14 @@ a:hover .play{transform:scale(1.1)}
     </div>
   </section>
 
-  <!-- ================= CAPÍTULO VI · NÚMEROS E DEPOIMENTOS ================= -->
+  <!-- ================= CAPÍTULO VI · DEPOIMENTOS ================= -->
   <section class="secao" id="depoimentos">
     <div class="largura">
       <div class="cabeca surge">
         <p class="capitulo" data-en="chapter VI">capítulo VI</p>
         <h2 data-en="What brands <em>wrote</em>">O que as marcas <em>escreveram</em></h2>
       </div>
-      <!-- EDITAR: 4 números (contam sozinhos) -->
-      <div class="placar numeros surge">
-        <div><b>4,9</b><span data-en="brand rating">nota das marcas</span></div>
-        <div><b>87%</b><span data-en="hire again">recontratam</span></div>
-        <div><b>48h</b><span data-en="average delivery">prazo médio</span></div>
-        <div><b>1,2M</b><span data-en="biggest reach">maior alcance</span></div>
-      </div>
-      <!-- EDITAR: 3 resultados de campanha -->
-      <div class="resultados surge">
-        <div class="resultado"><b>3,2x</b><strong data-en="Brand One · beauty">Marca Um · beleza</strong><p data-en="Ad return after switching to UGC video.">Retorno do anúncio depois de trocar para vídeo UGC.</p></div>
-        <div class="resultado"><b>+180%</b><strong data-en="Brand Two · food">Marca Dois · comida</strong><p data-en="Saves on the brand's profile in one month.">Salvamentos no perfil da marca em um mês.</p></div>
-        <div class="resultado"><b>48h</b><strong data-en="Brand Three · home">Marca Três · casa</strong><p data-en="To sell out with three videos running.">Para esgotar o estoque com três vídeos rodando.</p></div>
-      </div>
-      <!-- EDITAR: um bilhete por depoimento -->
+      <!-- EDITAR: um bilhete por depoimento (4 lado a lado no computador, 2 no celular) -->
       <div class="recados surge">
         <figure class="recado"><span class="fita" aria-hidden="true"></span><blockquote data-en="“She delivered before the deadline and sent an extra version we hadn't even asked for.”">“Entregou antes do prazo e ainda mandou uma versão extra que nem tínhamos pedido.”</blockquote><figcaption>@marcaum</figcaption></figure>
         <figure class="recado"><span class="fita" aria-hidden="true"></span><blockquote data-en="“Our best retention of the year. We've already booked the next launch.”">“Melhor retenção do nosso ano. Já fechamos o próximo lançamento.”</blockquote><figcaption>@marcadois</figcaption></figure>
