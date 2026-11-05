@@ -107,7 +107,12 @@ h1{font-size:clamp(44px,5.5vw,66px);margin-top:8px}
 .topico:hover{border-color:var(--tinta)}
 .topico strong{display:block;font-family:var(--titulo);font-size:26px;font-weight:600;text-transform:uppercase;line-height:1}
 .topico small{display:block;margin-top:4px;font-size:12.5px;color:var(--tinta-2)}
-.topico .seta{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#f1ede8;transition:transform .25s,background .2s}
+.topico .seta{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#fff;transition:transform .25s,background .2s}
+/* cada tópico com a sua cor (as mesmas do site) */
+.topico[aria-controls="ex-biolinks"]{background:var(--rosa);border-color:var(--rosa)}
+.topico[aria-controls="ex-portfolios"]{background:var(--ceu);border-color:var(--ceu)}
+.topico[aria-controls="ex-sites"]{background:var(--manteiga);border-color:#f3dc8a}
+.topico small{color:var(--tinta)}
 .topico[aria-expanded="true"]{background:var(--tinta);border-color:var(--tinta);color:#fff}
 .topico[aria-expanded="true"] small{color:#d8d2cc}
 .topico[aria-expanded="true"] .seta{transform:rotate(180deg);background:var(--rosa);color:var(--tinta)}
