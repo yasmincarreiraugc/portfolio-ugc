@@ -155,6 +155,11 @@ h1{font-size:clamp(44px,5.5vw,66px);margin-top:8px}
   .passo{flex-direction:column}
   .topicos{grid-template-columns:repeat(3,minmax(0,1fr))}
   .exemplos{grid-template-columns:repeat(3,minmax(0,1fr))}
+  /* nichos lado a lado; cada um ocupa a largura dos seus exemplos (--n = quantos, até 3) */
+  .exemplos-tipo{display:flex;flex-wrap:wrap;gap:24px 14px}
+  .nicho + .nicho{margin-top:0}
+  .nicho{width:calc((100% - 28px) / 3 * var(--n,3) + 14px * (var(--n,3) - 1))}
+  .nicho .exemplos{grid-template-columns:repeat(var(--n,3),minmax(0,1fr))}
   .final{grid-template-columns:1fr auto}
 }
 @media (max-width:959px){
