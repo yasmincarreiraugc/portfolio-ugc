@@ -249,19 +249,56 @@ h1{font-size:clamp(44px,5.5vw,66px);margin-top:8px}
     <section class="bloco" id="exemplos">
       <p class="rotulo">Feitos por mim</p>
       <h2>Exemplos</h2>
-      <div class="exemplos">
-        <a class="exemplo" href="../">
-          <div class="exemplo-foto"><img src="../fotos/criacao-biolink.jpg" alt="Site da Yasmin Carreira" loading="lazy"></div>
-          <div class="exemplo-texto"><span><strong>Meu site</strong><small>yasmincarreira.com</small></span><span class="seta">↗</span></div>
-        </a>
-        <a class="exemplo" href="../portfolio/">
-          <div class="exemplo-foto"><img src="../fotos/criacao-portfolio.jpg" alt="Portfólio da Yasmin Carreira" loading="lazy"></div>
-          <div class="exemplo-texto"><span><strong>Meu portfólio</strong><small>yasmincarreira.com/portfolio</small></span><span class="seta">↗</span></div>
-        </a>
-        <a class="exemplo" href="https://guilhermefumagalli.com.br/" target="_blank" rel="noopener">
-          <div class="exemplo-foto"><img src="../fotos/criacao-guilherme.jpg" alt="Bio link do Guilherme Fumagalli" loading="lazy"></div>
-          <div class="exemplo-texto"><span><strong>Bio link Guilherme Fumagalli</strong><small>guilhermefumagalli.com.br</small></span><span class="seta">↗</span></div>
-        </a>
+      <!-- tópicos: clicando abre os exemplos daquele tipo, separados por nicho -->
+      <div class="topicos">
+        <button class="topico" type="button" aria-expanded="false" aria-controls="ex-biolinks"><span><strong>Bio links</strong><small>2 exemplos</small></span><span class="seta" aria-hidden="true">↓</span></button>
+        <button class="topico" type="button" aria-expanded="false" aria-controls="ex-portfolios"><span><strong>Portfólios</strong><small>1 exemplo</small></span><span class="seta" aria-hidden="true">↓</span></button>
+        <button class="topico" type="button" aria-expanded="false" aria-controls="ex-sites"><span><strong>Sites</strong><small>1 exemplo</small></span><span class="seta" aria-hidden="true">↓</span></button>
+      </div>
+
+      <div class="exemplos-tipo" id="ex-biolinks" hidden>
+        <div class="nicho">
+          <h3 class="nicho-titulo"><span>Nicho:</span> Moda</h3>
+          <div class="exemplos">
+            <a class="exemplo" href="https://pequenosaprendizes.com.br/" target="_blank" rel="noopener">
+              <div class="exemplo-foto"><img src="../fotos/criacao-pequenos-aprendizes.jpg" alt="Bio link da loja Pequenos Aprendizes" loading="lazy"></div>
+              <div class="exemplo-texto"><span><strong>Pequenos Aprendizes</strong><small>pequenosaprendizes.com.br</small></span><span class="seta">↗</span></div>
+            </a>
+          </div>
+        </div>
+        <div class="nicho">
+          <h3 class="nicho-titulo"><span>Nicho:</span> Imobiliário</h3>
+          <div class="exemplos">
+            <a class="exemplo" href="https://guilhermefumagalli.com.br/" target="_blank" rel="noopener">
+              <div class="exemplo-foto"><img src="../fotos/criacao-guilherme.jpg" alt="Bio link do Guilherme Fumagalli" loading="lazy"></div>
+              <div class="exemplo-texto"><span><strong>Guilherme Fumagalli</strong><small>guilhermefumagalli.com.br</small></span><span class="seta">↗</span></div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="exemplos-tipo" id="ex-portfolios" hidden>
+        <div class="nicho">
+          <h3 class="nicho-titulo"><span>Nicho:</span> Creator UGC</h3>
+          <div class="exemplos">
+            <a class="exemplo" href="../portfolio/">
+              <div class="exemplo-foto"><img src="../fotos/criacao-portfolio.jpg" alt="Portfólio da Yasmin Carreira" loading="lazy"></div>
+              <div class="exemplo-texto"><span><strong>Meu portfólio</strong><small>yasmincarreira.com/portfolio</small></span><span class="seta">↗</span></div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="exemplos-tipo" id="ex-sites" hidden>
+        <div class="nicho">
+          <h3 class="nicho-titulo"><span>Nicho:</span> Creator UGC</h3>
+          <div class="exemplos">
+            <a class="exemplo" href="../">
+              <div class="exemplo-foto"><img src="../fotos/criacao-biolink.jpg" alt="Site da Yasmin Carreira" loading="lazy"></div>
+              <div class="exemplo-texto"><span><strong>Meu site</strong><small>yasmincarreira.com</small></span><span class="seta">↗</span></div>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
