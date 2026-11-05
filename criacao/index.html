@@ -254,7 +254,8 @@ h1{font-size:clamp(44px,5.5vw,66px);margin-top:8px}
     <section class="bloco" id="exemplos">
       <p class="rotulo">Feitos por mim</p>
       <h2>Exemplos</h2>
-      <!-- tópicos: clicando abre os exemplos daquele tipo, separados por nicho -->
+      <!-- tópicos: clicando abre os exemplos daquele tipo, separados por nicho
+           (o --n de cada nicho é quantos exemplos ele tem; ao incluir um, aumente o número) -->
       <div class="topicos">
         <button class="topico" type="button" aria-expanded="false" aria-controls="ex-biolinks"><span><strong>Bio links</strong><small>2 exemplos</small></span><span class="seta" aria-hidden="true">↓</span></button>
         <button class="topico" type="button" aria-expanded="false" aria-controls="ex-portfolios"><span><strong>Portfólios</strong><small>1 exemplo</small></span><span class="seta" aria-hidden="true">↓</span></button>
@@ -262,7 +263,7 @@ h1{font-size:clamp(44px,5.5vw,66px);margin-top:8px}
       </div>
 
       <div class="exemplos-tipo" id="ex-biolinks" hidden>
-        <div class="nicho">
+        <div class="nicho" style="--n:1">
           <h3 class="nicho-titulo"><span>Nicho:</span> Moda</h3>
           <div class="exemplos">
             <a class="exemplo" href="https://pequenosaprendizes.com.br/" target="_blank" rel="noopener">
@@ -271,7 +272,7 @@ h1{font-size:clamp(44px,5.5vw,66px);margin-top:8px}
             </a>
           </div>
         </div>
-        <div class="nicho">
+        <div class="nicho" style="--n:1">
           <h3 class="nicho-titulo"><span>Nicho:</span> Imobiliário</h3>
           <div class="exemplos">
             <a class="exemplo" href="https://guilhermefumagalli.com.br/" target="_blank" rel="noopener">
@@ -283,7 +284,7 @@ h1{font-size:clamp(44px,5.5vw,66px);margin-top:8px}
       </div>
 
       <div class="exemplos-tipo" id="ex-portfolios" hidden>
-        <div class="nicho">
+        <div class="nicho" style="--n:1">
           <h3 class="nicho-titulo"><span>Nicho:</span> Creator UGC</h3>
           <div class="exemplos">
             <a class="exemplo" href="../portfolio/">
@@ -295,7 +296,7 @@ h1{font-size:clamp(44px,5.5vw,66px);margin-top:8px}
       </div>
 
       <div class="exemplos-tipo" id="ex-sites" hidden>
-        <div class="nicho">
+        <div class="nicho" style="--n:1">
           <h3 class="nicho-titulo"><span>Nicho:</span> Creator UGC</h3>
           <div class="exemplos">
             <a class="exemplo" href="../">
