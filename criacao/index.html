@@ -332,6 +332,17 @@ h1{font-size:clamp(44px,5.5vw,66px);margin-top:8px}
   const linkWhats = "https://wa.me/5513997973883?text=" +
     encodeURIComponent("Oi, Yasmin! Vim pelo seu site e quero um portfólio / bio link / site.");
   document.querySelectorAll(".js-whats").forEach(a => a.href = linkWhats);
+
+  // exemplos: abre um tópico por vez; clicar de novo fecha
+  const topicos = document.querySelectorAll(".topico");
+  topicos.forEach(botao => botao.addEventListener("click", () => {
+    const abrir = botao.getAttribute("aria-expanded") !== "true";
+    topicos.forEach(b => {
+      const ativo = abrir && b === botao;
+      b.setAttribute("aria-expanded", ativo);
+      document.getElementById(b.getAttribute("aria-controls")).hidden = !ativo;
+    });
+  }));
 </script>
 </body>
 </html>
