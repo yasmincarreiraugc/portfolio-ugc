@@ -101,8 +101,21 @@ h1{font-size:clamp(44px,5.5vw,66px);margin-top:8px}
 .passo strong{display:block;font-size:15px;line-height:1.3}
 .passo span{display:block;margin-top:4px;font-size:13.5px;line-height:1.55;color:var(--tinta-2)}
 
-/* exemplos */
-.exemplos{display:grid;gap:14px;margin-top:26px}
+/* exemplos: três tópicos (bio links, portfólios, sites); clicando abre os exemplos separados por nicho */
+.topicos{display:grid;gap:10px;margin-top:26px}
+.topico{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:16px 16px 16px 20px;border:1px solid #ece7e2;border-radius:20px;background:#fff;color:var(--tinta);font:inherit;text-align:left;cursor:pointer;transition:background .2s,border-color .2s}
+.topico:hover{border-color:var(--tinta)}
+.topico strong{display:block;font-family:var(--titulo);font-size:26px;font-weight:600;text-transform:uppercase;line-height:1}
+.topico small{display:block;margin-top:4px;font-size:12.5px;color:var(--tinta-2)}
+.topico .seta{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#f1ede8;transition:transform .25s,background .2s}
+.topico[aria-expanded="true"]{background:var(--tinta);border-color:var(--tinta);color:#fff}
+.topico[aria-expanded="true"] small{color:#d8d2cc}
+.topico[aria-expanded="true"] .seta{transform:rotate(180deg);background:var(--rosa);color:var(--tinta)}
+.exemplos-tipo{margin-top:22px}
+.nicho + .nicho{margin-top:24px}
+.nicho-titulo{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:var(--manteiga);font-family:var(--sans);font-size:12.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.nicho-titulo span{font-weight:500;color:var(--tinta-2)}
+.exemplos{display:grid;gap:14px;margin-top:12px}
 .exemplo{display:block;border-radius:22px;overflow:hidden;background:#f7f4f0;transition:transform .2s,box-shadow .2s}
 .exemplo:hover{transform:translateY(-3px);box-shadow:0 18px 30px -22px rgba(30,25,21,.55)}
 .exemplo-foto{aspect-ratio:16/10;overflow:hidden;background:#fff}
