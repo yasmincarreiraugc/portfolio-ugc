@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portfólio personalizado | Yasmin Carreira</title>
+<meta name="description" content="Como funciona o portfólio personalizado para creators UGC: o que é, o que pode ter, domínio, etapas e investimento.">
+<meta name="theme-color" content="#f5f2ed">
+<link rel="canonical" href="https://yasmincarreira.com/portfolio-personalizado/">
+<meta property="og:title" content="Portfólio personalizado | Yasmin Carreira">
+<meta property="og:description" content="O que é, o que pode ter, domínio, etapas e investimento.">
+<meta property="og:image" content="https://yasmincarreira.com/fotos/criacao-portfolio.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-3 -3 46 46'%3E%3Cpath d='M20 0C21.6 11.5 28.5 18.4 40 20 28.5 21.6 21.6 28.5 20 40 18.4 28.5 11.5 21.6 0 20 11.5 18.4 18.4 11.5 20 0Z' fill='%23ff99d9' stroke='%231e1915' stroke-width='2.4' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --creme:#f5f2ed;
+  --tinta:#1e1915;
+  --tinta-2:#57514c;
+  --rosa:#ff99d9;
+  --ceu:#78b4f4;
+  --manteiga:#fff2c2;
+  --linha:#ece7e2;
+  --caixa:#f7f4f0;
+  --titulo:"Barlow Condensed","Arial Narrow",sans-serif;
+  --sans:"Montserrat",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;overflow-x:clip;scroll-behavior:smooth}
+body{margin:0;min-height:100vh;background:var(--creme);color:var(--tinta);font-family:var(--sans);-webkit-font-smoothing:antialiased;padding:24px 24px 40px}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{font-family:var(--titulo);font-weight:600;text-transform:uppercase;line-height:1;letter-spacing:-.005em;margin:0}
+
+/* cartão branco, igual ao da página de criação; flow-root segura a margem da caixa amarela */
+.painel{display:flow-root;max-width:1100px;margin:0 auto;background:#fff;border-radius:36px;overflow:clip}
+
+/* topo: voltar + nome */
+.topo{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 44px 10px 40px}
+.logo{display:flex;align-items:center;gap:14px}
+.logo svg{width:32px;height:32px;fill:var(--rosa);stroke:var(--tinta);stroke-width:2.2;stroke-linejoin:round;overflow:visible;animation:brilhar 3s ease-in-out infinite}
+@keyframes brilhar{
+  0%,100%{transform:scale(.55) rotate(0deg);opacity:.55}
+  50%{transform:scale(1.1) rotate(90deg);opacity:1}
+}
+.logo strong,.logo span{display:block;font-size:18px;font-weight:600;letter-spacing:.07em;line-height:1.1;text-transform:uppercase}
+.voltar{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;border:2px solid var(--tinta);font-size:14px;font-weight:600;transition:transform .2s}
+.voltar:hover{transform:translateY(-2px)}
+
+/* frase pequena com tracinho */
+.rotulo{display:flex;align-items:center;gap:10px;margin:0;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.rotulo::before{content:"";width:30px;height:2px;background:var(--ceu)}
+/* marca-texto embaixo da palavra de destaque */
+.marca{background:linear-gradient(transparent 60%,var(--rosa) 60% 90%,transparent 90%)}
+.marca-amarela{background:linear-gradient(transparent 60%,#ffe48a 60% 90%,transparent 90%)}
+.marca-azul{background:linear-gradient(transparent 60%,#b9d8fb 60% 90%,transparent 90%)}
+
+/* capa */
+.capa{display:grid;gap:32px;padding:20px 48px 48px;align-items:center}
+h1{font-size:clamp(46px,6vw,76px);margin-top:10px}
+.capa-texto p{margin:16px 0 0;font-size:16px;line-height:1.7;color:var(--tinta-2);max-width:500px}
+.exemplos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.exemplo{display:block;transition:transform .2s}
+.exemplo:hover{transform:translateY(-3px)}
+.exemplo img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:16px;box-shadow:0 18px 30px -22px rgba(30,25,21,.55)}
+.exemplo span{display:block;margin-top:8px;font-size:12.5px;font-weight:600;color:var(--tinta-2)}
+
+/* botões */
+.botoes{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:12px;border-radius:999px;padding:8px 8px 8px 20px;font-size:14px;font-weight:600;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn .seta{width:34px;height:34px;border-radius:50%;display:grid;place-items:center}
+.btn svg{width:17px;height:17px}
+.btn-azul{background:var(--ceu)}
+.btn-azul .seta{background:var(--tinta);color:#fff}
+.btn-linha{border:2px solid var(--tinta);padding:6px 6px 6px 18px}
+.btn-linha .seta{background:#f1ede8}
+
+/* blocos */
+.bloco{padding:44px 48px;border-top:1px solid var(--linha)}
+.bloco h2{font-size:clamp(36px,4vw,48px);margin-top:8px}
+.bloco-sub{margin:12px 0 0;font-size:15.5px;line-height:1.7;color:var(--tinta-2);max-width:640px}
+.bloco-sub b{color:var(--tinta);font-weight:600}
+
+/* comparação bio link x portfólio */
+.compara{display:grid;gap:14px;margin-top:26px}
+.lado{padding:22px;border-radius:22px;border:1.5px solid var(--linha)}
+.lado.sim{border-color:var(--tinta);background:var(--caixa)}
+.lado h3{font-family:var(--sans);font-size:16px;font-weight:700;text-transform:none;letter-spacing:0}
+.lado ul{margin:10px 0 0;padding-left:18px;font-size:14px;line-height:1.8;color:var(--tinta-2)}
+
+/* o que pode ter */
+.itens{display:grid;gap:12px;margin-top:26px}
+.item{display:flex;gap:14px;padding:18px;border-radius:20px;border:1.5px solid var(--linha)}
+.item i{flex:none;width:14px;height:14px;margin-top:3px;border-radius:50%;border:2px solid var(--tinta)}
+.item h3{font-family:var(--sans);font-size:15px;font-weight:700;text-transform:none;letter-spacing:0;line-height:1.3}
+.item p{margin:4px 0 0;font-size:13.5px;line-height:1.55;color:var(--tinta-2)}
+.nota{margin-top:18px;padding:18px 20px;border-radius:18px;background:var(--manteiga);font-size:14px;line-height:1.65}
+
+/* domínio */
+.opcoes{display:grid;gap:14px;margin-top:26px}
+.opcao{display:flex;flex-direction:column;gap:10px;padding:24px;border-radius:24px;border:1.5px solid var(--linha)}
+.opcao.recomendada{border:2px solid var(--tinta);background:var(--caixa)}
+.selo{align-self:flex-start;padding:4px 12px;border-radius:999px;background:var(--creme);font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.recomendada .selo{background:var(--rosa)}
+.opcao h3{font-family:var(--sans);font-size:17px;font-weight:700;text-transform:none;letter-spacing:0}
+.opcao .preco{font-family:var(--titulo);font-size:40px;font-weight:700;line-height:1}
+.endereco{align-self:flex-start;padding:5px 12px;border-radius:10px;background:#fff;border:1.5px solid var(--tinta);font:600 14px/1.4 ui-monospace,Consolas,monospace}
+.opcao ul{margin:2px 0 0;padding-left:18px;font-size:14px;line-height:1.75;color:var(--tinta-2)}
+.opcao ul b{color:var(--tinta)}
+
+/* como funciona */
+.passos{display:grid;gap:12px;list-style:none;margin:26px 0 0;padding:0;counter-reset:passo}
+.passo{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--linha);border-radius:20px}
+.passo::before{counter-increment:passo;content:counter(passo);flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--tinta);color:#fff;font-family:var(--titulo);font-size:20px;font-weight:700}
+.passo strong{display:block;font-size:15px;line-height:1.3}
+.passo span{display:block;margin-top:4px;font-size:13.5px;line-height:1.55;color:var(--tinta-2)}
+
+/* investimento */
+.precos{display:grid;gap:14px;margin-top:26px}
+.valor{padding:26px;border-radius:24px;background:var(--caixa)}
+.valor.escuro{background:var(--tinta);color:#fff}
+.valor .de{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.valor.escuro .de{color:var(--rosa)}
+.valor .numero{margin-top:8px;font-family:var(--titulo);font-size:64px;font-weight:700;line-height:1}
+.valor .numero small{font-size:28px;margin-right:4px;vertical-align:top;line-height:1.5}
+.valor p{margin:6px 0 0;font-size:14px;line-height:1.6;color:var(--tinta-2)}
+.valor.escuro p{color:#d8d2cc}
+
+/* chamada final */
+.final{margin:0 48px 48px;padding:34px 30px;border-radius:28px;background:var(--manteiga);display:grid;gap:18px;align-items:center}
+.final h2{font-size:clamp(36px,4vw,52px)}
+.final p{margin:8px 0 0;font-size:15px;line-height:1.6;color:var(--tinta-2)}
+.final .botoes{margin-top:0}
+
+.assinatura{max-width:1100px;margin:18px auto 0;text-align:center;font-size:13px;font-weight:500;color:var(--tinta-2)}
+
+@media (min-width:960px){
+  .capa{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;padding-top:28px}
+  .compara,.opcoes,.precos{grid-template-columns:1fr 1fr}
+  .itens{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .passos{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .passo{flex-direction:column}
+  .final{grid-template-columns:1fr auto}
+}
+@media (max-width:959px){
+  body{padding:10px 10px 28px}
+  .painel{border-radius:24px}
+  .topo{padding:14px 16px}
+  .logo svg{width:28px;height:28px}
+  .logo strong,.logo span{font-size:15px}
+  .capa{padding:12px 16px 36px;gap:28px}
+  h1{font-size:clamp(42px,12vw,60px)}
+  .capa-texto p{font-size:15px}
+  .bloco{padding:32px 16px}
+  .final{margin:0 16px 24px;padding:26px 20px}
+}
+@media (prefers-reduced-motion:reduce){
+  .logo svg{animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div class="painel">
+  <header class="topo">
+    <a class="logo" href="../" aria-label="Yasmin Carreira, voltar ao início">
+      <svg viewBox="-3 -3 46 46" aria-hidden="true"><path d="M20 0C21.6 11.5 28.5 18.4 40 20 28.5 21.6 21.6 28.5 20 40 18.4 28.5 11.5 21.6 0 20 11.5 18.4 18.4 11.5 20 0Z"/></svg>
+      <div><strong>Yasmin</strong><span>Carreira</span></div>
+    </a>
+    <a class="voltar" href="../criacao/">← Criação</a>
+  </header>
+
+  <main>
+    <!-- ================= CAPA ================= -->
+    <section class="capa">
+      <div class="capa-texto">
+        <p class="rotulo">Guia para você</p>
+        <h1>Portfólio <span class="marca">personalizado</span></h1>
+        <p>Tudo o que você precisa saber antes de criar o seu: o que é, o que pode ter, como funciona o domínio, as etapas e o investimento.</p>
+        <div class="botoes">
+          <a class="btn btn-azul js-whats" href="https://wa.me/5513997973883" target="_blank" rel="noopener">Quero o meu <span class="seta">→</span></a>
+          <a class="btn btn-linha" href="#investimento">Ver valores <span class="seta">↓</span></a>
+        </div>
+      </div>
+      <div class="exemplos">
+        <a class="exemplo" href="../portfolio/" target="_blank" rel="noopener"><img src="../fotos/criacao-portfolio.jpg" alt="Portfólio da Yasmin Carreira"><span>Meu portfólio · creator UGC ↗</span></a>
+        <a class="exemplo" href="../modelos/estilo-04/" target="_blank" rel="noopener"><img src="../fotos/modelos/04.jpg" alt="Modelo de portfólio delicado e claro"><span>Modelo · delicado e claro ↗</span></a>
+      </div>
+    </section>
+
+    <!-- ================= O QUE É ================= -->
+    <section class="bloco" id="o-que-e">
+      <p class="rotulo">Começando do começo</p>
+      <h2>O que é um <span class="marca">portfólio?</span></h2>
+      <p class="bloco-sub">O portfólio é a <b>vitrine do seu trabalho</b>. É o site que você manda para as marcas quando elas pedem para ver o que você já fez: seus <b>vídeos</b>, as <b>marcas que confiam em você</b>, seus <b>serviços</b> e como falar com você.</p>
+      <p class="bloco-sub">Em vez de mandar vários vídeos soltos no WhatsApp ou um arquivo pesado, você manda <b>um link só</b>, bonito e organizado, que mostra que você leva o seu trabalho a sério.</p>
+      <div class="compara">
+        <div class="lado"><h3>Bio link</h3><ul><li>Página rápida para a bio do Instagram</li><li>Reúne seus links num lugar só</li><li>Leva para o portfólio, mídia kit e WhatsApp</li></ul></div>
+        <div class="lado sim"><h3>Portfólio</h3><ul><li>Site completo para mandar às marcas</li><li>Seus vídeos organizados por nicho</li><li>Marcas, serviços, depoimentos e contato</li><li>Funciona no celular e no computador</li></ul></div>
+      </div>
+    </section>
+
+    <!-- ================= O QUE PODE TER ================= -->
+    <section class="bloco" id="o-que-pode-ter">
+      <p class="rotulo">Você escolhe</p>
+      <h2>O que pode ter <span class="marca-amarela">no seu portfólio</span></h2>
+      <p class="bloco-sub">Cada portfólio é montado de acordo com o seu trabalho. Estas são as seções mais usadas:</p>
+      <div class="itens">
+        <div class="item"><i style="background:var(--rosa)"></i><div><h3>Capa com vídeo</h3><p>Sua apresentação logo de cara, com um vídeo rodando no fundo.</p></div></div>
+        <div class="item"><i style="background:var(--ceu)"></i><div><h3>Marcas que confiam em você</h3><p>As logos das marcas com quem você já trabalhou.</p></div></div>
+        <div class="item"><i style="background:var(--manteiga)"></i><div><h3>Vídeos em destaque</h3><p>Seus melhores trabalhos logo no começo.</p></div></div>
+        <div class="item"><i style="background:var(--rosa)"></i><div><h3>Vídeos por nicho</h3><p>Beleza, casa, moda, fitness: a marca encontra o que procura.</p></div></div>
+        <div class="item"><i style="background:var(--ceu)"></i><div><h3>Fotos</h3><p>Fotos de produto e lifestyle que você produziu.</p></div></div>
+        <div class="item"><i style="background:var(--manteiga)"></i><div><h3>Sobre mim</h3><p>Quem você é, sua história e o seu jeito de criar.</p></div></div>
+        <div class="item"><i style="background:var(--rosa)"></i><div><h3>Serviços</h3><p>O que você oferece: vídeos, fotos, roteiro, unboxing e mais.</p></div></div>
+        <div class="item"><i style="background:var(--ceu)"></i><div><h3>Depoimentos</h3><p>O que as marcas dizem depois de trabalhar com você.</p></div></div>
+        <div class="item"><i style="background:var(--manteiga)"></i><div><h3>Mídia kit</h3><p>Seus números e públicos, para a marca decidir rápido.</p></div></div>
+        <div class="item"><i style="background:var(--rosa)"></i><div><h3>Contato</h3><p>Botões de WhatsApp, e-mail e redes no final da página.</p></div></div>
+      </div>
+      <p class="nota"><b>Também dá para ter:</b> versão em inglês, para trabalhar com marcas de fora, e o que mais o seu trabalho precisar. É só me contar.</p>
+    </section>
+
+    <!-- ================= DOMÍNIO ================= -->
+    <section class="bloco" id="dominio">
+      <p class="rotulo">Endereço do seu portfólio</p>
+      <h2>E o <span class="marca-azul">domínio?</span></h2>
+      <p class="bloco-sub">O domínio é o <b>endereço</b> que você manda para as marcas para elas abrirem o seu portfólio, como um <b>seunome.com.br</b>. Você tem duas opções:</p>
+      <div class="opcoes">
+        <div class="opcao">
+          <span class="selo">Opção 1</span>
+          <h3>Endereço gratuito</h3>
+          <div class="preco">R$ 0</div>
+          <span class="endereco">seunome.github.io</span>
+          <ul><li>Sem custo extra</li><li>Funciona igualzinho</li><li>O endereço sai com <b>“github.io”</b> no final, que é o nome do serviço onde o site fica hospedado</li></ul>
+        </div>
+        <div class="opcao recomendada">
+          <span class="selo">Opção 2 · recomendada</span>
+          <h3>Domínio com o seu nome</h3>
+          <div class="preco">+ R$ 40</div>
+          <span class="endereco">seunome.com.br</span>
+          <ul><li>Endereço só seu, com o seu nome</li><li>Mais profissional na hora de mandar para as marcas</li><li>Fica bonito no mídia kit e na assinatura do e-mail</li></ul>
+        </div>
+      </div>
+      <p class="nota"><b>Bom saber:</b> o domínio com o seu nome é registrado no Registro.br e tem <b>renovação anual</b>. A hospedagem do portfólio é <b>gratuita</b> nas duas opções: você não paga mensalidade para ele ficar no ar.</p>
+    </section>
+
+    <!-- ================= COMO FUNCIONA ================= -->
+    <section class="bloco" id="como-funciona">
+      <p class="rotulo">Como funciona</p>
+      <h2>Simples <span class="marca">assim</span></h2>
+      <ol class="passos">
+        <li class="passo"><div><strong>Você me chama</strong><span>Me conta sobre você, seus nichos e as marcas que quer alcançar.</span></div></li>
+        <li class="passo"><div><strong>Você me envia o material</strong><span>Vídeos, fotos, logos das marcas, textos e cores que você gosta.</span></div></li>
+        <li class="passo"><div><strong>Eu monto com a sua cara</strong><span>Crio o portfólio do zero, com a sua identidade.</span></div></li>
+        <li class="passo"><div><strong>Você aprova</strong><span>Ajustamos juntas até ficar do seu jeito.</span></div></li>
+        <li class="passo"><div><strong>No ar</strong><span>Coloco no endereço escolhido, pronto para mandar às marcas.</span></div></li>
+      </ol>
+    </section>
+
+    <!-- ================= INVESTIMENTO ================= -->
+    <section class="bloco" id="investimento">
+      <p class="rotulo">Investimento</p>
+      <h2>Seu portfólio <span class="marca">pronto</span></h2>
+      <div class="precos">
+        <div class="valor escuro"><div class="de">Portfólio personalizado</div><div class="numero"><small>R$</small>300</div><p>Com endereço gratuito (github.io)</p></div>
+        <div class="valor"><div class="de">Com domínio próprio</div><div class="numero"><small>R$</small>340</div><p>R$ 300 do portfólio + R$ 40 do domínio com o seu nome</p></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= CHAMADA FINAL ================= -->
+  <section class="final">
+    <div>
+      <h2>Bora criar o seu?</h2>
+      <p>Me chama no WhatsApp ou no Instagram e me conta a sua ideia.</p>
+    </div>
+    <div class="botoes">
+      <a class="btn btn-azul js-whats" href="https://wa.me/5513997973883" target="_blank" rel="noopener">WhatsApp <span class="seta"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3Z"/></svg></span></a>
+      <a class="btn btn-linha" href="https://instagram.com/yasmincarreira_" target="_blank" rel="noopener">Instagram <span class="seta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span></a>
+    </div>
+  </section>
+</div>
+<p class="assinatura">feito pela Yas ♡ @yasmincarreira_</p>
+
+<script>
+  // WhatsApp com mensagem pronta
+  const linkWhats = "https://wa.me/5513997973883?text=" +
+    encodeURIComponent("Oi, Yasmin! Vi o guia do portfólio e quero criar o meu.");
+  document.querySelectorAll(".js-whats").forEach(a => a.href = linkWhats);
+</script>
+</body>
+</html>
