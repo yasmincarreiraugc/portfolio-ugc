@@ -717,6 +717,7 @@ async function telaTema(i, j) {
     }
     const box = $("escolhas");
     box.innerHTML = html;
+    box.querySelectorAll(".partes .ativo").forEach(b => { const f = b.parentElement; f.scrollLeft = b.offsetLeft - (f.clientWidth - b.offsetWidth) / 2; });
     box.onclick = e => {
       const b = e.target.closest("button[data-nivel]"); if (!b) return;
       caminho[+b.dataset.nivel] = +b.dataset.k; desenhar();
