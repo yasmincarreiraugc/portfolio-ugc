@@ -663,7 +663,7 @@ function telaTemas() {
     if (q) {
       const achados = [];
       indice.forEach((cat, i) => cat.temas.forEach((t, j) => {
-        const texto = norm(t.nome + " " + (t.partes || []).map(p => p.nome).join(" "));
+        const texto = norm(t.nome + " " + (t.nomesDentro || ""));
         if (texto.includes(q)) achados.push(cartaoTema(cat, i)(t, j));
       }));
       $("lista-temas").innerHTML = achados.length ? `<div class="temas-lista">${achados.join("")}</div>` : `<div class="vazio">Nenhum tema com esse nome ainda ♡</div>`;
