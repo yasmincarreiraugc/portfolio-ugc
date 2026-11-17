@@ -233,7 +233,7 @@ button.tema:hover{transform:translateY(-2px);border-color:var(--tinta)}
 .app-nav button.ativo{color:var(--tinta)}
 .app-nav button.ativo svg{fill:var(--rosa)}
 .app-logo{display:none}
-.nav-sair{display:none}
+.app-nav .nav-sair{display:none}
 
 /* no computador: o pack abre no layout normal do site (cartão branco, menu em cima) */
 @media (min-width:960px){
@@ -244,7 +244,8 @@ button.tema:hover{transform:translateY(-2px);border-color:var(--tinta)}
   .app-nav > div{display:none}
   .app-logo{display:flex}
   .app-nav .app-logo svg{width:32px;height:32px;fill:var(--rosa);stroke:var(--tinta);stroke-width:2.2;stroke-linejoin:round}
-  .nav-sair{display:inline-flex}
+  .app-nav .nav-sair{display:inline-flex;flex-direction:row;align-items:center;gap:8px;padding:10px 20px;border:0;border-radius:999px;background:var(--rosa);color:var(--tinta);font:700 14px var(--sans);transition:transform .2s,background .2s}
+  .app-nav .nav-sair:hover{transform:translateY(-2px);background:#ff7fcf}
   .app-topo .app-sair{display:none}
   .app-rolagem{overflow:visible;width:100%;max-width:1220px;margin:0 auto;background:#fff;border-radius:0 0 36px 36px}
   .app-miolo{max-width:none;padding:20px 48px 48px}
