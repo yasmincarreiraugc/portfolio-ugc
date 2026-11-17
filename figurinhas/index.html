@@ -725,6 +725,7 @@ let atual = null;
 function abrirModal(f, id, n) {
   atual = {f, id, n};
   $("m-img").src = f.url;
+  $("m-img").parentElement.classList.toggle("escura", idsEscuros.has(id));
   $("m-fav").classList.toggle("ativo", ehFav(id, n));
   $("m-fav").textContent = ehFav(id, n) ? "♥" : "♡";
   $("modal").hidden = false;
