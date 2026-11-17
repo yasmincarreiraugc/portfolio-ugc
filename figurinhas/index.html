@@ -701,7 +701,7 @@ async function telaFavoritos() {
 
 function botaoFig(f, id, n) {
   const b = document.createElement("button");
-  b.type = "button"; b.className = "fig"; b.setAttribute("aria-label", "Abrir figurinha");
+  b.type = "button"; b.className = "fig" + (idsEscuros.has(id) ? " escura" : ""); b.setAttribute("aria-label", "Abrir figurinha");
   b.innerHTML = `<img src="${f.url}" alt="" loading="lazy">${ehFav(id, n) ? '<span class="coracao">♥</span>' : ""}`;
   b.onclick = () => abrirModal(f, id, n);
   return b;
