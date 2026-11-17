@@ -107,7 +107,18 @@ h1{font-size:clamp(46px,6vw,76px);margin-top:10px}
 /* área liberada */
 .area[hidden],.entrar[hidden]{display:none}
 .temas-area{display:grid;gap:12px;margin-top:26px}
-.tema-area{display:flex;align-items:center;gap:14px;padding:18px;border-radius:20px;border:1.5px solid var(--linha)}
+.tema-area{display:flex;align-items:center;gap:14px;width:100%;padding:18px;border-radius:20px;border:1.5px solid var(--linha);background:#fff;font:inherit;color:inherit;text-align:left}
+button.tema-area{cursor:pointer;transition:transform .2s,border-color .2s}
+button.tema-area:hover{transform:translateY(-2px);border-color:var(--tinta)}
+button.tema-area span{color:var(--tinta)}
+/* figurinhas de um tema */
+.galeria-topo{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.voltar-temas{background:none;border:2px solid var(--tinta);border-radius:999px;padding:8px 16px;font:600 13px var(--sans);color:var(--tinta);cursor:pointer}
+.galeria{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-top:22px}
+.fig-item{display:flex;flex-direction:column;gap:8px;padding:12px;border-radius:20px;background:var(--caixa)}
+.fig-item img{width:100%;aspect-ratio:1;object-fit:contain;-webkit-touch-callout:default}
+.fig-item button{border:0;border-radius:999px;padding:9px;background:var(--tinta);color:#fff;font:700 12.5px var(--sans);cursor:pointer}
+.carregando{margin-top:22px;font-size:14px;color:var(--tinta-2)}
 .tema-area i{flex:none;width:14px;height:14px;border-radius:50%;border:2px solid var(--tinta)}
 .tema-area h3{flex:1;font-family:var(--sans);font-size:15px;font-weight:700;text-transform:none;letter-spacing:0}
 .tema-area span{font-size:12px;font-weight:600;color:var(--tinta-2)}
