@@ -225,6 +225,17 @@ button.tema:hover{transform:translateY(-2px);border-color:var(--tinta)}
 .fig:hover{transform:translateY(-2px)}
 .fig img{width:100%;height:100%;object-fit:contain;pointer-events:none}
 .fig .coracao{position:absolute;top:6px;right:6px;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:var(--rosa);font-size:10px}
+.fig.escura,.modal-img.escura{background:#2a2420}
+.partes{display:flex;gap:8px;overflow-x:auto;margin:22px -16px 0;padding:2px 16px;scrollbar-width:none}
+.partes::-webkit-scrollbar{display:none}
+.partes button{flex:none;padding:10px 18px;border:0;border-radius:999px;background:var(--caixa);font:600 14px var(--sans);color:var(--tinta-2);cursor:pointer;transition:background .2s,color .2s}
+.partes button.ativo{background:var(--rosa);color:var(--tinta)}
+.versoes{display:flex;gap:10px;margin:16px 0 18px}
+.versoes button{display:inline-flex;align-items:center;gap:10px;padding:10px 22px 10px 16px;border:2px solid var(--tinta);border-radius:999px;background:transparent;font:600 15px var(--sans);color:var(--tinta);cursor:pointer;transition:background .2s,color .2s}
+.versoes button i{width:18px;height:18px;border-radius:50%;border:2px solid var(--tinta)}
+.versoes button.ativo{background:var(--tinta);color:#fff}
+.versoes button.ativo i{border-color:#fff}
+#escolhas:empty{margin-bottom:22px}
 .carregando{padding:30px 0;text-align:center;font-size:14px;color:var(--tinta-2)}
 
 /* faixa de ajuda */
