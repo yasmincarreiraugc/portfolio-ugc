@@ -111,7 +111,17 @@ h1{font-size:clamp(46px,6vw,76px);margin-top:10px}
 button.tema-area{cursor:pointer;transition:transform .2s,border-color .2s}
 button.tema-area:hover{transform:translateY(-2px);border-color:var(--tinta)}
 button.tema-area span{color:var(--tinta)}
-/* figurinhas de um tema */
+.categorias{display:grid;gap:12px;margin-top:26px}
+.categoria{display:flex;align-items:center;gap:16px;width:100%;padding:16px 18px;border-radius:22px;border:1.5px solid var(--linha);border-top:5px solid var(--cor);background:#fff;font:inherit;color:inherit;text-align:left}
+button.categoria{cursor:pointer;transition:transform .2s,box-shadow .2s}
+button.categoria:hover{transform:translateY(-2px);box-shadow:0 14px 24px -18px rgba(30,25,21,.5)}
+.cat-icone{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--caixa);font-size:24px}
+.cat-texto{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.cat-texto strong{font-size:16px;font-weight:700;line-height:1.25}
+.cat-texto small{font-size:13px;color:var(--tinta-2)}
+.cat-seta{flex:none;font-size:24px;color:var(--tinta-2)}
+.area .voltar{flex:none;background:none;border:2px solid var(--tinta);border-radius:999px;padding:8px 16px;font:600 13px var(--sans);color:var(--tinta);cursor:pointer}
+.galeria-topo h2{margin-top:6px}/* figurinhas de um tema */
 .galeria-topo{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .voltar-temas{background:none;border:2px solid var(--tinta);border-radius:999px;padding:8px 16px;font:600 13px var(--sans);color:var(--tinta);cursor:pointer}
 .galeria{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-top:22px}
@@ -136,6 +146,7 @@ button.tema-area span{color:var(--tinta)}
   .itens{grid-template-columns:repeat(3,minmax(0,1fr))}
   .entrar{grid-template-columns:1fr 1fr;gap:48px}
   .temas-area{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .categorias{grid-template-columns:repeat(2,minmax(0,1fr))}
   .final{grid-template-columns:1fr auto}
 }
 @media (max-width:959px){
@@ -193,9 +204,9 @@ button.tema-area span{color:var(--tinta)}
     <section class="bloco" id="temas">
       <p class="rotulo">Tem para tudo</p>
       <h2>Vários <span class="marca-azul">temas</span></h2>
-      <p class="bloco-sub">As figurinhas são separadas por tema, para você achar rapidinho a que combina com o story do dia.</p>
+      <p class="bloco-sub">São 11 categorias, cada uma com vários temas dentro, para você achar rapidinho a figurinha que combina com o story do dia.</p>
       <div class="temas">
-        <span>Autocuidado</span><span>Rotina</span><span>Maternidade</span><span>Lojas e promoções</span><span>Profissionais</span><span>Frases</span><span>Enquetes e perguntas</span><span>Datas comemorativas</span>
+        <span>Saudações e dia a dia</span><span>Beleza e autocuidado</span><span>Saúde e bem-estar</span><span>Gastronomia e bebidas</span><span>Negócios e empreendedorismo</span><span>Estudos e produtividade</span><span>Fé e espiritualidade</span><span>Família e maternidade</span><span>Datas especiais</span><span>Lifestyle e criatividade</span><span>Afeto e relacionamento</span>
       </div>
     </section>
 
@@ -258,7 +269,7 @@ document.querySelectorAll(".js-whats").forEach(a => a.href = "https://wa.me/5513
 const porta = document.getElementById("porta"), area = document.getElementById("area"), conteudo = document.getElementById("conteudo");
 const form = document.getElementById("form-login"), campo = document.getElementById("senha"), erro = document.getElementById("erro"), btn = document.getElementById("btn-entrar");
 
-let senhaAtual = "", inicioArea = "";
+let senhaAtual = "", indice = [];
 async function abrir(senha, arquivo = "area.bin") {
   const dados = new Uint8Array(await (await fetch(arquivo, {cache: "no-store"})).arrayBuffer());
   const sal = dados.slice(8, 16), cifra = dados.slice(16);
@@ -268,33 +279,69 @@ async function abrir(senha, arquivo = "area.bin") {
   const texto = await crypto.subtle.decrypt({name: "AES-CBC", iv: bits.slice(32, 48)}, chave, cifra);
   return new TextDecoder().decode(texto);
 }
-function mostrar(html) {
-  inicioArea = html;
-  conteudo.innerHTML = html;
+function mostrar(texto) {
+  indice = JSON.parse(texto);
+  verCategorias();
   porta.hidden = true; area.hidden = false;
 }
 
-// Abrir um tema: baixa só o arquivo trancado daquele tema e mostra as figurinhas
+// Três telas: categorias > temas da categoria > figurinhas do tema
+const cores = ["rosa", "ceu", "manteiga"];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"})[c]);
+const plural = (n, um, varios) => n.toLocaleString("pt-BR") + " " + (n === 1 ? um : varios);
+const somaCat = cat => cat.temas.reduce((s, t) => s + t.qtd, 0);
+const topoArea = document.getElementById("entrar");
+
+function verCategorias() {
+  limparUrls();
+  conteudo.innerHTML = `<p class="rotulo">Área de quem comprou</p>
+    <h2>Suas <span class="marca">figurinhas</span></h2>
+    <p class="bloco-sub">Escolha uma categoria e depois o tema. Novos temas aparecem aqui conforme forem lançados.</p>
+    <div class="categorias">${indice.map((cat, i) => {
+      const qtd = somaCat(cat), pronta = qtd > 0;
+      return `<${pronta ? 'button type="button"' : "div"} class="categoria" style="--cor:var(--${cores[i % 3]})" ${pronta ? `data-cat="${i}"` : ""}>
+        <span class="cat-icone">${esc(cat.icone || "★")}</span>
+        <span class="cat-texto"><strong>${esc(cat.nome)}</strong><small>${pronta ? plural(cat.temas.filter(t => t.qtd).length, "tema", "temas") + " · " + plural(qtd, "figurinha", "figurinhas") : "em breve"}</small></span>
+        ${pronta ? '<span class="cat-seta">›</span>' : ""}
+      </${pronta ? "button" : "div"}>`;
+    }).join("")}</div>
+    <p class="nota"><b>Como usar no Instagram:</b> toque em <b>Salvar</b> embaixo da figurinha (ou segure o dedo nela) e salve nas Fotos. Depois abra o story, toque no ícone de figurinhas e escolha a imagem da galeria.</p>`;
+}
+function verCategoria(i) {
+  limparUrls();
+  const cat = indice[i];
+  conteudo.innerHTML = `<div class="galeria-topo"><h2>${esc(cat.icone || "")} ${esc(cat.nome)}</h2><button type="button" class="voltar" data-ir="categorias">← Categorias</button></div>
+    <div class="temas-area">${cat.temas.map((t, j) => t.qtd
+      ? `<button type="button" class="tema-area" data-cat="${i}" data-tema="${j}"><i style="background:var(--${cores[j % 3]})"></i><h3>${esc(t.nome)}</h3><span>${plural(t.qtd, "figurinha", "figurinhas")} →</span></button>`
+      : `<div class="tema-area"><i style="background:var(--${cores[j % 3]})"></i><h3>${esc(t.nome)}</h3><span>em breve</span></div>`).join("")}</div>`;
+  topoArea.scrollIntoView();
+}
+
 let urls = [];
 function limparUrls() { urls.forEach(u => URL.revokeObjectURL(u)); urls = []; }
-conteudo.addEventListener("click", async e => {
-  const tema = e.target.closest("[data-tema]");
-  if (tema) return abrirTema(tema.dataset.tema, tema.dataset.nome);
-  if (e.target.closest(".voltar-temas")) { limparUrls(); conteudo.innerHTML = inicioArea; document.getElementById("entrar").scrollIntoView(); }
+conteudo.addEventListener("click", e => {
+  const alvo = e.target.closest("[data-cat],[data-ir]");
+  if (!alvo) return;
+  if (alvo.dataset.ir === "categorias") { verCategorias(); topoArea.scrollIntoView(); }
+  else if (alvo.dataset.tema !== undefined) verTema(+alvo.dataset.cat, +alvo.dataset.tema);
+  else verCategoria(+alvo.dataset.cat);
 });
-async function abrirTema(id, nome) {
-  conteudo.innerHTML = `<div class="galeria-topo"><h2>${nome}</h2><button type="button" class="voltar-temas">← Voltar aos temas</button></div><p class="carregando">Abrindo as figurinhas…</p>`;
-  document.getElementById("entrar").scrollIntoView();
+// Abrir um tema: baixa só o arquivo trancado daquele tema e mostra as figurinhas
+async function verTema(i, j) {
+  limparUrls();
+  const cat = indice[i], tema = cat.temas[j];
+  conteudo.innerHTML = `<div class="galeria-topo"><div><p class="rotulo">${esc(cat.nome)}</p><h2>${esc(tema.nome)}</h2></div><button type="button" class="voltar" data-cat="${i}">← Temas</button></div><p class="carregando">Abrindo as figurinhas…</p>`;
+  topoArea.scrollIntoView();
   try {
-    const linhas = (await abrir(senhaAtual, "temas/" + id + ".bin")).trim().split("\n");
+    const linhas = (await abrir(senhaAtual, "temas/" + tema.id + ".bin")).trim().split("\n");
     const galeria = document.createElement("div"); galeria.className = "galeria";
-    linhas.forEach((linha, i) => {
+    linhas.forEach((linha, n) => {
       const [tipo, b64] = linha.split(" ");
       const bytes = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
-      const arquivo = new File([bytes], `figurinha-${i + 1}.${tipo.split("/")[1].replace("jpeg", "jpg")}`, {type: tipo});
+      const arquivo = new File([bytes], `figurinha-${n + 1}.${tipo.split("/")[1].replace("jpeg", "jpg")}`, {type: tipo});
       const url = URL.createObjectURL(arquivo); urls.push(url);
       const item = document.createElement("div"); item.className = "fig-item";
-      item.innerHTML = `<img alt="Figurinha ${i + 1}" src="${url}"><button type="button">Salvar</button>`;
+      item.innerHTML = `<img alt="Figurinha ${n + 1}" src="${url}" loading="lazy"><button type="button">Salvar</button>`;
       item.querySelector("button").onclick = () => salvar(arquivo, url);
       galeria.appendChild(item);
     });
@@ -302,8 +349,7 @@ async function abrirTema(id, nome) {
   } catch (_) {
     conteudo.querySelector(".carregando").textContent = "Não consegui abrir este tema. Tente de novo.";
   }
-}
-// No celular abre a tela de compartilhar (com "Salvar imagem"); no computador baixa o arquivo
+}// No celular abre a tela de compartilhar (com "Salvar imagem"); no computador baixa o arquivo
 async function salvar(arquivo, url) {
   try { if (navigator.canShare && navigator.canShare({files: [arquivo]})) return await navigator.share({files: [arquivo]}); } catch (_) { return; }
   const a = document.createElement("a"); a.href = url; a.download = arquivo.name; a.click();
@@ -313,9 +359,9 @@ form.addEventListener("submit", async e => {
   e.preventDefault();
   erro.textContent = ""; btn.disabled = true; btn.textContent = "Abrindo…";
   try {
-    const html = await abrir(campo.value.trim());
+    const texto = await abrir(campo.value.trim());
     senhaAtual = campo.value.trim();
-    mostrar(html);
+    mostrar(texto);
     try { sessionStorage.setItem("figurinhas", campo.value.trim()); } catch (_) {}
   } catch (_) {
     erro.textContent = "Senha incorreta. Confira e tente de novo.";
