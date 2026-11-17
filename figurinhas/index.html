@@ -532,6 +532,7 @@ async function entrar(s) {
   const dados = JSON.parse(await abrir("area.bin"));
   indice = Array.isArray(dados) ? dados : dados.categorias;
   brindes = Array.isArray(dados) ? 0 : (dados.brindes || 0);
+  marcarEscuros();
   guardar.gravar("figurinhas-senha", s);
   $("app").hidden = false; document.body.classList.add("no-app");
   irPara("inicio");
