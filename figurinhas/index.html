@@ -694,23 +694,40 @@ async function telaTema(i, j) {
   const cat = indice[i], tema = cat.temas[j];
   tela.innerHTML = `<div class="cabeca"><button type="button" class="voltar-app" data-cat="${i}">← ${esc(cat.nome)}</button><p class="rotulo">${esc(cat.nome)}</p><h2>${esc(tema.nome)}</h2><p>${plural(tema.qtd, "figurinha", "figurinhas")} · toque para abrir</p></div>
     <div id="escolhas"></div><div id="grade"><p class="carregando">Abrindo as figurinhas…</p></div>`;
-  if (!tema.partes) return mostrarGrade(tema.id);
-  // tema com partes (ex.: Bom dia / Boa tarde / Boa noite) e versões (ex.: Brancas / Pretas)
-  let p = 0, v = 0;
+  if (tema.id) return mostrarGrade(tema.id);
+  // tema com pastas dentro (ex.: dia da semana → Bom dia/Boa tarde/Boa noite → Brancas/Pretas):
+  // cada nível vira uma fileira de botões
+  const caminho = [];
   const desenhar = () => {
-    const parte = tema.partes[p], vs = parte.versoes.filter(x => x.qtd);
-    if (v >= vs.length) v = 0;
+    let no = tema, nivel = 0, html = "";
+    while (no.filhos) {
+      const filhos = no.filhos.filter(x => x.qtd);
+      if (!filhos.length) { no = null; break; }
+      if (caminho[nivel] === undefined) caminho[nivel] = escolhaInicial(filhos);
+      if (caminho[nivel] >= filhos.length) caminho[nivel] = 0;
+      const sel = caminho[nivel], folhas = filhos.every(x => x.id);
+      if (filhos.length > 1) html += folhas
+        ? `<div class="versoes">${filhos.map((x, k) => `<button type="button" class="${k === sel ? "ativo" : ""}" data-nivel="${nivel}" data-k="${k}"><i style="background:${corVersao(x.nome)}"></i>${esc(x.nome)}</button>`).join("")}</div>`
+        : `<div class="partes nivel-${nivel % 3}">${filhos.map((x, k) => `<button type="button" class="${k === sel ? "ativo" : ""}" data-nivel="${nivel}" data-k="${k}">${esc(x.nome)}</button>`).join("")}</div>`;
+      no = filhos[sel]; nivel++;
+    }
     const box = $("escolhas");
-    box.innerHTML = (tema.partes.length > 1 ? `<div class="partes">${tema.partes.map((x, k) => `<button type="button" class="${k === p ? "ativo" : ""}" data-parte="${k}">${esc(x.nome)}</button>`).join("")}</div>` : "") +
-      (vs.length > 1 ? `<div class="versoes">${vs.map((x, k) => `<button type="button" class="${k === v ? "ativo" : ""}" data-versao="${k}"><i style="background:${corVersao(x.nome)}"></i>${esc(x.nome)}</button>`).join("")}</div>` : "");
+    box.innerHTML = html;
     box.onclick = e => {
-      const b = e.target.closest("button"); if (!b) return;
-      if (b.dataset.parte) { p = +b.dataset.parte; desenhar(); }
-      else if (b.dataset.versao) { v = +b.dataset.versao; desenhar(); }
+      const b = e.target.closest("button[data-nivel]"); if (!b) return;
+      caminho[+b.dataset.nivel] = +b.dataset.k; desenhar();
     };
-    if (vs[v]) mostrarGrade(vs[v].id); else $("grade").innerHTML = `<div class="vazio">Estas figurinhas chegam em breve ♡</div>`;
+    if (no && no.id) mostrarGrade(no.id); else $("grade").innerHTML = `<div class="vazio">Estas figurinhas chegam em breve ♡</div>`;
   };
   desenhar();
+}
+// se a fileira for de dias da semana, já abre no dia de hoje
+const diasSemana = ["domingo", "segunda", "terca", "quarta", "quinta", "sexta", "sabado"];
+const semAcento = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+function escolhaInicial(filhos) {
+  const hoje = diasSemana[new Date().getDay()];
+  const k = filhos.findIndex(x => semAcento(x.nome).startsWith(hoje));
+  return k >= 0 ? k : 0;
 }
 const corVersao = nome => /branc/i.test(nome) ? "#fff" : /pret/i.test(nome) ? "#000" : "var(--rosa)";
 async function mostrarGrade(id) {
