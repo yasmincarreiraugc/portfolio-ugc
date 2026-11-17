@@ -324,10 +324,11 @@ form.addEventListener("submit", async e => {
 });
 document.getElementById("sair").addEventListener("click", () => {
   try { sessionStorage.removeItem("figurinhas"); } catch (_) {}
+  limparUrls(); senhaAtual = "";
   conteudo.innerHTML = ""; area.hidden = true; porta.hidden = false; campo.value = "";
 });
 // quem já entrou nesta aba não precisa digitar de novo
-try { const s = sessionStorage.getItem("figurinhas"); if (s) abrir(s).then(mostrar).catch(() => {}); } catch (_) {}
+try { const s = sessionStorage.getItem("figurinhas"); if (s) abrir(s).then(h => { senhaAtual = s; mostrar(h); }).catch(() => {}); } catch (_) {}
 </script>
 </body>
 </html>
