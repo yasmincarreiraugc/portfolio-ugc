@@ -231,22 +231,22 @@ button.tema:hover{transform:translateY(-2px);border-color:var(--tinta)}
 .app-nav button{display:flex;flex-direction:column;align-items:center;gap:4px;border:0;background:none;padding:6px 14px;font:600 11.5px var(--sans);color:var(--tinta-2);cursor:pointer}
 .app-nav svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .app-nav button.ativo{color:var(--tinta)}
-.app-nav button.ativo svg{fill:var(--rosa)}.app-logo{display:none}
+.app-nav button.ativo svg{fill:var(--rosa)}
+.app-logo{display:none}
+.nav-sair{display:none}
 
 /* no computador: o pack abre no layout normal do site (cartão branco, menu em cima) */
 @media (min-width:960px){
-  .app{padding:24px 24px 40px}
-  .app{background:var(--creme)}
-  .app-nav{position:static;order:-1;width:100%;max-width:1220px;margin:0 auto;justify-content:space-between;align-items:center;padding:20px 44px 10px 40px;border-radius:36px 36px 0 0;border-top:0}
+  body.no-app{overflow:visible}
+  body.no-app > .painel,body.no-app > .assinatura{display:none}
+  .app{position:static;inset:auto;z-index:auto;background:none;display:block}
+  .app-nav{position:static;max-width:1220px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 44px 10px 40px;background:#fff;border-radius:36px 36px 0 0;border-top:0}
+  .app-nav > div{display:none}
   .app-logo{display:flex}
-  .app-nav > div{width:auto;max-width:none;gap:8px}
-  .app-nav button{flex-direction:row;gap:8px;padding:10px 18px;border-radius:999px;font-size:14px}
-  .app-nav svg{width:19px;height:19px}
-  .app-nav button{color:var(--tinta)}
-  .app-nav button.ativo{background:var(--rosa)}
-  .app-nav button.ativo svg{fill:none}
-  .app-nav button:not(.ativo):hover{background:var(--caixa)}
-  .app-rolagem{flex:1;width:100%;max-width:1220px;margin:0 auto;background:#fff;border-radius:0 0 36px 36px}
+  .app-nav .app-logo svg{width:32px;height:32px;fill:var(--rosa);stroke:var(--tinta);stroke-width:2.2;stroke-linejoin:round}
+  .nav-sair{display:inline-flex}
+  .app-topo .app-sair{display:none}
+  .app-rolagem{overflow:visible;max-width:1220px;margin:0 auto;background:#fff;border-radius:0 0 36px 36px}
   .app-miolo{max-width:none;padding:20px 48px 48px}
   .app-topo h1{font-size:clamp(44px,5.5vw,66px)}
   .app-titulo h2{font-size:40px}
@@ -435,6 +435,7 @@ button.tema:hover{transform:translateY(-2px);border-color:var(--tinta)}
   <div class="app-rolagem" id="rolagem"><div class="app-miolo" id="tela"></div></div>
   <nav class="app-nav" aria-label="Menu do pack">
     <a class="logo app-logo" href="../" aria-label="Yasmin Carreira, início"><svg viewBox="-3 -3 46 46" aria-hidden="true"><path d="M20 0C21.6 11.5 28.5 18.4 40 20 28.5 21.6 21.6 28.5 20 40 18.4 28.5 11.5 21.6 0 20 11.5 18.4 18.4 11.5 20 0Z"/></svg><div><strong>Yasmin</strong><span>Carreira</span></div></a>
+    <button type="button" class="app-sair nav-sair" data-acao="sair">Sair</button>
     <div>
     <button type="button" data-aba="inicio"><svg viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V20h-5v-6H9v6H4z"/></svg>Início</button>
     <button type="button" data-aba="temas"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg>Temas</button>
@@ -534,11 +535,14 @@ function irPara(aba, ...args) {
   abaAtual = aba === "categoria" || aba === "tema" ? "temas" : aba;
   document.querySelectorAll(".app-nav button").forEach(b => b.classList.toggle("ativo", b.dataset.aba === abaAtual));
   ({inicio: telaInicio, temas: telaTemas, categoria: telaCategoria, tema: telaTema, favoritos: telaFavoritos})[aba](...args);
-  $("rolagem").scrollTop = 0;
+  $("rolagem").scrollTop = 0; window.scrollTo(0, 0);
 }
-document.querySelector(".app-nav").addEventListener("click", e => { const b = e.target.closest("[data-aba]"); if (b) irPara(b.dataset.aba); });
+document.querySelector(".app-nav").addEventListener("click", e => {
+  if (e.target.closest("[data-acao=sair]")) return sair();
+  const b = e.target.closest("[data-aba]"); if (b) irPara(b.dataset.aba);
+});
 
-const topoApp = () => `<div class="app-topo"><div><p class="rotulo">Área de quem comprou</p><h1>Pack de <span class="marca">figurinhas</span></h1><p>Olá! ♡ Escolha a figurinha, copie e cole no seu story.</p></div><button type="button" class="app-sair" data-acao="sair">Sair</button></div>`;
+const topoApp = () => `<div class="app-topo"><div><p class="rotulo">Seja bem-vinda ao seu</p><h1>Pack de <span class="marca">figurinhas</span></h1><p>Estão todas separadas por categoria: escolha a figurinha, copie e cole no seu story. Prático e rápido! ♡</p></div><button type="button" class="app-sair" data-acao="sair">Sair</button></div>`;
 const cartaoCategoria = (cat, i) => {
   const q = totalCat(cat), ok = q > 0, temasProntos = cat.temas.filter(t => t.qtd).length;
   return `<${ok ? 'button type="button"' : "div"} class="categoria" style="--cor:${fundos[i % 3]}" ${ok ? `data-cat="${i}"` : ""}>
@@ -548,12 +552,9 @@ const cartaoCategoria = (cat, i) => {
 };
 
 function telaInicio() {
-  const total = indice.reduce((s, c) => s + totalCat(c), 0);
   tela.innerHTML = topoApp() +
-    `<div class="app-titulo"><h2>Categorias</h2><button type="button" data-ir="temas">Ver todas <span>→</span></button></div>
-    <div class="cats-fila">${indice.map((c, i) => `<button type="button" class="cat-mini" style="--cor:${fundos[i % 3]}" data-cat="${i}"><span>${esc(c.icone || "★")}</span><small>${esc(c.nome)}</small></button>`).join("")}</div>
-    <div class="app-titulo"><h2>Em destaque</h2></div>
-    <div id="destaques"><p class="carregando">${total ? "Abrindo…" : ""}</p></div>
+    `<div class="app-titulo"><h2>Categorias</h2></div>
+    <div class="categorias">${indice.map(cartaoCategoria).join("")}</div>
     <button type="button" class="faixa-ajuda" data-acao="ajuda"><i>✨</i><span><strong>Como usar nos stories</strong><small>Copiar, colar e salvar no celular, passo a passo.</small></span></button>
     <div class="ajuda" id="ajuda" hidden><ol>
       <li>Toque na figurinha e depois em <b>Copiar figurinha</b>.</li>
@@ -562,22 +563,14 @@ function telaInicio() {
       <li>Se o seu celular não deixar colar, toque em <b>Salvar</b> e use o ícone de figurinhas do story para escolher a imagem da galeria.</li>
       <li>Dica: no Safari ou no Chrome, toque em compartilhar e em <b>Adicionar à Tela de Início</b> para abrir o pack como um app.</li>
     </ol></div>`;
-  const caixa = $("destaques");
-  if (!total) { caixa.innerHTML = `<div class="vazio">As figurinhas estão chegando! Logo aparecem aqui ♡</div>`; return; }
-  abrir("temas/destaque.bin").then(t => {
-    const itens = t.trim().split("\n").map((l, n) => { const [id, tipo, b64] = l.split(" "); return {id, i: 0, ...paraArquivo(tipo, b64, `destaque-${n + 1}`)}; });
-    caixa.innerHTML = `<div class="grade-fig"></div>`;
-    itens.forEach(it => caixa.firstChild.appendChild(botaoFig(it, it.id, 0)));
-  }).catch(() => caixa.innerHTML = "");
 }
-
 function telaTemas() {
   tela.innerHTML = topoApp() + `<div class="app-titulo"><h2>Todas as categorias</h2></div><div class="categorias">${indice.map(cartaoCategoria).join("")}</div>`;
 }
 
 function telaCategoria(i) {
   const cat = indice[i];
-  tela.innerHTML = `<div class="cabeca"><button type="button" class="voltar-app" data-ir="temas">← Categorias</button><p class="rotulo">Categoria ${esc(cat.icone || "")}</p><h2>${esc(cat.nome)}</h2><p>${plural(totalCat(cat), "figurinha", "figurinhas")}</p></div>
+  tela.innerHTML = `<div class="cabeca"><button type="button" class="voltar-app" data-ir="inicio">← Categorias</button><p class="rotulo">Categoria ${esc(cat.icone || "")}</p><h2>${esc(cat.nome)}</h2><p>${plural(totalCat(cat), "figurinha", "figurinhas")}</p></div>
     <div class="app-titulo"><h2>Temas</h2></div>
     ${cat.temas.length ? `<div class="temas-lista">${cat.temas.map((t, j) => `<${t.qtd ? 'button type="button"' : "div"} class="tema" ${t.qtd ? `data-cat="${i}" data-tema="${j}"` : ""}><i style="background:${cores[j % 3]}"></i><strong>${esc(t.nome)}</strong><small>${t.qtd ? plural(t.qtd, "figurinha", "figurinhas") : "em breve"}</small></${t.qtd ? "button" : "div"}>`).join("")}</div>`
       : `<div class="vazio">Os temas desta categoria chegam em breve ♡</div>`}`;
