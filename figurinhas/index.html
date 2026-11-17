@@ -706,7 +706,7 @@ async function telaTema(i, j) {
     let no = tema, nivel = 0, html = "";
     while (no.filhos) {
       // partes vazias continuam aparecendo (abrem "em breve"); versões vazias somem
-      const folhas = no.filhos.every(x => x.id);
+      const folhas = no.filhos.every(x => x.id || !(x.filhos || []).length);
       const filhos = folhas ? no.filhos.filter(x => x.qtd) : no.filhos;
       if (!filhos.length) { no = null; break; }
       if (caminho[nivel] === undefined) caminho[nivel] = escolhaInicial(filhos);
