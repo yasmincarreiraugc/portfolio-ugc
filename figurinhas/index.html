@@ -733,8 +733,8 @@ const diasSemana = ["domingo", "segunda", "terca", "quarta", "quinta", "sexta", 
 const semAcento = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 function escolhaInicial(filhos) {
   const hoje = diasSemana[new Date().getDay()];
-  const k = filhos.findIndex(x => semAcento(x.nome).startsWith(hoje));
-  return k >= 0 ? k : 0;
+  const k = filhos.findIndex(x => x.qtd && semAcento(x.nome).startsWith(hoje));
+  return k >= 0 ? k : Math.max(0, filhos.findIndex(x => x.qtd));
 }
 const corVersao = nome => /branc/i.test(nome) ? "#fff" : /pret/i.test(nome) ? "#000" : "var(--rosa)";
 async function mostrarGrade(id) {
