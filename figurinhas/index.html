@@ -547,7 +547,7 @@ function sair() {
   guardar.apagar("figurinhas-senha");
   Object.values(cache).forEach(p => p.then(l => l.forEach(f => URL.revokeObjectURL(f.url))).catch(() => {}));
   for (const k in cache) delete cache[k];
-  senha = ""; indice = [];
+  senha = ""; indice = []; brindes = 0;
   $("app").hidden = true; document.body.classList.remove("no-app");
 }
 // quem já entrou neste celular abre direto
