@@ -166,7 +166,7 @@ h1{font-size:clamp(44px,5.5vw,66px);margin-top:8px}
 body.no-app{overflow:hidden}
 .app{position:fixed;inset:0;z-index:30;background:#fff;display:flex;flex-direction:column}
 .app-rolagem{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
-.app-miolo{max-width:640px;margin:0 auto;padding:calc(20px + env(safe-area-inset-top)) 16px 110px}
+.app-miolo{max-width:640px;margin:0 auto;padding:22px 16px 110px}
 .app-topo{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
 .app-topo h1{font-size:clamp(38px,11vw,56px);margin-top:8px}
 .app-topo p{margin:10px 0 0;font-size:15px;line-height:1.6;color:var(--tinta-2)}
@@ -232,22 +232,28 @@ button.tema:hover{transform:translateY(-2px);border-color:var(--tinta)}
 .app-nav svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .app-nav button.ativo{color:var(--tinta)}
 .app-nav button.ativo svg{fill:var(--rosa)}
-.app-logo{display:none}
-.app-nav .nav-sair{display:none}
+/* topo fixo: igual ao topo do site (nome + Sair); no computador também tem as abas */
+.app-cab{flex:none;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:calc(14px + env(safe-area-inset-top)) 16px 12px;background:#fff;border-bottom:1px solid var(--linha)}
+.app-cab .logo svg{width:28px;height:28px}
+.app-cab .logo strong,.app-cab .logo span{font-size:15px}
+.cab-abas{display:none}
+.cab-sair{flex:none;display:inline-flex;align-items:center;padding:10px 20px;border:0;border-radius:999px;background:var(--rosa);color:var(--tinta);font:700 14px var(--sans);cursor:pointer;transition:transform .2s,background .2s}
+.cab-sair:hover{transform:translateY(-2px);background:#ff7fcf}
 
 /* no computador: o pack abre no layout normal do site (cartão branco, menu em cima) */
 @media (min-width:960px){
   body.no-app{overflow:visible}
   body.no-app > .painel,body.no-app > .assinatura{display:none}
   .app{position:static;inset:auto;z-index:auto;background:none;display:flex;flex-direction:column}
-  .app-nav{position:static;order:-1;width:100%;max-width:1220px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 44px 10px 40px;background:#fff;border-radius:36px 36px 0 0;border-top:0}
-  .app-nav > div{display:none}
-  .app-logo{display:flex}
-  .app-nav .app-logo svg{width:32px;height:32px;fill:var(--rosa);stroke:var(--tinta);stroke-width:2.2;stroke-linejoin:round}
-  .app-nav .nav-sair{display:inline-flex;flex-direction:row;align-items:center;gap:8px;padding:10px 20px;border:0;border-radius:999px;background:var(--rosa);color:var(--tinta);font:700 14px var(--sans);transition:transform .2s,background .2s}
-  .app-nav .nav-sair:hover{transform:translateY(-2px);background:#ff7fcf}
-  .app-topo .app-sair{display:none}
-  .app-rolagem{overflow:visible;width:100%;max-width:1220px;margin:0 auto;background:#fff;border-radius:0 0 36px 36px}
+  .app-nav{display:none}
+  .app-cab{width:100%;max-width:1220px;margin:0 auto;padding:20px 44px 10px 40px;border-radius:36px 36px 0 0;border-bottom:0}
+  .app-cab .logo svg{width:32px;height:32px}
+  .app-cab .logo strong,.app-cab .logo span{font-size:18px}
+  .cab-abas{display:flex;gap:6px;margin-left:auto}
+  .cab-abas button{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border:0;border-radius:999px;background:none;font:600 14px var(--sans);color:var(--tinta);cursor:pointer;transition:background .2s}
+  .cab-abas svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .cab-abas button:hover{background:var(--caixa)}
+  .cab-abas button.ativo{background:var(--caixa);box-shadow:inset 0 0 0 2px var(--tinta)}  .app-rolagem{overflow:visible;width:100%;max-width:1220px;margin:0 auto;background:#fff;border-radius:0 0 36px 36px}
   .app-miolo{max-width:none;padding:20px 48px 48px}
   .app-topo h1{font-size:clamp(44px,5.5vw,66px)}
   .app-titulo h2{font-size:40px}
@@ -433,11 +439,17 @@ button.tema:hover{transform:translateY(-2px);border-color:var(--tinta)}
 
 <!-- ================= O APP: aparece depois da senha ================= -->
 <div class="app" id="app" hidden>
+  <header class="app-cab">
+    <a class="logo" href="../" aria-label="Yasmin Carreira, início"><svg viewBox="-3 -3 46 46" aria-hidden="true"><path d="M20 0C21.6 11.5 28.5 18.4 40 20 28.5 21.6 21.6 28.5 20 40 18.4 28.5 11.5 21.6 0 20 11.5 18.4 18.4 11.5 20 0Z"/></svg><div><strong>Yasmin</strong><span>Carreira</span></div></a>
+    <nav class="cab-abas" aria-label="Menu do pack">
+    <button type="button" data-aba="inicio"><svg viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V20h-5v-6H9v6H4z"/></svg>Início</button>
+    <button type="button" data-aba="temas"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg>Temas</button>
+    <button type="button" data-aba="favoritos"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>Favoritos</button>
+    </nav>
+    <button type="button" class="cab-sair" data-acao="sair">Sair</button>
+  </header>
   <div class="app-rolagem" id="rolagem"><div class="app-miolo" id="tela"></div></div>
-  <nav class="app-nav" aria-label="Menu do pack">
-    <a class="logo app-logo" href="../" aria-label="Yasmin Carreira, início"><svg viewBox="-3 -3 46 46" aria-hidden="true"><path d="M20 0C21.6 11.5 28.5 18.4 40 20 28.5 21.6 21.6 28.5 20 40 18.4 28.5 11.5 21.6 0 20 11.5 18.4 18.4 11.5 20 0Z"/></svg><div><strong>Yasmin</strong><span>Carreira</span></div></a>
-    <button type="button" class="app-sair nav-sair" data-acao="sair">Sair</button>
-    <div>
+  <nav class="app-nav" aria-label="Menu do pack"><div>
     <button type="button" data-aba="inicio"><svg viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V20h-5v-6H9v6H4z"/></svg>Início</button>
     <button type="button" data-aba="temas"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg>Temas</button>
     <button type="button" data-aba="favoritos"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>Favoritos</button>
@@ -534,16 +546,16 @@ let abaAtual = "inicio";
 
 function irPara(aba, ...args) {
   abaAtual = aba === "categoria" || aba === "tema" ? "temas" : aba;
-  document.querySelectorAll(".app-nav button").forEach(b => b.classList.toggle("ativo", b.dataset.aba === abaAtual));
+  document.querySelectorAll("#app [data-aba]").forEach(b => b.classList.toggle("ativo", b.dataset.aba === abaAtual));
   ({inicio: telaInicio, temas: telaTemas, categoria: telaCategoria, tema: telaTema, favoritos: telaFavoritos})[aba](...args);
   $("rolagem").scrollTop = 0; window.scrollTo(0, 0);
 }
-document.querySelector(".app-nav").addEventListener("click", e => {
+document.querySelectorAll(".app-cab, .app-nav").forEach(el => el.addEventListener("click", e => {
   if (e.target.closest("[data-acao=sair]")) return sair();
   const b = e.target.closest("[data-aba]"); if (b) irPara(b.dataset.aba);
-});
+}));
 
-const topoApp = () => `<div class="app-topo"><div><p class="rotulo">Seja bem-vinda ao seu</p><h1>Pack de <span class="marca">figurinhas</span></h1><p>Estão todas separadas por categoria: escolha a figurinha, copie e cole no seu story. Prático e rápido! ♡</p></div><button type="button" class="app-sair" data-acao="sair">Sair</button></div>`;
+const topoApp = () => `<div class="app-topo"><div><p class="rotulo">Seja bem-vinda ao seu</p><h1>Pack de <span class="marca">figurinhas</span></h1><p>Estão todas separadas por categoria: escolha a figurinha, copie e cole no seu story. Prático e rápido! ♡</p></div></div>`;
 const cartaoCategoria = (cat, i) => {
   const q = totalCat(cat), ok = q > 0, temasProntos = cat.temas.filter(t => t.qtd).length;
   return `<${ok ? 'button type="button"' : "div"} class="categoria" style="--cor:${fundos[i % 3]}" ${ok ? `data-cat="${i}"` : ""}>
