@@ -529,7 +529,9 @@ async function figurinhasDoTema(id) {
 const form = $("form-login"), campo = $("senha"), erro = $("erro"), btn = $("btn-entrar");
 async function entrar(s) {
   senha = s;
-  indice = JSON.parse(await abrir("area.bin"));
+  const dados = JSON.parse(await abrir("area.bin"));
+  indice = Array.isArray(dados) ? dados : dados.categorias;
+  brindes = Array.isArray(dados) ? 0 : (dados.brindes || 0);
   guardar.gravar("figurinhas-senha", s);
   $("app").hidden = false; document.body.classList.add("no-app");
   irPara("inicio");
