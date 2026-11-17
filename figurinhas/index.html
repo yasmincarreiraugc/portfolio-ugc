@@ -744,7 +744,17 @@ async function mostrarGrade(id) {
 const idsEscuros = new Set();
 function marcarEscuros() {
   idsEscuros.clear();
-  indice.forEach(c => c.temas.forEach(t => (t.partes || []).forEach(p => p.versoes.forEach(x => { if (/branc/i.test(x.nome)) idsEscuros.add(x.id); }))));
+  // percorre as pastas de cada tema: marca as brancas e conta cada figurinha uma vez só
+  // (a mesma pasta repetida em vários dias não soma de novo)
+  const andar = (no, unicos) => {
+    if (no.id) { if (/branc/i.test(no.nome || "")) idsEscuros.add(no.id); unicos.set(no.id, no.qtd); return; }
+    (no.filhos || []).forEach(f => andar(f, unicos));
+    no.nomesDentro = (no.filhos || []).map(f => f.nome + " " + (f.nomesDentro || "")).join(" ");
+  };
+  indice.forEach(c => c.temas.forEach(t => {
+    const unicos = new Map(); andar(t, unicos);
+    t.qtd = [...unicos.values()].reduce((s, n) => s + n, 0);
+  }));
 }
 
 // favoritos: guardados neste celular como "tema:posição"
