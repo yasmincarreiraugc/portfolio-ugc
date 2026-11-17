@@ -584,10 +584,36 @@ const cartaoCategoria = (cat, i) => {
     ${ok ? '<span class="cat-seta">→</span>' : ""}</${ok ? "button" : "div"}>`;
 };
 
+const cartaoFila = (cat, i) => {
+  const q = totalCat(cat), ok = q > 0;
+  return `<${ok ? 'button type="button"' : "div"} class="cat-card" style="--cor:${cores[i % 3]}" ${ok ? `data-cat="${i}"` : ""}>
+    <span class="emoji">${esc(cat.icone || "★")}</span><strong>${esc(cat.nome)}</strong>${ok ? "" : "<small>em breve</small>"}</${ok ? "button" : "div"}>`;
+};
+const tituloFila = (titulo, fila, ir, texto) => `<div class="app-titulo"><h2>${titulo}</h2><div class="titulo-acoes">
+  <div class="setas"><button type="button" data-rolar="${fila}" data-lado="-1" aria-label="Voltar">←</button><button type="button" data-rolar="${fila}" data-lado="1" aria-label="Avançar">→</button></div>
+  ${ir ? `<button type="button" data-ir="${ir}">${texto} <span>→</span></button>` : ""}</div></div>`;
+
+// coloca as figurinhas (favoritos ou brindes) dentro de uma fila da tela Início
+async function encherFila(filaId, pares, vazio) {
+  const fila = $(filaId);
+  if (!pares.length) { fila.innerHTML = vazio; return; }
+  const itens = [];
+  for (const [id, n] of pares) {
+    try { const lista = await figurinhasDoTema(id); if (lista[n]) itens.push(botaoFig(lista[n], id, n)); } catch (_) {}
+  }
+  if (abaAtual === "inicio" && $(filaId)) $(filaId).replaceChildren(...itens);
+}
+
 function telaInicio() {
+  const favs = lerFavs().slice(0, 15).map(c => { const [id, n] = c.split(":"); return [id, +n]; });
   tela.innerHTML = topoApp() +
-    `<div class="app-titulo"><h2>Categorias</h2></div>
-    <div class="categorias">${indice.map(cartaoCategoria).join("")}</div>
+    tituloFila("Categorias", "fila-cats", "temas", "Ver todas") +
+    `<div class="fila" id="fila-cats">${indice.map(cartaoFila).join("")}</div>` +
+    tituloFila("Meus favoritos", "fila-favs", favs.length ? "favoritos" : "", "Ver todos") +
+    `<div class="fila" id="fila-favs">${favs.length ? '<p class="carregando">Abrindo…</p>' : ""}</div>` +
+    tituloFila("Brindes", "fila-brindes", "", "") +
+    `<div class="fila" id="fila-brindes">${brindes ? '<p class="carregando">Abrindo…</p>' : ""}</div>
+    <button type="button" class="faixa-ajuda" data-acao="ajuda"><i>✨</i><span><strong>Como usar nos stories</strong><small>Copiar, colar e salvar no celular, passo a passo.</small></span></button>
     <button type="button" class="faixa-ajuda" data-acao="ajuda"><i>✨</i><span><strong>Como usar nos stories</strong><small>Copiar, colar e salvar no celular, passo a passo.</small></span></button>
     <div class="ajuda" id="ajuda" hidden><ol>
       <li>Toque na figurinha e depois em <b>Copiar figurinha</b>.</li>
