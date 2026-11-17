@@ -4,11 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Pack de figurinhas | Yasmin Carreira</title>
-<meta name="description" content="Figurinhas para os seus stories, com vários temas, para pessoas, marcas e profissionais.">
+<meta name="description" content="Milhares de figurinhas para os seus stories, separadas por categoria e nicho. É só copiar e colar.">
 <meta name="theme-color" content="#f5f2ed">
 <link rel="canonical" href="https://yasmincarreira.com/figurinhas/">
+<link rel="manifest" href="app.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Figurinhas">
+<link rel="apple-touch-icon" href="icone.png">
 <meta property="og:title" content="Pack de figurinhas | Yasmin Carreira">
-<meta property="og:description" content="Figurinhas para os seus stories, com vários temas.">
+<meta property="og:description" content="Figurinhas para os seus stories, separadas por categoria e nicho.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-3 -3 46 46'%3E%3Cpath d='M20 0C21.6 11.5 28.5 18.4 40 20 28.5 21.6 21.6 28.5 20 40 18.4 28.5 11.5 21.6 0 20 11.5 18.4 18.4 11.5 20 0Z' fill='%23ff99d9' stroke='%231e1915' stroke-width='2.4' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,8 +23,10 @@
   --tinta:#1e1915;
   --tinta-2:#57514c;
   --rosa:#ff99d9;
+  --rosa-forte:#e0569f;
   --ceu:#78b4f4;
   --manteiga:#fff2c2;
+  --amarelo:#ffd95a;
   --linha:#ece7e2;
   --caixa:#f7f4f0;
   --titulo:"Barlow Condensed","Arial Narrow",sans-serif;
@@ -31,40 +37,29 @@ html{-webkit-text-size-adjust:100%;overflow-x:clip;scroll-behavior:smooth}
 body{margin:0;min-height:100vh;background:var(--creme);color:var(--tinta);font-family:var(--sans);-webkit-font-smoothing:antialiased;padding:24px 24px 40px}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%;height:auto}
+button{font-family:inherit;color:inherit}
 h1,h2,h3{font-family:var(--titulo);font-weight:600;text-transform:uppercase;line-height:1;letter-spacing:-.005em;margin:0}
+[hidden]{display:none!important}
 
 .painel{display:flow-root;max-width:1100px;margin:0 auto;background:#fff;border-radius:36px;overflow:clip}
-
 .topo{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 44px 10px 40px}
 .logo{display:flex;align-items:center;gap:14px}
 .logo svg{width:32px;height:32px;fill:var(--rosa);stroke:var(--tinta);stroke-width:2.2;stroke-linejoin:round;overflow:visible;animation:brilhar 3s ease-in-out infinite}
 @keyframes brilhar{0%,100%{transform:scale(.55) rotate(0deg);opacity:.55}50%{transform:scale(1.1) rotate(90deg);opacity:1}}
 .logo strong,.logo span{display:block;font-size:18px;font-weight:600;letter-spacing:.07em;line-height:1.1;text-transform:uppercase}
-.voltar{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;border:2px solid var(--tinta);font-size:14px;font-weight:600;transition:transform .2s}
-.voltar:hover{transform:translateY(-2px)}
+.topo-link{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;border:2px solid var(--tinta);font-size:14px;font-weight:600;transition:transform .2s}
+.topo-link:hover{transform:translateY(-2px)}
 
 .rotulo{display:flex;align-items:center;gap:10px;margin:0;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
 .rotulo::before{content:"";width:30px;height:2px;background:var(--rosa)}
+.centro .rotulo{justify-content:center}
 .marca{background:linear-gradient(transparent 60%,var(--rosa) 60% 90%,transparent 90%)}
 .marca-amarela{background:linear-gradient(transparent 60%,#ffe48a 60% 90%,transparent 90%)}
 .marca-azul{background:linear-gradient(transparent 60%,#b9d8fb 60% 90%,transparent 90%)}
 
-/* capa: texto + figurinhas de exemplo */
-.capa{display:grid;gap:32px;padding:20px 48px 48px;align-items:center}
-h1{font-size:clamp(46px,6vw,76px);margin-top:10px}
-.capa-texto p{margin:16px 0 0;font-size:16px;line-height:1.7;color:var(--tinta-2);max-width:500px}
-.mural{position:relative;aspect-ratio:1/1;max-width:440px;width:100%;justify-self:center;border-radius:32px;background:var(--caixa)}
-.fig{position:absolute;display:grid;place-items:center;text-align:center;background:#fff;border:2.5px solid var(--tinta);box-shadow:4px 4px 0 var(--tinta);font-weight:700}
-.fig-1{left:8%;top:10%;padding:12px 20px;border-radius:999px;background:var(--rosa);font-family:"Caveat",cursive;font-size:clamp(24px,4.4vw,34px);transform:rotate(-7deg)}
-.fig-2{right:8%;top:30%;padding:10px 16px;border-radius:16px;background:var(--manteiga);font-size:clamp(12px,2vw,14px);letter-spacing:.08em;text-transform:uppercase;transform:rotate(6deg)}
-.fig-3{left:10%;bottom:30%;width:31%;aspect-ratio:1;border-radius:50%;background:var(--ceu);font-family:var(--titulo);font-size:clamp(20px,3.6vw,28px);line-height:.95;text-transform:uppercase;transform:rotate(-4deg)}
-.fig-4{right:10%;bottom:9%;padding:12px 18px;border-radius:18px;font-family:"Caveat",cursive;font-size:clamp(22px,4vw,30px);transform:rotate(-3deg)}
-.estrela{position:absolute;width:13%;fill:var(--rosa);stroke:var(--tinta);stroke-width:2.2;stroke-linejoin:round;overflow:visible}
-.estrela-a{right:13%;top:7%;transform:rotate(12deg)}
-.estrela-b{left:44%;bottom:13%;width:9%;fill:var(--manteiga)}
-
+/* botões */
 .botoes{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-.btn{display:inline-flex;align-items:center;gap:12px;border-radius:999px;padding:8px 8px 8px 20px;font-size:14px;font-weight:600;transition:transform .2s;border:0;font-family:inherit;cursor:pointer;color:var(--tinta)}
+.btn{display:inline-flex;align-items:center;gap:12px;border-radius:999px;padding:8px 8px 8px 20px;font-size:14px;font-weight:600;transition:transform .2s;border:0;cursor:pointer;color:var(--tinta)}
 .btn:hover{transform:translateY(-2px)}
 .btn .seta{width:34px;height:34px;border-radius:50%;display:grid;place-items:center}
 .btn-rosa{background:var(--rosa)}
@@ -72,31 +67,79 @@ h1{font-size:clamp(46px,6vw,76px);margin-top:10px}
 .btn-linha{border:2px solid var(--tinta);padding:6px 6px 6px 18px;background:#fff}
 .btn-linha .seta{background:#f1ede8}
 
-.bloco{padding:44px 48px;border-top:1px solid var(--linha)}
-.bloco h2{font-size:clamp(36px,4vw,48px);margin-top:8px}
+/* ================= CAPA ================= */
+.capa{display:grid;gap:36px;padding:24px 48px 52px;align-items:center}
+h1{font-size:clamp(48px,6.4vw,84px);margin-top:12px}
+.capa-texto p{margin:16px 0 0;font-size:16px;line-height:1.7;color:var(--tinta-2);max-width:500px}
+.selos{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.selos span{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:999px;background:var(--caixa);font-size:12.5px;font-weight:600}
+
+/* celulares desenhados */
+.celulares{position:relative;display:flex;justify-content:center;align-items:flex-start;padding:10px 0 20px;min-height:470px}
+.cel{position:relative;width:230px;flex:none;aspect-ratio:9/19;border-radius:38px;background:#211c19;padding:9px;box-shadow:0 30px 50px -28px rgba(30,25,21,.6)}
+.cel::before{content:"";position:absolute;top:16px;left:50%;width:70px;height:20px;margin-left:-35px;border-radius:999px;background:#211c19;z-index:2}
+.cel-tela{height:100%;border-radius:30px;overflow:hidden;background:var(--creme);display:flex;flex-direction:column}
+.cel-1{z-index:2;transform:rotate(-4deg)}
+.cel-2{margin-left:-60px;margin-top:40px;transform:rotate(5deg)}
+.mini-topo{padding:40px 14px 8px}
+.mini-topo b{display:block;font-family:var(--titulo);font-size:21px;text-transform:uppercase;line-height:1}
+.mini-topo small{font-size:9.5px;color:var(--tinta-2)}
+.mini-titulo{padding:8px 14px 6px;font-size:10px;font-weight:700}
+.mini-cats{display:flex;gap:6px;padding:0 14px}
+.mini-cats span{flex:none;width:50px;padding:7px 3px;border-radius:10px;background:#fff;border-top:3px solid var(--c);text-align:center;font-size:15px;line-height:1.1}
+.mini-cats small{display:block;margin-top:3px;font-size:6.5px;font-weight:600;color:var(--tinta-2)}
+.mini-grade{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:0 14px}
+.mini-grade span{aspect-ratio:1;border-radius:9px;background:#efe9e2;display:grid;place-items:center;text-align:center;font-family:"Caveat",cursive;font-size:12px;line-height:.95;padding:4px}
+.mini-grade span:nth-child(3n+2){font-family:var(--titulo);text-transform:uppercase;font-size:11px}
+.mini-faixa{margin:10px 14px 0;padding:9px 10px;border-radius:12px;background:var(--manteiga);font-size:8.5px;font-weight:700;display:flex;align-items:center;gap:7px}
+.mini-faixa i{width:22px;height:22px;border-radius:7px;background:var(--rosa);display:grid;place-items:center;font-style:normal;font-size:11px}
+.mini-nav{margin-top:auto;display:flex;justify-content:space-around;padding:8px 6px 14px;background:#fff;font-size:7.5px;font-weight:600;color:var(--tinta-2)}
+.mini-nav span{display:flex;flex-direction:column;align-items:center;gap:2px}
+.mini-nav span:first-child{color:var(--rosa-forte)}
+.mini-nav i{width:15px;height:15px;border-radius:5px;background:currentColor;opacity:.25}
+.mini-nav span:first-child i{opacity:.9}
+/* celular 2: figurinha aberta */
+.cel-2 .cel-tela{background:#2a2420;justify-content:center;padding:0 14px;gap:12px}
+.mini-cartao{border-radius:16px;background:var(--creme);aspect-ratio:1;display:grid;place-items:center}
+.mini-fig{padding:9px 16px;border-radius:999px;background:#fff;border:2.5px solid var(--tinta);box-shadow:3px 3px 0 var(--rosa);font-family:"Caveat",cursive;font-size:27px;transform:rotate(-5deg)}
+.mini-copiar{border-radius:999px;background:var(--rosa);padding:10px;text-align:center;font-size:10.5px;font-weight:700}
+.mini-dica{margin:0;text-align:center;font-size:8.5px;line-height:1.5;color:#e9e2dc}
+
+/* ================= BLOCOS ================= */
+.bloco{padding:48px 48px;border-top:1px solid var(--linha)}
+.bloco h2{font-size:clamp(36px,4.4vw,52px);margin-top:8px}
 .bloco-sub{margin:12px 0 0;font-size:15.5px;line-height:1.7;color:var(--tinta-2);max-width:640px}
 .bloco-sub b{color:var(--tinta);font-weight:600}
+.centro{text-align:center}
+.centro .bloco-sub{margin-left:auto;margin-right:auto}
 
-/* temas */
-.temas{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
-.temas span{padding:9px 16px;border-radius:999px;font-size:14px;font-weight:600;border:1.5px solid var(--tinta)}
-.temas span:nth-child(3n+1){background:var(--rosa)}
-.temas span:nth-child(3n+2){background:#d6e8fc}
-.temas span:nth-child(3n){background:var(--manteiga)}
+/* vantagens */
+.vantagens{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:28px}
+.vantagem{padding:22px 18px;border-radius:24px;border:1.5px solid var(--linha);text-align:center}
+.vantagem i{width:54px;height:54px;margin:0 auto 14px;border-radius:18px;display:grid;place-items:center;background:var(--c)}
+.vantagem svg{width:24px;height:24px;fill:none;stroke:var(--tinta);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.vantagem h3{font-family:var(--sans);font-size:15.5px;font-weight:700;text-transform:none;letter-spacing:0;line-height:1.3}
+.vantagem p{margin:6px 0 0;font-size:13px;line-height:1.55;color:var(--tinta-2)}
 
-/* para quem é */
-.itens{display:grid;gap:12px;margin-top:26px}
-.item{display:flex;gap:14px;padding:18px;border-radius:20px;border:1.5px solid var(--linha)}
-.item i{flex:none;width:14px;height:14px;margin-top:3px;border-radius:50%;border:2px solid var(--tinta)}
-.item h3{font-family:var(--sans);font-size:15px;font-weight:700;text-transform:none;letter-spacing:0;line-height:1.3}
-.item p{margin:4px 0 0;font-size:13.5px;line-height:1.55;color:var(--tinta-2)}
-.nota{margin-top:18px;padding:18px 20px;border-radius:18px;background:var(--manteiga);font-size:14px;line-height:1.65}
+/* nichos */
+.nichos-bloco{background:#fdf3f9}
+.nichos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:28px}
+.nichos span{padding:13px 10px;border-radius:999px;background:#fff;text-align:center;font-size:14px;font-weight:600;box-shadow:0 0 0 1.5px #f4dcea}
+.nichos span.forte{background:var(--rosa);box-shadow:0 0 0 2px var(--tinta)}
+.nichos-mais{margin:18px 0 0;font-size:13.5px;font-weight:600;color:var(--tinta-2)}
+
+/* na prática */
+.passos{display:grid;gap:12px;list-style:none;margin:28px 0 0;padding:0;counter-reset:passo}
+.passo{display:flex;gap:14px;align-items:flex-start;padding:18px;border:1px solid var(--linha);border-radius:22px;text-align:left}
+.passo::before{counter-increment:passo;content:counter(passo);flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--tinta);color:#fff;font-family:var(--titulo);font-size:20px;font-weight:700}
+.passo strong{display:block;font-size:15px;line-height:1.3}
+.passo span{display:block;margin-top:4px;font-size:13.5px;line-height:1.55;color:var(--tinta-2)}
 
 /* login */
 .entrar{display:grid;gap:24px;align-items:center}
 .login{padding:26px;border-radius:26px;background:var(--caixa);border:1.5px solid var(--linha)}
 .login label{display:block;font-size:13px;font-weight:700;margin-bottom:8px}
-.login .linha-campo{display:flex;gap:8px}
+.linha-campo{display:flex;gap:8px}
 .login input{flex:1;min-width:0;border:2px solid var(--tinta);border-radius:999px;padding:13px 18px;background:#fff;font:500 15px var(--sans);color:var(--tinta)}
 .login input:focus{outline:3px solid var(--rosa);outline-offset:1px}
 .login button{flex:none;border:0;border-radius:999px;padding:0 22px;background:var(--tinta);color:#fff;font:700 14px var(--sans);cursor:pointer}
@@ -104,50 +147,103 @@ h1{font-size:clamp(46px,6vw,76px);margin-top:10px}
 .login small{display:block;margin-top:12px;font-size:12.5px;line-height:1.5;color:var(--tinta-2)}
 .erro{margin:10px 0 0;font-size:13px;font-weight:600;color:#b4235f;min-height:1em}
 
-/* área liberada */
-.area[hidden],.entrar[hidden]{display:none}
-.temas-area{display:grid;gap:12px;margin-top:26px}
-.tema-area{display:flex;align-items:center;gap:14px;width:100%;padding:18px;border-radius:20px;border:1.5px solid var(--linha);background:#fff;font:inherit;color:inherit;text-align:left}
-button.tema-area{cursor:pointer;transition:transform .2s,border-color .2s}
-button.tema-area:hover{transform:translateY(-2px);border-color:var(--tinta)}
-button.tema-area span{color:var(--tinta)}
-.categorias{display:grid;gap:12px;margin-top:26px}
-.categoria{display:flex;align-items:center;gap:16px;width:100%;padding:16px 18px;border-radius:22px;border:1.5px solid var(--linha);border-top:5px solid var(--cor);background:#fff;font:inherit;color:inherit;text-align:left}
-button.categoria{cursor:pointer;transition:transform .2s,box-shadow .2s}
-button.categoria:hover{transform:translateY(-2px);box-shadow:0 14px 24px -18px rgba(30,25,21,.5)}
-.cat-icone{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--caixa);font-size:24px}
-.cat-texto{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
-.cat-texto strong{font-size:16px;font-weight:700;line-height:1.25}
-.cat-texto small{font-size:13px;color:var(--tinta-2)}
-.cat-seta{flex:none;font-size:24px;color:var(--tinta-2)}
-.area .voltar{flex:none;background:none;border:2px solid var(--tinta);border-radius:999px;padding:8px 16px;font:600 13px var(--sans);color:var(--tinta);cursor:pointer}
-.galeria-topo h2{margin-top:6px}/* figurinhas de um tema */
-.galeria-topo{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.voltar-temas{background:none;border:2px solid var(--tinta);border-radius:999px;padding:8px 16px;font:600 13px var(--sans);color:var(--tinta);cursor:pointer}
-.galeria{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-top:22px}
-.fig-item{display:flex;flex-direction:column;gap:8px;padding:12px;border-radius:20px;background:var(--caixa)}
-.fig-item img{width:100%;aspect-ratio:1;object-fit:contain;-webkit-touch-callout:default}
-.fig-item button{border:0;border-radius:999px;padding:9px;background:var(--tinta);color:#fff;font:700 12.5px var(--sans);cursor:pointer}
-.carregando{margin-top:22px;font-size:14px;color:var(--tinta-2)}
-.tema-area i{flex:none;width:14px;height:14px;border-radius:50%;border:2px solid var(--tinta)}
-.tema-area h3{flex:1;font-family:var(--sans);font-size:15px;font-weight:700;text-transform:none;letter-spacing:0}
-.tema-area span{font-size:12px;font-weight:600;color:var(--tinta-2)}
-.sair{margin-top:18px;background:none;border:0;padding:0;font:600 13px var(--sans);color:var(--tinta-2);text-decoration:underline;cursor:pointer}
-
 .final{margin:0 48px 48px;padding:34px 30px;border-radius:28px;background:var(--manteiga);display:grid;gap:18px;align-items:center}
 .final h2{font-size:clamp(36px,4vw,52px)}
 .final p{margin:8px 0 0;font-size:15px;line-height:1.6;color:var(--tinta-2)}
 .final .botoes{margin-top:0}
-
 .assinatura{max-width:1100px;margin:18px auto 0;text-align:center;font-size:13px;font-weight:500;color:var(--tinta-2)}
 
+/* ================= O APP (depois da senha) ================= */
+body.no-app{overflow:hidden}
+.app{position:fixed;inset:0;z-index:30;background:var(--creme);display:flex;flex-direction:column}
+.app-rolagem{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.app-miolo{max-width:640px;margin:0 auto;padding:calc(18px + env(safe-area-inset-top)) 18px 110px}
+.app-topo{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.app-topo b{display:block;font-family:var(--titulo);font-size:30px;font-weight:700;text-transform:uppercase;line-height:1}
+.app-topo b em{font-style:normal;color:var(--rosa-forte)}
+.app-topo small{font-size:13px;color:var(--tinta-2)}
+.app-sair{flex:none;border:0;border-radius:999px;padding:9px 14px;background:#fff;font:600 12.5px var(--sans);cursor:pointer;box-shadow:0 0 0 1.5px var(--linha)}
+.app-titulo{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:26px 0 12px}
+.app-titulo h2{font-family:var(--sans);font-size:17px;font-weight:700;text-transform:none;letter-spacing:0}
+.app-titulo button{border:0;background:none;padding:0;font:600 13px var(--sans);color:var(--rosa-forte);cursor:pointer}
+.vazio{padding:22px;border-radius:20px;background:#fff;text-align:center;font-size:14px;line-height:1.6;color:var(--tinta-2)}
+
+/* categorias em fila (início) */
+.cats-fila{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -18px;padding:4px 18px 8px;scrollbar-width:none}
+.cats-fila::-webkit-scrollbar{display:none}
+.cat-mini{flex:none;width:96px;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 6px 12px;border:0;border-top:4px solid var(--cor);border-radius:16px;background:#fff;box-shadow:0 8px 18px -14px rgba(30,25,21,.4);cursor:pointer;text-align:center}
+.cat-mini span{font-size:26px;line-height:1}
+.cat-mini small{font-size:11px;font-weight:600;line-height:1.25}
+
+/* lista de categorias e temas */
+.categorias{display:grid;gap:12px}
+.categoria{display:flex;align-items:center;gap:16px;width:100%;padding:16px 18px;border:0;border-top:5px solid var(--cor);border-radius:22px;background:#fff;text-align:left;box-shadow:0 10px 22px -18px rgba(30,25,21,.45)}
+button.categoria{cursor:pointer;transition:transform .2s}
+button.categoria:active{transform:scale(.98)}
+.cat-icone{flex:none;width:50px;height:50px;border-radius:50%;display:grid;place-items:center;background:var(--caixa);font-size:25px}
+.cat-texto{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.cat-texto strong{font-size:16px;font-weight:700;line-height:1.25}
+.cat-texto small{font-size:13px;color:var(--tinta-2)}
+.cat-seta{flex:none;font-size:24px;color:var(--tinta-2)}
+.temas-lista{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tema{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:16px;border:0;border-radius:18px;background:#fff;text-align:left;box-shadow:0 8px 18px -15px rgba(30,25,21,.4)}
+button.tema{cursor:pointer}
+.tema i{width:12px;height:12px;border-radius:50%;border:2px solid var(--tinta);margin-bottom:6px}
+.tema strong{font-size:14px;line-height:1.3}
+.tema small{font-size:12px;color:var(--tinta-2)}
+.voltar-app{display:inline-flex;align-items:center;gap:6px;margin-bottom:6px;border:0;border-radius:999px;padding:8px 14px;background:#fff;font:600 13px var(--sans);cursor:pointer;box-shadow:0 0 0 1.5px var(--linha)}
+.cabeca h2{font-size:38px;margin-top:12px}
+.cabeca p{margin:4px 0 0;font-size:13.5px;color:var(--tinta-2)}
+
+/* grade de figurinhas */
+.grade-fig{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.fig{position:relative;aspect-ratio:1;border:0;padding:8px;border-radius:14px;background:#ece5dd;cursor:pointer}
+.fig img{width:100%;height:100%;object-fit:contain;pointer-events:none}
+.fig .coracao{position:absolute;top:5px;right:6px;font-size:13px;color:var(--rosa-forte)}
+.carregando{padding:30px 0;text-align:center;font-size:14px;color:var(--tinta-2)}
+
+/* faixa de ajuda */
+.faixa-ajuda{display:flex;align-items:center;gap:14px;width:100%;margin-top:26px;padding:16px;border:0;border-radius:20px;background:var(--manteiga);text-align:left;cursor:pointer}
+.faixa-ajuda i{flex:none;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--rosa);font-style:normal;font-size:22px}
+.faixa-ajuda strong{display:block;font-size:15px}
+.faixa-ajuda small{display:block;margin-top:2px;font-size:12.5px;line-height:1.45;color:var(--tinta-2)}
+.ajuda{margin-top:12px;padding:18px;border-radius:20px;background:#fff;font-size:13.5px;line-height:1.65}
+.ajuda ol{margin:0;padding-left:20px}
+.ajuda li+li{margin-top:6px}
+
+/* barra de baixo */
+.app-nav{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:center;padding:8px 10px calc(10px + env(safe-area-inset-bottom));background:#fff;box-shadow:0 -10px 24px -18px rgba(30,25,21,.35)}
+.app-nav div{display:flex;width:100%;max-width:520px;justify-content:space-around}
+.app-nav button{display:flex;flex-direction:column;align-items:center;gap:3px;border:0;background:none;padding:6px 14px;font:600 11.5px var(--sans);color:var(--tinta-2);cursor:pointer}
+.app-nav svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.app-nav button.ativo{color:var(--rosa-forte)}
+.app-nav button.ativo svg{fill:#ffd6ee}
+
+/* figurinha aberta */
+.modal{position:fixed;inset:0;z-index:40;background:rgba(30,25,21,.88);display:flex;align-items:center;justify-content:center;padding:20px}
+.modal-caixa{width:100%;max-width:380px;display:flex;flex-direction:column;gap:12px}
+.modal-fechar{align-self:flex-end;width:40px;height:40px;border:0;border-radius:50%;background:rgba(255,255,255,.15);color:#fff;font-size:20px;cursor:pointer}
+.modal-img{aspect-ratio:1;border-radius:24px;background:var(--creme);padding:24px;display:grid;place-items:center}
+.modal-img img{max-height:100%;object-fit:contain}
+.modal-acoes{display:grid;grid-template-columns:1fr auto auto;gap:8px}
+.modal-acoes button{border:0;border-radius:999px;padding:14px 16px;font:700 14px var(--sans);cursor:pointer}
+.b-copiar{background:var(--rosa);color:var(--tinta)}
+.b-salvar,.b-fav{background:#fff;color:var(--tinta)}
+.b-fav.ativo{background:var(--rosa-forte);color:#fff}
+.modal-dica{margin:2px 0 0;text-align:center;font-size:13px;line-height:1.5;color:#efe8e2}
+.aviso{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));z-index:50;background:var(--tinta);color:#fff;border-radius:999px;padding:10px 18px;font-size:13px;font-weight:600;transform:translate(-50%,16px);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;white-space:nowrap}
+.aviso.mostra{opacity:1;transform:translate(-50%,0)}
+
 @media (min-width:960px){
-  .capa{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;padding-top:28px}
-  .itens{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .capa{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;padding-top:30px}
+  .vantagens{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .nichos{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .passos{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .passo{flex-direction:column}
   .entrar{grid-template-columns:1fr 1fr;gap:48px}
-  .temas-area{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .categorias{grid-template-columns:repeat(2,minmax(0,1fr))}
   .final{grid-template-columns:1fr auto}
+  .grade-fig{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .temas-lista{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 @media (max-width:959px){
   body{padding:10px 10px 28px}
@@ -155,12 +251,20 @@ button.categoria:hover{transform:translateY(-2px);box-shadow:0 14px 24px -18px r
   .topo{padding:14px 16px}
   .logo svg{width:28px;height:28px}
   .logo strong,.logo span{font-size:15px}
-  .capa{padding:12px 16px 36px;gap:28px}
-  h1{font-size:clamp(42px,12vw,60px)}
+  .capa{padding:12px 16px 36px;gap:16px}
+  h1{font-size:clamp(44px,13vw,62px)}
   .capa-texto p{font-size:15px}
-  .bloco{padding:32px 16px}
+  .bloco{padding:36px 16px}
   .login{padding:20px}
   .final{margin:0 16px 24px;padding:26px 20px}
+}
+@media (max-width:420px){
+  .celulares{min-height:400px}
+  .cel{width:190px;border-radius:32px;padding:8px}
+  .cel-tela{border-radius:25px}
+  .cel-2{margin-left:-70px}
+  .mini-cats span{width:42px}
+  .mini-cats span:nth-child(4){display:none}
 }
 @media (prefers-reduced-motion:reduce){
   .logo svg{animation:none}
@@ -175,61 +279,90 @@ button.categoria:hover{transform:translateY(-2px);box-shadow:0 14px 24px -18px r
       <svg viewBox="-3 -3 46 46" aria-hidden="true"><path d="M20 0C21.6 11.5 28.5 18.4 40 20 28.5 21.6 21.6 28.5 20 40 18.4 28.5 11.5 21.6 0 20 11.5 18.4 18.4 11.5 20 0Z"/></svg>
       <div><strong>Yasmin</strong><span>Carreira</span></div>
     </a>
-    <a class="voltar" href="../">← Início</a>
+    <a class="topo-link" href="#entrar">Já comprei</a>
   </header>
 
   <main>
     <!-- ================= CAPA ================= -->
     <section class="capa">
       <div class="capa-texto">
-        <p class="rotulo">Para os seus stories</p>
-        <h1>Pack de <span class="marca">figurinhas</span></h1>
-        <p>Figurinhas prontas para deixar os seus stories mais bonitos, organizados e com a sua cara. São vários temas, e servem para qualquer pessoa: quem cria conteúdo, marcas, lojas e profissionais.</p>
+        <p class="rotulo">Pack de figurinhas</p>
+        <h1>Milhares de figurinhas para os seus <span class="marca">stories</span></h1>
+        <p>Stories mais criativos, bonitos e com a sua cara, sem perder tempo criando do zero. As figurinhas são separadas por categoria e por nicho, e servem para qualquer pessoa: quem cria conteúdo, marcas, lojas e profissionais.</p>
         <div class="botoes">
           <a class="btn btn-rosa js-whats" href="https://wa.me/5513997973883" target="_blank" rel="noopener">Quero o meu <span class="seta">→</span></a>
           <a class="btn btn-linha" href="#entrar">Já comprei <span class="seta">↓</span></a>
         </div>
+        <div class="selos"><span>📱 Android e iPhone</span><span>✂️ Copiar e colar</span><span>♡ Favoritos</span></div>
       </div>
-      <div class="mural" aria-hidden="true">
-        <span class="fig fig-1">bom dia!</span>
-        <span class="fig fig-2">novidade</span>
-        <span class="fig fig-3">link<br>na bio</span>
-        <span class="fig fig-4">me conta ♡</span>
-        <svg class="estrela estrela-a" viewBox="-3 -3 46 46"><path d="M20 0C21.6 11.5 28.5 18.4 40 20 28.5 21.6 21.6 28.5 20 40 18.4 28.5 11.5 21.6 0 20 11.5 18.4 18.4 11.5 20 0Z"/></svg>
-        <svg class="estrela estrela-b" viewBox="-3 -3 46 46"><path d="M20 0C21.6 11.5 28.5 18.4 40 20 28.5 21.6 21.6 28.5 20 40 18.4 28.5 11.5 21.6 0 20 11.5 18.4 18.4 11.5 20 0Z"/></svg>
+
+      <div class="celulares" aria-hidden="true">
+        <div class="cel cel-1"><div class="cel-tela">
+          <div class="mini-topo"><b>Figurinhas</b><small>Olá! ♡</small></div>
+          <div class="mini-titulo">Categorias</div>
+          <div class="mini-cats">
+            <span style="--c:var(--amarelo)">☀️<small>Dia a dia</small></span>
+            <span style="--c:var(--rosa)">💅<small>Beleza</small></span>
+            <span style="--c:var(--ceu)">💼<small>Negócios</small></span>
+            <span style="--c:var(--rosa)">🎉<small>Datas</small></span>
+          </div>
+          <div class="mini-titulo">Em destaque</div>
+          <div class="mini-grade"><span>bom dia ♡</span><span>novidade</span><span>me conta</span><span>link na bio</span><span>promo</span><span>chegou!</span></div>
+          <div class="mini-faixa"><i>?</i>Como usar nos stories</div>
+          <div class="mini-nav"><span><i></i>Início</span><span><i></i>Temas</span><span><i></i>Favoritos</span></div>
+        </div></div>
+        <div class="cel cel-2"><div class="cel-tela">
+          <div class="mini-cartao"><span class="mini-fig">bom dia!</span></div>
+          <div class="mini-copiar">Copiar figurinha</div>
+          <p class="mini-dica">Toque em copiar e cole por cima da sua foto no story ✨</p>
+        </div></div>
       </div>
     </section>
 
-    <!-- ================= TEMAS ================= -->
-    <section class="bloco" id="temas">
-      <p class="rotulo">Tem para tudo</p>
-      <h2>Vários <span class="marca-azul">temas</span></h2>
-      <p class="bloco-sub">São 11 categorias, cada uma com vários temas dentro, para você achar rapidinho a figurinha que combina com o story do dia.</p>
-      <div class="temas">
-        <span>Saudações e dia a dia</span><span>Beleza e autocuidado</span><span>Saúde e bem-estar</span><span>Gastronomia e bebidas</span><span>Negócios e empreendedorismo</span><span>Estudos e produtividade</span><span>Fé e espiritualidade</span><span>Família e maternidade</span><span>Datas especiais</span><span>Lifestyle e criatividade</span><span>Afeto e relacionamento</span>
+    <!-- ================= VANTAGENS ================= -->
+    <section class="bloco centro" id="vantagens">
+      <p class="rotulo">Feito para o celular</p>
+      <h2>Simples de <span class="marca-azul">usar</span></h2>
+      <div class="vantagens">
+        <div class="vantagem"><i style="--c:#fde3f2"><svg viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M11.5 18h1"/></svg></i><h3>Android e iPhone</h3><p>Funciona em qualquer celular, direto no navegador.</p></div>
+        <div class="vantagem"><i style="--c:#dbeafc"><svg viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></i><h3>Copiar e colar</h3><p>Toque em copiar e cole por cima da foto no story.</p></div>
+        <div class="vantagem"><i style="--c:var(--manteiga)"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></i><h3>Acesso rápido</h3><p>Você recebe a senha assim que o pagamento é confirmado.</p></div>
+        <div class="vantagem"><i style="--c:#fde3f2"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></i><h3>Seus favoritos</h3><p>Marque as que você mais usa e ache rapidinho.</p></div>
       </div>
     </section>
 
-    <!-- ================= PARA QUEM É ================= -->
-    <section class="bloco" id="para-quem">
-      <p class="rotulo">Serve para você</p>
-      <h2>Para <span class="marca-amarela">quem é?</span></h2>
-      <p class="bloco-sub">Para <b>qualquer pessoa</b> que posta stories e quer um visual mais caprichado, sem perder tempo criando do zero.</p>
-      <div class="itens">
-        <div class="item"><i style="background:var(--rosa)"></i><div><h3>Pessoas e creators</h3><p>Para a rotina, os recebidos e as conversas com os seguidores.</p></div></div>
-        <div class="item"><i style="background:var(--ceu)"></i><div><h3>Marcas e lojas</h3><p>Para lançamentos, promoções, novidades e avisos.</p></div></div>
-        <div class="item"><i style="background:var(--manteiga)"></i><div><h3>Profissionais</h3><p>Para mostrar serviços, agenda, depoimentos e bastidores.</p></div></div>
+    <!-- ================= NICHOS ================= -->
+    <section class="bloco centro nichos-bloco" id="nichos">
+      <p class="rotulo">Tem para todo mundo</p>
+      <h2>Separadas por <span class="marca">nicho</span></h2>
+      <p class="bloco-sub">Encontre rapidinho a figurinha certa para o seu dia a dia ou para o seu negócio.</p>
+      <div class="nichos">
+        <span>Bom dia, tarde e noite</span><span class="forte">Beleza e autocuidado</span><span>Maternidade</span><span>Treino e academia</span>
+        <span>Unhas</span><span>Cílios e sobrancelhas</span><span class="forte">Salão de beleza</span><span>Moda</span>
+        <span>Confeitaria</span><span>Café e refeições</span><span>Empreendedoras</span><span class="forte">Marketing</span>
+        <span>Estudos</span><span>Fé</span><span>Viagens</span><span>Datas especiais</span>
       </div>
-      <p class="nota"><b>Como funciona:</b> depois da compra, você recebe a senha de acesso. É só entrar aqui embaixo, salvar as figurinhas no celular e usar nos seus stories.</p>
+      <p class="nichos-mais">e muito mais, em 11 categorias</p>
+    </section>
+
+    <!-- ================= NA PRÁTICA ================= -->
+    <section class="bloco centro" id="como-usar">
+      <p class="rotulo">Na prática</p>
+      <h2>Copiar e <span class="marca-amarela">colar</span></h2>
+      <ol class="passos">
+        <li class="passo"><div><strong>Abra o pack</strong><span>Entre com a sua senha e escolha a categoria e o tema.</span></div></li>
+        <li class="passo"><div><strong>Toque na figurinha</strong><span>Ela abre grande, com o botão <b>Copiar</b>.</span></div></li>
+        <li class="passo"><div><strong>Cole no story</strong><span>Abra o story, toque na tela e escolha <b>Colar</b>. Pronto!</span></div></li>
+      </ol>
     </section>
 
     <!-- ================= LOGIN ================= -->
     <section class="bloco" id="entrar">
-      <div class="entrar" id="porta">
+      <div class="entrar">
         <div>
           <p class="rotulo">Área de quem comprou</p>
           <h2>Já comprou? <span class="marca">Entre aqui</span></h2>
-          <p class="bloco-sub">Use a senha que você recebeu depois da compra para ver e salvar todas as figurinhas.</p>
+          <p class="bloco-sub">Use a senha que você recebeu depois da compra para abrir o seu pack.</p>
         </div>
         <form class="login" id="form-login" autocomplete="off">
           <label for="senha">Senha de acesso</label>
@@ -240,10 +373,6 @@ button.categoria:hover{transform:translateY(-2px);box-shadow:0 14px 24px -18px r
           <p class="erro" id="erro" role="alert"></p>
           <small>Não recebeu ou esqueceu a senha? Me chama no WhatsApp que eu te mando.</small>
         </form>
-      </div>
-      <div class="area" id="area" hidden>
-        <div id="conteudo"></div>
-        <button type="button" class="sair" id="sair">Sair</button>
       </div>
     </section>
   </main>
@@ -260,121 +389,252 @@ button.categoria:hover{transform:translateY(-2px);box-shadow:0 14px 24px -18px r
 </div>
 <p class="assinatura">Yasmin Carreira · Pack de figurinhas</p>
 
+<!-- ================= O APP: aparece depois da senha ================= -->
+<div class="app" id="app" hidden>
+  <div class="app-rolagem" id="rolagem"><div class="app-miolo" id="tela"></div></div>
+  <nav class="app-nav" aria-label="Menu do pack"><div>
+    <button type="button" data-aba="inicio"><svg viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V20h-5v-6H9v6H4z"/></svg>Início</button>
+    <button type="button" data-aba="temas"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg>Temas</button>
+    <button type="button" data-aba="favoritos"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>Favoritos</button>
+  </div></nav>
+</div>
+
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-label="Figurinha">
+  <div class="modal-caixa">
+    <button type="button" class="modal-fechar" id="m-fechar" aria-label="Fechar">✕</button>
+    <div class="modal-img"><img id="m-img" alt="Figurinha"></div>
+    <div class="modal-acoes">
+      <button type="button" class="b-copiar" id="m-copiar">Copiar figurinha</button>
+      <button type="button" class="b-salvar" id="m-salvar" aria-label="Salvar nas fotos">Salvar</button>
+      <button type="button" class="b-fav" id="m-fav" aria-label="Favoritar">♡</button>
+    </div>
+    <p class="modal-dica">Toque em <b>Copiar</b>, abra o story e cole por cima da sua foto ✨</p>
+  </div>
+</div>
+<div class="aviso" id="aviso" role="status"></div>
+
 <script>
 // WhatsApp com mensagem pronta
 const msg = "Oi, Yasmin! Vi o pack de figurinhas e quero comprar.";
 document.querySelectorAll(".js-whats").forEach(a => a.href = "https://wa.me/5513997973883?text=" + encodeURIComponent(msg));
 
-// Área de quem comprou: o conteúdo fica trancado em area.bin e só abre com a senha certa
-const porta = document.getElementById("porta"), area = document.getElementById("area"), conteudo = document.getElementById("conteudo");
-const form = document.getElementById("form-login"), campo = document.getElementById("senha"), erro = document.getElementById("erro"), btn = document.getElementById("btn-entrar");
+const $ = id => document.getElementById(id);
+const guardar = {
+  ler(k) { try { return localStorage.getItem(k); } catch (_) { return null; } },
+  gravar(k, v) { try { localStorage.setItem(k, v); } catch (_) {} },
+  apagar(k) { try { localStorage.removeItem(k); } catch (_) {} }
+};
 
-let senhaAtual = "", indice = [];
-async function abrir(senha, arquivo = "area.bin") {
-  const dados = new Uint8Array(await (await fetch(arquivo, {cache: "no-store"})).arrayBuffer());
-  const sal = dados.slice(8, 16), cifra = dados.slice(16);
+// ---------- tranca: tudo fica em arquivos .bin que só abrem com a senha ----------
+let senha = "", indice = [];
+async function abrir(arquivo) {
+  const resp = await fetch(arquivo, {cache: "no-cache"});
+  if (!resp.ok) throw new Error("sem arquivo");
+  const dados = new Uint8Array(await resp.arrayBuffer());
   const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(senha), "PBKDF2", false, ["deriveBits"]);
-  const bits = new Uint8Array(await crypto.subtle.deriveBits({name: "PBKDF2", hash: "SHA-256", salt: sal, iterations: 200000}, base, 384));
+  const bits = new Uint8Array(await crypto.subtle.deriveBits({name: "PBKDF2", hash: "SHA-256", salt: dados.slice(8, 16), iterations: 200000}, base, 384));
   const chave = await crypto.subtle.importKey("raw", bits.slice(0, 32), "AES-CBC", false, ["decrypt"]);
-  const texto = await crypto.subtle.decrypt({name: "AES-CBC", iv: bits.slice(32, 48)}, chave, cifra);
-  return new TextDecoder().decode(texto);
+  return new TextDecoder().decode(await crypto.subtle.decrypt({name: "AES-CBC", iv: bits.slice(32, 48)}, chave, dados.slice(16)));
 }
-function mostrar(texto) {
-  indice = JSON.parse(texto);
-  verCategorias();
-  porta.hidden = true; area.hidden = false;
+// um tema aberto vira uma lista de arquivos de imagem (guardados enquanto o app está aberto)
+const cache = {};
+function paraArquivo(tipo, b64, nome) {
+  const bytes = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+  const f = new File([bytes], nome + "." + tipo.split("/")[1].replace("jpeg", "jpg"), {type: tipo});
+  return {arquivo: f, url: URL.createObjectURL(f)};
 }
-
-// Três telas: categorias > temas da categoria > figurinhas do tema
-const cores = ["rosa", "ceu", "manteiga"];
-const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"})[c]);
-const plural = (n, um, varios) => n.toLocaleString("pt-BR") + " " + (n === 1 ? um : varios);
-const somaCat = cat => cat.temas.reduce((s, t) => s + t.qtd, 0);
-const topoArea = document.getElementById("entrar");
-
-function verCategorias() {
-  limparUrls();
-  conteudo.innerHTML = `<p class="rotulo">Área de quem comprou</p>
-    <h2>Suas <span class="marca">figurinhas</span></h2>
-    <p class="bloco-sub">Escolha uma categoria e depois o tema. Novos temas aparecem aqui conforme forem lançados.</p>
-    <div class="categorias">${indice.map((cat, i) => {
-      const qtd = somaCat(cat), pronta = qtd > 0;
-      return `<${pronta ? 'button type="button"' : "div"} class="categoria" style="--cor:var(--${cores[i % 3]})" ${pronta ? `data-cat="${i}"` : ""}>
-        <span class="cat-icone">${esc(cat.icone || "★")}</span>
-        <span class="cat-texto"><strong>${esc(cat.nome)}</strong><small>${pronta ? plural(cat.temas.filter(t => t.qtd).length, "tema", "temas") + " · " + plural(qtd, "figurinha", "figurinhas") : "em breve"}</small></span>
-        ${pronta ? '<span class="cat-seta">›</span>' : ""}
-      </${pronta ? "button" : "div"}>`;
-    }).join("")}</div>
-    <p class="nota"><b>Como usar no Instagram:</b> toque em <b>Salvar</b> embaixo da figurinha (ou segure o dedo nela) e salve nas Fotos. Depois abra o story, toque no ícone de figurinhas e escolha a imagem da galeria.</p>`;
-}
-function verCategoria(i) {
-  limparUrls();
-  const cat = indice[i];
-  conteudo.innerHTML = `<div class="galeria-topo"><h2>${esc(cat.icone || "")} ${esc(cat.nome)}</h2><button type="button" class="voltar" data-ir="categorias">← Categorias</button></div>
-    <div class="temas-area">${cat.temas.map((t, j) => t.qtd
-      ? `<button type="button" class="tema-area" data-cat="${i}" data-tema="${j}"><i style="background:var(--${cores[j % 3]})"></i><h3>${esc(t.nome)}</h3><span>${plural(t.qtd, "figurinha", "figurinhas")} →</span></button>`
-      : `<div class="tema-area"><i style="background:var(--${cores[j % 3]})"></i><h3>${esc(t.nome)}</h3><span>em breve</span></div>`).join("")}</div>`;
-  topoArea.scrollIntoView();
+async function figurinhasDoTema(id) {
+  if (!cache[id]) cache[id] = abrir("temas/" + id + ".bin").then(t => t.trim().split("\n").map((l, n) => {
+    const [tipo, b64] = l.split(" "); return paraArquivo(tipo, b64, `figurinha-${id}-${n + 1}`);
+  }));
+  return cache[id];
 }
 
-let urls = [];
-function limparUrls() { urls.forEach(u => URL.revokeObjectURL(u)); urls = []; }
-conteudo.addEventListener("click", e => {
-  const alvo = e.target.closest("[data-cat],[data-ir]");
-  if (!alvo) return;
-  if (alvo.dataset.ir === "categorias") { verCategorias(); topoArea.scrollIntoView(); }
-  else if (alvo.dataset.tema !== undefined) verTema(+alvo.dataset.cat, +alvo.dataset.tema);
-  else verCategoria(+alvo.dataset.cat);
-});
-// Abrir um tema: baixa só o arquivo trancado daquele tema e mostra as figurinhas
-async function verTema(i, j) {
-  limparUrls();
-  const cat = indice[i], tema = cat.temas[j];
-  conteudo.innerHTML = `<div class="galeria-topo"><div><p class="rotulo">${esc(cat.nome)}</p><h2>${esc(tema.nome)}</h2></div><button type="button" class="voltar" data-cat="${i}">← Temas</button></div><p class="carregando">Abrindo as figurinhas…</p>`;
-  topoArea.scrollIntoView();
-  try {
-    const linhas = (await abrir(senhaAtual, "temas/" + tema.id + ".bin")).trim().split("\n");
-    const galeria = document.createElement("div"); galeria.className = "galeria";
-    linhas.forEach((linha, n) => {
-      const [tipo, b64] = linha.split(" ");
-      const bytes = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
-      const arquivo = new File([bytes], `figurinha-${n + 1}.${tipo.split("/")[1].replace("jpeg", "jpg")}`, {type: tipo});
-      const url = URL.createObjectURL(arquivo); urls.push(url);
-      const item = document.createElement("div"); item.className = "fig-item";
-      item.innerHTML = `<img alt="Figurinha ${n + 1}" src="${url}" loading="lazy"><button type="button">Salvar</button>`;
-      item.querySelector("button").onclick = () => salvar(arquivo, url);
-      galeria.appendChild(item);
-    });
-    conteudo.querySelector(".carregando").replaceWith(galeria);
-  } catch (_) {
-    conteudo.querySelector(".carregando").textContent = "Não consegui abrir este tema. Tente de novo.";
-  }
-}// No celular abre a tela de compartilhar (com "Salvar imagem"); no computador baixa o arquivo
-async function salvar(arquivo, url) {
-  try { if (navigator.canShare && navigator.canShare({files: [arquivo]})) return await navigator.share({files: [arquivo]}); } catch (_) { return; }
-  const a = document.createElement("a"); a.href = url; a.download = arquivo.name; a.click();
+// ---------- entrar e sair ----------
+const form = $("form-login"), campo = $("senha"), erro = $("erro"), btn = $("btn-entrar");
+async function entrar(s) {
+  senha = s;
+  indice = JSON.parse(await abrir("area.bin"));
+  guardar.gravar("figurinhas-senha", s);
+  $("app").hidden = false; document.body.classList.add("no-app");
+  irPara("inicio");
 }
-
 form.addEventListener("submit", async e => {
   e.preventDefault();
   erro.textContent = ""; btn.disabled = true; btn.textContent = "Abrindo…";
-  try {
-    const texto = await abrir(campo.value.trim());
-    senhaAtual = campo.value.trim();
-    mostrar(texto);
-    try { sessionStorage.setItem("figurinhas", campo.value.trim()); } catch (_) {}
-  } catch (_) {
-    erro.textContent = "Senha incorreta. Confira e tente de novo.";
-  }
+  try { await entrar(campo.value.trim()); campo.value = ""; }
+  catch (_) { erro.textContent = "Senha incorreta. Confira e tente de novo."; }
   btn.disabled = false; btn.textContent = "Entrar";
 });
-document.getElementById("sair").addEventListener("click", () => {
-  try { sessionStorage.removeItem("figurinhas"); } catch (_) {}
-  limparUrls(); senhaAtual = "";
-  conteudo.innerHTML = ""; area.hidden = true; porta.hidden = false; campo.value = "";
+function sair() {
+  guardar.apagar("figurinhas-senha");
+  Object.values(cache).forEach(p => p.then(l => l.forEach(f => URL.revokeObjectURL(f.url))).catch(() => {}));
+  for (const k in cache) delete cache[k];
+  senha = ""; indice = [];
+  $("app").hidden = true; document.body.classList.remove("no-app");
+}
+// quem já entrou neste celular abre direto
+const salva = guardar.ler("figurinhas-senha");
+if (salva) entrar(salva).catch(() => guardar.apagar("figurinhas-senha"));
+
+// ---------- telas do app ----------
+const cores = ["var(--amarelo)", "var(--rosa)", "var(--ceu)"];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"})[c]);
+const num = n => n.toLocaleString("pt-BR");
+const plural = (n, um, varios) => num(n) + " " + (n === 1 ? um : varios);
+const totalCat = cat => cat.temas.reduce((s, t) => s + t.qtd, 0);
+const tela = $("tela");
+let abaAtual = "inicio";
+
+function irPara(aba, ...args) {
+  abaAtual = aba === "categoria" || aba === "tema" ? "temas" : aba;
+  document.querySelectorAll(".app-nav button").forEach(b => b.classList.toggle("ativo", b.dataset.aba === abaAtual));
+  ({inicio: telaInicio, temas: telaTemas, categoria: telaCategoria, tema: telaTema, favoritos: telaFavoritos})[aba](...args);
+  $("rolagem").scrollTop = 0;
+}
+document.querySelector(".app-nav").addEventListener("click", e => { const b = e.target.closest("[data-aba]"); if (b) irPara(b.dataset.aba); });
+
+const topoApp = () => `<div class="app-topo"><div><b>Pack de <em>figurinhas</em></b><small>Olá! ♡ Bons stories</small></div><button type="button" class="app-sair" data-acao="sair">Sair</button></div>`;
+const cartaoCategoria = (cat, i) => {
+  const q = totalCat(cat), ok = q > 0, temasProntos = cat.temas.filter(t => t.qtd).length;
+  return `<${ok ? 'button type="button"' : "div"} class="categoria" style="--cor:${cores[i % 3]}" ${ok ? `data-cat="${i}"` : ""}>
+    <span class="cat-icone">${esc(cat.icone || "★")}</span>
+    <span class="cat-texto"><strong>${esc(cat.nome)}</strong><small>${ok ? plural(temasProntos, "tema", "temas") + " · " + plural(q, "figurinha", "figurinhas") : "em breve"}</small></span>
+    ${ok ? '<span class="cat-seta">›</span>' : ""}</${ok ? "button" : "div"}>`;
+};
+
+function telaInicio() {
+  const total = indice.reduce((s, c) => s + totalCat(c), 0);
+  tela.innerHTML = topoApp() +
+    `<div class="app-titulo"><h2>Categorias</h2><button type="button" data-ir="temas">Ver todas →</button></div>
+    <div class="cats-fila">${indice.map((c, i) => `<button type="button" class="cat-mini" style="--cor:${cores[i % 3]}" data-cat="${i}"><span>${esc(c.icone || "★")}</span><small>${esc(c.nome)}</small></button>`).join("")}</div>
+    <div class="app-titulo"><h2>Em destaque</h2></div>
+    <div id="destaques"><p class="carregando">${total ? "Abrindo…" : ""}</p></div>
+    <button type="button" class="faixa-ajuda" data-acao="ajuda"><i>✨</i><span><strong>Como usar nos stories</strong><small>Copiar, colar e salvar no celular, passo a passo.</small></span></button>
+    <div class="ajuda" id="ajuda" hidden><ol>
+      <li>Toque na figurinha e depois em <b>Copiar figurinha</b>.</li>
+      <li>Abra o story no Instagram e escolha a sua foto ou vídeo.</li>
+      <li>Toque na tela, como se fosse escrever, e escolha <b>Colar</b>. Dá para aumentar, girar e mudar de lugar.</li>
+      <li>Se o seu celular não deixar colar, toque em <b>Salvar</b> e use o ícone de figurinhas do story para escolher a imagem da galeria.</li>
+      <li>Dica: no Safari ou no Chrome, toque em compartilhar e em <b>Adicionar à Tela de Início</b> para abrir o pack como um app.</li>
+    </ol></div>`;
+  const caixa = $("destaques");
+  if (!total) { caixa.innerHTML = `<div class="vazio">As figurinhas estão chegando! Logo aparecem aqui ♡</div>`; return; }
+  abrir("temas/destaque.bin").then(t => {
+    const itens = t.trim().split("\n").map((l, n) => { const [id, tipo, b64] = l.split(" "); return {id, i: 0, ...paraArquivo(tipo, b64, `destaque-${n + 1}`)}; });
+    caixa.innerHTML = `<div class="grade-fig"></div>`;
+    itens.forEach(it => caixa.firstChild.appendChild(botaoFig(it, it.id, 0)));
+  }).catch(() => caixa.innerHTML = "");
+}
+
+function telaTemas() {
+  tela.innerHTML = topoApp() + `<div class="app-titulo"><h2>Todas as categorias</h2></div><div class="categorias">${indice.map(cartaoCategoria).join("")}</div>`;
+}
+
+function telaCategoria(i) {
+  const cat = indice[i];
+  tela.innerHTML = `<div class="cabeca"><button type="button" class="voltar-app" data-ir="temas">← Categorias</button><h2>${esc(cat.icone || "")} ${esc(cat.nome)}</h2><p>${plural(totalCat(cat), "figurinha", "figurinhas")}</p></div>
+    <div class="app-titulo"><h2>Temas</h2></div>
+    ${cat.temas.length ? `<div class="temas-lista">${cat.temas.map((t, j) => `<${t.qtd ? 'button type="button"' : "div"} class="tema" ${t.qtd ? `data-cat="${i}" data-tema="${j}"` : ""}><i style="background:${cores[j % 3]}"></i><strong>${esc(t.nome)}</strong><small>${t.qtd ? plural(t.qtd, "figurinha", "figurinhas") : "em breve"}</small></${t.qtd ? "button" : "div"}>`).join("")}</div>`
+      : `<div class="vazio">Os temas desta categoria chegam em breve ♡</div>`}`;
+}
+
+async function telaTema(i, j) {
+  const cat = indice[i], tema = cat.temas[j];
+  tela.innerHTML = `<div class="cabeca"><button type="button" class="voltar-app" data-cat="${i}">← ${esc(cat.nome)}</button><h2>${esc(tema.nome)}</h2><p>${plural(tema.qtd, "figurinha", "figurinhas")} · toque para abrir</p></div>
+    <div class="app-titulo"></div><div id="grade"><p class="carregando">Abrindo as figurinhas…</p></div>`;
+  try {
+    const lista = await figurinhasDoTema(tema.id);
+    const grade = document.createElement("div"); grade.className = "grade-fig";
+    lista.forEach((f, n) => grade.appendChild(botaoFig(f, tema.id, n)));
+    $("grade").replaceChildren(grade);
+  } catch (_) { $("grade").innerHTML = `<div class="vazio">Não consegui abrir este tema. Confira a internet e tente de novo.</div>`; }
+}
+
+// favoritos: guardados neste celular como "tema:posição"
+const lerFavs = () => { try { return JSON.parse(guardar.ler("figurinhas-favoritos") || "[]"); } catch (_) { return []; } };
+const ehFav = (id, n) => lerFavs().includes(id + ":" + n);
+function alternarFav(id, n) {
+  const chave = id + ":" + n, favs = lerFavs(), pos = favs.indexOf(chave);
+  pos >= 0 ? favs.splice(pos, 1) : favs.unshift(chave);
+  guardar.gravar("figurinhas-favoritos", JSON.stringify(favs));
+  return pos < 0;
+}
+async function telaFavoritos() {
+  const favs = lerFavs();
+  tela.innerHTML = topoApp() + `<div class="app-titulo"><h2>Seus favoritos</h2></div><div id="grade">${favs.length ? '<p class="carregando">Abrindo…</p>' : '<div class="vazio">Toque no ♡ de uma figurinha para guardar aqui as que você mais usa.</div>'}</div>`;
+  if (!favs.length) return;
+  const grade = document.createElement("div"); grade.className = "grade-fig";
+  for (const chave of favs) {
+    const [id, n] = chave.split(":");
+    try { const lista = await figurinhasDoTema(id); if (lista[+n]) grade.appendChild(botaoFig(lista[+n], id, +n)); } catch (_) {}
+  }
+  if (abaAtual === "favoritos") $("grade").replaceChildren(grade);
+}
+
+function botaoFig(f, id, n) {
+  const b = document.createElement("button");
+  b.type = "button"; b.className = "fig"; b.setAttribute("aria-label", "Abrir figurinha");
+  b.innerHTML = `<img src="${f.url}" alt="" loading="lazy">${ehFav(id, n) ? '<span class="coracao">♥</span>' : ""}`;
+  b.onclick = () => abrirModal(f, id, n);
+  return b;
+}
+
+// cliques dentro das telas
+tela.addEventListener("click", e => {
+  const el = e.target.closest("[data-acao],[data-ir],[data-cat]");
+  if (!el) return;
+  if (el.dataset.acao === "sair") return sair();
+  if (el.dataset.acao === "ajuda") return $("ajuda").hidden = !$("ajuda").hidden;
+  if (el.dataset.ir) return irPara(el.dataset.ir);
+  if (el.dataset.tema !== undefined) return irPara("tema", +el.dataset.cat, +el.dataset.tema);
+  irPara("categoria", +el.dataset.cat);
 });
-// quem já entrou nesta aba não precisa digitar de novo
-try { const s = sessionStorage.getItem("figurinhas"); if (s) abrir(s).then(h => { senhaAtual = s; mostrar(h); }).catch(() => {}); } catch (_) {}
+
+// ---------- figurinha aberta: copiar, salvar, favoritar ----------
+let atual = null;
+function abrirModal(f, id, n) {
+  atual = {f, id, n};
+  $("m-img").src = f.url;
+  $("m-fav").classList.toggle("ativo", ehFav(id, n));
+  $("m-fav").textContent = ehFav(id, n) ? "♥" : "♡";
+  $("modal").hidden = false;
+}
+function fecharModal() { $("modal").hidden = true; atual = null; if (abaAtual === "favoritos") telaFavoritos(); }
+$("m-fechar").onclick = fecharModal;
+$("modal").addEventListener("click", e => { if (e.target.id === "modal") fecharModal(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("modal").hidden) fecharModal(); });
+
+let tempoAviso;
+function avisar(t) { const a = $("aviso"); a.textContent = t; a.classList.add("mostra"); clearTimeout(tempoAviso); tempoAviso = setTimeout(() => a.classList.remove("mostra"), 2600); }
+
+// a área de transferência só aceita PNG: outras imagens são convertidas antes
+async function comoPng(f) {
+  if (f.arquivo.type === "image/png") return f.arquivo;
+  const img = await createImageBitmap(f.arquivo);
+  const c = document.createElement("canvas"); c.width = img.width; c.height = img.height;
+  c.getContext("2d").drawImage(img, 0, 0);
+  return new Promise(r => c.toBlob(r, "image/png"));
+}
+$("m-copiar").onclick = async () => {
+  if (!atual) return;
+  try {
+    await navigator.clipboard.write([new ClipboardItem({"image/png": comoPng(atual.f)})]);
+    avisar("Copiada! Agora cole no seu story ✨");
+  } catch (_) { avisar("Não deu para copiar aqui. Use o Salvar ♡"); }
+};
+$("m-salvar").onclick = async () => {
+  if (!atual) return;
+  const {arquivo, url} = atual.f;
+  try { if (navigator.canShare && navigator.canShare({files: [arquivo]})) return await navigator.share({files: [arquivo]}); } catch (_) { return; }
+  const a = document.createElement("a"); a.href = url; a.download = arquivo.name; a.click();
+};
+$("m-fav").onclick = () => {
+  if (!atual) return;
+  const agora = alternarFav(atual.id, atual.n);
+  $("m-fav").classList.toggle("ativo", agora); $("m-fav").textContent = agora ? "♥" : "♡";
+  avisar(agora ? "Salva nos favoritos ♥" : "Tirada dos favoritos");
+};
 </script>
 </body>
 </html>
