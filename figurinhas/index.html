@@ -41,14 +41,15 @@ button{font-family:inherit;color:inherit}
 h1,h2,h3{font-family:var(--titulo);font-weight:600;text-transform:uppercase;line-height:1;letter-spacing:-.005em;margin:0}
 [hidden]{display:none!important}
 
-.painel{display:flow-root;max-width:1100px;margin:0 auto;background:#fff;border-radius:36px;overflow:clip}
+.painel{display:flow-root;max-width:1220px;margin:0 auto;background:#fff;border-radius:36px;overflow:clip}
 .topo{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 44px 10px 40px}
 .logo{display:flex;align-items:center;gap:14px}
 .logo svg{width:32px;height:32px;fill:var(--rosa);stroke:var(--tinta);stroke-width:2.2;stroke-linejoin:round;overflow:visible;animation:brilhar 3s ease-in-out infinite}
 @keyframes brilhar{0%,100%{transform:scale(.55) rotate(0deg);opacity:.55}50%{transform:scale(1.1) rotate(90deg);opacity:1}}
 .logo strong,.logo span{display:block;font-size:18px;font-weight:600;letter-spacing:.07em;line-height:1.1;text-transform:uppercase}
-.topo-link{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;border:2px solid var(--tinta);font-size:14px;font-weight:600;transition:transform .2s}
-.topo-link:hover{transform:translateY(-2px)}
+.topo-link{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:999px;background:var(--rosa);color:var(--tinta);font-size:14px;font-weight:700;transition:transform .2s,background .2s}
+.topo-link:hover{transform:translateY(-2px);background:#ff7fcf}
+.topo-link svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
 .rotulo{display:flex;align-items:center;gap:10px;margin:0;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
 .rotulo::before{content:"";width:30px;height:2px;background:var(--rosa)}
@@ -68,9 +69,9 @@ h1,h2,h3{font-family:var(--titulo);font-weight:600;text-transform:uppercase;line
 .btn-linha .seta{background:#f1ede8}
 
 /* ================= CAPA ================= */
-.capa{display:grid;gap:36px;padding:24px 48px 52px;align-items:center}
-h1{font-size:clamp(48px,6.4vw,84px);margin-top:12px}
-.capa-texto p{margin:16px 0 0;font-size:16px;line-height:1.7;color:var(--tinta-2);max-width:500px}
+.capa{display:grid;gap:32px;padding:20px 48px 48px;align-items:center}
+h1{font-size:clamp(44px,5.5vw,66px);margin-top:8px}
+.capa-texto p{margin:16px 0 0;font-size:16px;line-height:1.7;color:var(--tinta-2);max-width:520px}
 .selos{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .selos span{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:999px;background:var(--caixa);font-size:12.5px;font-weight:600}
 
@@ -136,8 +137,12 @@ h1{font-size:clamp(48px,6.4vw,84px);margin-top:12px}
 .passo span{display:block;margin-top:4px;font-size:13.5px;line-height:1.55;color:var(--tinta-2)}
 
 /* login */
-.entrar{display:grid;gap:24px;align-items:center}
-.login{padding:26px;border-radius:26px;background:var(--caixa);border:1.5px solid var(--linha)}
+.acesso{display:grid;gap:14px;margin-top:26px;align-items:stretch}
+.comprar{display:flex;flex-direction:column;align-items:flex-start;padding:26px;border-radius:26px;background:var(--manteiga)}
+.comprar h3{font-size:clamp(30px,3vw,38px)}
+.comprar p{margin:8px 0 18px;font-size:14.5px;line-height:1.6;color:var(--tinta-2)}
+.comprar .btn{margin-top:auto}
+.login{margin:0;padding:26px;border-radius:26px;background:var(--caixa);border:1.5px solid var(--linha)}
 .login label{display:block;font-size:13px;font-weight:700;margin-bottom:8px}
 .linha-campo{display:flex;gap:8px}
 .login input{flex:1;min-width:0;border:2px solid var(--tinta);border-radius:999px;padding:13px 18px;background:#fff;font:500 15px var(--sans);color:var(--tinta)}
@@ -151,7 +156,7 @@ h1{font-size:clamp(48px,6.4vw,84px);margin-top:12px}
 .final h2{font-size:clamp(36px,4vw,52px)}
 .final p{margin:8px 0 0;font-size:15px;line-height:1.6;color:var(--tinta-2)}
 .final .botoes{margin-top:0}
-.assinatura{max-width:1100px;margin:18px auto 0;text-align:center;font-size:13px;font-weight:500;color:var(--tinta-2)}
+.assinatura{max-width:1220px;margin:18px auto 0;text-align:center;font-size:13px;font-weight:500;color:var(--tinta-2)}
 
 /* ================= O APP (depois da senha) ================= */
 body.no-app{overflow:hidden}
@@ -235,12 +240,12 @@ button.tema{cursor:pointer}
 .aviso.mostra{opacity:1;transform:translate(-50%,0)}
 
 @media (min-width:960px){
-  .capa{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:40px;padding-top:30px}
+  .capa{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:48px;padding-top:28px}
   .vantagens{grid-template-columns:repeat(4,minmax(0,1fr))}
   .nichos{grid-template-columns:repeat(4,minmax(0,1fr))}
   .passos{grid-template-columns:repeat(3,minmax(0,1fr))}
   .passo{flex-direction:column}
-  .entrar{grid-template-columns:1fr 1fr;gap:48px}
+  .acesso{grid-template-columns:1fr 1fr;gap:16px}
   .final{grid-template-columns:1fr auto}
   .grade-fig{grid-template-columns:repeat(4,minmax(0,1fr))}
   .temas-lista{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -252,10 +257,10 @@ button.tema{cursor:pointer}
   .logo svg{width:28px;height:28px}
   .logo strong,.logo span{font-size:15px}
   .capa{padding:12px 16px 36px;gap:16px}
-  h1{font-size:clamp(44px,13vw,62px)}
+  h1{font-size:clamp(38px,11vw,56px)}
   .capa-texto p{font-size:15px}
   .bloco{padding:36px 16px}
-  .login{padding:20px}
+  .login,.comprar{padding:20px}
   .final{margin:0 16px 24px;padding:26px 20px}
 }
 @media (max-width:420px){
@@ -279,7 +284,7 @@ button.tema{cursor:pointer}
       <svg viewBox="-3 -3 46 46" aria-hidden="true"><path d="M20 0C21.6 11.5 28.5 18.4 40 20 28.5 21.6 21.6 28.5 20 40 18.4 28.5 11.5 21.6 0 20 11.5 18.4 18.4 11.5 20 0Z"/></svg>
       <div><strong>Yasmin</strong><span>Carreira</span></div>
     </a>
-    <a class="topo-link" href="#entrar">Já comprei</a>
+    <a class="topo-link" href="#entrar"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg>Entrar</a>
   </header>
 
   <main>
@@ -345,25 +350,12 @@ button.tema{cursor:pointer}
       <p class="nichos-mais">e muito mais, em 11 categorias</p>
     </section>
 
-    <!-- ================= NA PRÁTICA ================= -->
-    <section class="bloco centro" id="como-usar">
-      <p class="rotulo">Na prática</p>
-      <h2>Copiar e <span class="marca-amarela">colar</span></h2>
-      <ol class="passos">
-        <li class="passo"><div><strong>Abra o pack</strong><span>Entre com a sua senha e escolha a categoria e o tema.</span></div></li>
-        <li class="passo"><div><strong>Toque na figurinha</strong><span>Ela abre grande, com o botão <b>Copiar</b>.</span></div></li>
-        <li class="passo"><div><strong>Cole no story</strong><span>Abra o story, toque na tela e escolha <b>Colar</b>. Pronto!</span></div></li>
-      </ol>
-    </section>
-
     <!-- ================= LOGIN ================= -->
     <section class="bloco" id="entrar">
-      <div class="entrar">
-        <div>
-          <p class="rotulo">Área de quem comprou</p>
-          <h2>Já comprou? <span class="marca">Entre aqui</span></h2>
-          <p class="bloco-sub">Use a senha que você recebeu depois da compra para abrir o seu pack.</p>
-        </div>
+      <p class="rotulo">Área de quem comprou</p>
+      <h2>Já comprou? <span class="marca">Entre aqui</span></h2>
+      <p class="bloco-sub">Use a senha que você recebeu depois da compra para abrir o seu pack.</p>
+      <div class="acesso">
         <form class="login" id="form-login" autocomplete="off">
           <label for="senha">Senha de acesso</label>
           <div class="linha-campo">
@@ -373,19 +365,16 @@ button.tema{cursor:pointer}
           <p class="erro" id="erro" role="alert"></p>
           <small>Não recebeu ou esqueceu a senha? Me chama no WhatsApp que eu te mando.</small>
         </form>
+        <div class="comprar">
+          <h3>Quero adquirir meu pack</h3>
+          <p>Me chama no WhatsApp que eu te explico como comprar e te mando a senha de acesso.</p>
+          <a class="btn btn-rosa js-whats" href="https://wa.me/5513997973883" target="_blank" rel="noopener">Chamar no WhatsApp <span class="seta">→</span></a>
+        </div>
       </div>
     </section>
   </main>
 
-  <section class="final">
-    <div>
-      <h2>Quer o seu pack?</h2>
-      <p>Me chama no WhatsApp que eu te explico como comprar.</p>
-    </div>
-    <div class="botoes">
-      <a class="btn btn-rosa js-whats" href="https://wa.me/5513997973883" target="_blank" rel="noopener">Chamar no WhatsApp <span class="seta">→</span></a>
-    </div>
-  </section>
+
 </div>
 <p class="assinatura">Yasmin Carreira · Pack de figurinhas</p>
 
