@@ -501,7 +501,7 @@ const guardar = {
 };
 
 // ---------- tranca: tudo fica em arquivos .bin que só abrem com a senha ----------
-let senha = "", indice = [];
+let senha = "", indice = [], brindes = 0;
 async function abrir(arquivo) {
   const resp = await fetch(arquivo, {cache: "no-cache"});
   if (!resp.ok) throw new Error("sem arquivo");
