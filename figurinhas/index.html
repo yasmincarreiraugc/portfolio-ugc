@@ -269,14 +269,52 @@ async function abrir(senha, arquivo = "area.bin") {
   return new TextDecoder().decode(texto);
 }
 function mostrar(html) {
+  inicioArea = html;
   conteudo.innerHTML = html;
   porta.hidden = true; area.hidden = false;
 }
+
+// Abrir um tema: baixa só o arquivo trancado daquele tema e mostra as figurinhas
+let urls = [];
+function limparUrls() { urls.forEach(u => URL.revokeObjectURL(u)); urls = []; }
+conteudo.addEventListener("click", async e => {
+  const tema = e.target.closest("[data-tema]");
+  if (tema) return abrirTema(tema.dataset.tema, tema.dataset.nome);
+  if (e.target.closest(".voltar-temas")) { limparUrls(); conteudo.innerHTML = inicioArea; document.getElementById("entrar").scrollIntoView(); }
+});
+async function abrirTema(id, nome) {
+  conteudo.innerHTML = `<div class="galeria-topo"><h2>${nome}</h2><button type="button" class="voltar-temas">← Voltar aos temas</button></div><p class="carregando">Abrindo as figurinhas…</p>`;
+  document.getElementById("entrar").scrollIntoView();
+  try {
+    const linhas = (await abrir(senhaAtual, "temas/" + id + ".bin")).trim().split("\n");
+    const galeria = document.createElement("div"); galeria.className = "galeria";
+    linhas.forEach((linha, i) => {
+      const [tipo, b64] = linha.split(" ");
+      const bytes = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+      const arquivo = new File([bytes], `figurinha-${i + 1}.${tipo.split("/")[1].replace("jpeg", "jpg")}`, {type: tipo});
+      const url = URL.createObjectURL(arquivo); urls.push(url);
+      const item = document.createElement("div"); item.className = "fig-item";
+      item.innerHTML = `<img alt="Figurinha ${i + 1}" src="${url}"><button type="button">Salvar</button>`;
+      item.querySelector("button").onclick = () => salvar(arquivo, url);
+      galeria.appendChild(item);
+    });
+    conteudo.querySelector(".carregando").replaceWith(galeria);
+  } catch (_) {
+    conteudo.querySelector(".carregando").textContent = "Não consegui abrir este tema. Tente de novo.";
+  }
+}
+// No celular abre a tela de compartilhar (com "Salvar imagem"); no computador baixa o arquivo
+async function salvar(arquivo, url) {
+  try { if (navigator.canShare && navigator.canShare({files: [arquivo]})) return await navigator.share({files: [arquivo]}); } catch (_) { return; }
+  const a = document.createElement("a"); a.href = url; a.download = arquivo.name; a.click();
+}
+
 form.addEventListener("submit", async e => {
   e.preventDefault();
   erro.textContent = ""; btn.disabled = true; btn.textContent = "Abrindo…";
   try {
     const html = await abrir(campo.value.trim());
+    senhaAtual = campo.value.trim();
     mostrar(html);
     try { sessionStorage.setItem("figurinhas", campo.value.trim()); } catch (_) {}
   } catch (_) {
