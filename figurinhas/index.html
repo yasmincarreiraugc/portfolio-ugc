@@ -143,7 +143,9 @@ h1{font-size:clamp(44px,5.5vw,66px);margin-top:8px}
 .quadro-sub{margin:10px 0 22px;font-size:14.5px;line-height:1.6;color:var(--tinta-2)}
 .marca-branca{background:linear-gradient(transparent 60%,#fff 60% 90%,transparent 90%)}
 .comprar .rotulo::before{background:var(--tinta)}
-.comprar .btn{margin-top:auto}
+.rotulo-campo{margin:0 0 8px;font-size:13px;font-weight:700}
+.comprar .btn{min-height:50px}
+.comprar small{display:block;margin-top:12px;font-size:12.5px;line-height:1.5;color:var(--tinta-2)}
 .login{margin:0;padding:30px;border-radius:26px;background:var(--caixa);border:1.5px solid var(--linha)}
 .login label{display:block;font-size:13px;font-weight:700;margin-bottom:8px}
 .linha-campo{display:flex;gap:8px}
@@ -371,7 +373,10 @@ button.tema{cursor:pointer}
           <p class="rotulo">Ainda não tem?</p>
           <h3>Quero adquirir <span class="marca-branca">meu pack</span></h3>
           <p class="quadro-sub">Me chama no WhatsApp que eu te explico como comprar e te mando a senha de acesso.</p>
+          <p class="rotulo-campo">Compra direto comigo</p>
           <a class="btn btn-rosa js-whats" href="https://wa.me/5513997973883" target="_blank" rel="noopener">Chamar no WhatsApp <span class="seta">→</span></a>
+          <p class="erro" aria-hidden="true"></p>
+          <small>A compra é feita direto comigo pelo WhatsApp. Lá eu tiro suas dúvidas e te mando a senha assim que o pagamento for confirmado.</small>
         </div>
       </div>
     </section>
