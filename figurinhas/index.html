@@ -577,7 +577,7 @@ function telaTemas() {
 
 function telaCategoria(i) {
   const cat = indice[i];
-  tela.innerHTML = `<div class="cabeca"><button type="button" class="voltar-app" data-ir="temas">← Categorias</button><p class="rotulo">Categoria</p><h2>${esc(cat.icone || "")} ${esc(cat.nome)}</h2><p>${plural(totalCat(cat), "figurinha", "figurinhas")}</p></div>
+  tela.innerHTML = `<div class="cabeca"><button type="button" class="voltar-app" data-ir="temas">← Categorias</button><p class="rotulo">Categoria ${esc(cat.icone || "")}</p><h2>${esc(cat.nome)}</h2><p>${plural(totalCat(cat), "figurinha", "figurinhas")}</p></div>
     <div class="app-titulo"><h2>Temas</h2></div>
     ${cat.temas.length ? `<div class="temas-lista">${cat.temas.map((t, j) => `<${t.qtd ? 'button type="button"' : "div"} class="tema" ${t.qtd ? `data-cat="${i}" data-tema="${j}"` : ""}><i style="background:${cores[j % 3]}"></i><strong>${esc(t.nome)}</strong><small>${t.qtd ? plural(t.qtd, "figurinha", "figurinhas") : "em breve"}</small></${t.qtd ? "button" : "div"}>`).join("")}</div>`
       : `<div class="vazio">Os temas desta categoria chegam em breve ♡</div>`}`;
