@@ -227,6 +227,32 @@ button.tema{cursor:pointer}
 .app-nav svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .app-nav button.ativo{color:var(--rosa-forte)}
 .app-nav button.ativo svg{fill:#ffd6ee}
+.app-logo{display:none}
+
+/* no computador: o pack abre no layout normal do site (cartão branco, menu em cima) */
+@media (min-width:960px){
+  .app{padding:24px 24px 40px}
+  .app-nav{position:static;order:-1;width:100%;max-width:1220px;margin:0 auto;justify-content:space-between;align-items:center;padding:20px 44px 14px 40px;border-radius:36px 36px 0 0;box-shadow:none;border-bottom:1px solid var(--linha)}
+  .app-logo{display:flex}
+  .app-nav div{width:auto;max-width:none;gap:8px}
+  .app-nav button{flex-direction:row;gap:8px;padding:10px 18px;border-radius:999px;font-size:14px}
+  .app-nav svg{width:19px;height:19px}
+  .app-nav button.ativo{background:var(--rosa);color:var(--tinta)}
+  .app-nav button.ativo svg{fill:none}
+  .app-nav button:not(.ativo):hover{background:var(--caixa)}
+  .app-rolagem{flex:1;width:100%;max-width:1220px;margin:0 auto;background:#fff;border-radius:0 0 36px 36px}
+  .app-miolo{max-width:none;padding:30px 48px 48px}
+  .app-topo b{font-size:44px}
+  .app-titulo h2{font-size:20px}
+  .cats-fila{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));overflow:visible;margin:0;padding:4px 0 8px}
+  .cat-mini{width:auto}
+  .categorias{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .temas-lista{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .grade-fig{grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+  .cabeca h2{font-size:52px}
+  .faixa-ajuda{max-width:560px}
+  .aviso{bottom:40px}
+}
 
 /* figurinha aberta */
 .modal{position:fixed;inset:0;z-index:40;background:rgba(30,25,21,.88);display:flex;align-items:center;justify-content:center;padding:20px}
@@ -251,8 +277,6 @@ button.tema{cursor:pointer}
   .passo{flex-direction:column}
   .acesso{grid-template-columns:1fr 1fr;gap:16px}
   .final{grid-template-columns:1fr auto}
-  .grade-fig{grid-template-columns:repeat(4,minmax(0,1fr))}
-  .temas-lista{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 @media (max-width:959px){
   body{padding:10px 10px 28px}
@@ -403,7 +427,9 @@ button.tema{cursor:pointer}
 <!-- ================= O APP: aparece depois da senha ================= -->
 <div class="app" id="app" hidden>
   <div class="app-rolagem" id="rolagem"><div class="app-miolo" id="tela"></div></div>
-  <nav class="app-nav" aria-label="Menu do pack"><div>
+  <nav class="app-nav" aria-label="Menu do pack">
+    <a class="logo app-logo" href="../" aria-label="Yasmin Carreira, início"><svg viewBox="-3 -3 46 46" aria-hidden="true"><path d="M20 0C21.6 11.5 28.5 18.4 40 20 28.5 21.6 21.6 28.5 20 40 18.4 28.5 11.5 21.6 0 20 11.5 18.4 18.4 11.5 20 0Z"/></svg><div><strong>Yasmin</strong><span>Carreira</span></div></a>
+    <div>
     <button type="button" data-aba="inicio"><svg viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V20h-5v-6H9v6H4z"/></svg>Início</button>
     <button type="button" data-aba="temas"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg>Temas</button>
     <button type="button" data-aba="favoritos"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>Favoritos</button>
