@@ -96,9 +96,9 @@ h1{font-size:clamp(44px,5.5vw,66px);margin-top:8px}
 .mini-faixa i{width:22px;height:22px;border-radius:7px;background:var(--rosa);display:grid;place-items:center;font-style:normal;font-size:11px}
 .mini-nav{margin-top:auto;display:flex;justify-content:space-around;padding:8px 6px 14px;background:#fff;font-size:7.5px;font-weight:600;color:var(--tinta-2)}
 .mini-nav span{display:flex;flex-direction:column;align-items:center;gap:2px}
-.mini-nav span:first-child{color:var(--rosa-forte)}
+.mini-nav span:first-child{color:var(--tinta)}
 .mini-nav i{width:15px;height:15px;border-radius:5px;background:currentColor;opacity:.25}
-.mini-nav span:first-child i{opacity:.9}
+.mini-nav span:first-child i{opacity:1;background:var(--rosa)}
 /* celular 2: figurinha aberta */
 .cel-2 .cel-tela{background:#2a2420;justify-content:center;padding:0 14px;gap:12px}
 .mini-cartao{border-radius:16px;background:var(--creme);aspect-ratio:1;display:grid;place-items:center}
@@ -162,94 +162,100 @@ h1{font-size:clamp(44px,5.5vw,66px);margin-top:8px}
 .final .botoes{margin-top:0}
 .assinatura{max-width:1220px;margin:18px auto 0;text-align:center;font-size:13px;font-weight:500;color:var(--tinta-2)}
 
-/* ================= O APP (depois da senha) ================= */
+/* ================= O APP (depois da senha): mesmas letras, cores e caixas do site ================= */
 body.no-app{overflow:hidden}
-.app{position:fixed;inset:0;z-index:30;background:var(--creme);display:flex;flex-direction:column}
+.app{position:fixed;inset:0;z-index:30;background:#fff;display:flex;flex-direction:column}
 .app-rolagem{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
-.app-miolo{max-width:640px;margin:0 auto;padding:calc(18px + env(safe-area-inset-top)) 18px 110px}
-.app-topo{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.app-topo b{display:block;font-family:var(--titulo);font-size:30px;font-weight:700;text-transform:uppercase;line-height:1}
-.app-topo b em{font-style:normal;color:var(--rosa-forte)}
-.app-topo small{font-size:13px;color:var(--tinta-2)}
-.app-sair{flex:none;border:0;border-radius:999px;padding:9px 14px;background:#fff;font:600 12.5px var(--sans);cursor:pointer;box-shadow:0 0 0 1.5px var(--linha)}
-.app-titulo{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:26px 0 12px}
-.app-titulo h2{font-family:var(--sans);font-size:17px;font-weight:700;text-transform:none;letter-spacing:0}
-.app-titulo button{border:0;background:none;padding:0;font:600 13px var(--sans);color:var(--rosa-forte);cursor:pointer}
-.vazio{padding:22px;border-radius:20px;background:#fff;text-align:center;font-size:14px;line-height:1.6;color:var(--tinta-2)}
+.app-miolo{max-width:640px;margin:0 auto;padding:calc(20px + env(safe-area-inset-top)) 16px 110px}
+.app-topo{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.app-topo h1{font-size:clamp(38px,11vw,56px);margin-top:8px}
+.app-topo p{margin:10px 0 0;font-size:15px;line-height:1.6;color:var(--tinta-2)}
+.app-sair{flex:none;display:inline-flex;align-items:center;padding:8px 16px;border-radius:999px;border:2px solid var(--tinta);background:#fff;font:600 13px var(--sans);cursor:pointer;transition:transform .2s}
+.app-sair:hover{transform:translateY(-2px)}
+.app-titulo{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:34px 0 16px}
+.app-titulo h2{font-size:clamp(28px,7vw,36px)}
+.app-titulo button{flex:none;display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:6px 6px 6px 14px;background:var(--caixa);font:600 13px var(--sans);cursor:pointer}
+.app-titulo button span{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--tinta);color:#fff;font-size:12px}
+.vazio{padding:22px;border-radius:20px;background:var(--caixa);text-align:center;font-size:14px;line-height:1.6;color:var(--tinta-2)}
 
 /* categorias em fila (início) */
-.cats-fila{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:18px;margin:0 -18px;padding:4px 18px 8px;scrollbar-width:none}
+.cats-fila{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:16px;margin:0 -16px;padding:2px 16px 8px;scrollbar-width:none}
 .cats-fila::-webkit-scrollbar{display:none}
-.cat-mini{flex:none;width:96px;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 6px 12px;border:0;border-top:4px solid var(--cor);border-radius:16px;background:#fff;box-shadow:0 8px 18px -14px rgba(30,25,21,.4);cursor:pointer;text-align:center}
-.cat-mini span{font-size:26px;line-height:1}
+.cat-mini{flex:none;width:98px;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 6px 12px;border:1.5px solid var(--linha);border-radius:20px;background:#fff;cursor:pointer;text-align:center;transition:transform .2s,border-color .2s}
+.cat-mini:hover{transform:translateY(-2px);border-color:var(--tinta)}
+.cat-mini span{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--cor);font-size:22px;line-height:1}
 .cat-mini small{font-size:11px;font-weight:600;line-height:1.25}
 
-/* lista de categorias e temas */
+/* lista de categorias e temas (mesmas caixas do "o que pode ter" do site) */
 .categorias{display:grid;gap:12px}
-.categoria{display:flex;align-items:center;gap:16px;width:100%;padding:16px 18px;border:0;border-top:5px solid var(--cor);border-radius:22px;background:#fff;text-align:left;box-shadow:0 10px 22px -18px rgba(30,25,21,.45)}
-button.categoria{cursor:pointer;transition:transform .2s}
-button.categoria:active{transform:scale(.98)}
-.cat-icone{flex:none;width:50px;height:50px;border-radius:50%;display:grid;place-items:center;background:var(--caixa);font-size:25px}
+.categoria{display:flex;align-items:center;gap:14px;width:100%;padding:16px 18px;border:1.5px solid var(--linha);border-radius:20px;background:#fff;text-align:left}
+button.categoria{cursor:pointer;transition:transform .2s,border-color .2s}
+button.categoria:hover{transform:translateY(-2px);border-color:var(--tinta)}
+.cat-icone{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--cor);font-size:23px}
 .cat-texto{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
-.cat-texto strong{font-size:16px;font-weight:700;line-height:1.25}
+.cat-texto strong{font-size:15px;font-weight:700;line-height:1.3}
 .cat-texto small{font-size:13px;color:var(--tinta-2)}
-.cat-seta{flex:none;font-size:24px;color:var(--tinta-2)}
+.cat-seta{flex:none;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--caixa);font-size:14px}
 .temas-lista{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.tema{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:16px;border:0;border-radius:18px;background:#fff;text-align:left;box-shadow:0 8px 18px -15px rgba(30,25,21,.4)}
-button.tema{cursor:pointer}
-.tema i{width:12px;height:12px;border-radius:50%;border:2px solid var(--tinta);margin-bottom:6px}
-.tema strong{font-size:14px;line-height:1.3}
-.tema small{font-size:12px;color:var(--tinta-2)}
-.voltar-app{display:inline-flex;align-items:center;gap:6px;margin-bottom:6px;border:0;border-radius:999px;padding:8px 14px;background:#fff;font:600 13px var(--sans);cursor:pointer;box-shadow:0 0 0 1.5px var(--linha)}
-.cabeca h2{font-size:38px;margin-top:12px}
-.cabeca p{margin:4px 0 0;font-size:13.5px;color:var(--tinta-2)}
+.tema{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:16px;border:1.5px solid var(--linha);border-radius:20px;background:#fff;text-align:left}
+button.tema{cursor:pointer;transition:transform .2s,border-color .2s}
+button.tema:hover{transform:translateY(-2px);border-color:var(--tinta)}
+.tema i{width:14px;height:14px;border-radius:50%;border:2px solid var(--tinta);margin-bottom:8px}
+.tema strong{font-size:15px;line-height:1.3}
+.tema small{font-size:12.5px;color:var(--tinta-2)}
+.voltar-app{display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;padding:8px 16px;border-radius:999px;border:2px solid var(--tinta);background:#fff;font:600 13px var(--sans);cursor:pointer;transition:transform .2s}
+.voltar-app:hover{transform:translateY(-2px)}
+.cabeca h2{font-size:clamp(38px,11vw,56px);margin-top:8px}
+.cabeca p:not(.rotulo){margin:10px 0 0;font-size:15px;color:var(--tinta-2)}
 
 /* grade de figurinhas */
 .grade-fig{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.fig{position:relative;aspect-ratio:1;border:0;padding:8px;border-radius:14px;background:#ece5dd;cursor:pointer}
+.fig{position:relative;aspect-ratio:1;border:0;padding:8px;border-radius:16px;background:var(--caixa);cursor:pointer;transition:transform .2s}
+.fig:hover{transform:translateY(-2px)}
 .fig img{width:100%;height:100%;object-fit:contain;pointer-events:none}
-.fig .coracao{position:absolute;top:5px;right:6px;font-size:13px;color:var(--rosa-forte)}
+.fig .coracao{position:absolute;top:6px;right:6px;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:var(--rosa);font-size:10px}
 .carregando{padding:30px 0;text-align:center;font-size:14px;color:var(--tinta-2)}
 
 /* faixa de ajuda */
-.faixa-ajuda{display:flex;align-items:center;gap:14px;width:100%;margin-top:26px;padding:16px;border:0;border-radius:20px;background:var(--manteiga);text-align:left;cursor:pointer}
-.faixa-ajuda i{flex:none;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--rosa);font-style:normal;font-size:22px}
-.faixa-ajuda strong{display:block;font-size:15px}
-.faixa-ajuda small{display:block;margin-top:2px;font-size:12.5px;line-height:1.45;color:var(--tinta-2)}
-.ajuda{margin-top:12px;padding:18px;border-radius:20px;background:#fff;font-size:13.5px;line-height:1.65}
+.faixa-ajuda{display:flex;align-items:center;gap:14px;width:100%;margin-top:34px;padding:18px 20px;border:0;border-radius:22px;background:var(--manteiga);text-align:left;cursor:pointer}
+.faixa-ajuda i{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:#fff;font-style:normal;font-size:20px}
+.faixa-ajuda strong{display:block;font-family:var(--titulo);font-size:24px;font-weight:600;text-transform:uppercase;line-height:1}
+.faixa-ajuda small{display:block;margin-top:4px;font-size:13px;line-height:1.45;color:var(--tinta-2)}
+.ajuda{margin-top:12px;padding:18px 20px;border-radius:20px;border:1.5px solid var(--linha);font-size:14px;line-height:1.65}
 .ajuda ol{margin:0;padding-left:20px}
 .ajuda li+li{margin-top:6px}
 
-/* barra de baixo */
-.app-nav{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:center;padding:8px 10px calc(10px + env(safe-area-inset-bottom));background:#fff;box-shadow:0 -10px 24px -18px rgba(30,25,21,.35)}
-.app-nav div{display:flex;width:100%;max-width:520px;justify-content:space-around}
-.app-nav button{display:flex;flex-direction:column;align-items:center;gap:3px;border:0;background:none;padding:6px 14px;font:600 11.5px var(--sans);color:var(--tinta-2);cursor:pointer}
+/* barra de baixo (celular) */
+.app-nav{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:center;padding:8px 10px calc(10px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--linha)}
+.app-nav > div{display:flex;width:100%;max-width:520px;justify-content:space-around}
+.app-nav button{display:flex;flex-direction:column;align-items:center;gap:4px;border:0;background:none;padding:6px 14px;font:600 11.5px var(--sans);color:var(--tinta-2);cursor:pointer}
 .app-nav svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.app-nav button.ativo{color:var(--rosa-forte)}
-.app-nav button.ativo svg{fill:#ffd6ee}
-.app-logo{display:none}
+.app-nav button.ativo{color:var(--tinta)}
+.app-nav button.ativo svg{fill:var(--rosa)}.app-logo{display:none}
 
 /* no computador: o pack abre no layout normal do site (cartão branco, menu em cima) */
 @media (min-width:960px){
   .app{padding:24px 24px 40px}
-  .app-nav{position:static;order:-1;width:100%;max-width:1220px;margin:0 auto;justify-content:space-between;align-items:center;padding:20px 44px 14px 40px;border-radius:36px 36px 0 0;box-shadow:none;border-bottom:1px solid var(--linha)}
+  .app{background:var(--creme)}
+  .app-nav{position:static;order:-1;width:100%;max-width:1220px;margin:0 auto;justify-content:space-between;align-items:center;padding:20px 44px 10px 40px;border-radius:36px 36px 0 0;border-top:0}
   .app-logo{display:flex}
-  .app-nav div{width:auto;max-width:none;gap:8px}
+  .app-nav > div{width:auto;max-width:none;gap:8px}
   .app-nav button{flex-direction:row;gap:8px;padding:10px 18px;border-radius:999px;font-size:14px}
   .app-nav svg{width:19px;height:19px}
-  .app-nav button.ativo{background:var(--rosa);color:var(--tinta)}
+  .app-nav button{color:var(--tinta)}
+  .app-nav button.ativo{background:var(--rosa)}
   .app-nav button.ativo svg{fill:none}
   .app-nav button:not(.ativo):hover{background:var(--caixa)}
   .app-rolagem{flex:1;width:100%;max-width:1220px;margin:0 auto;background:#fff;border-radius:0 0 36px 36px}
-  .app-miolo{max-width:none;padding:30px 48px 48px}
-  .app-topo b{font-size:44px}
-  .app-titulo h2{font-size:20px}
+  .app-miolo{max-width:none;padding:20px 48px 48px}
+  .app-topo h1{font-size:clamp(44px,5.5vw,66px)}
+  .app-titulo h2{font-size:40px}
   .cats-fila{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));overflow:visible;margin:0;padding:4px 0 8px}
   .cat-mini{width:auto}
   .categorias{grid-template-columns:repeat(3,minmax(0,1fr))}
   .temas-lista{grid-template-columns:repeat(4,minmax(0,1fr))}
   .grade-fig{grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
-  .cabeca h2{font-size:52px}
+  .cabeca h2{font-size:clamp(44px,5.5vw,66px)}
   .faixa-ajuda{max-width:560px}
   .aviso{bottom:40px}
 }
@@ -264,7 +270,7 @@ button.tema{cursor:pointer}
 .modal-acoes button{border:0;border-radius:999px;padding:14px 16px;font:700 14px var(--sans);cursor:pointer}
 .b-copiar{background:var(--rosa);color:var(--tinta)}
 .b-salvar,.b-fav{background:#fff;color:var(--tinta)}
-.b-fav.ativo{background:var(--rosa-forte);color:#fff}
+.b-fav.ativo{background:var(--rosa);color:var(--tinta)}
 .modal-dica{margin:2px 0 0;text-align:center;font-size:13px;line-height:1.5;color:#efe8e2}
 .aviso{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));z-index:50;background:var(--tinta);color:#fff;border-radius:999px;padding:10px 18px;font-size:13px;font-weight:600;transform:translate(-50%,16px);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;white-space:nowrap}
 .aviso.mostra{opacity:1;transform:translate(-50%,0)}
@@ -515,7 +521,8 @@ const salva = guardar.ler("figurinhas-senha");
 if (salva) entrar(salva).catch(() => guardar.apagar("figurinhas-senha"));
 
 // ---------- telas do app ----------
-const cores = ["var(--amarelo)", "var(--rosa)", "var(--ceu)"];
+const cores = ["var(--rosa)", "var(--ceu)", "var(--manteiga)"];
+const fundos = ["#ffe0f3", "#dceafb", "var(--manteiga)"];
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"})[c]);
 const num = n => n.toLocaleString("pt-BR");
 const plural = (n, um, varios) => num(n) + " " + (n === 1 ? um : varios);
@@ -531,20 +538,20 @@ function irPara(aba, ...args) {
 }
 document.querySelector(".app-nav").addEventListener("click", e => { const b = e.target.closest("[data-aba]"); if (b) irPara(b.dataset.aba); });
 
-const topoApp = () => `<div class="app-topo"><div><b>Pack de <em>figurinhas</em></b><small>Olá! ♡ Bons stories</small></div><button type="button" class="app-sair" data-acao="sair">Sair</button></div>`;
+const topoApp = () => `<div class="app-topo"><div><p class="rotulo">Área de quem comprou</p><h1>Pack de <span class="marca">figurinhas</span></h1><p>Olá! ♡ Escolha a figurinha, copie e cole no seu story.</p></div><button type="button" class="app-sair" data-acao="sair">Sair</button></div>`;
 const cartaoCategoria = (cat, i) => {
   const q = totalCat(cat), ok = q > 0, temasProntos = cat.temas.filter(t => t.qtd).length;
-  return `<${ok ? 'button type="button"' : "div"} class="categoria" style="--cor:${cores[i % 3]}" ${ok ? `data-cat="${i}"` : ""}>
+  return `<${ok ? 'button type="button"' : "div"} class="categoria" style="--cor:${fundos[i % 3]}" ${ok ? `data-cat="${i}"` : ""}>
     <span class="cat-icone">${esc(cat.icone || "★")}</span>
     <span class="cat-texto"><strong>${esc(cat.nome)}</strong><small>${ok ? plural(temasProntos, "tema", "temas") + " · " + plural(q, "figurinha", "figurinhas") : "em breve"}</small></span>
-    ${ok ? '<span class="cat-seta">›</span>' : ""}</${ok ? "button" : "div"}>`;
+    ${ok ? '<span class="cat-seta">→</span>' : ""}</${ok ? "button" : "div"}>`;
 };
 
 function telaInicio() {
   const total = indice.reduce((s, c) => s + totalCat(c), 0);
   tela.innerHTML = topoApp() +
-    `<div class="app-titulo"><h2>Categorias</h2><button type="button" data-ir="temas">Ver todas →</button></div>
-    <div class="cats-fila">${indice.map((c, i) => `<button type="button" class="cat-mini" style="--cor:${cores[i % 3]}" data-cat="${i}"><span>${esc(c.icone || "★")}</span><small>${esc(c.nome)}</small></button>`).join("")}</div>
+    `<div class="app-titulo"><h2>Categorias</h2><button type="button" data-ir="temas">Ver todas <span>→</span></button></div>
+    <div class="cats-fila">${indice.map((c, i) => `<button type="button" class="cat-mini" style="--cor:${fundos[i % 3]}" data-cat="${i}"><span>${esc(c.icone || "★")}</span><small>${esc(c.nome)}</small></button>`).join("")}</div>
     <div class="app-titulo"><h2>Em destaque</h2></div>
     <div id="destaques"><p class="carregando">${total ? "Abrindo…" : ""}</p></div>
     <button type="button" class="faixa-ajuda" data-acao="ajuda"><i>✨</i><span><strong>Como usar nos stories</strong><small>Copiar, colar e salvar no celular, passo a passo.</small></span></button>
@@ -570,7 +577,7 @@ function telaTemas() {
 
 function telaCategoria(i) {
   const cat = indice[i];
-  tela.innerHTML = `<div class="cabeca"><button type="button" class="voltar-app" data-ir="temas">← Categorias</button><h2>${esc(cat.icone || "")} ${esc(cat.nome)}</h2><p>${plural(totalCat(cat), "figurinha", "figurinhas")}</p></div>
+  tela.innerHTML = `<div class="cabeca"><button type="button" class="voltar-app" data-ir="temas">← Categorias</button><p class="rotulo">Categoria</p><h2>${esc(cat.icone || "")} ${esc(cat.nome)}</h2><p>${plural(totalCat(cat), "figurinha", "figurinhas")}</p></div>
     <div class="app-titulo"><h2>Temas</h2></div>
     ${cat.temas.length ? `<div class="temas-lista">${cat.temas.map((t, j) => `<${t.qtd ? 'button type="button"' : "div"} class="tema" ${t.qtd ? `data-cat="${i}" data-tema="${j}"` : ""}><i style="background:${cores[j % 3]}"></i><strong>${esc(t.nome)}</strong><small>${t.qtd ? plural(t.qtd, "figurinha", "figurinhas") : "em breve"}</small></${t.qtd ? "button" : "div"}>`).join("")}</div>`
       : `<div class="vazio">Os temas desta categoria chegam em breve ♡</div>`}`;
@@ -578,7 +585,7 @@ function telaCategoria(i) {
 
 async function telaTema(i, j) {
   const cat = indice[i], tema = cat.temas[j];
-  tela.innerHTML = `<div class="cabeca"><button type="button" class="voltar-app" data-cat="${i}">← ${esc(cat.nome)}</button><h2>${esc(tema.nome)}</h2><p>${plural(tema.qtd, "figurinha", "figurinhas")} · toque para abrir</p></div>
+  tela.innerHTML = `<div class="cabeca"><button type="button" class="voltar-app" data-cat="${i}">← ${esc(cat.nome)}</button><p class="rotulo">${esc(cat.nome)}</p><h2>${esc(tema.nome)}</h2><p>${plural(tema.qtd, "figurinha", "figurinhas")} · toque para abrir</p></div>
     <div class="app-titulo"></div><div id="grade"><p class="carregando">Abrindo as figurinhas…</p></div>`;
   try {
     const lista = await figurinhasDoTema(tema.id);
