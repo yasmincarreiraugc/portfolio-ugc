@@ -681,8 +681,9 @@ function botaoFig(f, id, n) {
 
 // cliques dentro das telas
 tela.addEventListener("click", e => {
-  const el = e.target.closest("[data-acao],[data-ir],[data-cat]");
+  const el = e.target.closest("[data-acao],[data-ir],[data-cat],[data-rolar]");
   if (!el) return;
+  if (el.dataset.rolar) { const f = $(el.dataset.rolar); return f.scrollBy({left: el.dataset.lado * f.clientWidth * 0.8}); }
   if (el.dataset.acao === "sair") return sair();
   if (el.dataset.acao === "ajuda") return $("ajuda").hidden = !$("ajuda").hidden;
   if (el.dataset.ir) return irPara(el.dataset.ir);
