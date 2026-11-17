@@ -705,11 +705,13 @@ async function telaTema(i, j) {
   const desenhar = () => {
     let no = tema, nivel = 0, html = "";
     while (no.filhos) {
-      const filhos = no.filhos.filter(x => x.qtd);
+      // partes vazias continuam aparecendo (abrem "em breve"); versões vazias somem
+      const folhas = no.filhos.every(x => x.id);
+      const filhos = folhas ? no.filhos.filter(x => x.qtd) : no.filhos;
       if (!filhos.length) { no = null; break; }
       if (caminho[nivel] === undefined) caminho[nivel] = escolhaInicial(filhos);
       if (caminho[nivel] >= filhos.length) caminho[nivel] = 0;
-      const sel = caminho[nivel], folhas = filhos.every(x => x.id);
+      const sel = caminho[nivel];
       if (filhos.length > 1) html += folhas
         ? `<div class="versoes">${filhos.map((x, k) => `<button type="button" class="${k === sel ? "ativo" : ""}" data-nivel="${nivel}" data-k="${k}"><i style="background:${corVersao(x.nome)}"></i>${esc(x.nome)}</button>`).join("")}</div>`
         : `<div class="partes nivel-${nivel % 3}">${filhos.map((x, k) => `<button type="button" class="${k === sel ? "ativo" : ""}" data-nivel="${nivel}" data-k="${k}">${esc(x.nome)}</button>`).join("")}</div>`;
