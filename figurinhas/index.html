@@ -137,12 +137,14 @@ h1{font-size:clamp(44px,5.5vw,66px);margin-top:8px}
 .passo span{display:block;margin-top:4px;font-size:13.5px;line-height:1.55;color:var(--tinta-2)}
 
 /* login */
-.acesso{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin-top:26px;align-items:stretch}
-.comprar{display:flex;flex-direction:column;align-items:flex-start;padding:26px;border-radius:26px;background:var(--manteiga)}
-.comprar h3{font-size:clamp(30px,3vw,38px)}
-.comprar p{margin:8px 0 18px;font-size:14.5px;line-height:1.6;color:var(--tinta-2)}
+.acesso{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;align-items:stretch}
+.comprar{display:flex;flex-direction:column;align-items:flex-start;padding:30px;border-radius:26px;background:var(--manteiga)}
+.login h3,.comprar h3{font-size:clamp(34px,3.4vw,44px);margin-top:10px}
+.quadro-sub{margin:10px 0 22px;font-size:14.5px;line-height:1.6;color:var(--tinta-2)}
+.marca-branca{background:linear-gradient(transparent 60%,#fff 60% 90%,transparent 90%)}
+.comprar .rotulo::before{background:var(--tinta)}
 .comprar .btn{margin-top:auto}
-.login{margin:0;padding:26px;border-radius:26px;background:var(--caixa);border:1.5px solid var(--linha)}
+.login{margin:0;padding:30px;border-radius:26px;background:var(--caixa);border:1.5px solid var(--linha)}
 .login label{display:block;font-size:13px;font-weight:700;margin-bottom:8px}
 .linha-campo{display:flex;gap:8px}
 .login input{flex:1;min-width:0;border:2px solid var(--tinta);border-radius:999px;padding:13px 18px;background:#fff;font:500 15px var(--sans);color:var(--tinta)}
@@ -352,11 +354,11 @@ button.tema{cursor:pointer}
 
     <!-- ================= LOGIN ================= -->
     <section class="bloco" id="entrar">
-      <p class="rotulo">Área de quem comprou</p>
-      <h2>Já comprou? <span class="marca">Entre aqui</span></h2>
-      <p class="bloco-sub">Use a senha que você recebeu depois da compra para abrir o seu pack.</p>
       <div class="acesso">
         <form class="login" id="form-login" autocomplete="off">
+          <p class="rotulo">Área de quem comprou</p>
+          <h3>Já comprou? <span class="marca">Entre aqui</span></h3>
+          <p class="quadro-sub">Use a senha que você recebeu depois da compra para abrir o seu pack.</p>
           <label for="senha">Senha de acesso</label>
           <div class="linha-campo">
             <input id="senha" type="password" required placeholder="digite sua senha">
@@ -366,8 +368,9 @@ button.tema{cursor:pointer}
           <small>Não recebeu ou esqueceu a senha? Me chama no WhatsApp que eu te mando.</small>
         </form>
         <div class="comprar">
-          <h3>Quero adquirir meu pack</h3>
-          <p>Me chama no WhatsApp que eu te explico como comprar e te mando a senha de acesso.</p>
+          <p class="rotulo">Ainda não tem?</p>
+          <h3>Quero adquirir <span class="marca-branca">meu pack</span></h3>
+          <p class="quadro-sub">Me chama no WhatsApp que eu te explico como comprar e te mando a senha de acesso.</p>
           <a class="btn btn-rosa js-whats" href="https://wa.me/5513997973883" target="_blank" rel="noopener">Chamar no WhatsApp <span class="seta">→</span></a>
         </div>
       </div>
