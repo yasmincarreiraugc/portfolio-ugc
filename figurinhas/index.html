@@ -622,6 +622,9 @@ function telaInicio() {
       <li>Se o seu celular não deixar colar, toque em <b>Salvar</b> e use o ícone de figurinhas do story para escolher a imagem da galeria.</li>
       <li>Dica: no Safari ou no Chrome, toque em compartilhar e em <b>Adicionar à Tela de Início</b> para abrir o pack como um app.</li>
     </ol></div>`;
+  encherFila("fila-favs", favs, '<div class="vazio">Toque no ♡ de uma figurinha para guardar aqui as que você mais usa.</div>');
+  encherFila("fila-brindes", Array.from({length: brindes}, (_, n) => ["brindes", n]),
+    '<div class="brinde-vazio" style="flex:1"><i>🎁</i><span><strong>Em breve</strong>Presentinhos extras para você usar nos stories ♡</span></div>');
 }
 function telaTemas() {
   tela.innerHTML = topoApp() + `<div class="app-titulo"><h2>Todas as categorias</h2></div><div class="categorias">${indice.map(cartaoCategoria).join("")}</div>`;
