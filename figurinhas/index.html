@@ -213,12 +213,14 @@ button.categoria{cursor:pointer}
 .cat-bloco .temas-lista{padding:0 14px 16px}
 .cat-bloco .tema{background:#fff}
 .temas-lista{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.tema{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:150px;padding:20px 12px;border:0;border-radius:22px;background:var(--caixa);text-align:center;font:inherit;color:inherit}
+.tema{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:8px;min-height:150px;padding:20px 12px;border:0;border-radius:22px;background:var(--caixa);text-align:center;font:inherit;color:inherit}
 button.tema{cursor:pointer;transition:transform .2s}
 button.tema:hover{transform:translateY(-3px)}
-.tema .emoji{font-size:32px;line-height:1;margin-bottom:4px}
-.tema strong{font-size:15px;font-weight:700;line-height:1.3}
+.tema .emoji{font-size:32px;line-height:1;height:40px;width:40px;display:flex;align-items:center;justify-content:center;margin-bottom:4px}
+.tema strong{font-size:15px;font-weight:700;line-height:1.3;min-height:2.6em;display:flex;flex-direction:column;justify-content:center}
 .tema small{font-size:12.5px;color:var(--tinta-2)}
+.tema .sub{display:block;font-size:13px;font-weight:600;white-space:nowrap}
+.cabeca h2 .sub{display:block;font-size:.6em;font-weight:600;margin-top:4px}
 .voltar-app{display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;padding:8px 16px;border-radius:999px;border:2px solid var(--tinta);background:#fff;font:600 13px var(--sans);cursor:pointer;transition:transform .2s}
 .voltar-app:hover{transform:translateY(-2px)}
 .cabeca h2{font-size:clamp(38px,11vw,56px);margin-top:8px}
@@ -652,9 +654,11 @@ function telaInicio() {
   encherFila("fila-brindes", Array.from({length: brindes}, (_, n) => ["brindes", n]),
     '<div class="brinde-vazio" style="flex:1"><i>🎁</i><span><strong>Em breve</strong>Presentinhos extras para você usar nos stories ♡</span></div>');
 }
+// nome do tema: " - " na pasta vira quebra de linha (ex.: "Dias da semana - Segunda a domingo")
+const nomeTema = nome => { const [a, ...b] = nome.split(" - "); return esc(a) + (b.length ? `<span class="sub">${esc(b.join(" - "))}</span>` : ""); };
 // quadro de um tema: emoji, nome e quantidade
 const cartaoTema = (cat, i) => (t, j) => `<${t.qtd ? 'button type="button"' : "div"} class="tema" ${t.qtd ? `data-cat="${i}" data-tema="${j}"` : ""}>
-  <span class="emoji">${esc(t.icone || cat.icone || "★")}</span><strong>${esc(t.nome)}</strong><small>${t.qtd ? plural(t.qtd, "figurinha", "figurinhas") : "em breve"}</small></${t.qtd ? "button" : "div"}>`;
+  <span class="emoji">${esc(t.icone || cat.icone || "★")}</span><strong>${nomeTema(t.nome)}</strong><small>${t.qtd ? plural(t.qtd, "figurinha", "figurinhas") : "em breve"}</small></${t.qtd ? "button" : "div"}>`;
 const listaTemas = (cat, i) => `<div class="temas-lista">${cat.temas.map(cartaoTema(cat, i)).join("")}</div>`;
 
 // aba Temas: busca + categorias coloridas que abrem mostrando os temas
@@ -697,7 +701,7 @@ function telaCategoria(i) {
 
 async function telaTema(i, j) {
   const cat = indice[i], tema = cat.temas[j];
-  tela.innerHTML = `<div class="cabeca"><button type="button" class="voltar-app" data-cat="${i}">← ${esc(cat.nome)}</button><p class="rotulo">${esc(cat.nome)}</p><h2>${esc(tema.nome)}</h2><p>${plural(tema.qtd, "figurinha", "figurinhas")} · toque para abrir</p></div>
+  tela.innerHTML = `<div class="cabeca"><button type="button" class="voltar-app" data-cat="${i}">← ${esc(cat.nome)}</button><p class="rotulo">${esc(cat.nome)}</p><h2>${nomeTema(tema.nome)}</h2><p>${plural(tema.qtd, "figurinha", "figurinhas")} · toque para abrir</p></div>
     <div id="escolhas"></div><div id="grade"><p class="carregando">Abrindo as figurinhas…</p></div>`;
   if (tema.id) return mostrarGrade(tema.id);
   // tema com pastas dentro (ex.: dia da semana → Bom dia/Boa tarde/Boa noite → Brancas/Pretas):
