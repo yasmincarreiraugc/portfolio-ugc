@@ -654,8 +654,8 @@ function telaInicio() {
   encherFila("fila-brindes", Array.from({length: brindes}, (_, n) => ["brindes", n]),
     '<div class="brinde-vazio" style="flex:1"><i>🎁</i><span><strong>Em breve</strong>Presentinhos extras para você usar nos stories ♡</span></div>');
 }
-// nome do tema: " - " na pasta vira quebra de linha (ex.: "Dias da semana - Segunda a domingo")
-const nomeTema = nome => { const [a, ...b] = nome.split(" - "); return esc(a) + (b.length ? `<span class="sub">${esc(b.join(" - "))}</span>` : ""); };
+// nome do tema: " - " na pasta vira subtítulo (ex.: "Dias da semana - (segunda a domingo)"); " _ " quebra a linha (ex.: "Clima e _ Tempo")
+const nomeTema = nome => { const [a, ...b] = nome.split(" - "); return esc(a).split(" _ ").join("<br>") + (b.length ? `<span class="sub">${esc(b.join(" - "))}</span>` : ""); };
 // quadro de um tema: emoji, nome e quantidade
 const cartaoTema = (cat, i) => (t, j) => `<${t.qtd ? 'button type="button"' : "div"} class="tema" ${t.qtd ? `data-cat="${i}" data-tema="${j}"` : ""}>
   <span class="emoji">${esc(t.icone || cat.icone || "★")}</span><strong>${nomeTema(t.nome)}</strong><small>${t.qtd ? plural(t.qtd, "figurinha", "figurinhas") : "em breve"}</small></${t.qtd ? "button" : "div"}>`;
@@ -672,7 +672,7 @@ function telaTemas() {
     if (q) {
       const achados = [];
       indice.forEach((cat, i) => cat.temas.forEach((t, j) => {
-        const texto = norm(t.nome + " " + (t.nomesDentro || ""));
+        const texto = norm(t.nome.replace(/ _ /g, " ") + " " + (t.nomesDentro || ""));
         if (texto.includes(q)) achados.push(cartaoTema(cat, i)(t, j));
       }));
       $("lista-temas").innerHTML = achados.length ? `<div class="temas-lista">${achados.join("")}</div>` : `<div class="vazio">Nenhum tema com esse nome ainda ♡</div>`;
