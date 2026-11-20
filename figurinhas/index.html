@@ -733,12 +733,13 @@ async function telaTema(i, j) {
   };
   desenhar();
 }
-// se a fileira for de dias da semana, já abre no dia de hoje
+// se a fileira for de dias da semana ou meses, já abre no dia/mês de hoje
 const diasSemana = ["domingo", "segunda", "terca", "quarta", "quinta", "sexta", "sabado"];
+const meses = ["janeiro", "fevereiro", "marco", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
 const semAcento = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 function escolhaInicial(filhos) {
-  const hoje = diasSemana[new Date().getDay()];
-  const k = filhos.findIndex(x => x.qtd && semAcento(x.nome).startsWith(hoje));
+  const d = new Date(), hoje = [diasSemana[d.getDay()], meses[d.getMonth()]];
+  const k = filhos.findIndex(x => x.qtd && hoje.some(h => semAcento(x.nome).startsWith(h)));
   return k >= 0 ? k : Math.max(0, filhos.findIndex(x => x.qtd));
 }
 const corVersao = nome => /branc/i.test(nome) ? "#fff" : /pret/i.test(nome) ? "#000" : "var(--rosa)";
